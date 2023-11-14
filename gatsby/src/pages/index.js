@@ -3,7 +3,7 @@ import * as React from "react";
 const IndexPage = () => {
   return (
     <>
-      <div>test</div>
+      <div>Helloworld</div>
     </>
   );
 };
