@@ -1,5 +1,5 @@
-import { createGlobalStyle } from "styled-components/macro";
-import ModeratMedium from "assets/fonts/Moderat-Medium.woff2";
+import { createGlobalStyle } from "styled-components";
+import ModeratMedium from "../assets/fonts/Moderat-Medium.woff2";
 
 export default createGlobalStyle`
  @font-face {
