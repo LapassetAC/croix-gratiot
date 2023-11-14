@@ -1,0 +1,19 @@
+# Default Gatsby gitignore
+node_modules/
+.cache/
+public
+.env
+
+# Default Sanity gitignore
+/node_modules
+/.pnp
+.pnp.js
+/dist
+/.sanity
+/logs
+*.log
+/coverage
+.DS_Store
+*.pem
+*.tsbuildinfo
+*.local
