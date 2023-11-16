@@ -8,12 +8,10 @@ const StyledContainer = styled.div``;
 
 const Layout = ({ children }) => {
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <Navigation>{children}</Navigation>
-      </ThemeProvider>
-    </>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <Navigation>{children}</Navigation>
+    </ThemeProvider>
   );
 };
 

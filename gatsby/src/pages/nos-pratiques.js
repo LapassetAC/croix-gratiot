@@ -7,6 +7,10 @@ const HomePage = () => {
     <>
       <Layout>
         <h1>Nos Pratiques</h1>
+        <StaticImage
+          src="../assets/imgs/homeHeroImage.jpg"
+          alt="TLMR - L’excellence accessible"
+        />
       </Layout>
     </>
   );
