@@ -1,3 +1,7 @@
+# Project files
+.vscode
+package-lock.json
+
 # Default Gatsby gitignore
 node_modules/
 .cache/
