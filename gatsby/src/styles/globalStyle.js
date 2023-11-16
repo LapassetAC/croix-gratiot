@@ -10,4 +10,15 @@ export default createGlobalStyle`
   body {
     font-family: 'Moderat', sans-serif;
   }
+  .pageAnimation {
+    animation: pageAnimation 2s ${({ theme }) =>
+      theme.cubicBezier.base} 1s forwards;
+    opacity: 0;
+  }
+
+  @keyframes pageAnimation {
+    100% {
+      opacity: 1;
+    }
+  }
 `;

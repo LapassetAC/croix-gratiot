@@ -19,5 +19,11 @@ module.exports = {
         dataset: "production",
       },
     },
+    {
+      resolve: "gatsby-plugin-page-transitions",
+      options: {
+        transitionTime: 1000,
+      },
+    },
   ],
 };
