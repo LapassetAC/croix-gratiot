@@ -6,10 +6,7 @@ const HomePage = () => {
   return (
     <>
       <Layout>
-        <StaticImage
-          src="../assets/imgs/homeHeroImage.jpg"
-          alt="TLMR - L’excellence accessible"
-        />
+        <h1>Nos Pratiques</h1>
       </Layout>
     </>
   );

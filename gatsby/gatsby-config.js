@@ -19,13 +19,5 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-styled-components",
     "gatsby-plugin-root-import",
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "images",
-        path: "./src/assets/images/",
-      },
-      __key: "images",
-    },
   ],
 };
