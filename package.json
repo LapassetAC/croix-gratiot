@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "gatsby-plugin-root-import": "^2.0.9"
+  }
+}
