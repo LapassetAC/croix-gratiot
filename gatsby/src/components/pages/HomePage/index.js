@@ -1,5 +1,6 @@
 import * as React from "react";
 import { StaticImage } from "gatsby-plugin-image";
+import PostsSection from "./PostsSection";
 
 const HomePage = () => {
   return (
@@ -9,6 +10,7 @@ const HomePage = () => {
         src="../../../assets/imgs/homeHeroImage.jpg"
         alt="TLMR - L’excellence accessible"
       />
+      <PostsSection />
     </div>
   );
 };
