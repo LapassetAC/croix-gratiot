@@ -1,6 +1,7 @@
 import * as React from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import styled from "styled-components";
+import { Link } from "@reach/router";
 
 const StyledContainer = styled.div`
   width: 100%;
@@ -15,7 +16,18 @@ const StyledTitle = styled.h1`
   font-family: "Democratica", sans-serif;
 `;
 
-const NosPratiques = () => {
+const StyledNavigation = styled.div`
+  writing-mode: sideways-lr;
+  text-orientation: upright;
+  text-align: end;
+  display: block;
+  padding: 15px;
+`;
+const StyledPageContent = styled.div``;
+
+const NosPratiques = ({ currentPath }) => {
+  const isActive = currentPath === "/nos-pratiques/";
+  console.log(isActive);
   return (
     <StyledContainer>
       <StyledImageContainer>
