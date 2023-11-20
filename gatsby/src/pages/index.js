@@ -75,7 +75,7 @@ const StyledLinkContainer = styled.div`
   }
 `;
 
-const Index = () => {
+const Index = ({ className }) => {
   const { pathname } = useLocation();
 
   const isNosPratiquesActive =
