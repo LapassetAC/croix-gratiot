@@ -1,25 +1,28 @@
-import React, { useState, useEffect, Suspense } from "react";
+import React from "react";
 import Layout from "components/Layout";
 import HomePage from "components/pages/HomePage";
 import NosPratiquesPage from "components/pages/NosPratiques";
+import LaDegustationPage from "components/pages/LaDegustationPage";
 import styled from "styled-components";
 import { Link } from "@reach/router";
 import { useLocation } from "@reach/router";
-import { StaticImage } from "gatsby-plugin-image";
 
 const StyledContainer = styled.div`
   display: flex;
   overflow: hidden;
-  .page {
-  }
+  width: 100vw;
+  position: fixed;
 `;
-
 const StyledPage = styled.div`
   display: flex;
   transition: left 1s;
   position: absolute;
   background-color: white;
   width: 100%;
+  overflow: hidden;
+  &:nth-child(1) {
+    position: relative;
+  }
   &:nth-child(2) {
     left: ${({ isActive }) => (isActive ? "50px" : "calc(100vw - 100px)")};
     z-index: 1;
@@ -28,12 +31,7 @@ const StyledPage = styled.div`
     left: ${({ isActive }) => (isActive ? "100px" : "calc(100vw - 50px)")};
     z-index: 2;
   }
-  .pageContent {
-    height: 100vh;
-    transition: opacity 1s;
-  }
 `;
-
 const StyledLink = styled(Link)`
   writing-mode: sideways-lr;
   text-orientation: upright;
@@ -41,79 +39,28 @@ const StyledLink = styled(Link)`
   padding: 15px;
 `;
 
-const Page = ({ page }) => {
+const Index = () => {
   const { pathname } = useLocation();
 
   const isNosPratiquesActive =
     pathname === "/nos-pratiques/" || pathname === "/la-degustation/";
   const isLadegustationActive = pathname === "/la-degustation/";
 
-  if (page === "Home") {
-    return (
-      <StyledPage>
-        <StyledLink to="/">Home</StyledLink>
-        <div className="pageContent">
-          <h1>Home</h1>
-          <StaticImage
-            src="../assets/imgs/homeHeroImage.jpg"
-            alt="TLMR - L’excellence accessible"
-          />
-        </div>
-      </StyledPage>
-    );
-  }
-  if (page === "Nos Pratiques") {
-    return (
-      <StyledPage isActive={isNosPratiquesActive}>
-        <StyledLink to="/nos-pratiques/">Nos Pratiques</StyledLink>
-        <div className="pageContent">
-          <h1>Nos Pratiques</h1>
-          <StaticImage
-            src="../assets/imgs/homeHeroImage.jpg"
-            alt="TLMR - L’excellence accessible"
-          />
-        </div>
-      </StyledPage>
-    );
-  }
-  if (page === "La Dégustation") {
-    return (
-      <StyledPage isActive={isLadegustationActive}>
-        <StyledLink to="/la-degustation/">La Dégusatation</StyledLink>
-        <div className="pageContent">
-          <h1>La Dégusatation</h1>
-          <StaticImage
-            src="../assets/imgs/homeHeroImage.jpg"
-            alt="TLMR - L’excellence accessible"
-          />
-        </div>
-      </StyledPage>
-    );
-  }
-};
-
-const Index = () => {
   return (
     <Layout>
       <StyledContainer>
-        <Page page="Home" />
-        <Page page="Nos Pratiques" />
-        <Page page="La Dégustation" />
-        {/* {pages.map(({ title, path }) => {
-          const isActive = path === pathname;
-          return (
-            <StyledPage key={title} $isActive={isActive}>
-              <StyledLink to={path}>{title}</StyledLink>
-              <div className="pageContent">
-                <h1>{title}</h1>
-                <StaticImage
-                  src="../assets/imgs/homeHeroImage.jpg"
-                  alt="TLMR - L’excellence accessible"
-                />
-              </div>
-            </StyledPage>
-          );
-        })} */}
+        <StyledPage>
+          <StyledLink to="/">Home</StyledLink>
+          <HomePage />
+        </StyledPage>
+        <StyledPage isActive={isNosPratiquesActive}>
+          <StyledLink to="/nos-pratiques/">Nos Pratiques</StyledLink>
+          <NosPratiquesPage />
+        </StyledPage>
+        <StyledPage isActive={isLadegustationActive}>
+          <StyledLink to="/la-degustation/">La Dégusatation</StyledLink>
+          <LaDegustationPage />
+        </StyledPage>
       </StyledContainer>
     </Layout>
   );
