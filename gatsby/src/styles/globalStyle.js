@@ -1,10 +1,16 @@
 import { createGlobalStyle } from "styled-components";
 import ModeratMedium from "../assets/fonts/Moderat-Medium.woff2";
+import Democratica from "../assets/fonts/Democratica.woff";
 
 export default createGlobalStyle`
  @font-face {
     font-family: 'Moderat';
     src: url(${ModeratMedium}) format("woff2");
+  }
+
+  @font-face {
+    font-family: 'Democratica';
+    src: url(${Democratica}) format("woff");
   }
 
   body {
