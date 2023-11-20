@@ -19,15 +19,39 @@ export default createGlobalStyle`
     src: url(${Democratica}) format("woff");
   }
 
-  * {
+* {
   margin: 0;
   padding: 0;
 }
 
-  body {
-    font-family: 'Moderat', sans-serif;
-    background-color: ${(props) => props.theme.colors.backgroundLight};
+body {
+  font-family: 'Moderat', sans-serif;
+  background-color: ${(props) => props.theme.colors.backgroundLight};
+}
+
+a {
+text-decoration: none;
+color: ${(props) => props.theme.colors.black};
+display: block;
+cursor: pointer;
+  &:hover {
+    color: ${(props) => props.theme.colors.grey};
+    & * {
+      color: ${(props) => props.theme.colors.grey};
+    }
   }
+}
+
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  color: ${(props) => props.theme.colors.black};
+  &:hover {
+    color: ${(props) => props.theme.colors.black};
+  }
+}
 
   li {
   list-style: none;
