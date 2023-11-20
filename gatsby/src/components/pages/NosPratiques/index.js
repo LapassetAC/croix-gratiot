@@ -1,7 +1,6 @@
 import * as React from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import styled from "styled-components";
-import Layout from "../../Layout";
 
 const StyledContainer = styled.div`
   padding: 15px;
