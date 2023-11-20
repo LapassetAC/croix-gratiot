@@ -101,19 +101,19 @@ const Index = ({ className }) => {
           <StyledLinkContainer>
             <Link to="/nos-pratiques/">Nos Pratiques</Link>
           </StyledLinkContainer>
-          <NosPratiquesPage />
+          <NosPratiquesPage className="pageContent" />
         </StyledPage>
         <StyledPage isActive={isLadegustationActive}>
           <StyledLinkContainer>
             <Link to="/la-degustation/">La Dégustation</Link>
           </StyledLinkContainer>
-          <LaDegustationPage />
+          <LaDegustationPage className="pageContent" />
         </StyledPage>
         <StyledPage>
           <StyledLinkContainer>
             <Link to="/nous-rencontrer/">Nous rencontrer</Link>
           </StyledLinkContainer>
-          <LaDegustationPage />
+          <LaDegustationPage className="pageContent" />
         </StyledPage>
       </StyledContainer>
     </Layout>
