@@ -9,7 +9,6 @@ const Layout = ({ children }) => {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       {children}
-      {/* <Navigation>{children}</Navigation> */}
     </ThemeProvider>
   );
 };
