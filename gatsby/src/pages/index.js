@@ -3,9 +3,9 @@ import Layout from "components/Layout";
 import HomePage from "components/pages/HomePage";
 import { Router, Link } from "@reach/router";
 import styled from "styled-components";
-import PageTransition from "gatsby-plugin-page-transitions";
-import { gsap } from "gsap";
-import { useHistory, useLocation } from "@reach/router";
+// import PageTransition from "gatsby-plugin-page-transitions";
+// import { gsap } from "gsap";
+import { useLocation } from "@reach/router";
 
 const StyledContainer = styled.div`
   display: grid;
@@ -15,8 +15,11 @@ const StyledLink = styled(Link)`
   writing-mode: sideways-lr;
   text-orientation: upright;
   text-align: end;
-  display: block;
   padding: 15px;
+  display: none;
+  @media ${(props) => props.theme.minWidth.md} {
+    display: block;
+  }
 
   &.homePage {
     /* background-color: white; */

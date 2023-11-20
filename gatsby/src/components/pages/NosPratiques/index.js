@@ -3,17 +3,36 @@ import { StaticImage } from "gatsby-plugin-image";
 import styled from "styled-components";
 
 const StyledContainer = styled.div`
-  background-color: white;
+  width: 100%;
+  grid-column: 1 / 4;
+`;
+
+const StyledImageContainer = styled.div`
+  width: 100%;
+`;
+
+const StyledTitle = styled.h1`
+  font-family: "Democratica", sans-serif;
 `;
 
 const NosPratiques = () => {
   return (
-    <StyledContainer className="pageAnimation">
-      <h1>Nos Pratiques</h1>
-      <StaticImage
-        src="../../../assets/imgs/nosPratiquesHeroImage.jpg"
-        alt=""
-      />
+    <StyledContainer>
+      <StyledImageContainer>
+        <StaticImage
+          src="../../../assets/imgs/nosPratiquesHeroImage.jpg"
+          alt="nosPratiquesHeroImage"
+          aspectRatio={1}
+          layout="fullWidth"
+        />
+      </StyledImageContainer>
+      <StyledTitle>
+        <ul>
+          <li>Une</li>
+          <li>viticulture</li>
+          <li>biodynamique</li>
+        </ul>
+      </StyledTitle>
     </StyledContainer>
   );
 };

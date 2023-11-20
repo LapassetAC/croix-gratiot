@@ -15,7 +15,13 @@ export default createGlobalStyle`
 
   body {
     font-family: 'Moderat', sans-serif;
+    background-color: ${(props) => props.theme.colors.backgroundLight};
   }
+
+  li {
+  list-style: none;
+  }
+
   .pageAnimation {
     animation: pageAnimation 2s ${({ theme }) =>
       theme.cubicBezier.base} 1s forwards;
