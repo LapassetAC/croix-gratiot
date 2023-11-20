@@ -13,6 +13,11 @@ export default createGlobalStyle`
     src: url(${Democratica}) format("woff");
   }
 
+  * {
+  margin: 0;
+  padding: 0;
+}
+
   body {
     font-family: 'Moderat', sans-serif;
     background-color: ${(props) => props.theme.colors.backgroundLight};
