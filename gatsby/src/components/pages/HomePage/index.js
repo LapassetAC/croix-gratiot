@@ -10,7 +10,7 @@ const StyledContainer = styled.div`
     grid-column: 1 / span 7;
   }
   section {
-    font-weight: 700;
+    font-family: Moderat Bold;
     text-align: center;
     margin: 135px 0;
     grid-column: 2 / 7;

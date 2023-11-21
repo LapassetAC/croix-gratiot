@@ -37,7 +37,7 @@ const StyledPage = styled.div`
   }
   &:nth-child(4) {
     left: ${({ isActive }) => (isActive ? "180px" : "calc(100vw - 60px)")};
-    z-index: 2;
+    z-index: 3;
   }
   .pageContent {
     width: calc(100% - 270px);
@@ -61,15 +61,25 @@ const StyledLinkContainer = styled.div`
     text-orientation: upright;
     text-align: end;
   }
+  &:not(.homeNav) a {
+    position: fixed;
+  }
   &.homeNav {
     border: none;
-    justify-content: space-between;
     & > div {
-      width: 100%;
       display: flex;
       flex-direction: column;
-      button {
-        margin-top: 15px;
+      justify-content: space-between;
+      align-items: center;
+      height: calc(100vh - 100px);
+      position: fixed;
+      & > div {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        button {
+          margin-top: 15px;
+        }
       }
     }
   }
@@ -87,12 +97,14 @@ const Index = ({ className }) => {
       <StyledContainer>
         <StyledPage>
           <StyledLinkContainer className="homeNav">
-            <Link to="/">
-              <img src={LCGlogo} alt="" />
-            </Link>
             <div>
-              <button>EN</button>
-              <button>FR</button>
+              <Link to="/">
+                <img src={LCGlogo} alt="" />
+              </Link>
+              <div>
+                <button>EN</button>
+                <button>FR</button>
+              </div>
             </div>
           </StyledLinkContainer>
           <HomePage className="pageContent" />
