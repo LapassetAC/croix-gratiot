@@ -1,11 +1,10 @@
-import React, { useState, useEffect, Suspense } from "react";
+import React, { useState, useEffect } from "react";
 import Layout from "components/Layout";
 import HomePage from "components/pages/HomePage";
 import { Router, Link } from "@reach/router";
 import styled from "styled-components";
-import PageTransition from "gatsby-plugin-page-transitions";
-import { gsap } from "gsap";
-import { useHistory, useLocation } from "@reach/router";
+// import { gsap } from "gsap";
+import { useLocation } from "@reach/router";
 
 const StyledContainer = styled.div`
   display: grid;
@@ -32,15 +31,15 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const NosPratiques = React.lazy(() =>
-  import("../components/pages/NosPratiques")
-);
+// const NosPratiques = React.lazy(() =>
+//   import("../components/pages/NosPratiques")
+// );
 
-const LazyComponent = ({ Component, ...props }) => (
-  <Suspense fallback={"<p>Loading...</p>"}>
-    <Component {...props} />
-  </Suspense>
-);
+// const LazyComponent = ({ Component, ...props }) => (
+//   <Suspense fallback={"<p>Loading...</p>"}>
+//     <Component {...props} />
+//   </Suspense>
+// );
 
 const Index = () => {
   const [isNosPratiques, setIsNosPratiques] = useState(false);

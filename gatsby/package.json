@@ -18,7 +18,6 @@
     "babel-plugin-styled-components": "^2.1.4",
     "gatsby": "^5.12.4",
     "gatsby-plugin-image": "^3.12.3",
-    "gatsby-plugin-page-transitions": "^1.0.8",
     "gatsby-plugin-root-import": "^2.0.9",
     "gatsby-plugin-sharp": "^5.12.3",
     "gatsby-plugin-styled-components": "^6.12.0",

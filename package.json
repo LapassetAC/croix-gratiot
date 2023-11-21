@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "gatsby-plugin-page-transitions": "^1.0.8",
-    "gatsby-plugin-root-import": "^2.0.9"
-  }
-}
