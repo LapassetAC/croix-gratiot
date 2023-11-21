@@ -24,14 +24,10 @@ const StyledDesktopContainer = styled.div`
   }
 `;
 const StyledPage = styled.div`
-  background-color: ${({ theme }) => theme.colors.backgroundLight};
   transition: left 1s;
   position: absolute;
   width: 100%;
   display: flex;
-  & > * {
-    background-color: ${({ theme }) => theme.colors.backgroundLight};
-  }
   &:nth-child(1) {
     position: relative;
   }
@@ -49,6 +45,7 @@ const StyledPage = styled.div`
   }
   .pageContent {
     width: calc(100% - 270px);
+    background-color: ${({ theme }) => theme.colors.backgroundLight};
   }
 `;
 const StyledLinkContainer = styled.div`
@@ -57,6 +54,8 @@ const StyledLinkContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: ${({ theme }) => theme.colors.backgroundLight};
+
   a,
   button {
     font-size: 18px;
