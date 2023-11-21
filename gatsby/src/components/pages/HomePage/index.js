@@ -3,10 +3,9 @@ import { StaticImage } from "gatsby-plugin-image";
 import PostsSection from "./PostsSection";
 import styled from "styled-components";
 import LogoLCGHero from "assets/logos/logo-lcg-hero.svg";
-// import Grid from "components/global/Grid";
 
 const StyledContainer = styled.div`
-  .gatsby-image-wrapper {
+  .heroImg {
     grid-column: 1 / span 7;
     grid-row: 1/1;
     max-height: 90vh;
@@ -35,19 +34,32 @@ const StyledContainer = styled.div`
       width: 100%;
     }
   }
-  section {
+  section:not(.heroSection) {
+    padding: 135px 0;
     &.intro {
       font-family: Moderat Bold;
       font-size: 22px;
       text-align: center;
-      margin: 135px 0;
       grid-column: 2 / 7;
       line-height: 160%;
     }
     &.orange {
+      margin: 0 -180px 0 -60px;
+      padding: 0 180px 0 60px;
       background-color: ${({ theme }) => theme.colors.orange};
-      left: 0;
-      width: 100%;
+      .leDomaine {
+        h2 {
+          grid-column: 3 / 8;
+          z-index: 1;
+        }
+        .gatsby-image-wrapper {
+          grid-column: 2 / 7;
+          margin: -30px 0 30px;
+        }
+        p {
+          grid-column: 4 / 8;
+        }
+      }
     }
   }
 `;
@@ -55,8 +67,9 @@ const StyledContainer = styled.div`
 const HomePage = ({ className }) => {
   return (
     <StyledContainer className={className}>
-      <section className="grid">
+      <section className="heroSection grid">
         <StaticImage
+          className="heroImg"
           src="../../../assets/imgs/homeHeroImage.jpg"
           alt=""
           layout="fullWidth"
@@ -75,19 +88,25 @@ const HomePage = ({ className }) => {
           nature.
         </section>
       </div>
-      <section className="orange grid">
-        <section className="leDomaine">
-          <h2 className="sectionTitle">Le domaine </h2>
+      <section className="orange">
+        <section className="leDomaine grid">
+          <h2 className="sectionTitle">
+            Le
+            <br />
+            domaine
+          </h2>
           <StaticImage
             src="../../../assets/imgs/home/le-domaine.jpg"
             alt=""
-            layout="fullWidth"
             quality="90"
           />
-          Au cœur des appellations Languedoc et Picpoul de Pinet, le domaine La
-          Croix Gratiot est ancré dans un terroir riche en couleurs. Situé sur
-          les collines argilo-calcaires et bercé par les alizés marins chargés
-          des senteurs de garrigue, notre vignoble s’étend sur 35 hectares.
+          <p>
+            Au cœur des appellations Languedoc et Picpoul de Pinet, le domaine
+            La Croix Gratiot est ancré dans un terroir riche en couleurs. Situé
+            sur les collines argilo-calcaires et bercé par les alizés marins
+            chargés des senteurs de garrigue, notre vignoble s’étend sur 35
+            hectares.
+          </p>
         </section>
       </section>
       <PostsSection />

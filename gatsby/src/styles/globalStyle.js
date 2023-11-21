@@ -30,7 +30,10 @@ export default createGlobalStyle`
 
 body {
   font-family: 'Moderat', sans-serif;
+  font-size: 18px;
+  line-height: 150%;
   background-color: ${(props) => props.theme.colors.backgroundLight};
+  color: ${(props) => props.theme.colors.black};
 }
 
 a {
