@@ -9,45 +9,45 @@ const StyledContainer = styled.div`
   column-gap: 15px;
   .gatsby-image-wrapper {
     grid-column: 1 / span 7;
-    .hero-image {
-      grid-column: 1 / span 7;
-    }
-    .intro-image-1 {
-      grid-column: 1 / 8;
-    }
-    .intro-image-2 {
-      grid-column: 1 / 5;
-      margin-top: 45px;
-    }
-    .team-image-1 {
-      grid-column: 1 / 8;
-      margin-top: 120px;
-    }
-    .cepages-image-1 {
-      grid-column: 1 / 8;
-    }
-    .cepages-image-2 {
-      grid-column: 3 / 8;
-      margin-top: 45px;
-    }
-    .vinification-image-1 {
-      grid-column: 1 / 5;
-    }
-    .vinification-image-2 {
-      grid-column: 1 / 8;
-      margin-top: 45px;
-    }
-    .team-image-2 {
-      grid-column: 1 / 8;
-      margin-top: 120px;
-    }
-    .elevage-image-1 {
-      grid-column: 1 / 8;
-    }
-    .elevage-image-2 {
-      grid-column: 1 / 5;
-      margin-top: 15px;
-    }
+  }
+  .hero-image {
+    grid-column: 1 / span 7;
+  }
+  .intro-image-1 {
+    grid-column: 1 / 8;
+  }
+  .intro-image-2 {
+    grid-column: 1 / 5;
+    margin-top: 45px;
+  }
+  .team-image-1 {
+    grid-column: 1 / 8;
+    margin-top: 120px;
+  }
+  .cepages-image-1 {
+    grid-column: 1 / 8;
+  }
+  .cepages-image-2 {
+    grid-column: 3 / 8;
+    margin-top: 45px;
+  }
+  .vinification-image-1 {
+    grid-column: 1 / 5;
+  }
+  .vinification-image-2 {
+    grid-column: 1 / 8;
+    margin-top: 45px;
+  }
+  .team-image-2 {
+    grid-column: 1 / 8;
+    margin-top: 120px;
+  }
+  .elevage-image-1 {
+    grid-column: 1 / 8;
+  }
+  .elevage-image-2 {
+    grid-column: 1 / 5;
+    margin-top: 15px;
   }
 
   .title,
@@ -99,22 +99,6 @@ const StyledContainer = styled.div`
 
   .sectionTitle.la-vinification,
   .sectionTitle.elevage {
-    grid-column: 1 / 8;
-  }
-`;
-
-const SectionTitle = styled.h2`
-  font-family: "Democratica", sans-serif;
-  font-size: 45px;
-  line-height: 40px;
-  margin: 120px 0 45px;
-  &.nos-cepages {
-    grid-column: 3 / 8;
-  }
-  &.la-vinification {
-    grid-column: 1 / 8;
-  }
-  &.elevage {
     grid-column: 1 / 8;
   }
 `;
