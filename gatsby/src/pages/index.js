@@ -41,9 +41,11 @@ const StyledPage = styled.div`
   }
   .pageContent {
     width: calc(100% - 270px);
-    display: grid;
+    /* display: flex; */
+    /* flex-direction: ; */
+    /* display: grid;
     grid-template-columns: repeat(7, 1fr);
-    grid-column-gap: 30px;
+    grid-column-gap: 30px; */
   }
 `;
 const StyledLinkContainer = styled.div`

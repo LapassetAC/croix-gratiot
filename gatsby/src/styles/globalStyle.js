@@ -72,4 +72,27 @@ button {
       opacity: 1;
     }
   }
+
+
+  /* Components */
+
+  .grid {
+  @media ${(props) => props.theme.minWidth.sm} {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-column-gap: 15px;
+  }
+  @media ${(props) => props.theme.minWidth.xl} {
+    grid-column-gap: 30px;
+  } 
+}
+
+  .sectionTitle {
+    font-family: Democratica;
+    font-size: 90px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 70px;
+    text-transform: capitalize;
+  }
 `;

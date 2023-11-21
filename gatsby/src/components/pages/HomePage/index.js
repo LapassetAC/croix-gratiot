@@ -3,7 +3,7 @@ import { StaticImage } from "gatsby-plugin-image";
 import PostsSection from "./PostsSection";
 import styled from "styled-components";
 import LogoLCGHero from "assets/logos/logo-lcg-hero.svg";
-import Grid from "components/global/Grid";
+// import Grid from "components/global/Grid";
 
 const StyledContainer = styled.div`
   .gatsby-image-wrapper {
@@ -46,6 +46,8 @@ const StyledContainer = styled.div`
     }
     &.orange {
       background-color: ${({ theme }) => theme.colors.orange};
+      left: 0;
+      width: 100%;
     }
   }
 `;
@@ -53,25 +55,39 @@ const StyledContainer = styled.div`
 const HomePage = ({ className }) => {
   return (
     <StyledContainer className={className}>
-      <StaticImage
-        src="../../../assets/imgs/homeHeroImage.jpg"
-        alt=""
-        layout="fullWidth"
-      />
-      <Grid className="heroContent">
-        <h1>Domaine</h1>
-        <img src={LogoLCGHero} alt="" />
-        <h1>La Croix Gratiot</h1>
-      </Grid>
-      <section className="intro">
-        Entre bassin de Thau et collines de pins découvrez des vins bio issu
-        d’un travail en famille, de père en fille, dans le respect de la nature.
+      <section className="grid">
+        <StaticImage
+          src="../../../assets/imgs/homeHeroImage.jpg"
+          alt=""
+          layout="fullWidth"
+          quality="90"
+        />
+        <div className="heroContent grid">
+          <h1>Domaine</h1>
+          <img src={LogoLCGHero} alt="" />
+          <h1>La Croix Gratiot</h1>
+        </div>
       </section>
-      <section className="orange">
-        <section className="leDomaine">
+      <div className="grid">
+        <section className="intro">
           Entre bassin de Thau et collines de pins découvrez des vins bio issu
           d’un travail en famille, de père en fille, dans le respect de la
           nature.
+        </section>
+      </div>
+      <section className="orange grid">
+        <section className="leDomaine">
+          <h2 className="sectionTitle">Le domaine </h2>
+          <StaticImage
+            src="../../../assets/imgs/home/le-domaine.jpg"
+            alt=""
+            layout="fullWidth"
+            quality="90"
+          />
+          Au cœur des appellations Languedoc et Picpoul de Pinet, le domaine La
+          Croix Gratiot est ancré dans un terroir riche en couleurs. Situé sur
+          les collines argilo-calcaires et bercé par les alizés marins chargés
+          des senteurs de garrigue, notre vignoble s’étend sur 35 hectares.
         </section>
       </section>
       <PostsSection />
