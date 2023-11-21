@@ -7,57 +7,100 @@ const StyledContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   column-gap: 15px;
-`;
+  .gatsby-image-wrapper {
+    grid-column: 1 / span 7;
+    .hero-image {
+      grid-column: 1 / span 7;
+    }
+    .intro-image-1 {
+      grid-column: 1 / 8;
+    }
+    .intro-image-2 {
+      grid-column: 1 / 5;
+      margin-top: 45px;
+    }
+    .team-image-1 {
+      grid-column: 1 / 8;
+      margin-top: 120px;
+    }
+    .cepages-image-1 {
+      grid-column: 1 / 8;
+    }
+    .cepages-image-2 {
+      grid-column: 3 / 8;
+      margin-top: 45px;
+    }
+    .vinification-image-1 {
+      grid-column: 1 / 5;
+    }
+    .vinification-image-2 {
+      grid-column: 1 / 8;
+      margin-top: 45px;
+    }
+    .team-image-2 {
+      grid-column: 1 / 8;
+      margin-top: 120px;
+    }
+    .elevage-image-1 {
+      grid-column: 1 / 8;
+    }
+    .elevage-image-2 {
+      grid-column: 1 / 5;
+      margin-top: 15px;
+    }
+  }
 
-const HeroImage = styled.div`
-  grid-column: 1 / 8;
-`;
+  .title,
+  .base-text,
+  .large-text,
+  .team-description,
+  .section-title {
+    grid-column: 1 / 8;
+  }
 
-const StyledTitle = styled.h1`
-  font-family: "Democratica", sans-serif;
-  font-size: 45px;
-  line-height: 40px;
-  margin-top: 15px;
-  grid-column: 1 / 8;
-`;
+  .title {
+    font-family: "Democratica", sans-serif;
+    font-size: 45px;
+    line-height: 40px;
+    margin-top: 15px;
+  }
 
-const BaseText = styled.p`
-  font-family: "Moderat", sans-serif;
-  font-size: 14px;
-  line-height: 21px;
-  grid-column: 1 / 8;
-  margin-top: 15px;
-`;
+  .base-text {
+    font-family: "Moderat", sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+    margin-top: 15px;
+  }
 
-const LargeText = styled.p`
-  font-family: "Moderat", sans-serif;
-  font-size: 16px;
-  line-height: 150%;
-  grid-column: 1 / 8;
-  margin: 120px 0;
-  text-align: center;
-`;
+  .large-text {
+    font-family: "Moderat", sans-serif;
+    font-size: 16px;
+    line-height: 150%;
+    margin: 120px 0;
+    text-align: center;
+  }
 
-const IntroImage1 = styled.div`
-  grid-column: 1 / 8;
-`;
+  .team-description {
+    font-family: "Moderat Mono", sans-serif;
+    font-size: 10px;
+    line-height: 15px;
+    margin-top: 15px;
+  }
 
-const IntroImage2 = styled.div`
-  grid-column: 1 / 5;
-  margin-top: 45px;
-`;
+  .sectionTitle {
+    font-size: 45px;
+    line-height: 40px;
+    margin: 120px 0 45px;
+  }
 
-const TeamImage1 = styled.div`
-  grid-column: 1 / 8;
-  margin-top: 120px;
-`;
+  .sectionTitle.nos-cepages {
+    grid-column: 3 / 8;
+  }
 
-const TeamDescription = styled.p`
-  font-family: "Moderat Mono", sans-serif;
-  font-size: 10px;
-  line-height: 15px;
-  grid-column: 1 / 8;
-  margin-top: 15px;
+  .sectionTitle.la-vinification,
+  .sectionTitle.elevage {
+    grid-column: 1 / 8;
+  }
 `;
 
 const SectionTitle = styled.h2`
@@ -76,57 +119,24 @@ const SectionTitle = styled.h2`
   }
 `;
 
-const CepagesImage1 = styled.div`
-  grid-column: 1 / 8;
-`;
-
-const CepagesImage2 = styled.div`
-  grid-column: 3 / 8;
-  margin-top: 45px;
-`;
-
-const VinificationImage1 = styled.div`
-  grid-column: 1 / 5;
-`;
-
-const VinificationImage2 = styled.div`
-  grid-column: 1 / 8;
-  margin-top: 45px;
-`;
-
-const TeamImage2 = styled.div`
-  grid-column: 1 / 8;
-  margin-top: 120px;
-`;
-
-const ElevageImage1 = styled.div`
-  grid-column: 1 / 8;
-`;
-
-const ElevageImage2 = styled.div`
-  grid-column: 1 / 5;
-  margin-top: 15px;
-`;
-
 const NosPratiques = ({ className }) => {
   return (
     <StyledContainer className={className}>
-      <HeroImage>
-        <StaticImage
-          src="../../../assets/imgs/nosPratiquesHeroImage.jpg"
-          alt="nosPratiquesHeroImage"
-          aspectRatio={1}
-          layout="fullWidth"
-        />
-      </HeroImage>
-      <StyledTitle>
+      <StaticImage
+        className="hero-image"
+        src="../../../assets/imgs/pratiques/nosPratiquesHeroImage.jpg"
+        alt="nosPratiquesHeroImage"
+        aspectRatio={1}
+        layout="fullWidth"
+      />
+      <h1 className="title">
         <ul>
           <li>Une</li>
           <li>viticulture</li>
           <li>biodynamique</li>
         </ul>
-      </StyledTitle>
-      <BaseText>
+      </h1>
+      <p className="base-text">
         <ul>
           <li>
             Cette approche, basée sur de l’observation, nous rapproche encore
@@ -138,145 +148,135 @@ const NosPratiques = ({ className }) => {
             et de leurs échanges.
           </li>
         </ul>
-      </BaseText>
-      <LargeText>
+      </p>
+      <p className="large-text">
         Depuis nos essais sur une parcelle en 2012, c’est maintenant tout le
         vignoble que nous conduisons en biodynamie.
-      </LargeText>
-      <IntroImage1>
-        <StaticImage
-          src="../../../assets/imgs/nosPratiquesIntroImage1.jpg"
-          alt="nosPratiquesIntroImage1"
-          aspectRatio={290 / 195}
-          layout="fullWidth"
-        />
-      </IntroImage1>
-      <BaseText>
+      </p>
+      <StaticImage
+        className="intro-image-1"
+        src="../../../assets/imgs/pratiques/nosPratiquesIntroImage1.jpg"
+        alt="nosPratiquesIntroImage1"
+        aspectRatio={290 / 195}
+        layout="fullWidth"
+      />
+      <p className="base-text">
         Attaché au maintien de la biodiversité, nous plantons des haies multi
         essences en bordure de parcelles et sur les berges du ruisseau qui
         serpente le domaine. Nous avons également fait un essai dans une
         parcelle, tout les 8 rangs de vignes une rangée de plantes aromatiques.
-      </BaseText>
-      <IntroImage2>
-        <StaticImage
-          src="../../../assets/imgs/nosPratiquesIntroImage2.jpg"
-          alt="nosPratiquesIntroImage2"
-          layout="fullWidth"
-        />
-      </IntroImage2>
-      <BaseText>
+      </p>
+      <StaticImage
+        className="intro-image-2"
+        src="../../../assets/imgs/pratiques/nosPratiquesIntroImage2.jpg"
+        alt="nosPratiquesIntroImage2"
+        layout="fullWidth"
+      />
+      <p className="base-text">
         Après les vendanges, aux premières pluies nous enherbons une partie du
         vignoble pour maintenir l’activité dans le sol.
-      </BaseText>
-      <TeamImage1>
-        <StaticImage
-          src="../../../assets/imgs/TeamImage1.jpg"
-          alt="TeamImage1"
-          layout="fullWidth"
-        />
-      </TeamImage1>
-      <TeamDescription>
+      </p>
+      <StaticImage
+        className="team-image-1"
+        src="../../../assets/imgs/pratiques/TeamImage1.jpg"
+        alt="TeamImage1"
+        layout="fullWidth"
+      />
+      <p className="team-description">
         <ul>
           <li>Lénaïc & Karim,</li>
           <li>l’équipe viticole</li>
         </ul>
-      </TeamDescription>
-      <SectionTitle className="nos-cepages">
+      </p>
+      <h2 className="sectionTitle nos-cepages">
         <ul>
           <li>Nos</li>
           <li>cépages</li>
         </ul>
-      </SectionTitle>
-      <CepagesImage1>
-        <StaticImage
-          src="../../../assets/imgs/cepagesImage1.jpg"
-          alt="cepagesImage1"
-          layout="fullWidth"
-        />
-      </CepagesImage1>
-      <BaseText>
+      </h2>
+      <StaticImage
+        className="cepages-image-1"
+        src="../../../assets/imgs/pratiques/cepagesImage1.jpg"
+        alt="cepagesImage1"
+        layout="fullWidth"
+      />
+      <p className="base-text">
         Piquepoul Blanc, Roussanne, Bourboulenc, Viognier, Sauvignon et Muscat
         petits grains composent notre encépagement blanc. Pour le rouge, nous
         cultivons de la Syrah, du Grenache Noir, du Mourvèdre, Piquepoul Noir,
         Niellucio et Pinot Noir.
-      </BaseText>
-      <CepagesImage2>
-        <StaticImage
-          src="../../../assets/imgs/cepagesImage2.jpg"
-          alt="cepagesImage2"
-          layout="fullWidth"
-          aspectRatio={200 / 167}
-        />
-      </CepagesImage2>
-      <BaseText>
+      </p>
+      <StaticImage
+        className="cepages-image-2"
+        src="../../../assets/imgs/pratiques/cepagesImage2.jpg"
+        alt="cepagesImage2"
+        layout="fullWidth"
+        aspectRatio={200 / 167}
+      />
+      <p className="base-text">
         De retour de Nouvelle Zélande, Anaïs plante du Pinot Noir malgré un avis
         général défavorable, concernant son adaptation à notre terroir… La
         dégustation plutôt amusante nous incite à continuer. Depuis plusieurs
         années, nous surgreffons certaines parcelles avec nos propres sélections
         de bois.
-      </BaseText>
-      <SectionTitle className="la-vinification">
+      </p>
+      <h2 className="sectionTitle la-vinification">
         <ul>
           <li>La</li>
           <li>vinification</li>
         </ul>
-      </SectionTitle>
-      <VinificationImage1>
-        <StaticImage
-          src="../../../assets/imgs/VinificationImage1.jpg"
-          alt="VinificationImage1"
-          layout="fullWidth"
-        />
-      </VinificationImage1>
-      <BaseText>
+      </h2>
+      <StaticImage
+        className="vinification-image-1"
+        src="../../../assets/imgs/pratiques/VinificationImage1.jpg"
+        alt="VinificationImage1"
+        layout="fullWidth"
+      />
+      <p className="base-text">
         Les vendanges sont une période super excitante, une année de travail à
         la vigne pour obtenir des raisins, qui rentrent enfin à l’abris pour se
         transformer en vin. Les odeurs de fruits se propagent partout.
-      </BaseText>
-      <VinificationImage2>
-        <StaticImage
-          src="../../../assets/imgs/VinificationImage2.jpg"
-          alt="VinificationImage2"
-          layout="fullWidth"
-        />
-      </VinificationImage2>
-      <BaseText>
+      </p>
+      <StaticImage
+        className="vinification-image-2"
+        src="../../../assets/imgs/pratiques/VinificationImage2.jpg"
+        alt="VinificationImage2"
+        layout="fullWidth"
+      />
+      <p className="base-text">
         La majorité des vendanges est mécanique de nuit, pour certaines cuvées
         elle est manuelle. Chaque millésime est tellement différent, il faut
         savoir observer, goûter, décider de la bonne date de récolte et se faire
         discret pour accompagner les fermentations des raisins et laisser le
         terroir s’exprimer.
-      </BaseText>
-      <TeamImage2>
-        <StaticImage
-          src="../../../assets/imgs/TeamImage2.jpg"
-          alt="TeamImage2"
-          layout="fullWidth"
-        />
-      </TeamImage2>
-      <TeamDescription>Thomas, poste</TeamDescription>
-      <SectionTitle className="elevage">L'élevage</SectionTitle>
-      <ElevageImage1>
-        <StaticImage
-          src="../../../assets/imgs/ElevageImage1.jpg"
-          alt="ElevageImage1"
-          layout="fullWidth"
-        />
-      </ElevageImage1>
-      <ElevageImage2>
-        <StaticImage
-          src="../../../assets/imgs/ElevageImage2.jpg"
-          alt="ElevageImage2"
-          layout="fullWidth"
-        />
-      </ElevageImage2>
-      <BaseText>
+      </p>
+      <StaticImage
+        className="team-image-2"
+        src="../../../assets/imgs/pratiques/TeamImage2.jpg"
+        alt="TeamImage2"
+        layout="fullWidth"
+      />
+      <p className="team-description">Thomas</p>
+      <h2 className="sectionTitle elevage">L'élevage</h2>
+      <StaticImage
+        className="elevage-image-1"
+        src="../../../assets/imgs/pratiques/ElevageImage1.jpg"
+        alt="ElevageImage1"
+        layout="fullWidth"
+      />
+      <StaticImage
+        className="elevage-image-2"
+        src="../../../assets/imgs/pratiques/ElevageImage2.jpg"
+        alt="ElevageImage2"
+        layout="fullWidth"
+      />
+      <p className="base-text">
         Chaque année de nouveaux contenants sont achetés pour permettre une
         rotation mais aussi pour réaliser des expérimentations. Depuis 2012,
         nous réalisons des élevages en dolia de terre cuite, céramique et grès.
         Nous nous sommes équipés de cuves béton et de demi-muids. L’élevage est
         un sacré terrain de jeux.
-      </BaseText>
+      </p>
     </StyledContainer>
   );
 };
