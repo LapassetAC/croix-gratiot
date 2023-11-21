@@ -5,22 +5,30 @@ import NosPratiquesPage from "components/pages/NosPratiques";
 import LaDegustationPage from "components/pages/LaDegustationPage";
 import LCGlogo from "assets/logos/logo-lcg-desktop.svg";
 import styled from "styled-components";
-import { Link } from "@reach/router";
-import { useLocation } from "@reach/router";
+import { Router, Link, useLocation } from "@reach/router";
 
-const StyledContainer = styled.div`
-  display: flex;
-  overflow-x: hidden;
-  width: 100vw;
-  position: absolute;
-  margin-top: 30px;
+const StyledMobileContainer = styled.div`
+  display: block;
+
+  @media ${(props) => props.theme.minWidth.lg} {
+    display: none;
+  }
+`;
+const StyledDesktopContainer = styled.div`
+  display: none;
+  @media ${(props) => props.theme.minWidth.lg} {
+    display: flex;
+    overflow-x: hidden;
+    width: 100vw;
+    margin-top: 30px;
+  }
 `;
 const StyledPage = styled.div`
   background-color: ${({ theme }) => theme.colors.backgroundLight};
-  display: flex;
   transition: left 1s;
   position: absolute;
   width: 100%;
+  display: flex;
   & > * {
     background-color: ${({ theme }) => theme.colors.backgroundLight};
   }
@@ -41,11 +49,6 @@ const StyledPage = styled.div`
   }
   .pageContent {
     width: calc(100% - 270px);
-    /* display: flex; */
-    /* flex-direction: ; */
-    /* display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-column-gap: 30px; */
   }
 `;
 const StyledLinkContainer = styled.div`
@@ -87,7 +90,7 @@ const StyledLinkContainer = styled.div`
   }
 `;
 
-const Index = ({ className }) => {
+const Index = () => {
   const { pathname } = useLocation();
 
   const isNosPratiquesActive =
@@ -96,7 +99,17 @@ const Index = ({ className }) => {
 
   return (
     <Layout>
-      <StyledContainer>
+      <StyledMobileContainer>
+        <Link to="/">Home</Link>
+        <Link to="/nos-pratiques/">Nos Pratiques</Link>
+        <Link to="/la-degustation/">La Dégustation</Link>
+        <Router>
+          <HomePage path="/" />
+          <NosPratiquesPage path="/nos-pratiques/" />
+          <LaDegustationPage path="/la-degustation/" />
+        </Router>
+      </StyledMobileContainer>
+      <StyledDesktopContainer>
         <StyledPage>
           <StyledLinkContainer className="homeNav">
             <div>
@@ -129,7 +142,7 @@ const Index = ({ className }) => {
           </StyledLinkContainer>
           <LaDegustationPage className="pageContent" />
         </StyledPage>
-      </StyledContainer>
+      </StyledDesktopContainer>
     </Layout>
   );
 };
