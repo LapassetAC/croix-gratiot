@@ -107,4 +107,18 @@ button {
       margin-right: 15px;
     }
   }
+
+  .base-text {
+    font-family: "Moderat", sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+    @media ${({ theme }) => theme.minWidth.sm} {
+      font-size: 16px;
+      line-height: 24px;
+    }
+    @media ${({ theme }) => theme.minWidth.lg} {
+      font-size: 18px;
+      line-height: 27px;
+    }
+  }
 `;

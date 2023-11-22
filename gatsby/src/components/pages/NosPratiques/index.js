@@ -5,7 +5,7 @@ import styled from "styled-components";
 const StyledContainer = styled.div`
   padding: 0 15px;
 
-  .section {
+  section {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 15px;
@@ -18,17 +18,17 @@ const StyledContainer = styled.div`
       margin-bottom: 240px;
     }
   }
-  .section.hero {
+  .hero-section {
     @media ${({ theme }) => theme.minWidth.sm} {
       grid-template-rows: 1fr auto;
     }
   }
-  .section.la-vinification {
+  .la-vinification {
     @media ${({ theme }) => theme.minWidth.sm} {
       grid-template-rows: repeat(5, auto);
     }
   }
-  .section.elevage {
+  .elevage {
     @media ${({ theme }) => theme.minWidth.sm} {
       grid-template-rows: repeat(4, auto);
     }
@@ -152,19 +152,6 @@ const StyledContainer = styled.div`
     }
   }
 
-  .base-text {
-    font-family: "Moderat", sans-serif;
-    font-size: 14px;
-    line-height: 21px;
-    @media ${({ theme }) => theme.minWidth.sm} {
-      font-size: 16px;
-      line-height: 24px;
-    }
-    @media ${({ theme }) => theme.minWidth.lg} {
-      font-size: 18px;
-      line-height: 27px;
-    }
-  }
   .base-text.hero-text {
     @media ${({ theme }) => theme.minWidth.sm} {
       grid-column: 4 / 8;
@@ -312,7 +299,7 @@ const StyledContainer = styled.div`
 const NosPratiques = ({ className }) => {
   return (
     <StyledContainer className={className}>
-      <div className="section hero">
+      <section className="hero-section">
         <StaticImage
           className="hero-image"
           src="../../../assets/imgs/pratiques/nosPratiquesHeroImage.jpg"
@@ -339,8 +326,8 @@ const NosPratiques = ({ className }) => {
             </li>
           </ul>
         </p>
-      </div>
-      <div className="section intro">
+      </section>
+      <section className="intro">
         <p className="large-text">
           Depuis nos essais sur une parcelle en 2012, c’est maintenant
           <span class="line-break">
@@ -371,8 +358,8 @@ const NosPratiques = ({ className }) => {
           Après les vendanges, aux premières pluies nous enherbons une partie du
           vignoble pour maintenir l’activité dans le sol.
         </p>
-      </div>
-      <div className="section team">
+      </section>
+      <section className="team">
         <StaticImage
           className="team-image-1"
           src="../../../assets/imgs/pratiques/TeamImage1.jpg"
@@ -385,8 +372,8 @@ const NosPratiques = ({ className }) => {
             <li>l’équipe viticole</li>
           </ul>
         </p>
-      </div>
-      <div className="section nos-cepages">
+      </section>
+      <section className="nos-cepages">
         <h2 className="sectionTitle nos-cepages">
           <ul>
             <li>Nos</li>
@@ -415,8 +402,8 @@ const NosPratiques = ({ className }) => {
           Depuis plusieurs années, nous surgreffons certaines parcelles avec nos
           propres sélections de bois.
         </p>
-      </div>
-      <div className="section la-vinification">
+      </section>
+      <section className="la-vinification">
         <h2 className="sectionTitle la-vinification">
           <ul>
             <li>La</li>
@@ -447,8 +434,8 @@ const NosPratiques = ({ className }) => {
           la vigne pour obtenir des raisins, qui rentrent enfin à l’abris pour
           se transformer en vin. Les odeurs de fruits se propagent partout.
         </p>
-      </div>
-      <div className="section team">
+      </section>
+      <section className="team">
         <StaticImage
           className="team-image-2"
           src="../../../assets/imgs/pratiques/TeamImage2.jpg"
@@ -456,8 +443,8 @@ const NosPratiques = ({ className }) => {
           layout="fullWidth"
         />
         <p className="team-description second">Thomas</p>
-      </div>
-      <div className="section elevage">
+      </section>
+      <section className="elevage">
         <h2 className="sectionTitle elevage">L'élevage</h2>
         <StaticImage
           className="elevage-image-1"
@@ -478,7 +465,7 @@ const NosPratiques = ({ className }) => {
           grès. Nous nous sommes équipés de cuves béton et de demi-muids.
           L’élevage est un sacré terrain de jeux.
         </p>
-      </div>
+      </section>
     </StyledContainer>
   );
 };
