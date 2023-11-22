@@ -8,8 +8,6 @@ const HomePage = () => {
   return (
     <StyledContainer>
       <h1>La Degustation</h1>
-      <StaticImage src="../../../assets/imgs/homeHeroImage.jpg" alt="" />
-      <StaticImage src="../../../assets/imgs/homeHeroImage.jpg" alt="" />
     </StyledContainer>
   );
 };

@@ -3,6 +3,9 @@ import { StaticImage } from "gatsby-plugin-image";
 import PostsSection from "./PostsSection";
 import styled from "styled-components";
 import LogoLCGHero from "assets/logos/logo-lcg-hero.svg";
+import arrowBtn from "assets/icons/arrowBtn.svg";
+import { Link } from "gatsby";
+// import TestimonySlider from "components/pages/HomePage/TestimonySlider";
 
 const StyledContainer = styled.div`
   .heroImg {
@@ -18,7 +21,6 @@ const StyledContainer = styled.div`
     h1 {
       font-family: democratica;
       color: ${({ theme }) => theme.colors.backgroundLight};
-      /* font-size: 58px; */
       font-size: 4vw;
       &:first-child {
         grid-row: 0 / 3;
@@ -55,7 +57,7 @@ const StyledContainer = styled.div`
         }
         .gatsby-image-wrapper {
           grid-column: 2 / 7;
-          margin: -30px 0 30px;
+          margin-top: -30px;
         }
         p {
           grid-column: 4 / 8;
@@ -75,7 +77,44 @@ const StyledContainer = styled.div`
         p {
           grid-column: 1 / 4;
           grid-row: 2 / 2;
-          align-self: flex-end;
+          align-self: end;
+        }
+      }
+    }
+    &.green {
+      margin: 0 -180px 0 -60px;
+      padding: 0 180px 0 60px;
+      background-color: ${({ theme }) => theme.colors.green};
+      color: ${({ theme }) => theme.colors.backgroundLight};
+      .notrePhilo {
+        h2 {
+          grid-column: 1/8;
+          z-index: 1;
+          grid-row: 1/1;
+        }
+        .gatsby-image-wrapper {
+          grid-column: 2/6;
+          margin: -45px 0 30px;
+          grid-row: 2/2;
+          &:last-child {
+            grid-column: 5/7;
+            grid-row: 3/5;
+            margin: 0;
+          }
+        }
+        p {
+          grid-column: 2 / 5;
+          grid-row: 3/3;
+        }
+        .btn {
+          color: ${({ theme }) => theme.colors.backgroundLight};
+          grid-row: 4/4;
+          grid-column: 3/5;
+        }
+      }
+      .ilsParlent {
+        h2 {
+          grid-column: 3/8;
         }
       }
     }
@@ -148,6 +187,43 @@ const HomePage = ({ className }) => {
             monde et enrichi son savoir-faire, est revenue aux racines
             familiales, déterminée à perpétuer et à renouveler l'art vinicole.
           </p>
+        </section>
+      </section>
+      <section className="green">
+        <section className="notrePhilo grid">
+          <h2 className="sectionTitle">
+            Notre <br />
+            Philosophie
+          </h2>
+          <StaticImage
+            src="../../../assets/imgs/home/notrePhilo1.jpg"
+            alt=""
+            quality="90"
+            layout="fullWidth"
+          />
+          <p>
+            Notre philosophie se fonde sur un profond respect pour la nature, le
+            terroir, et l’humain. Guidés par l’approche biodynamique, nous
+            aspirons à une viticulture qui vit en harmonie avec son écosystème,
+            valorisant la biodiversité et l'équilibre environnemental.
+          </p>
+          <Link className="btn" to="/nos-pratiques/">
+            <img src={arrowBtn} alt="" />
+            Nos pratiques
+          </Link>
+          <StaticImage
+            src="../../../assets/imgs/home/notrePhilo2.jpg"
+            alt=""
+            quality="90"
+            layout="fullWidth"
+          />
+        </section>
+        <section className="ilsParlent grid">
+          <h2 className="sectionTitle">
+            Ils parlent <br />
+            de nous
+          </h2>
+          {/* <TestimonySlider /> */}
         </section>
       </section>
       <PostsSection />
