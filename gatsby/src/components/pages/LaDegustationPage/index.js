@@ -2,16 +2,18 @@ import * as React from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import styled from "styled-components";
 
-const StyledContainer = styled.div``;
+const StyledContainer = styled.div`
+  .gatsby-image-wrapper {
+    grid-column: 1 / span 7;
+  }
+`;
 
-const HomePage = () => {
+const LaDegustation = ({ className }) => {
   return (
-    <StyledContainer>
+    <StyledContainer className={className}>
       <h1>La Degustation</h1>
-      <StaticImage src="../../../assets/imgs/homeHeroImage.jpg" alt="" />
-      <StaticImage src="../../../assets/imgs/homeHeroImage.jpg" alt="" />
     </StyledContainer>
   );
 };
 
-export default HomePage;
+export default LaDegustation;
