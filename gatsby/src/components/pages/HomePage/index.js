@@ -5,13 +5,12 @@ import styled from "styled-components";
 import LogoLCGHero from "assets/logos/logo-lcg-hero.svg";
 import arrowBtn from "assets/icons/arrowBtn.svg";
 import { Link } from "gatsby";
-// import TestimonySlider from "components/pages/HomePage/TestimonySlider";
+import TestimonySlider from "components/pages/HomePage/TestimonySlider";
 
 const StyledContainer = styled.div`
   .heroImg {
     grid-column: 1 / span 7;
     grid-row: 1/1;
-    max-height: 90vh;
   }
   .heroContent {
     align-items: center;
@@ -57,7 +56,7 @@ const StyledContainer = styled.div`
         }
         .gatsby-image-wrapper {
           grid-column: 2 / 7;
-          margin-top: -30px;
+          margin: -30px 0 30px;
         }
         p {
           grid-column: 4 / 8;
@@ -115,6 +114,7 @@ const StyledContainer = styled.div`
       .ilsParlent {
         h2 {
           grid-column: 3/8;
+          margin-bottom: 30px;
         }
       }
     }
@@ -223,7 +223,7 @@ const HomePage = ({ className }) => {
             Ils parlent <br />
             de nous
           </h2>
-          {/* <TestimonySlider /> */}
+          <TestimonySlider />
         </section>
       </section>
       <PostsSection />

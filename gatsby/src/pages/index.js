@@ -1,17 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Layout from "components/Layout";
 import HomePage from "components/pages/HomePage";
 import NosPratiquesPage from "components/pages/NosPratiques";
 import LaDegustationPage from "components/pages/LaDegustationPage";
-import LCGlogo from "assets/logos/logo-lcg-desktop.svg";
+import LCGlogoDektop from "assets/logos/logo-lcg-desktop.svg";
+import LCGlogoMobile from "assets/logos/logo-lcg-mobile.svg";
 import styled from "styled-components";
 import { Router, Link, useLocation } from "@reach/router";
+import ToggleBtn from "components/Layout/ToggleBtn";
 
 const StyledMobileContainer = styled.div`
   display: block;
-
+  justify-content: space-between;
+  align-items: center;
   @media ${(props) => props.theme.minWidth.lg} {
     display: none;
+  }
+  .menuBtn {
   }
 `;
 const StyledDesktopContainer = styled.div`
@@ -92,15 +97,23 @@ const StyledLinkContainer = styled.div`
 
 const Index = () => {
   const { pathname } = useLocation();
+  const [isNavOpen, setNavOpen] = useState(false);
 
   const isNosPratiquesActive =
     pathname === "/nos-pratiques/" || pathname === "/la-degustation/";
   const isLadegustationActive = pathname === "/la-degustation/";
 
+  const toggleNav = () => {
+    setNavOpen(!isNavOpen);
+  };
+
   return (
     <Layout>
       <StyledMobileContainer>
-        <Link to="/">Home</Link>
+        <Link to="/">
+          <img src={LCGlogoMobile} alt="" />
+        </Link>
+        <ToggleBtn onClick={toggleNav} isNavOpen={isNavOpen} />
         <Link to="/nos-pratiques/">Nos Pratiques</Link>
         <Link to="/la-degustation/">La Dégustation</Link>
         <Router>
@@ -114,7 +127,7 @@ const Index = () => {
           <StyledLinkContainer className="homeNav">
             <div>
               <Link to="/">
-                <img src={LCGlogo} alt="" />
+                <img src={LCGlogoDektop} alt="" />
               </Link>
               <div>
                 <button>EN</button>

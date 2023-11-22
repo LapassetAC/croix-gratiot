@@ -1,8 +1,37 @@
-import * as React from "react";
+import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import Slider from "react-slick";
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import LePoint from "assets/logos/lePoint.svg";
+import arrowBtn from "assets/icons/arrowBtn.svg";
+
+const StyledContainer = styled.div`
+  grid-column: 1/8;
+  button {
+    display: none;
+    @media ${({ theme }) => theme.minWidth.sm} {
+      display: block;
+    }
+    &:first-child {
+      grid-column: 1/3;
+      justify-self: end;
+      transform: rotate(180deg);
+    }
+  }
+`;
+const StyledSlider = styled(Slider)`
+  grid-column: 3/7;
+  margin: 0 -15px;
+  .slick-slide {
+    & > div {
+      padding: 0 15px;
+    }
+    img {
+      margin-bottom: 30px;
+    }
+  }
+`;
 
 const sliderSettings = {
   slidesToShow: 2,
@@ -13,17 +42,40 @@ const sliderSettings = {
 };
 
 const TestimonySlider = () => {
+  const sliderRef = useRef();
+
   return (
-    <Slider {...sliderSettings}>
-      <div>
-        “La Croix Gratiot est un domaine familial qui a su tirer le meilleur
-        parti de son terroir unique.”
-      </div>
-      <div>
-        “La Croix Gratiot est un domaine familial qui a su tirer le meilleur
-        parti de son terroir unique.”
-      </div>
-    </Slider>
+    <StyledContainer className="grid">
+      <button onClick={() => sliderRef.current.slickPrev()}>
+        <img src={arrowBtn} alt="" />
+      </button>
+      <StyledSlider {...sliderSettings} ref={sliderRef}>
+        <div>
+          <img src={LePoint} alt="" />
+          <p>
+            “La Croix Gratiot est un domaine familial qui a su tirer le meilleur
+            parti de son terroir unique.”
+          </p>
+        </div>
+        <div>
+          <img src={LePoint} alt="" />
+          <p>
+            “La Croix Gratiot est un domaine familial qui a su tirer le meilleur
+            parti de son terroir unique.”
+          </p>
+        </div>
+        <div>
+          <img src={LePoint} alt="" />
+          <p>
+            “La Croix Gratiot est un domaine familial qui a su tirer le meilleur
+            parti de son terroir unique.”
+          </p>
+        </div>
+      </StyledSlider>
+      <button onClick={() => sliderRef.current.slickPrev()}>
+        <img src={arrowBtn} alt="" />
+      </button>
+    </StyledContainer>
   );
 };
 

@@ -92,11 +92,19 @@ button {
 
   .sectionTitle {
     font-family: Democratica;
-    font-size: 90px;
     font-style: normal;
     font-weight: 700;
-    line-height: 70px;
     text-transform: capitalize;
+    line-height: 36px;
+    font-size: 46px;
+    @media ${({ theme }) => theme.minWidth.md} {   
+      font-size: 72px;
+      line-height: 58px;
+    }   
+    @media ${({ theme }) => theme.minWidth.xl} {      
+      line-height: 70px;
+      font-size: 90px;
+    }
   }
 
   .btn {
