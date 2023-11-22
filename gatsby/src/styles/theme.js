@@ -7,6 +7,7 @@ const theme = {
     red: "#84283A",
     backgroundLight: "#E9E3DA",
     orange: "#EFAC66",
+    green: "#456547",
   },
   breakpoint: {
     xs: "375px",

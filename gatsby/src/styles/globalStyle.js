@@ -98,4 +98,13 @@ button {
     line-height: 70px;
     text-transform: capitalize;
   }
+
+  .btn {
+    font-family: "Moderat Mono", sans-serif;
+    font-size: 14px;
+    text-decoration-line: underline;
+    img {
+      margin-right: 15px;
+    }
+  }
 `;
