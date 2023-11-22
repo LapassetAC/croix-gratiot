@@ -18,7 +18,8 @@ const StyledContainer = styled.div`
     h1 {
       font-family: democratica;
       color: ${({ theme }) => theme.colors.backgroundLight};
-      font-size: 58px;
+      /* font-size: 58px; */
+      font-size: 4vw;
       &:first-child {
         grid-row: 0 / 3;
         grid-column: 2 / 8;
@@ -60,6 +61,23 @@ const StyledContainer = styled.div`
           grid-column: 4 / 8;
         }
       }
+      .anaisYves {
+        h2 {
+          grid-column: 6 / 8;
+          z-index: 1;
+          grid-row: 1 / 2;
+        }
+        .gatsby-image-wrapper {
+          grid-column: 4 / 7;
+          margin-top: -120px;
+          grid-row: 2 / 2;
+        }
+        p {
+          grid-column: 1 / 4;
+          grid-row: 2 / 2;
+          align-self: flex-end;
+        }
+      }
     }
   }
 `;
@@ -70,7 +88,7 @@ const HomePage = ({ className }) => {
       <section className="heroSection grid">
         <StaticImage
           className="heroImg"
-          src="../../../assets/imgs/homeHeroImage.jpg"
+          src="../../../assets/imgs/home/heroImage.jpg"
           alt=""
           layout="fullWidth"
           quality="90"
@@ -96,9 +114,10 @@ const HomePage = ({ className }) => {
             domaine
           </h2>
           <StaticImage
-            src="../../../assets/imgs/home/le-domaine.jpg"
+            src="../../../assets/imgs/home/leDomaine.jpg"
             alt=""
             quality="90"
+            layout="fullWidth"
           />
           <p>
             Au cœur des appellations Languedoc et Picpoul de Pinet, le domaine
@@ -106,6 +125,28 @@ const HomePage = ({ className }) => {
             sur les collines argilo-calcaires et bercé par les alizés marins
             chargés des senteurs de garrigue, notre vignoble s’étend sur 35
             hectares.
+          </p>
+        </section>
+        <section className="anaisYves grid">
+          <h2 className="sectionTitle">
+            Anaïs
+            <br />
+            et
+            <br />
+            Yves
+          </h2>
+          <StaticImage
+            src="../../../assets/imgs/home/anaisYves.jpg"
+            alt=""
+            quality="90"
+            layout="fullWidth"
+          />
+          <p>
+            Ici, la passion du vin se transmet de père en fille. Yves, avec son
+            frère Hugues, a cultivé les vignes sur les terres familiales avant
+            de fonder la cave en 2004. Sa fille, Anaïs, après avoir parcouru le
+            monde et enrichi son savoir-faire, est revenue aux racines
+            familiales, déterminée à perpétuer et à renouveler l'art vinicole.
           </p>
         </section>
       </section>

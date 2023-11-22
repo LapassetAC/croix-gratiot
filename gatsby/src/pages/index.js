@@ -16,6 +16,7 @@ const StyledMobileContainer = styled.div`
 `;
 const StyledDesktopContainer = styled.div`
   display: none;
+  position: absolute;
   @media ${(props) => props.theme.minWidth.lg} {
     display: flex;
     overflow-x: hidden;
