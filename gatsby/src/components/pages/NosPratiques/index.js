@@ -3,12 +3,16 @@ import { StaticImage } from "gatsby-plugin-image";
 import styled from "styled-components";
 
 const StyledContainer = styled.div`
-  padding: 15px;
+  padding: 0 15px;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   column-gap: 15px;
   @media ${({ theme }) => theme.minWidth.sm} {
     grid-template-rows: 1fr auto;
+  }
+  @media ${({ theme }) => theme.minWidth.lg} {
+    column-gap: 30px;
+    //row-gap: 30px;
   }
   .gatsby-image-wrapper {
     grid-column: 1 / span 7;
@@ -36,6 +40,9 @@ const StyledContainer = styled.div`
       grid-column: 3 / 5;
       margin: 15px 0 210px;
     }
+    @media ${({ theme }) => theme.minWidth.lg} {
+      margin: 30px 0 240px;
+    }
   }
   .team-image-1 {
     grid-column: 1 / 8;
@@ -43,6 +50,9 @@ const StyledContainer = styled.div`
     @media ${({ theme }) => theme.minWidth.sm} {
       grid-column: 2 / 8;
       margin-top: 15px;
+    }
+    @media ${({ theme }) => theme.minWidth.lg} {
+      margin-top: 30px;
     }
   }
   .cepages-image-1 {
@@ -54,6 +64,7 @@ const StyledContainer = styled.div`
   .cepages-image-2 {
     grid-column: 3 / 8;
     aspect-ratio: 200 / 167;
+    margin-top: 45px;
     @media ${({ theme }) => theme.minWidth.sm} {
       grid-column: 4 / 7;
       margin-top: 15px;
@@ -69,6 +80,7 @@ const StyledContainer = styled.div`
   .vinification-image-2 {
     grid-column: 1 / 8;
     margin-top: 45px;
+    aspect-ratio: 630 / 430;
     @media ${({ theme }) => theme.minWidth.sm} {
       grid-column: 4 / 8;
       grid-row: 13 / span 2;
@@ -122,6 +134,10 @@ const StyledContainer = styled.div`
       line-height: 55px;
       margin-top: 0;
     }
+    @media ${({ theme }) => theme.minWidth.lg} {
+      font-size: 90px;
+      line-height: 70px;
+    }
   }
 
   .base-text {
@@ -132,6 +148,11 @@ const StyledContainer = styled.div`
     @media ${({ theme }) => theme.minWidth.sm} {
       font-size: 16px;
       line-height: 24px;
+    }
+    @media ${({ theme }) => theme.minWidth.lg} {
+      font-size: 18px;
+      line-height: 27px;
+      margin-top: 30px;
     }
   }
   .base-text.hero-text {
@@ -146,11 +167,17 @@ const StyledContainer = styled.div`
       grid-row: 4 / 5;
       align-self: end;
     }
+    @media ${({ theme }) => theme.minWidth.lg} {
+      grid-column: 2 / 4;
+    }
   }
   .base-text.intro-2 {
     @media ${({ theme }) => theme.minWidth.sm} {
       grid-column: 5 / 8;
       grid-row: 5 / 6;
+    }
+    @media ${({ theme }) => theme.minWidth.lg} {
+      grid-column: 5 / 7;
     }
   }
   .base-text.cepages-1 {
@@ -172,6 +199,9 @@ const StyledContainer = styled.div`
       grid-row: 12 / 13;
       margin: 0 0 15px;
     }
+    @media ${({ theme }) => theme.minWidth.lg} {
+      grid-column: 3 / 6;
+    }
   }
   .base-text.vinification-2 {
     @media ${({ theme }) => theme.minWidth.sm} {
@@ -179,12 +209,18 @@ const StyledContainer = styled.div`
       grid-row: 15 / 16;
       margin: 15px 0 0;
     }
+    @media ${({ theme }) => theme.minWidth.lg} {
+      grid-column: 4 / 6;
+    }
   }
   .base-text.elevage {
     @media ${({ theme }) => theme.minWidth.sm} {
       grid-column: 2 / 6;
       grid-row: 21 / 22;
       margin: 15px 0 0;
+    }
+    @media ${({ theme }) => theme.minWidth.lg} {
+      margin: 30px 0 0;
     }
   }
 
@@ -203,6 +239,11 @@ const StyledContainer = styled.div`
         display: block;
       }
     }
+    @media ${({ theme }) => theme.minWidth.lg} {
+      font-size: 22px;
+      line-height: 35px;
+      margin: 240px 0;
+    }
   }
 
   .team-description {
@@ -213,6 +254,9 @@ const StyledContainer = styled.div`
     @media ${({ theme }) => theme.minWidth.sm} {
       font-size: 14px;
       line-height: 21px;
+    }
+    @media ${({ theme }) => theme.minWidth.lg} {
+      margin-top: 30px;
     }
   }
   .team-description.first {
@@ -231,11 +275,16 @@ const StyledContainer = styled.div`
   .sectionTitle {
     font-size: 45px;
     line-height: 40px;
-    margin: 120px 0 45px;
+    margin: 120px 0 30px;
     @media ${({ theme }) => theme.minWidth.sm} {
       font-size: 65px;
       line-height: 55px;
       margin: 210px 0 15px;
+    }
+    @media ${({ theme }) => theme.minWidth.lg} {
+      margin: 240px 0 30px;
+      font-size: 90px;
+      line-height: 70px;
     }
   }
   .sectionTitle.nos-cepages {
@@ -353,11 +402,8 @@ const NosPratiques = ({ className }) => {
         layout="fullWidth"
       />
       <p className="base-text cepages-2">
-        De retour de Nouvelle Zélande, Anaïs plante du Pinot Noir malgré un avis
-        général défavorable, concernant son adaptation à notre terroir… La
-        dégustation plutôt amusante nous incite à continuer. Depuis plusieurs
-        années, nous surgreffons certaines parcelles avec nos propres sélections
-        de bois.
+        Depuis plusieurs années, nous surgreffons certaines parcelles avec nos
+        propres sélections de bois.
       </p>
       <h2 className="sectionTitle la-vinification">
         <ul>
