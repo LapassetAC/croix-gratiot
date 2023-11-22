@@ -21,8 +21,10 @@ const StyledContainer = styled.div`
   }
 `;
 const StyledSlider = styled(Slider)`
-  grid-column: 3/7;
-  margin: 0 -15px;
+  @media ${({ theme }) => theme.minWidth.md} {
+    grid-column: 3/7;
+    margin: 0 -15px;
+  }
   .slick-slide {
     & > div {
       padding: 0 15px;

@@ -50,8 +50,10 @@ const StyledPage = styled.div`
     z-index: 3;
   }
   .pageContent {
-    width: calc(100% - 270px);
     background-color: ${({ theme }) => theme.colors.backgroundLight};
+    @media ${({ theme }) => theme.minWidth.md} {
+      width: calc(100% - 270px);
+    }
   }
 `;
 const StyledLinkContainer = styled.div`

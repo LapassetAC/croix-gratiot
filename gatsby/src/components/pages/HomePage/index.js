@@ -8,32 +8,37 @@ import { Link } from "gatsby";
 import TestimonySlider from "components/pages/HomePage/TestimonySlider";
 
 const StyledContainer = styled.div`
-  .heroImg {
-    grid-column: 1 / span 7;
-    grid-row: 1/1;
-  }
-  .heroContent {
-    align-items: center;
-    grid-column: 1 / 8;
-    grid-row: 1/1;
-    position: relative;
-    h1 {
-      font-family: democratica;
-      color: ${({ theme }) => theme.colors.backgroundLight};
-      font-size: 4vw;
-      &:first-child {
-        grid-row: 0 / 3;
-        grid-column: 2 / 8;
-      }
-      &:last-child {
-        grid-column: 5 / 8;
-        grid-row: 3/3;
-      }
+  .heroSection {
+    .heroImg {
+      grid-column: 1 / 8;
+      grid-row: 1/1;
     }
-    img {
-      grid-row: 2/3;
-      grid-column: 4 / 5;
-      width: 100%;
+    .heroContent {
+      align-items: center;
+      grid-column: 1 / 8;
+      grid-row: 1/1;
+      position: relative;
+      h1 {
+        font-family: democratica;
+        color: ${({ theme }) => theme.colors.backgroundLight};
+        font-size: 26px;
+        @media ${({ theme }) => theme.minWidth.md} {
+          font-size: 4vw;
+        }
+        &:first-child {
+          grid-row: 0 / 3;
+          grid-column: 2 / 8;
+        }
+        &:last-child {
+          grid-column: 5 / 8;
+          grid-row: 3/3;
+        }
+      }
+      img {
+        grid-row: 2/3;
+        grid-column: 4 / 5;
+        width: 100%;
+      }
     }
   }
   section:not(.heroSection) {
@@ -46,9 +51,11 @@ const StyledContainer = styled.div`
       line-height: 160%;
     }
     &.orange {
-      margin: 0 -180px 0 -60px;
-      padding: 0 180px 0 60px;
       background-color: ${({ theme }) => theme.colors.orange};
+      @media ${({ theme }) => theme.minWidth.md} {
+        margin: 0 -180px 0 -60px;
+        padding: 0 180px 0 60px;
+      }
       .leDomaine {
         h2 {
           grid-column: 3 / 8;
@@ -81,10 +88,12 @@ const StyledContainer = styled.div`
       }
     }
     &.green {
-      margin: 0 -180px 0 -60px;
-      padding: 0 180px 0 60px;
       background-color: ${({ theme }) => theme.colors.green};
       color: ${({ theme }) => theme.colors.backgroundLight};
+      @media ${({ theme }) => theme.minWidth.md} {
+        margin: 0 -180px 0 -60px;
+        padding: 0 180px 0 60px;
+      }
       .notrePhilo {
         h2 {
           grid-column: 1/8;
