@@ -29,11 +29,19 @@ export default createGlobalStyle`
 }
 
 body {
-  font-family: 'Moderat', sans-serif;
-  font-size: 18px;
-  line-height: 150%;
   background-color: ${(props) => props.theme.colors.backgroundLight};
   color: ${(props) => props.theme.colors.black};
+  font-family: "Moderat", sans-serif;
+  font-size: 14px;
+  line-height: 21px;
+  @media ${({ theme }) => theme.minWidth.sm} {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  @media ${({ theme }) => theme.minWidth.lg} {
+    font-size: 18px;
+    line-height: 27px;
+  }
 }
 
 a {
