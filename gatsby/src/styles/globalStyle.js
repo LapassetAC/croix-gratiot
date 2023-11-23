@@ -38,7 +38,7 @@ body {
     font-size: 16px;
     line-height: 24px;
   }
-  @media ${({ theme }) => theme.minWidth.lg} {
+  @media ${({ theme }) => theme.minWidth.xl} {
     font-size: 18px;
     line-height: 27px;
   }
@@ -103,7 +103,7 @@ button {
     text-transform: capitalize;
     line-height: 36px;
     font-size: 46px;
-    @media ${({ theme }) => theme.minWidth.md} {   
+    @media ${({ theme }) => theme.minWidth.sm} {   
       font-size: 72px;
       line-height: 58px;
     }   
@@ -115,8 +115,11 @@ button {
 
   .btn {
     font-family: "Moderat Mono", sans-serif;
-    font-size: 14px;
     text-decoration-line: underline;
+    font-size: 12px;
+    @media ${({ theme }) => theme.minWidth.sm} {
+      font-size: 14px;
+    }
     img {
       margin-right: 15px;
     }
@@ -124,8 +127,8 @@ button {
 
   .base-text {
     font-family: "Moderat", sans-serif;
-    font-size: 14px;
     line-height: 21px;
+    font-size: 14px;
     @media ${({ theme }) => theme.minWidth.sm} {
       font-size: 16px;
       line-height: 24px;
@@ -142,11 +145,11 @@ button {
     font-size: 16px;
     line-height: 150%;
     grid-column: 1/8;
-
-    @media ${({ theme }) => theme.minWidth.md} {
+    @media ${({ theme }) => theme.minWidth.sm} {
+      font-size: 20px;
     }
     @media ${({ theme }) => theme.minWidth.xl} {
-        grid-column: 2/7;
+      grid-column: 2/7;
       font-size: 22px;
       line-height: 160%;
     }

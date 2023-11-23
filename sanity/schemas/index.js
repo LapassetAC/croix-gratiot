@@ -1,4 +1,4 @@
-import post from './post'
+import news from './news'
 import wine from './wine'
 
-export const schemaTypes = [post, wine]
+export const schemaTypes = [news, wine]

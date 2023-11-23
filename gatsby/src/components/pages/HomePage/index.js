@@ -168,9 +168,63 @@ const StyledContainer = styled.div`
       .ilsParlent {
         h2 {
           grid-column: 1/8;
+          margin-bottom: 30px;
           @media ${({ theme }) => theme.minWidth.sm} {
             grid-column: 3/8;
             margin-bottom: 90px;
+          }
+        }
+      }
+    }
+    &.red {
+      background-color: ${({ theme }) => theme.colors.red};
+      color: ${({ theme }) => theme.colors.backgroundLight};
+      .unArt {
+        @media ${({ theme }) => theme.minWidth.sm} {
+          grid-template-rows: 1fr;
+        }
+        h2 {
+          grid-column: 3/8;
+          margin-bottom: 15px;
+          @media ${({ theme }) => theme.minWidth.sm} {
+            grid-column: 5/8;
+            grid-row: 1/1;
+            align-self: flex-end;
+          }
+          @media ${({ theme }) => theme.minWidth.xl} {
+            margin-bottom: 30px;
+          }
+        }
+        .gatsby-image-wrapper {
+          &:first-of-type {
+            grid-column: 1/8;
+            aspect-ratio: 1;
+            @media ${({ theme }) => theme.minWidth.sm} {
+              aspect-ratio: auto;
+              grid-column: 2/5;
+              grid-row: 1/3;
+              align-self: flex-end;
+              flex-grow: 1;
+            }
+          }
+          &:last-of-type {
+            grid-column: 1/6;
+            margin: 15px 0;
+            @media ${({ theme }) => theme.minWidth.sm} {
+              margin: 15px 0 0;
+              grid-column: 3/7;
+            }
+            @media ${({ theme }) => theme.minWidth.xl} {
+              margin: 30px 0 0;
+            }
+          }
+        }
+        p {
+          grid-column: 1/8;
+          @media ${({ theme }) => theme.minWidth.sm} {
+            grid-column: 5/8;
+            grid-row: 2/2;
+            align-self: end;
           }
         }
       }
@@ -285,7 +339,33 @@ const HomePage = ({ className }) => {
           <TestimonySlider />
         </section>
       </section>
-      <PostsSection />
+      <section className="red">
+        <section className="unArt grid">
+          <h2 className="sectionTitle">
+            Un art <br />
+            de vivre
+          </h2>
+          <StaticImage
+            src="../../../assets/imgs/home/unArtdeVivre1.jpg"
+            alt=""
+            quality="90"
+            layout="fullWidth"
+          />
+          <StaticImage
+            src="../../../assets/imgs/home/unArtdeVivre2.jpg"
+            alt=""
+            quality="90"
+            layout="fullWidth"
+          />
+          <p>
+            Sensible à l’art et à la musique, La Croix Gratiot prend plaisir à
+            éveiller les sens vers des émotions gustatives ou artistiques. Notre
+            domaine est un carrefour où s'assemblent convivialité et créativité
+            à travers des événements festifs et des collaborations artistiques.
+          </p>
+        </section>
+        <PostsSection />
+      </section>
     </StyledContainer>
   );
 };
