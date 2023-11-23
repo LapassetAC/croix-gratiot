@@ -22,7 +22,7 @@ const StyledContainer = styled.div`
         font-family: democratica;
         color: ${({ theme }) => theme.colors.backgroundLight};
         font-size: 26px;
-        @media ${({ theme }) => theme.minWidth.md} {
+        @media ${({ theme }) => theme.minWidth.sm} {
           font-size: 4vw;
         }
         &:first-child {
@@ -42,88 +42,136 @@ const StyledContainer = styled.div`
     }
   }
   section:not(.heroSection) {
-    padding: 135px 0;
-    &.intro {
-      font-family: Moderat Bold;
-      font-size: 22px;
-      text-align: center;
-      grid-column: 2 / 7;
-      line-height: 160%;
+    padding: 60px 0;
+    @media ${({ theme }) => theme.minWidth.sm} {
+      padding: 135px 0;
     }
-    &.orange {
-      background-color: ${({ theme }) => theme.colors.orange};
-      @media ${({ theme }) => theme.minWidth.md} {
+    &.orange,
+    &.green,
+    &.red {
+      margin: 0 -15px 0 -15px;
+      padding: 0 15px 0 15px;
+      @media ${({ theme }) => theme.minWidth.sm} {
         margin: 0 -180px 0 -60px;
         padding: 0 180px 0 60px;
       }
+    }
+
+    &.orange {
+      background-color: ${({ theme }) => theme.colors.orange};
       .leDomaine {
         h2 {
-          grid-column: 3 / 8;
           z-index: 1;
+          grid-column: 2/8;
+          @media ${({ theme }) => theme.minWidth.sm} {
+            grid-column: 3/8;
+            z-index: 1;
+          }
         }
         .gatsby-image-wrapper {
-          grid-column: 2 / 7;
-          margin: -30px 0 30px;
+          grid-column: 1/8;
+          margin: -15px 0 15px;
+          @media ${({ theme }) => theme.minWidth.sm} {
+            grid-column: 2/7;
+            margin: -30px 0 30px;
+          }
         }
         p {
-          grid-column: 4 / 8;
+          grid-column: 1/8;
+          @media ${({ theme }) => theme.minWidth.sm} {
+            grid-column: 4/8;
+          }
         }
       }
       .anaisYves {
         h2 {
-          grid-column: 6 / 8;
+          grid-column: 7/8;
           z-index: 1;
-          grid-row: 1 / 2;
+          @media ${({ theme }) => theme.minWidth.sm} {
+            grid-column: 6/8;
+            z-index: 1;
+            grid-row: 1/2;
+          }
         }
         .gatsby-image-wrapper {
-          grid-column: 4 / 7;
-          margin-top: -120px;
-          grid-row: 2 / 2;
-        }
-        p {
-          grid-column: 1 / 4;
-          grid-row: 2 / 2;
-          align-self: end;
-        }
-      }
-    }
-    &.green {
-      background-color: ${({ theme }) => theme.colors.green};
-      color: ${({ theme }) => theme.colors.backgroundLight};
-      @media ${({ theme }) => theme.minWidth.md} {
-        margin: 0 -180px 0 -60px;
-        padding: 0 180px 0 60px;
-      }
-      .notrePhilo {
-        h2 {
           grid-column: 1/8;
-          z-index: 1;
-          grid-row: 1/1;
-        }
-        .gatsby-image-wrapper {
-          grid-column: 2/6;
-          margin: -45px 0 30px;
-          grid-row: 2/2;
-          &:last-child {
-            grid-column: 5/7;
-            grid-row: 3/5;
-            margin: 0;
+          margin: -75px 0 15px;
+
+          @media ${({ theme }) => theme.minWidth.sm} {
+            grid-column: 4/7;
+            margin-top: -120px;
+            grid-row: 2/2;
           }
         }
         p {
-          grid-column: 2 / 5;
-          grid-row: 3/3;
+          grid-column: 1/8;
+          @media ${({ theme }) => theme.minWidth.sm} {
+            grid-column: 1 / 4;
+            grid-row: 2 / 2;
+            align-self: end;
+          }
+        }
+      }
+    }
+
+    &.green {
+      background-color: ${({ theme }) => theme.colors.green};
+      color: ${({ theme }) => theme.colors.backgroundLight};
+      .notrePhilo {
+        h2 {
+          grid-column: 1/8;
+          z-index: 2;
+          @media ${({ theme }) => theme.minWidth.sm} {
+            grid-column: 1/8;
+            z-index: 1;
+            grid-row: 1/1;
+          }
+        }
+        .gatsby-image-wrapper {
+          &.one {
+            grid-column: 1/8;
+            margin: -15px 0 15px;
+            @media ${({ theme }) => theme.minWidth.sm} {
+              grid-column: 2/6;
+              margin: -45px 0 30px;
+              grid-row: 2/2;
+            }
+          }
+          &.two {
+            grid-row: 3/3;
+            grid-column: 4/8;
+            margin-bottom: 15px;
+            @media ${({ theme }) => theme.minWidth.sm} {
+              grid-column: 5/7;
+              grid-row: 3/5;
+            }
+          }
+        }
+        p {
+          grid-column: 1/8;
+          @media ${({ theme }) => theme.minWidth.sm} {
+            grid-column: 2 / 5;
+            grid-row: 3/3;
+          }
         }
         .btn {
+          grid-column: 2/8;
+          margin-top: 30px;
           color: ${({ theme }) => theme.colors.backgroundLight};
-          grid-row: 4/4;
-          grid-column: 3/5;
+          @media ${({ theme }) => theme.minWidth.sm} {
+            margin-top: 0;
+            grid-row: 4/4;
+            grid-column: 3/5;
+          }
         }
       }
       .ilsParlent {
         h2 {
-          grid-column: 3/8;
-          margin-bottom: 90px;
+          grid-column: 1/8;
+          @media ${({ theme }) => theme.minWidth.sm} {
+            grid-column: 3/8;
+            margin-bottom: 90px;
+          }
         }
       }
     }
@@ -148,7 +196,7 @@ const HomePage = ({ className }) => {
         </div>
       </section>
       <div className="grid">
-        <section className="intro">
+        <section className="largeText">
           Entre bassin de Thau et collines de pins découvrez des vins bio issu
           d’un travail en famille, de père en fille, dans le respect de la
           nature.
@@ -209,6 +257,7 @@ const HomePage = ({ className }) => {
             alt=""
             quality="90"
             layout="fullWidth"
+            className="one"
           />
           <p>
             Notre philosophie se fonde sur un profond respect pour la nature, le
@@ -225,6 +274,7 @@ const HomePage = ({ className }) => {
             alt=""
             quality="90"
             layout="fullWidth"
+            className="two"
           />
         </section>
         <section className="ilsParlent grid">

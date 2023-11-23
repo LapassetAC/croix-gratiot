@@ -148,7 +148,7 @@ const Index = () => {
     }
     const handleResize = () => {
       const screenWidth = window.innerWidth;
-      screenWidth < 768 ? setIsMobile(true) : setIsMobile(false);
+      screenWidth < 1024 ? setIsMobile(true) : setIsMobile(false);
     };
     handleResize();
     window.addEventListener("resize", handleResize);
