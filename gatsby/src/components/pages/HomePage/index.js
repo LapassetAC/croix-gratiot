@@ -364,10 +364,7 @@ const HomePage = ({ className }) => {
             à travers des événements festifs et des collaborations artistiques.
           </p>
         </section>
-        <section className="unArt grid">
-          <h2 className="sectionTitle">Les actualités</h2>
-          <PostsSection />
-        </section>
+        <PostsSection />
       </section>
     </StyledContainer>
   );
