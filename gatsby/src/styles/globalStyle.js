@@ -115,8 +115,11 @@ button {
 
   .btn {
     font-family: "Moderat Mono", sans-serif;
-    font-size: 14px;
     text-decoration-line: underline;
+    font-size: 12px;
+    @media ${({ theme }) => theme.minWidth.sm} {
+      font-size: 14px;
+    }
     img {
       margin-right: 15px;
     }
@@ -124,8 +127,8 @@ button {
 
   .base-text {
     font-family: "Moderat", sans-serif;
-    font-size: 14px;
     line-height: 21px;
+    font-size: 14px;
     @media ${({ theme }) => theme.minWidth.sm} {
       font-size: 16px;
       line-height: 24px;
@@ -146,7 +149,7 @@ button {
       font-size: 20px;
     }
     @media ${({ theme }) => theme.minWidth.xl} {
-        grid-column: 2/7;
+      grid-column: 2/7;
       font-size: 22px;
       line-height: 160%;
     }
