@@ -135,4 +135,20 @@ button {
       line-height: 27px;
     }
   }
+
+  .largeText {
+    font-family: Moderat Bold;
+    text-align: center;
+    font-size: 16px;
+    line-height: 150%;
+    grid-column: 1/8;
+
+    @media ${({ theme }) => theme.minWidth.md} {
+    }
+    @media ${({ theme }) => theme.minWidth.xl} {
+        grid-column: 2/7;
+      font-size: 22px;
+      line-height: 160%;
+    }
+  }
 `;
