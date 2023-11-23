@@ -21,9 +21,10 @@ const StyledContainer = styled.div`
   }
 `;
 const StyledSlider = styled(Slider)`
-  @media ${({ theme }) => theme.minWidth.md} {
+  grid-column: 1/8;
+  margin: 0 -15px;
+  @media ${({ theme }) => theme.minWidth.sm} {
     grid-column: 3/7;
-    margin: 0 -15px;
   }
   .slick-slide {
     & > div {
@@ -41,6 +42,17 @@ const sliderSettings = {
   infinite: true,
   focusOnSelect: true,
   arrows: false,
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        centerMode: true,
+        centerPadding: "45px",
+      },
+    },
+  ],
 };
 
 const TestimonySlider = () => {

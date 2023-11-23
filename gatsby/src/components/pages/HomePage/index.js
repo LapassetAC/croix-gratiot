@@ -168,6 +168,7 @@ const StyledContainer = styled.div`
       .ilsParlent {
         h2 {
           grid-column: 1/8;
+          margin-bottom: 30px;
           @media ${({ theme }) => theme.minWidth.sm} {
             grid-column: 3/8;
             margin-bottom: 90px;
