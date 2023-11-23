@@ -10,12 +10,8 @@ import { Router, Link, useLocation } from "@reach/router";
 import ToggleBtn from "components/Layout/ToggleBtn";
 
 const StyledMobileNav = styled.div`
-  display: block;
   justify-content: space-between;
   align-items: center;
-  @media ${(props) => props.theme.minWidth.lg} {
-    display: none;
-  }
   header {
     background-color: ${({ theme }) => theme.colors.backgroundLight};
     z-index: 1;
@@ -57,14 +53,11 @@ const LinksContainer = styled.section`
   }
 `;
 const StyledDesktopNav = styled.div`
-  display: none;
   position: absolute;
-  @media ${(props) => props.theme.minWidth.lg} {
-    display: flex;
-    overflow-x: hidden;
-    width: 100vw;
-    margin-top: 30px;
-  }
+  display: flex;
+  overflow-x: hidden;
+  width: 100vw;
+  margin-top: 30px;
 `;
 const StyledPage = styled.div`
   transition: left 1s;
@@ -137,6 +130,7 @@ const StyledLinkContainer = styled.div`
 const Index = () => {
   const { pathname } = useLocation();
   const [isNavOpen, setNavOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(null);
 
   const isNosPratiquesActive =
     pathname === "/nos-pratiques/" || pathname === "/la-degustation/";
@@ -152,66 +146,78 @@ const Index = () => {
     } else {
       document.body.style.overflow = "scroll";
     }
+    const handleResize = () => {
+      const screenWidth = window.innerWidth;
+      screenWidth < 768 ? setIsMobile(true) : setIsMobile(false);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, [isNavOpen]);
 
   return (
     <Layout>
-      <StyledMobileNav>
-        <header>
-          <Link to="/">
-            <img src={LCGlogoMobile} alt="" />
-          </Link>
-          <ToggleBtn onClick={toggleNav} isNavOpen={isNavOpen} />
-        </header>
-        <LinksContainer isNavOpen={isNavOpen}>
-          <Link to="/nos-pratiques/">Nos Pratiques</Link>
-          <Link to="/la-degustation/">La Dégustation</Link>
-          <Link to="/nous-rencontrer/">Nous rencontrer</Link>
-          <div>
-            <button>EN</button>
-            <button>FR</button>
-          </div>
-        </LinksContainer>
-        <Router>
-          <HomePage className="mobilePage" path="/" />
-          <NosPratiquesPage path="/nos-pratiques/" />
-          <LaDegustationPage path="/la-degustation/" />
-        </Router>
-      </StyledMobileNav>
-      <StyledDesktopNav>
-        <StyledPage>
-          <StyledLinkContainer className="homeNav">
-            <div>
-              <Link to="/">
-                <img src={LCGlogoDektop} alt="" />
-              </Link>
-              <div>
-                <button>EN</button>
-                <button>FR</button>
-              </div>
-            </div>
-          </StyledLinkContainer>
-          <HomePage className="pageContent" />
-        </StyledPage>
-        <StyledPage isActive={isNosPratiquesActive}>
-          <StyledLinkContainer>
+      {isMobile ? (
+        <StyledMobileNav>
+          <header>
+            <Link to="/">
+              <img src={LCGlogoMobile} alt="" />
+            </Link>
+            <ToggleBtn onClick={toggleNav} isNavOpen={isNavOpen} />
+          </header>
+          <LinksContainer isNavOpen={isNavOpen}>
             <Link to="/nos-pratiques/">Nos Pratiques</Link>
-          </StyledLinkContainer>
-          <NosPratiquesPage className="pageContent" />
-        </StyledPage>
-        <StyledPage isActive={isLadegustationActive}>
-          <StyledLinkContainer>
             <Link to="/la-degustation/">La Dégustation</Link>
-          </StyledLinkContainer>
-          <LaDegustationPage className="pageContent" />
-        </StyledPage>
-        <StyledPage>
-          <StyledLinkContainer>
             <Link to="/nous-rencontrer/">Nous rencontrer</Link>
-          </StyledLinkContainer>
-          <LaDegustationPage className="pageContent" />
-        </StyledPage>
-      </StyledDesktopNav>
+            <div>
+              <button>EN</button>
+              <button>FR</button>
+            </div>
+          </LinksContainer>
+          <Router>
+            <HomePage className="mobilePage" path="/" />
+            <NosPratiquesPage path="/nos-pratiques/" />
+            <LaDegustationPage path="/la-degustation/" />
+          </Router>
+        </StyledMobileNav>
+      ) : (
+        <StyledDesktopNav>
+          <StyledPage>
+            <StyledLinkContainer className="homeNav">
+              <div>
+                <Link to="/">
+                  <img src={LCGlogoDektop} alt="" />
+                </Link>
+                <div>
+                  <button>EN</button>
+                  <button>FR</button>
+                </div>
+              </div>
+            </StyledLinkContainer>
+            <HomePage className="pageContent" />
+          </StyledPage>
+          <StyledPage isActive={isNosPratiquesActive}>
+            <StyledLinkContainer>
+              <Link to="/nos-pratiques/">Nos Pratiques</Link>
+            </StyledLinkContainer>
+            <NosPratiquesPage className="pageContent" />
+          </StyledPage>
+          <StyledPage isActive={isLadegustationActive}>
+            <StyledLinkContainer>
+              <Link to="/la-degustation/">La Dégustation</Link>
+            </StyledLinkContainer>
+            <LaDegustationPage className="pageContent" />
+          </StyledPage>
+          <StyledPage>
+            <StyledLinkContainer>
+              <Link to="/nous-rencontrer/">Nous rencontrer</Link>
+            </StyledLinkContainer>
+            <LaDegustationPage className="pageContent" />
+          </StyledPage>
+        </StyledDesktopNav>
+      )}
     </Layout>
   );
 };
