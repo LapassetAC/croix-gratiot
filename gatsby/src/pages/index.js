@@ -9,17 +9,54 @@ import styled from "styled-components";
 import { Router, Link, useLocation } from "@reach/router";
 import ToggleBtn from "components/Layout/ToggleBtn";
 
-const StyledMobileContainer = styled.div`
+const StyledMobileNav = styled.div`
   display: block;
   justify-content: space-between;
   align-items: center;
   @media ${(props) => props.theme.minWidth.lg} {
     display: none;
   }
-  .menuBtn {
+  header {
+    background-color: ${({ theme }) => theme.colors.backgroundLight};
+    z-index: 1;
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    height: 45px;
+    padding: 0 15px;
+  }
+  .mobilePage {
+    padding: 0 15px;
   }
 `;
-const StyledDesktopContainer = styled.div`
+const LinksContainer = styled.section`
+  transition: all ${(props) => props.theme.transitionTime}s;
+  visibility: ${(props) => (props.isNavOpen ? "visible" : "hidden")};
+  opacity: ${(props) => (props.isNavOpen ? "1" : "0")};
+  position: fixed;
+  bottom: 0;
+  top: 45px;
+  width: 100%;
+  padding: 0 15px;
+  background-color: ${({ theme }) => theme.colors.backgroundLight};
+  z-index: 2;
+  a,
+  div {
+    padding: 15px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.9px;
+    border-top: 1.5px solid ${({ theme }) => theme.colors.black};
+    line-height: normal;
+  }
+  button {
+    text-transform: uppercase;
+    margin-right: 15px;
+    letter-spacing: 0.9px;
+    font-size: 14px;
+  }
+`;
+const StyledDesktopNav = styled.div`
   display: none;
   position: absolute;
   @media ${(props) => props.theme.minWidth.lg} {
@@ -109,22 +146,39 @@ const Index = () => {
     setNavOpen(!isNavOpen);
   };
 
+  useEffect(() => {
+    if (isNavOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "scroll";
+    }
+  }, [isNavOpen]);
+
   return (
     <Layout>
-      <StyledMobileContainer>
-        <Link to="/">
-          <img src={LCGlogoMobile} alt="" />
-        </Link>
-        <ToggleBtn onClick={toggleNav} isNavOpen={isNavOpen} />
-        <Link to="/nos-pratiques/">Nos Pratiques</Link>
-        <Link to="/la-degustation/">La Dégustation</Link>
+      <StyledMobileNav>
+        <header>
+          <Link to="/">
+            <img src={LCGlogoMobile} alt="" />
+          </Link>
+          <ToggleBtn onClick={toggleNav} isNavOpen={isNavOpen} />
+        </header>
+        <LinksContainer isNavOpen={isNavOpen}>
+          <Link to="/nos-pratiques/">Nos Pratiques</Link>
+          <Link to="/la-degustation/">La Dégustation</Link>
+          <Link to="/nous-rencontrer/">Nous rencontrer</Link>
+          <div>
+            <button>EN</button>
+            <button>FR</button>
+          </div>
+        </LinksContainer>
         <Router>
-          <HomePage path="/" />
+          <HomePage className="mobilePage" path="/" />
           <NosPratiquesPage path="/nos-pratiques/" />
           <LaDegustationPage path="/la-degustation/" />
         </Router>
-      </StyledMobileContainer>
-      <StyledDesktopContainer>
+      </StyledMobileNav>
+      <StyledDesktopNav>
         <StyledPage>
           <StyledLinkContainer className="homeNav">
             <div>
@@ -157,7 +211,7 @@ const Index = () => {
           </StyledLinkContainer>
           <LaDegustationPage className="pageContent" />
         </StyledPage>
-      </StyledDesktopContainer>
+      </StyledDesktopNav>
     </Layout>
   );
 };

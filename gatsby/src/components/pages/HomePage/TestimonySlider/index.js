@@ -74,7 +74,7 @@ const TestimonySlider = () => {
           </p>
         </div>
       </StyledSlider>
-      <button onClick={() => sliderRef.current.slickPrev()}>
+      <button onClick={() => sliderRef.current.slickNext()}>
         <img src={arrowBtn} alt="" />
       </button>
     </StyledContainer>
