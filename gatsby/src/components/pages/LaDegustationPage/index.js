@@ -1,7 +1,9 @@
 import * as React from "react";
-import { StaticImage } from "gatsby-plugin-image";
+import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image";
 import styled from "styled-components";
 import { graphql, useStaticQuery } from "gatsby";
+import EUBioLogo from "assets/logos/EUBioLogo.svg";
+import FRBioLogo from "assets/logos/FRBioLogo.svg";
 
 const StyledContainer = styled.div`
   padding: 15px;
@@ -46,10 +48,20 @@ const LaDegustation = ({ className }) => {
           nodes {
             title
             category
-            productImage
-            portraitImage
             certification
             cepages
+            productImage {
+              asset {
+                url
+                gatsbyImageData
+              }
+            }
+            portraitImage {
+              asset {
+                url
+                gatsbyImageData
+              }
+            }
           }
         }
       }
@@ -77,9 +89,24 @@ const LaDegustation = ({ className }) => {
       <section className="blanc">
         <ul>
           {wines.map((wine, i) => {
+            const productImage = getImage(
+              wine.productImage.asset.gatsbyImageData
+            );
             return (
               <li key={i}>
+                <GatsbyImage
+                  image={productImage}
+                  alt={wine.title}
+                  layout="fullWidth"
+                />
                 <div>{wine.title}</div>
+                {wine.certification && (
+                  <div className="bio-logos">
+                    <img src={EUBioLogo} alt="Certification" />
+                    <img src={FRBioLogo} alt="Certification" />
+                  </div>
+                )}
+                <div>{wine.cepages}</div>
               </li>
             );
           })}
