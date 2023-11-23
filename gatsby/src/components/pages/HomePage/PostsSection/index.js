@@ -16,7 +16,6 @@ const PostsSection = () => {
   );
 
   let posts = data.allSanityPost.nodes;
-  console.log(posts);
 
   return (
     <>

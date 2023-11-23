@@ -1,6 +1,7 @@
 import * as React from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import styled from "styled-components";
+import { graphql, useStaticQuery } from "gatsby";
 
 const StyledContainer = styled.div`
   padding: 15px;
@@ -31,13 +32,32 @@ const StyledContainer = styled.div`
       line-height: 40px;
       grid-column: 1 / span 7;
     }
-    .base-text.hero {
+    .hero {
       grid-column: 1 / span 7;
     }
   }
 `;
 
 const LaDegustation = ({ className }) => {
+  const data = useStaticQuery(
+    graphql`
+      query {
+        allSanityWine {
+          nodes {
+            title
+            category
+            productImage
+            portraitImage
+            certification
+            cepages
+          }
+        }
+      }
+    `
+  );
+
+  let wines = data.allSanityWine.nodes;
+
   return (
     <StyledContainer className={className}>
       <section className="hero-section">
@@ -49,10 +69,21 @@ const LaDegustation = ({ className }) => {
           quality="90"
         />
         <h1>La dégustation</h1>
-        <p className="base-text hero">
+        <p className="hero">
           Explorez notre palette de vins où chaque cuvée compose sa propre
           musique.
         </p>
+      </section>
+      <section className="blanc">
+        <ul>
+          {wines.map((wine, i) => {
+            return (
+              <li key={i}>
+                <div>{wine.title}</div>
+              </li>
+            );
+          })}
+        </ul>
       </section>
     </StyledContainer>
   );

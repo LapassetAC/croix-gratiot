@@ -125,7 +125,6 @@ const StyledContainer = styled.div`
   }
 
   .title,
-  .base-text,
   .large-text,
   .team-description,
   .sectionTitle {
@@ -152,13 +151,13 @@ const StyledContainer = styled.div`
     }
   }
 
-  .base-text.hero-text {
+  .hero-text {
     @media ${({ theme }) => theme.minWidth.sm} {
       grid-column: 4 / 8;
       align-self: end;
     }
   }
-  .base-text.intro-1 {
+  .intro-1 {
     @media ${({ theme }) => theme.minWidth.sm} {
       grid-column: 1 / 4;
       grid-row: 2;
@@ -168,7 +167,7 @@ const StyledContainer = styled.div`
       grid-column: 2 / 4;
     }
   }
-  .base-text.intro-2 {
+  .intro-2 {
     @media ${({ theme }) => theme.minWidth.sm} {
       grid-column: 5 / 8;
     }
@@ -176,20 +175,20 @@ const StyledContainer = styled.div`
       grid-column: 5 / 7;
     }
   }
-  .base-text.cepages-1 {
+  .cepages-1 {
     @media ${({ theme }) => theme.minWidth.sm} {
       grid-column: 5 / 8;
       grid-row: 2;
       margin-top: 0;
     }
   }
-  .base-text.cepages-2 {
+  .cepages-2 {
     @media ${({ theme }) => theme.minWidth.sm} {
       grid-column: 1 / 4;
       grid-row: 3;
     }
   }
-  .base-text.vinification-1 {
+  .vinification-1 {
     @media ${({ theme }) => theme.minWidth.sm} {
       grid-column: 3 / 7;
       grid-row: 2;
@@ -198,7 +197,7 @@ const StyledContainer = styled.div`
       grid-column: 3 / 6;
     }
   }
-  .base-text.vinification-2 {
+  .vinification-2 {
     @media ${({ theme }) => theme.minWidth.sm} {
       grid-column: 4 / 7;
       grid-row: 5 / 6;
@@ -208,7 +207,7 @@ const StyledContainer = styled.div`
       grid-column: 4 / 6;
     }
   }
-  .base-text.elevage {
+  .elevage {
     @media ${({ theme }) => theme.minWidth.sm} {
       grid-column: 2 / 6;
       grid-row: 4 / 5;
@@ -313,7 +312,7 @@ const NosPratiques = ({ className }) => {
             <li>biodynamique</li>
           </ul>
         </h1>
-        <p className="base-text hero-text">
+        <p className="hero-text">
           <ul>
             <li>
               Cette approche, basée sur de l’observation, nous rapproche encore
@@ -341,7 +340,7 @@ const NosPratiques = ({ className }) => {
           alt="nosPratiquesIntroImage1"
           layout="fullWidth"
         />
-        <p className="base-text intro-1">
+        <p className="intro-1">
           Attaché au maintien de la biodiversité, nous plantons des haies multi
           essences en bordure de parcelles et sur les berges du ruisseau qui
           serpente le domaine. Nous avons également fait un essai dans une
@@ -354,7 +353,7 @@ const NosPratiques = ({ className }) => {
           alt="nosPratiquesIntroImage2"
           layout="fullWidth"
         />
-        <p className="base-text intro-2">
+        <p className="intro-2">
           Après les vendanges, aux premières pluies nous enherbons une partie du
           vignoble pour maintenir l’activité dans le sol.
         </p>
@@ -386,7 +385,7 @@ const NosPratiques = ({ className }) => {
           alt="cepagesImage1"
           layout="fullWidth"
         />
-        <p className="base-text cepages-1">
+        <p className="cepages-1">
           Piquepoul Blanc, Roussanne, Bourboulenc, Viognier, Sauvignon et Muscat
           petits grains composent notre encépagement blanc. Pour le rouge, nous
           cultivons de la Syrah, du Grenache Noir, du Mourvèdre, Piquepoul Noir,
@@ -398,7 +397,7 @@ const NosPratiques = ({ className }) => {
           alt="cepagesImage2"
           layout="fullWidth"
         />
-        <p className="base-text cepages-2">
+        <p className="cepages-2">
           Depuis plusieurs années, nous surgreffons certaines parcelles avec nos
           propres sélections de bois.
         </p>
@@ -416,7 +415,7 @@ const NosPratiques = ({ className }) => {
           alt="VinificationImage1"
           layout="fullWidth"
         />
-        <p className="base-text vinification-1">
+        <p className="vinification-1">
           La majorité des vendanges est mécanique de nuit, pour certaines cuvées
           elle est manuelle. Chaque millésime est tellement différent, il faut
           savoir observer, goûter, décider de la bonne date de récolte et se
@@ -429,7 +428,7 @@ const NosPratiques = ({ className }) => {
           alt="VinificationImage2"
           layout="fullWidth"
         />
-        <p className="base-text vinification-2">
+        <p className="vinification-2">
           Les vendanges sont une période super excitante, une année de travail à
           la vigne pour obtenir des raisins, qui rentrent enfin à l’abris pour
           se transformer en vin. Les odeurs de fruits se propagent partout.
@@ -458,7 +457,7 @@ const NosPratiques = ({ className }) => {
           alt="ElevageImage2"
           layout="fullWidth"
         />
-        <p className="base-text elevage">
+        <p className="elevage">
           Chaque année de nouveaux contenants sont achetés pour permettre une
           rotation mais aussi pour réaliser des expérimentations. Depuis 2012,
           nous réalisons des élevages en dolia de terre cuite, céramique et
