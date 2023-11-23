@@ -123,7 +123,7 @@ const StyledContainer = styled.div`
       .ilsParlent {
         h2 {
           grid-column: 3/8;
-          margin-bottom: 30px;
+          margin-bottom: 90px;
         }
       }
     }
