@@ -1,6 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 import ModeratMedium from "../assets/fonts/Moderat-Medium.woff2";
 import ModeratBold from "../assets/fonts/Moderat-Bold.woff2";
+import ModeratBoldItalic from "../assets/fonts/Moderat-Bold-Italic.woff2";
 import ModeratMonoMedium from "../assets/fonts/Moderat-Mono-Medium.woff2";
 import ModeratMonoLight from "../assets/fonts/Moderat-Mono-Light.woff2";
 import Democratica from "../assets/fonts/Democratica.woff";
@@ -13,6 +14,10 @@ export default createGlobalStyle`
  @font-face {
     font-family: 'Moderat Bold';
     src: url(${ModeratBold}) format("woff2");
+  }
+ @font-face {
+    font-family: 'Moderat Bold Italic';
+    src: url(${ModeratBoldItalic}) format("woff2");
   }
   @font-face {
     font-family: 'Moderat Mono';
