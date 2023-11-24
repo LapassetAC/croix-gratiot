@@ -10,13 +10,6 @@ import winesData from "data/winesData";
 const StyledContainer = styled.div`
   padding: 15px;
 
-  .grid {
-    gap: 15px;
-    @media ${(props) => props.theme.minWidth.xl} {
-      grid-column-gap: 30px;
-    }
-  }
-
   .gatsby-image-wrapper {
     grid-column: 1 / span 7;
   }
