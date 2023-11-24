@@ -14,7 +14,7 @@ const StyledMobileNav = styled.div`
   align-items: center;
   header {
     background-color: ${({ theme }) => theme.colors.backgroundLight};
-    z-index: 1;
+    z-index: 2;
     position: sticky;
     top: 0;
     display: flex;
