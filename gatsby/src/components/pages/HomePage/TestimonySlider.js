@@ -1,11 +1,10 @@
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import LePoint from "assets/logos/lePoint.svg";
-import arrowBtn from "assets/icons/arrowBtn.svg";
-
+import ArrowBtn from "components/global/ArrowBtn";
 const StyledContainer = styled.div`
   grid-column: 1/8;
   button {
@@ -64,7 +63,7 @@ const TestimonySlider = () => {
   return (
     <StyledContainer className="grid">
       <button onClick={() => sliderRef.current.slickPrev()}>
-        <img src={arrowBtn} alt="" />
+        <ArrowBtn />
       </button>
       <StyledSlider {...sliderSettings} ref={sliderRef}>
         <div>
@@ -90,7 +89,7 @@ const TestimonySlider = () => {
         </div>
       </StyledSlider>
       <button onClick={() => sliderRef.current.slickNext()}>
-        <img src={arrowBtn} alt="" />
+        <ArrowBtn />
       </button>
     </StyledContainer>
   );
