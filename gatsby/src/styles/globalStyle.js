@@ -2,6 +2,7 @@ import { createGlobalStyle } from "styled-components";
 import ModeratMedium from "../assets/fonts/Moderat-Medium.woff2";
 import ModeratBold from "../assets/fonts/Moderat-Bold.woff2";
 import ModeratMonoMedium from "../assets/fonts/Moderat-Mono-Medium.woff2";
+import ModeratMonoLight from "../assets/fonts/Moderat-Mono-Light.woff2";
 import Democratica from "../assets/fonts/Democratica.woff";
 
 export default createGlobalStyle`
@@ -17,7 +18,10 @@ export default createGlobalStyle`
     font-family: 'Moderat Mono';
     src: url(${ModeratMonoMedium}) format("woff2");
   }
-
+  @font-face {
+    font-family: 'Moderat Mono Light';
+    src: url(${ModeratMonoLight}) format("woff2");
+  }
   @font-face {
     font-family: 'Democratica';
     src: url(${Democratica}) format("woff");

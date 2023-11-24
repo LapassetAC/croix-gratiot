@@ -28,7 +28,10 @@ const StyledSlider = styled(Slider)`
   }
   .slick-slide {
     & > div {
-      padding: 0 15px;
+      padding: 0 7.5px;
+      @media ${({ theme }) => theme.minWidth.sm} {
+        padding: 0 15px;
+      }
     }
     img {
       margin-bottom: 30px;
