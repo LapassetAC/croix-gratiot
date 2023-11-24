@@ -1,23 +1,27 @@
 import * as React from "react";
 import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image";
-import styled from "styled-components";
+import { styled } from "styled-components";
 import { graphql, useStaticQuery } from "gatsby";
 import EUBioLogo from "assets/logos/EUBioLogo.svg";
 import FRBioLogo from "assets/logos/FRBioLogo.svg";
+import winesData from "data/winesData";
 
 const StyledContainer = styled.div`
   padding: 15px;
 
-  section {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
+  .grid {
     gap: 15px;
+    @media ${(props) => props.theme.minWidth.xl} {
+      grid-column-gap: 30px;
+    }
+  }
+
+  section {
     margin-bottom: 120px;
     @media ${({ theme }) => theme.minWidth.sm} {
       margin-bottom: 210px;
     }
-    @media ${({ theme }) => theme.minWidth.lg} {
-      gap: 30px;
+    @media ${({ theme }) => theme.minWidth.xl} {
       margin-bottom: 240px;
     }
   }
@@ -68,11 +72,11 @@ const LaDegustation = ({ className }) => {
     `
   );
 
-  let wines = data.allSanityWine.nodes;
+  const wines = data.allSanityWine.nodes;
 
   return (
     <StyledContainer className={className}>
-      <section className="hero-section">
+      <section className="hero-section grid">
         <StaticImage
           className="degustationHeroImage"
           src="../../../assets/imgs/degustation/degustationHeroImage.png"
@@ -86,32 +90,37 @@ const LaDegustation = ({ className }) => {
           musique.
         </p>
       </section>
-      <section className="blanc">
-        <ul>
-          {wines.map((wine, i) => {
-            const productImage = getImage(
-              wine.productImage.asset.gatsbyImageData
-            );
-            return (
-              <li key={i}>
-                <GatsbyImage
-                  image={productImage}
-                  alt={wine.title}
-                  layout="fullWidth"
-                />
-                <div>{wine.title}</div>
-                {wine.certification && (
-                  <div className="bio-logos">
-                    <img src={EUBioLogo} alt="Certification" />
-                    <img src={FRBioLogo} alt="Certification" />
-                  </div>
-                )}
-                <div>{wine.cepages}</div>
-              </li>
-            );
-          })}
-        </ul>
-      </section>
+      {winesData.map(({ category, title, quote, color }, i) => (
+        <section key={category} className={`${category} grid`}>
+          <h2 className="sectionTitle">{title}</h2>
+          <ul>
+            {wines
+              .filter((wine) => wine.category === category)
+              .map((wine, i) => {
+                const productImage = getImage(
+                  wine.productImage.asset.gatsbyImageData
+                );
+                return (
+                  <li key={i}>
+                    <GatsbyImage
+                      image={productImage}
+                      alt={wine.title}
+                      layout="fullWidth"
+                    />
+                    <div>{wine.title}</div>
+                    {wine.certification && (
+                      <div className="bio-logos">
+                        <img src={EUBioLogo} alt="Certification" />
+                        <img src={FRBioLogo} alt="Certification" />
+                      </div>
+                    )}
+                    <div>{wine.cepages}</div>
+                  </li>
+                );
+              })}
+          </ul>
+        </section>
+      ))}
     </StyledContainer>
   );
 };
