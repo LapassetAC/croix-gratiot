@@ -3,6 +3,7 @@ import ModeratMedium from "../assets/fonts/Moderat-Medium.woff2";
 import ModeratBold from "../assets/fonts/Moderat-Bold.woff2";
 import ModeratMonoMedium from "../assets/fonts/Moderat-Mono-Medium.woff2";
 import ModeratMonoLight from "../assets/fonts/Moderat-Mono-Light.woff2";
+import ModeratMonoBold from "../assets/fonts/Moderat-Mono-Bold.woff2";
 import Democratica from "../assets/fonts/Democratica.woff";
 
 export default createGlobalStyle`
@@ -21,6 +22,10 @@ export default createGlobalStyle`
   @font-face {
     font-family: 'Moderat Mono Light';
     src: url(${ModeratMonoLight}) format("woff2");
+  }
+  @font-face {
+    font-family: 'Moderat Mono Bold';
+    src: url(${ModeratMonoBold}) format("woff2");
   }
   @font-face {
     font-family: 'Democratica';
@@ -94,9 +99,9 @@ button {
   .grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    grid-column-gap: 15px;
+    grid-gap: 15px;
   @media ${(props) => props.theme.minWidth.xl} {
-    grid-column-gap: 30px;
+    grid-gap: 30px;
   } 
 }
 

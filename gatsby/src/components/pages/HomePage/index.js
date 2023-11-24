@@ -3,7 +3,7 @@ import { StaticImage } from "gatsby-plugin-image";
 import PostsSection from "./PostsSection";
 import styled from "styled-components";
 import LogoLCGHero from "assets/logos/logo-lcg-hero.svg";
-import arrowBtn from "assets/icons/arrowBtn.svg";
+import ArrowBtn from "components/global/ArrowBtn";
 import { Link } from "gatsby";
 import TestimonySlider from "./TestimonySlider";
 import NosVinsSection from "./NosVinsSection";
@@ -321,7 +321,7 @@ const HomePage = ({ className }) => {
             valorisant la biodiversité et l'équilibre environnemental.
           </p>
           <Link className="btn" to="/nos-pratiques/">
-            <img src={arrowBtn} alt="" />
+            <ArrowBtn />
             Nos pratiques
           </Link>
           <StaticImage

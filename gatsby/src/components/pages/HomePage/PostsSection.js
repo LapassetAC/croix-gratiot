@@ -2,7 +2,7 @@ import * as React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import styled from "styled-components";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import arrowBtn from "assets/icons/arrowBtn.svg";
+import ArrowBtn from "components/global/ArrowBtn";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -173,7 +173,7 @@ const PostsSection = () => {
         <GatsbyImage image={getGatsbyImage} alt={text} />
         <p>{text}</p>
         <a href={newsUrl} target="_blank" rel="noreferrer" className="btn">
-          <img src={arrowBtn} alt="" />
+          <ArrowBtn />
           Voir plus
         </a>
       </StyledNew>
@@ -197,7 +197,7 @@ const PostsSection = () => {
           rel="noreferrer"
           className="btn"
         >
-          <img src={arrowBtn} alt="" />
+          <ArrowBtn />
           Voir plus
         </a>
       </StyledEvent>
