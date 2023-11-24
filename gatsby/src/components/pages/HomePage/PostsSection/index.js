@@ -75,6 +75,60 @@ const StyledNew = styled.div`
     aspect-ratio: 1;
   }
 `;
+const StyledEvent = styled.div`
+  grid-column: 1/8;
+  margin-bottom: 60px;
+  align-items: start;
+  @media ${({ theme }) => theme.minWidth.sm} {
+    margin-bottom: 15px;
+  }
+  @media ${({ theme }) => theme.minWidth.xl} {
+    margin-bottom: 30px;
+  }
+  .gatsby-image-wrapper {
+    grid-column: 1/8;
+    @media ${({ theme }) => theme.minWidth.sm} {
+      grid-column: 1/5;
+      grid-row: 1/6;
+    }
+  }
+  h3 {
+    font-family: Moderat Bold;
+    grid-column: 1/8;
+    font-size: 20px;
+    text-transform: uppercase;
+    line-height: 100%;
+    margin: 15px 0 5px;
+    @media ${({ theme }) => theme.minWidth.sm} {
+      grid-column: 5/8;
+      margin: 0 0 5px;
+    }
+  }
+  aside {
+    grid-column: 1/8;
+    font-family: Moderat Mono Light;
+    line-height: 150%;
+    @media ${({ theme }) => theme.minWidth.sm} {
+      grid-column: 5/8;
+    }
+  }
+  p {
+    grid-column: 1/8;
+    margin: 15px 0;
+    @media ${({ theme }) => theme.minWidth.sm} {
+      grid-column: 5/8;
+      margin: 15px 0 60px;
+    }
+  }
+  a {
+    grid-column: 2/8;
+    color: ${({ theme }) => theme.colors.backgroundLight};
+    @media ${({ theme }) => theme.minWidth.sm} {
+      grid-column: 5/8;
+      margin-left: 30px;
+    }
+  }
+`;
 
 const PostsSection = () => {
   const data = useStaticQuery(
@@ -91,11 +145,26 @@ const PostsSection = () => {
             }
           }
         }
+        allSanityEvents(limit: 1, sort: { date: DESC }) {
+          nodes {
+            title
+            date(formatString: "DD MMMM YYYY", locale: "fr")
+            description
+            eventUrl
+            thumbImg {
+              asset {
+                gatsbyImageData
+              }
+            }
+          }
+        }
       }
     `
   );
 
-  let news = data.allSanityNews.nodes;
+  const news = data.allSanityNews.nodes;
+  const event = data.allSanityEvents.nodes[0];
+  const getEventImg = getImage(event.thumbImg.asset);
 
   const newsRender = news.map(({ text, thumbImg, newsUrl }) => {
     const getGatsbyImage = getImage(thumbImg.asset);
@@ -117,6 +186,21 @@ const PostsSection = () => {
         Les
         <br /> actualités
       </h2>
+      <StyledEvent className="grid">
+        <GatsbyImage image={getEventImg} alt={event.title} />
+        <h3>{event.title}</h3>
+        <aside>{event.date}</aside>
+        <p>{event.description}</p>
+        <a
+          href={event.eventUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="btn"
+        >
+          <img src={arrowBtn} alt="" />
+          Voir plus
+        </a>
+      </StyledEvent>
       <StyledDesktop className="grid">{newsRender}</StyledDesktop>
       <StyledMobile {...sliderSettings}>{newsRender}</StyledMobile>
     </StyledContainer>

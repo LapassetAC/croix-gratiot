@@ -5,7 +5,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import LePoint from "assets/logos/lePoint.svg";
 
-
 const StyledSlider = styled(Slider)`
   grid-column: 1/8;
   margin: 0 -15px;
@@ -45,29 +44,29 @@ const NewsSlider = () => {
   const sliderRef = useRef();
 
   return (
-      <StyledSlider {...sliderSettings} ref={sliderRef}>
-        <div>
-          <img src={LePoint} alt="" />
-          <p>
-            “La Croix Gratiot est un domaine familial qui a su tirer le meilleur
-            parti de son terroir unique.”
-          </p>
-        </div>
-        <div>
-          <img src={LePoint} alt="" />
-          <p>
-            “La Croix Gratiot est un domaine familial qui a su tirer le meilleur
-            parti de son terroir unique.”
-          </p>
-        </div>
-        <div>
-          <img src={LePoint} alt="" />
-          <p>
-            “La Croix Gratiot est un domaine familial qui a su tirer le meilleur
-            parti de son terroir unique.”
-          </p>
-        </div>
-      </StyledSlider>
+    <StyledSlider {...sliderSettings} ref={sliderRef}>
+      <div>
+        <img src={LePoint} alt="" />
+        <p>
+          “La Croix Gratiot est un domaine familial qui a su tirer le meilleur
+          parti de son terroir unique.”
+        </p>
+      </div>
+      <div>
+        <img src={LePoint} alt="" />
+        <p>
+          “La Croix Gratiot est un domaine familial qui a su tirer le meilleur
+          parti de son terroir unique.”
+        </p>
+      </div>
+      <div>
+        <img src={LePoint} alt="" />
+        <p>
+          “La Croix Gratiot est un domaine familial qui a su tirer le meilleur
+          parti de son terroir unique.”
+        </p>
+      </div>
+    </StyledSlider>
   );
 };
 
