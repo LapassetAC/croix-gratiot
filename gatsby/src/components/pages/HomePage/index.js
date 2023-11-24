@@ -5,7 +5,8 @@ import styled from "styled-components";
 import LogoLCGHero from "assets/logos/logo-lcg-hero.svg";
 import arrowBtn from "assets/icons/arrowBtn.svg";
 import { Link } from "gatsby";
-import TestimonySlider from "components/pages/HomePage/TestimonySlider";
+import TestimonySlider from "./TestimonySlider";
+import NosVinsSection from "./NosVinsSection";
 
 const StyledContainer = styled.div`
   .heroSection {
@@ -366,6 +367,7 @@ const HomePage = ({ className }) => {
         </section>
         <PostsSection />
       </section>
+      <NosVinsSection />
     </StyledContainer>
   );
 };
