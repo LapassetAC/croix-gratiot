@@ -5,7 +5,7 @@ const winesData = [
     category: "blanc",
     title: "Le\nParadis\nBlanc",
     quote:
-      "Je m'en irai dormir dans le paradis blanc\nOù les nuits sont si longues qu'on en oublie le temps\nTout seul avec le vent\nComme dans mes rêves d'enfant",
+      "Je m'en irai dormir dans le paradis blanc\nOù les nuits sont si longues\nqu'on en oublie le temps\nTout seul avec le vent\nComme dans mes rêves d'enfant",
     color: theme.colors.yellow,
   },
   {
