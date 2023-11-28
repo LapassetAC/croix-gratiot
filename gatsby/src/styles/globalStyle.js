@@ -131,6 +131,7 @@ button {
     font-family: "Moderat Mono", sans-serif;
     text-decoration-line: underline;
     font-size: 12px;
+    display: flex;
     @media ${({ theme }) => theme.minWidth.sm} {
       font-size: 14px;
     }

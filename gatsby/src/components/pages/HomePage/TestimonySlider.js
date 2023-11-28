@@ -4,7 +4,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import LePoint from "assets/logos/lePoint.svg";
-import ArrowBtn from "components/global/ArrowBtn";
+import Arrow from "assets/icons/Arrow";
+
 const StyledContainer = styled.div`
   grid-column: 1/8;
   button {
@@ -16,6 +17,9 @@ const StyledContainer = styled.div`
       grid-column: 1/3;
       justify-self: end;
       transform: rotate(180deg);
+    }
+    svg {
+      fill: ${({ theme }) => theme.colors.backgroundLight};
     }
   }
 `;
@@ -63,7 +67,7 @@ const TestimonySlider = () => {
   return (
     <StyledContainer className="grid">
       <button onClick={() => sliderRef.current.slickPrev()}>
-        <ArrowBtn />
+        <Arrow />
       </button>
       <StyledSlider {...sliderSettings} ref={sliderRef}>
         <div>
@@ -89,7 +93,7 @@ const TestimonySlider = () => {
         </div>
       </StyledSlider>
       <button onClick={() => sliderRef.current.slickNext()}>
-        <ArrowBtn />
+        <Arrow />
       </button>
     </StyledContainer>
   );

@@ -10,7 +10,6 @@ import "slick-carousel/slick/slick-theme.css";
 const StyledContainer = styled.section`
   h2 {
     grid-column: 2/8;
-    margin-bottom: 15px;
   }
 `;
 const StyledDesktop = styled.div`
@@ -80,10 +79,7 @@ const StyledEvent = styled.div`
   margin-bottom: 60px;
   align-items: start;
   @media ${({ theme }) => theme.minWidth.sm} {
-    margin-bottom: 15px;
-  }
-  @media ${({ theme }) => theme.minWidth.xl} {
-    margin-bottom: 30px;
+    margin-bottom: 0;
   }
   .gatsby-image-wrapper {
     grid-column: 1/8;

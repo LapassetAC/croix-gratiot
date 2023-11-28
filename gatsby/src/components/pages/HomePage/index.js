@@ -4,7 +4,6 @@ import PostsSection from "./PostsSection";
 import styled from "styled-components";
 import LogoLCGHero from "assets/logos/logo-lcg-hero.svg";
 import ArrowBtn from "components/global/ArrowBtn";
-import { Link } from "gatsby";
 import TestimonySlider from "./TestimonySlider";
 import NosVinsSection from "./NosVinsSection";
 
@@ -155,7 +154,7 @@ const StyledContainer = styled.div`
             grid-row: 3/3;
           }
         }
-        .btn {
+        a {
           grid-column: 2/8;
           margin-top: 30px;
           color: ${({ theme }) => theme.colors.backgroundLight};
@@ -320,10 +319,7 @@ const HomePage = ({ className }) => {
             aspirons à une viticulture qui vit en harmonie avec son écosystème,
             valorisant la biodiversité et l'équilibre environnemental.
           </p>
-          <Link className="btn" to="/nos-pratiques/">
-            <ArrowBtn />
-            Nos pratiques
-          </Link>
+          <ArrowBtn to="/nos-pratiques/">Nos pratiques</ArrowBtn>
           <StaticImage
             src="../../../assets/imgs/home/notrePhilo2.jpg"
             alt=""
