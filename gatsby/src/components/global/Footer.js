@@ -96,6 +96,9 @@ const StyledContainer = styled.footer`
     @media ${({ theme }) => theme.minWidth.sm} {
       align-self: end;
     }
+    @media ${({ theme }) => theme.minWidth.xl} {
+      font-size: 12px;
+    }
     a {
       text-decoration: underline;
       display: inline;

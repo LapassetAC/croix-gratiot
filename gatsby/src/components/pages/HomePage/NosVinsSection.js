@@ -56,28 +56,24 @@ const NosVinsSection = () => {
         <StaticImage
           src="../../../assets/imgs/nosVins/blanc.jpg"
           alt=""
-          quality="90"
           layout="fullWidth"
         />
       ) : activeCategory === "rose" ? (
         <StaticImage
           src="../../../assets/imgs/nosVins/rose.jpg"
           alt=""
-          quality="90"
           layout="fullWidth"
         />
       ) : activeCategory === "rouge" ? (
         <StaticImage
           src="../../../assets/imgs/nosVins/rouge.jpg"
           alt=""
-          quality="90"
           layout="fullWidth"
         />
       ) : activeCategory === "autre" ? (
         <StaticImage
           src="../../../assets/imgs/nosVins/autre.jpg"
           alt=""
-          quality="90"
           layout="fullWidth"
         />
       ) : null}

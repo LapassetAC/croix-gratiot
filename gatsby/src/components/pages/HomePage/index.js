@@ -10,6 +10,7 @@ import Footer from "components/global/Footer";
 
 const StyledContainer = styled.main`
   .heroSection {
+    height: calc(100vh - 60px);
     .heroImg {
       grid-column: 1/8;
       grid-row: 1/1;
@@ -231,7 +232,6 @@ const HomePage = ({ className }) => {
           src="../../../assets/imgs/home/heroImage.jpg"
           alt=""
           layout="fullWidth"
-          quality="90"
         />
         <div className="heroContent grid">
           <h1>Domaine</h1>
@@ -256,7 +256,6 @@ const HomePage = ({ className }) => {
           <StaticImage
             src="../../../assets/imgs/home/leDomaine.jpg"
             alt=""
-            quality="90"
             layout="fullWidth"
           />
           <p>
@@ -278,7 +277,6 @@ const HomePage = ({ className }) => {
           <StaticImage
             src="../../../assets/imgs/home/anaisYves.jpg"
             alt=""
-            quality="90"
             layout="fullWidth"
           />
           <p>
@@ -299,7 +297,6 @@ const HomePage = ({ className }) => {
           <StaticImage
             src="../../../assets/imgs/home/notrePhilo1.jpg"
             alt=""
-            quality="90"
             layout="fullWidth"
             className="one"
           />
@@ -313,7 +310,6 @@ const HomePage = ({ className }) => {
           <StaticImage
             src="../../../assets/imgs/home/notrePhilo2.jpg"
             alt=""
-            quality="90"
             layout="fullWidth"
             className="two"
           />
@@ -335,13 +331,11 @@ const HomePage = ({ className }) => {
           <StaticImage
             src="../../../assets/imgs/home/unArtdeVivre1.jpg"
             alt=""
-            quality="90"
             layout="fullWidth"
           />
           <StaticImage
             src="../../../assets/imgs/home/unArtdeVivre2.jpg"
             alt=""
-            quality="90"
             layout="fullWidth"
           />
           <p>

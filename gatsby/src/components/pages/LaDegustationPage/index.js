@@ -177,7 +177,6 @@ const LaDegustation = ({ className }) => {
           src="../../../assets/imgs/degustation/degustationHeroImage.png"
           alt="degustationHeroImage"
           layout="fullWidth"
-          quality="90"
         />
         <h1 className="sectionTitle hero-title">La dégustation</h1>
         <p className="hero-text">
