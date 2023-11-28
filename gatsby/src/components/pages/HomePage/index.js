@@ -1,22 +1,23 @@
-import * as React from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import PostsSection from "./PostsSection";
 import styled from "styled-components";
 import LogoLCGHero from "assets/logos/logo-lcg-hero.svg";
 import ArrowBtn from "components/global/ArrowBtn";
-import { Link } from "gatsby";
 import TestimonySlider from "./TestimonySlider";
 import NosVinsSection from "./NosVinsSection";
+import Footer from "components/global/Footer";
 
-const StyledContainer = styled.div`
+const StyledContainer = styled.main`
   .heroSection {
+    height: calc(100vh - 60px);
     .heroImg {
-      grid-column: 1 / 8;
+      grid-column: 1/8;
       grid-row: 1/1;
     }
     .heroContent {
       align-items: center;
-      grid-column: 1 / 8;
+      grid-column: 1/8;
       grid-row: 1/1;
       position: relative;
       h1 {
@@ -71,10 +72,10 @@ const StyledContainer = styled.div`
         }
         .gatsby-image-wrapper {
           grid-column: 1/8;
-          margin: -15px 0 15px;
+          margin-top: -30px;
           @media ${({ theme }) => theme.minWidth.sm} {
             grid-column: 2/7;
-            margin: -30px 0 30px;
+            margin-top: -60px;
           }
         }
         p {
@@ -96,11 +97,10 @@ const StyledContainer = styled.div`
         }
         .gatsby-image-wrapper {
           grid-column: 1/8;
-          margin: -75px 0 15px;
-
+          margin-top: -90px;
           @media ${({ theme }) => theme.minWidth.sm} {
             grid-column: 4/7;
-            margin-top: -120px;
+            margin-top: -150px;
             grid-row: 2/2;
           }
         }
@@ -131,17 +131,16 @@ const StyledContainer = styled.div`
         .gatsby-image-wrapper {
           &.one {
             grid-column: 1/8;
-            margin: -15px 0 15px;
+            margin-top: -30px;
             @media ${({ theme }) => theme.minWidth.sm} {
               grid-column: 2/6;
-              margin: -45px 0 30px;
+              margin-top: -75px;
               grid-row: 2/2;
             }
           }
           &.two {
             grid-row: 3/3;
             grid-column: 4/8;
-            margin-bottom: 15px;
             @media ${({ theme }) => theme.minWidth.sm} {
               grid-column: 5/7;
               grid-row: 3/5;
@@ -155,7 +154,7 @@ const StyledContainer = styled.div`
             grid-row: 3/3;
           }
         }
-        .btn {
+        a {
           grid-column: 2/8;
           margin-top: 30px;
           color: ${({ theme }) => theme.colors.backgroundLight};
@@ -186,14 +185,10 @@ const StyledContainer = styled.div`
         }
         h2 {
           grid-column: 3/8;
-          margin-bottom: 15px;
           @media ${({ theme }) => theme.minWidth.sm} {
             grid-column: 5/8;
             grid-row: 1/1;
             align-self: flex-end;
-          }
-          @media ${({ theme }) => theme.minWidth.xl} {
-            margin-bottom: 30px;
           }
         }
         .gatsby-image-wrapper {
@@ -210,13 +205,8 @@ const StyledContainer = styled.div`
           }
           &:last-of-type {
             grid-column: 1/6;
-            margin: 15px 0;
             @media ${({ theme }) => theme.minWidth.sm} {
-              margin: 15px 0 0;
               grid-column: 3/7;
-            }
-            @media ${({ theme }) => theme.minWidth.xl} {
-              margin: 30px 0 0;
             }
           }
         }
@@ -233,7 +223,26 @@ const StyledContainer = styled.div`
   }
 `;
 
-const HomePage = ({ className }) => {
+const HomePage = ({ className, activeSection }) => {
+  const orangeSectionRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const orangeSectionTop =
+        orangeSectionRef.current.getBoundingClientRect().top;
+      // console.log(orangeSectionTop);
+      if (orangeSectionTop <= 0) {
+        activeSection("orange");
+      } else {
+        activeSection("white");
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <StyledContainer className={className}>
       <section className="heroSection grid">
@@ -242,7 +251,6 @@ const HomePage = ({ className }) => {
           src="../../../assets/imgs/home/heroImage.jpg"
           alt=""
           layout="fullWidth"
-          quality="90"
         />
         <div className="heroContent grid">
           <h1>Domaine</h1>
@@ -257,7 +265,7 @@ const HomePage = ({ className }) => {
           nature.
         </section>
       </div>
-      <section className="orange">
+      <section className="orange" ref={orangeSectionRef}>
         <section className="leDomaine grid">
           <h2 className="sectionTitle">
             Le
@@ -267,7 +275,6 @@ const HomePage = ({ className }) => {
           <StaticImage
             src="../../../assets/imgs/home/leDomaine.jpg"
             alt=""
-            quality="90"
             layout="fullWidth"
           />
           <p>
@@ -289,7 +296,6 @@ const HomePage = ({ className }) => {
           <StaticImage
             src="../../../assets/imgs/home/anaisYves.jpg"
             alt=""
-            quality="90"
             layout="fullWidth"
           />
           <p>
@@ -310,7 +316,6 @@ const HomePage = ({ className }) => {
           <StaticImage
             src="../../../assets/imgs/home/notrePhilo1.jpg"
             alt=""
-            quality="90"
             layout="fullWidth"
             className="one"
           />
@@ -320,14 +325,10 @@ const HomePage = ({ className }) => {
             aspirons à une viticulture qui vit en harmonie avec son écosystème,
             valorisant la biodiversité et l'équilibre environnemental.
           </p>
-          <Link className="btn" to="/nos-pratiques/">
-            <ArrowBtn />
-            Nos pratiques
-          </Link>
+          <ArrowBtn to="/nos-pratiques/">Nos pratiques</ArrowBtn>
           <StaticImage
             src="../../../assets/imgs/home/notrePhilo2.jpg"
             alt=""
-            quality="90"
             layout="fullWidth"
             className="two"
           />
@@ -349,13 +350,11 @@ const HomePage = ({ className }) => {
           <StaticImage
             src="../../../assets/imgs/home/unArtdeVivre1.jpg"
             alt=""
-            quality="90"
             layout="fullWidth"
           />
           <StaticImage
             src="../../../assets/imgs/home/unArtdeVivre2.jpg"
             alt=""
-            quality="90"
             layout="fullWidth"
           />
           <p>
@@ -368,6 +367,7 @@ const HomePage = ({ className }) => {
         <PostsSection />
       </section>
       <NosVinsSection />
+      <Footer />
     </StyledContainer>
   );
 };
