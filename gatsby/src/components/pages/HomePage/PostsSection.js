@@ -41,7 +41,7 @@ const sliderSettings = {
 
 const StyledMobile = styled(Slider)`
   grid-column: 1/8;
-  margin: 0 -15px;
+  /* margin: 0 -15px; */
   @media ${({ theme }) => theme.minWidth.sm} {
     display: none;
   }
@@ -76,7 +76,8 @@ const StyledNew = styled.div`
 `;
 const StyledEvent = styled.div`
   grid-column: 1/8;
-  margin-bottom: 60px;
+  /* margin-bottom: 60px; */
+  row-gap: 0;
   align-items: start;
   @media ${({ theme }) => theme.minWidth.sm} {
     margin-bottom: 0;
@@ -94,10 +95,9 @@ const StyledEvent = styled.div`
     font-size: 20px;
     text-transform: uppercase;
     line-height: 100%;
-    margin: 15px 0 5px;
+    margin-bottom: 5px;
     @media ${({ theme }) => theme.minWidth.sm} {
       grid-column: 5/8;
-      margin: 0 0 5px;
     }
   }
   aside {

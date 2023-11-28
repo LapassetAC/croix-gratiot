@@ -71,10 +71,10 @@ const StyledContainer = styled.main`
         }
         .gatsby-image-wrapper {
           grid-column: 1/8;
-          margin: -15px 0 15px;
+          margin-top: -30px;
           @media ${({ theme }) => theme.minWidth.sm} {
             grid-column: 2/7;
-            margin: -30px 0 30px;
+            margin-top: -60px;
           }
         }
         p {
@@ -96,11 +96,10 @@ const StyledContainer = styled.main`
         }
         .gatsby-image-wrapper {
           grid-column: 1/8;
-          margin: -75px 0 15px;
-
+          margin-top: -90px;
           @media ${({ theme }) => theme.minWidth.sm} {
             grid-column: 4/7;
-            margin-top: -120px;
+            margin-top: -150px;
             grid-row: 2/2;
           }
         }
@@ -131,17 +130,16 @@ const StyledContainer = styled.main`
         .gatsby-image-wrapper {
           &.one {
             grid-column: 1/8;
-            margin: -15px 0 15px;
+            margin-top: -30px;
             @media ${({ theme }) => theme.minWidth.sm} {
               grid-column: 2/6;
-              margin: -45px 0 30px;
+              margin-top: -75px;
               grid-row: 2/2;
             }
           }
           &.two {
             grid-row: 3/3;
             grid-column: 4/8;
-            margin-bottom: 15px;
             @media ${({ theme }) => theme.minWidth.sm} {
               grid-column: 5/7;
               grid-row: 3/5;
@@ -186,14 +184,10 @@ const StyledContainer = styled.main`
         }
         h2 {
           grid-column: 3/8;
-          margin-bottom: 15px;
           @media ${({ theme }) => theme.minWidth.sm} {
             grid-column: 5/8;
             grid-row: 1/1;
             align-self: flex-end;
-          }
-          @media ${({ theme }) => theme.minWidth.xl} {
-            margin-bottom: 30px;
           }
         }
         .gatsby-image-wrapper {
@@ -210,13 +204,8 @@ const StyledContainer = styled.main`
           }
           &:last-of-type {
             grid-column: 1/6;
-            margin: 15px 0;
             @media ${({ theme }) => theme.minWidth.sm} {
-              margin: 15px 0 0;
               grid-column: 3/7;
-            }
-            @media ${({ theme }) => theme.minWidth.xl} {
-              margin: 30px 0 0;
             }
           }
         }
