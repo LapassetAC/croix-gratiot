@@ -132,10 +132,11 @@ button {
     text-decoration-line: underline;
     font-size: 12px;
     display: flex;
+    align-items: center;
     @media ${({ theme }) => theme.minWidth.sm} {
       font-size: 14px;
     }
-    img {
+    img, svg {
       margin-right: 15px;
     }
   }

@@ -6,16 +6,17 @@ import LogoLCGHero from "assets/logos/logo-lcg-hero.svg";
 import ArrowBtn from "components/global/ArrowBtn";
 import TestimonySlider from "./TestimonySlider";
 import NosVinsSection from "./NosVinsSection";
+import Footer from "components/global/Footer";
 
-const StyledContainer = styled.div`
+const StyledContainer = styled.main`
   .heroSection {
     .heroImg {
-      grid-column: 1 / 8;
+      grid-column: 1/8;
       grid-row: 1/1;
     }
     .heroContent {
       align-items: center;
-      grid-column: 1 / 8;
+      grid-column: 1/8;
       grid-row: 1/1;
       position: relative;
       h1 {
@@ -364,6 +365,7 @@ const HomePage = ({ className }) => {
         <PostsSection />
       </section>
       <NosVinsSection />
+      <Footer />
     </StyledContainer>
   );
 };
