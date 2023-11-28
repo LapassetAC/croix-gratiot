@@ -74,7 +74,14 @@ const StyledLinkContainer = styled.div`
   }
 `;
 
-export default function PageContainer({ page, isActive }) {
+export default function PageContainer({ page, isActive, navlinkColor }) {
+  const [ActiveSection, setActiveSection] = useState("white");
+
+  const activeSection = (section) => {
+    console.log(section);
+    setActiveSection(section);
+  };
+
   if (page === "home") {
     return (
       <StyledContainer>
@@ -89,7 +96,7 @@ export default function PageContainer({ page, isActive }) {
             </div>
           </div>
         </StyledLinkContainer>
-        <HomePage className="pageContent" />
+        <HomePage className="pageContent" activeSection={activeSection} />
       </StyledContainer>
     );
   }

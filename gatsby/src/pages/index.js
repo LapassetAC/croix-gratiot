@@ -64,6 +64,7 @@ const Index = () => {
   const { pathname } = useLocation();
   const [isNavOpen, setNavOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(null);
+  const [navLinksColor, setNavLinksColor] = useState("white");
 
   const isNosPratiquesActive =
     pathname === "/nos-pratiques/" ||
@@ -94,16 +95,16 @@ const Index = () => {
     };
   }, [isNavOpen]);
 
-  // useEffect(() => {
-  //   const handleIsHeaderVisible = () => {
-  //     const currentScrollY = window.scrollY;
-  //     const headerHeight = 74;
-  //   };
-  //   window.addEventListener("scroll", handleIsHeaderVisible);
-  //   return () => {
-  //     window.removeEventListener("scroll", handleIsHeaderVisible);
-  //   };
-  // }, []);
+  useEffect(() => {
+    const handleIsHeaderVisible = () => {
+      const currentScrollY = window.scrollY;
+      const headerHeight = 74;
+    };
+    window.addEventListener("scroll", handleIsHeaderVisible);
+    return () => {
+      window.removeEventListener("scroll", handleIsHeaderVisible);
+    };
+  }, []);
 
   return (
     <Layout>
@@ -133,7 +134,11 @@ const Index = () => {
       ) : (
         <StyledDesktopNav>
           <PageContainer page="home" />
-          <PageContainer page="nosPratiques" isActive={isNosPratiquesActive} />
+          <PageContainer
+            page="nosPratiques"
+            isActive={isNosPratiquesActive}
+            navlinkColor={navLinksColor}
+          />
           <PageContainer
             page="laDegustation"
             isActive={isLadegustationActive}

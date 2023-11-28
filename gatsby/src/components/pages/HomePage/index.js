@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import PostsSection from "./PostsSection";
 import styled from "styled-components";
@@ -223,7 +223,26 @@ const StyledContainer = styled.main`
   }
 `;
 
-const HomePage = ({ className }) => {
+const HomePage = ({ className, activeSection }) => {
+  const orangeSectionRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const orangeSectionTop =
+        orangeSectionRef.current.getBoundingClientRect().top;
+      // console.log(orangeSectionTop);
+      if (orangeSectionTop <= 0) {
+        activeSection("orange");
+      } else {
+        activeSection("white");
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <StyledContainer className={className}>
       <section className="heroSection grid">
@@ -246,7 +265,7 @@ const HomePage = ({ className }) => {
           nature.
         </section>
       </div>
-      <section className="orange">
+      <section className="orange" ref={orangeSectionRef}>
         <section className="leDomaine grid">
           <h2 className="sectionTitle">
             Le
