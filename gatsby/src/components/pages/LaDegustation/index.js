@@ -3,15 +3,17 @@ import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image";
 import { styled } from "styled-components";
 import { graphql, useStaticQuery } from "gatsby";
 import { Element } from "react-scroll";
-
-import EUBioLogo from "assets/logos/EUBioLogo.svg";
-import FRBioLogo from "assets/logos/FRBioLogo.svg";
-import categoryQuoteLines from "assets/icons/categoryQuoteLines.svg";
-import winesData from "data/winesData";
-import AnchorNavBar from "./AnchorNav";
 import { useContext } from "react";
 import { DataContext } from "DataContext";
 import { Router, Link, useLocation } from "@reach/router";
+
+import categoryQuoteLines from "assets/icons/categoryQuoteLines.svg";
+import winesData from "data/winesData";
+import AnchorNavBar from "./AnchorNav";
+import Footer from "components/global/Footer";
+
+import EUBioLogo from "assets/logos/EUBioLogo.svg";
+import FRBioLogo from "assets/logos/FRBioLogo.svg";
 
 const StyledContainer = styled.div`
   padding: 15px;
@@ -347,6 +349,7 @@ const LaDegustation = ({ className }) => {
           </div>
         </Element>
       ))}
+      <Footer />
     </StyledContainer>
   );
 };
