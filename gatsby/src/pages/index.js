@@ -3,13 +3,13 @@ import Layout from "components/Layout";
 import HomePage from "components/pages/HomePage";
 import PageContainer from "components/pages/PageContainer";
 import NosPratiquesPage from "components/pages/NosPratiques";
-import LaDegustationPage from "components/pages/LaDegustationPage";
+import LaDegustationPage from "components/pages/LaDegustation";
 import LCGlogoMobile from "assets/logos/logo-lcg-mobile.svg";
 import styled from "styled-components";
 import { Router, Link, useLocation } from "@reach/router";
 import ToggleBtn from "components/Layout/ToggleBtn";
 
-const StyledMobileNav = styled.div`
+const StyledMobileNav = styled.nav`
   justify-content: space-between;
   align-items: center;
   header {
@@ -52,7 +52,7 @@ const StyledMobileLinksContainer = styled.section`
     font-size: 14px;
   }
 `;
-const StyledDesktopNav = styled.div`
+const StyledDesktopNav = styled.main`
   position: absolute;
   display: flex;
   overflow-x: hidden;
@@ -140,6 +140,7 @@ const Index = () => {
           <PageContainer
             page="home"
             fromPageContainerActiveSection={fromPageContainerActiveSection}
+            activeSection={activeSection}
           />
           <PageContainer
             page="nosPratiques"

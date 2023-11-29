@@ -1,12 +1,15 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useEffect, useRef } from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import PostsSection from "./PostsSection";
 import styled from "styled-components";
-import LogoLCGHero from "assets/logos/logo-lcg-hero.svg";
+import LCGlogoHero from "assets/logos/LogoLCGHero";
 import ArrowBtn from "components/global/ArrowBtn";
 import TestimonySlider from "./TestimonySlider";
 import NosVinsSection from "./NosVinsSection";
 import Footer from "components/global/Footer";
+import { useLocation } from "@reach/router";
+import { useContext } from "react";
+import { DataContext } from "DataContext";
 
 const StyledContainer = styled.main`
   .heroSection {
@@ -36,7 +39,7 @@ const StyledContainer = styled.main`
           grid-row: 3/3;
         }
       }
-      img {
+      svg {
         grid-row: 2/3;
         grid-column: 4 / 5;
         width: 100%;
@@ -227,6 +230,15 @@ const HomePage = ({ className, fromPageActiveSection }) => {
   const orangeSectionRef = useRef(null);
   const greenSectionRef = useRef(null);
   const redSectionRef = useRef(null);
+  const { pathname } = useLocation();
+
+  const pageRef = useRef();
+  const { setCurrentPageHeight } = useContext(DataContext);
+
+  useEffect(() => {
+    const pageHeight = pageRef.current.clientHeight;
+    pathname === "/" && setCurrentPageHeight(pageHeight);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -237,16 +249,20 @@ const HomePage = ({ className, fromPageActiveSection }) => {
       const redSectionTop = redSectionRef.current.getBoundingClientRect().top;
       const redSectionBottom =
         redSectionRef.current.getBoundingClientRect().bottom;
-      if (orangeSectionTop <= 0 && greenSectionTop > 0) {
-        fromPageActiveSection("orange");
-      }
-      if (greenSectionTop <= 0 && redSectionTop > 0) {
-        fromPageActiveSection("green");
-      }
-      if (redSectionTop <= 0 && redSectionBottom > 0) {
-        fromPageActiveSection("red");
-      }
-      if (orangeSectionTop > 0 || redSectionBottom < 0) {
+      if (pathname === "/") {
+        if (orangeSectionTop <= 0 && greenSectionTop > 0) {
+          fromPageActiveSection("orange");
+        }
+        if (greenSectionTop <= 0 && redSectionTop > 0) {
+          fromPageActiveSection("green");
+        }
+        if (redSectionTop <= 0 && redSectionBottom > 0) {
+          fromPageActiveSection("red");
+        }
+        if (orangeSectionTop > 0 || redSectionBottom < 0) {
+          fromPageActiveSection("white");
+        }
+      } else {
         fromPageActiveSection("white");
       }
     };
@@ -254,10 +270,10 @@ const HomePage = ({ className, fromPageActiveSection }) => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [pathname]);
 
   return (
-    <StyledContainer className={className}>
+    <StyledContainer className={className} ref={pageRef}>
       <section className="heroSection grid">
         <StaticImage
           className="heroImg"
@@ -267,7 +283,7 @@ const HomePage = ({ className, fromPageActiveSection }) => {
         />
         <div className="heroContent grid">
           <h1>Domaine</h1>
-          <img src={LogoLCGHero} alt="" />
+          <LCGlogoHero />
           <h1>La Croix Gratiot</h1>
         </div>
       </section>

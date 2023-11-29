@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect, useRef } from "react";
 import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image";
 import { styled } from "styled-components";
 import { graphql, useStaticQuery } from "gatsby";
@@ -9,6 +9,9 @@ import FRBioLogo from "assets/logos/FRBioLogo.svg";
 import categoryQuoteLines from "assets/icons/categoryQuoteLines.svg";
 import winesData from "data/winesData";
 import AnchorNavBar from "./AnchorNav";
+import { useContext } from "react";
+import { DataContext } from "DataContext";
+import { Router, Link, useLocation } from "@reach/router";
 
 const StyledContainer = styled.div`
   padding: 15px;
@@ -256,9 +259,17 @@ const LaDegustation = ({ className }) => {
   );
 
   const wines = data.allSanityWine.nodes;
+  const pageRef = useRef();
+  const { pathname } = useLocation();
 
+  const { setCurrentPageHeight } = useContext(DataContext);
+
+  useEffect(() => {
+    const pageHeight = pageRef.current.clientHeight;
+    pathname === "/la-degustation/" && setCurrentPageHeight(pageHeight);
+  }, [pathname]);
   return (
-    <StyledContainer className={className}>
+    <StyledContainer className={className} ref={pageRef}>
       <section className="hero-section grid">
         <StaticImage
           className="degustationHeroImage"
