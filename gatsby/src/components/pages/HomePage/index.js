@@ -223,18 +223,31 @@ const StyledContainer = styled.main`
   }
 `;
 
-const HomePage = ({ className, activeSection }) => {
+const HomePage = ({ className, fromPageActiveSection }) => {
   const orangeSectionRef = useRef(null);
+  const greenSectionRef = useRef(null);
+  const redSectionRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
       const orangeSectionTop =
         orangeSectionRef.current.getBoundingClientRect().top;
-      // console.log(orangeSectionTop);
-      if (orangeSectionTop <= 0) {
-        activeSection("orange");
-      } else {
-        activeSection("white");
+      const greenSectionTop =
+        greenSectionRef.current.getBoundingClientRect().top;
+      const redSectionTop = redSectionRef.current.getBoundingClientRect().top;
+      const redSectionBottom =
+        redSectionRef.current.getBoundingClientRect().bottom;
+      if (orangeSectionTop <= 0 && greenSectionTop > 0) {
+        fromPageActiveSection("orange");
+      }
+      if (greenSectionTop <= 0 && redSectionTop > 0) {
+        fromPageActiveSection("green");
+      }
+      if (redSectionTop <= 0 && redSectionBottom > 0) {
+        fromPageActiveSection("red");
+      }
+      if (orangeSectionTop > 0 || redSectionBottom < 0) {
+        fromPageActiveSection("white");
       }
     };
     window.addEventListener("scroll", handleScroll);
@@ -307,7 +320,7 @@ const HomePage = ({ className, activeSection }) => {
           </p>
         </section>
       </section>
-      <section className="green">
+      <section className="green" ref={greenSectionRef}>
         <section className="notrePhilo grid">
           <h2 className="sectionTitle">
             Notre <br />
@@ -341,7 +354,7 @@ const HomePage = ({ className, activeSection }) => {
           <TestimonySlider />
         </section>
       </section>
-      <section className="red">
+      <section className="red" ref={redSectionRef}>
         <section className="unArt grid">
           <h2 className="sectionTitle">
             Un art <br />
