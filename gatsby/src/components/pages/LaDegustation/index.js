@@ -333,7 +333,6 @@ const LaDegustation = ({ className }) => {
                       className="portrait-image"
                       image={portraitImage}
                       alt={wine.title}
-                      objectFit="contain"
                     />
                     <div className="wine-title">{wine.title}</div>
                     {wine.certification && (
