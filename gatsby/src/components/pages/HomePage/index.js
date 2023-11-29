@@ -8,6 +8,8 @@ import TestimonySlider from "./TestimonySlider";
 import NosVinsSection from "./NosVinsSection";
 import Footer from "components/global/Footer";
 import { useLocation } from "@reach/router";
+import { useContext } from "react";
+import { DataContext } from "DataContext";
 
 const StyledContainer = styled.main`
   .heroSection {
@@ -230,6 +232,14 @@ const HomePage = ({ className, fromPageActiveSection }) => {
   const redSectionRef = useRef(null);
   const { pathname } = useLocation();
 
+  const pageRef = useRef();
+  const { setCurrentPageHeight } = useContext(DataContext);
+
+  useEffect(() => {
+    const pageHeight = pageRef.current.clientHeight;
+    pathname === "/" && setCurrentPageHeight(pageHeight);
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       const orangeSectionTop =
@@ -239,7 +249,6 @@ const HomePage = ({ className, fromPageActiveSection }) => {
       const redSectionTop = redSectionRef.current.getBoundingClientRect().top;
       const redSectionBottom =
         redSectionRef.current.getBoundingClientRect().bottom;
-      console.log(pathname);
       if (pathname === "/") {
         if (orangeSectionTop <= 0 && greenSectionTop > 0) {
           fromPageActiveSection("orange");
@@ -264,7 +273,7 @@ const HomePage = ({ className, fromPageActiveSection }) => {
   }, [pathname]);
 
   return (
-    <StyledContainer className={className}>
+    <StyledContainer className={className} ref={pageRef}>
       <section className="heroSection grid">
         <StaticImage
           className="heroImg"
