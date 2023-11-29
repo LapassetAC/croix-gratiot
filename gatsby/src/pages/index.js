@@ -64,7 +64,7 @@ const Index = () => {
   const { pathname } = useLocation();
   const [isNavOpen, setNavOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(null);
-  const [navLinksColor, setNavLinksColor] = useState("white");
+  const [activeSection, setActiveSection] = useState("white");
 
   const isNosPratiquesActive =
     pathname === "/nos-pratiques/" ||
@@ -76,6 +76,10 @@ const Index = () => {
 
   const toggleNav = () => {
     setNavOpen(!isNavOpen);
+  };
+
+  const fromPageContainerActiveSection = (section) => {
+    setActiveSection(section);
   };
 
   useEffect(() => {
@@ -133,19 +137,24 @@ const Index = () => {
         </StyledMobileNav>
       ) : (
         <StyledDesktopNav>
-          <PageContainer page="home" />
+          <PageContainer
+            page="home"
+            fromPageContainerActiveSection={fromPageContainerActiveSection}
+          />
           <PageContainer
             page="nosPratiques"
             isActive={isNosPratiquesActive}
-            navlinkColor={navLinksColor}
+            activeSection={activeSection}
           />
           <PageContainer
             page="laDegustation"
             isActive={isLadegustationActive}
+            activeSection={activeSection}
           />
           <PageContainer
             page="nousRencontrer"
             isActive={isNousRencontrerActive}
+            activeSection={activeSection}
           />
         </StyledDesktopNav>
       )}

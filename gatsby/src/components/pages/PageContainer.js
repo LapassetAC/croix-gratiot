@@ -39,7 +39,17 @@ const StyledLinkContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.backgroundLight};
+  transition: background-color 1s;
+  background-color: ${({ theme, activeSection }) =>
+    activeSection === "orange"
+      ? theme.colors.orange
+      : activeSection === "green"
+      ? theme.colors.green
+      : activeSection === "red"
+      ? theme.colors.red
+      : activeSection === "white"
+      ? theme.colors.backgroundLight
+      : theme.colors.backgroundLight};
 
   a,
   button {
@@ -74,12 +84,14 @@ const StyledLinkContainer = styled.div`
   }
 `;
 
-export default function PageContainer({ page, isActive, navlinkColor }) {
-  const [ActiveSection, setActiveSection] = useState("white");
-
-  const activeSection = (section) => {
-    console.log(section);
-    setActiveSection(section);
+const PageContainer = ({
+  page,
+  isActive,
+  fromPageContainerActiveSection,
+  activeSection,
+}) => {
+  const fromPageActiveSection = (section) => {
+    fromPageContainerActiveSection(section);
   };
 
   if (page === "home") {
@@ -96,14 +108,17 @@ export default function PageContainer({ page, isActive, navlinkColor }) {
             </div>
           </div>
         </StyledLinkContainer>
-        <HomePage className="pageContent" activeSection={activeSection} />
+        <HomePage
+          className="pageContent"
+          fromPageActiveSection={fromPageActiveSection}
+        />
       </StyledContainer>
     );
   }
   if (page === "nosPratiques") {
     return (
       <StyledContainer isActive={isActive}>
-        <StyledLinkContainer>
+        <StyledLinkContainer activeSection={activeSection}>
           <Link to="/nos-pratiques/">Nos Pratiques</Link>
         </StyledLinkContainer>
         <NosPratiquesPage className="pageContent" />
@@ -113,7 +128,7 @@ export default function PageContainer({ page, isActive, navlinkColor }) {
   if (page === "laDegustation") {
     return (
       <StyledContainer isActive={isActive}>
-        <StyledLinkContainer>
+        <StyledLinkContainer activeSection={activeSection}>
           <Link to="/la-degustation/">La Dégustation</Link>
         </StyledLinkContainer>
         <LaDegustationPage className="pageContent" />
@@ -123,11 +138,13 @@ export default function PageContainer({ page, isActive, navlinkColor }) {
   if (page === "nousRencontrer") {
     return (
       <StyledContainer isActive={isActive}>
-        <StyledLinkContainer>
+        <StyledLinkContainer activeSection={activeSection}>
           <Link to="/nous-rencontrer/">Nous rencontrer</Link>
         </StyledLinkContainer>
         <LaDegustationPage className="pageContent" />
       </StyledContainer>
     );
   }
-}
+};
+
+export default PageContainer;
