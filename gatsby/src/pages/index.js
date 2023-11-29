@@ -140,6 +140,7 @@ const Index = () => {
           <PageContainer
             page="home"
             fromPageContainerActiveSection={fromPageContainerActiveSection}
+            activeSection={activeSection}
           />
           <PageContainer
             page="nosPratiques"

@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import HomePage from "components/pages/HomePage";
 import NosPratiquesPage from "components/pages/NosPratiques";
 import LaDegustationPage from "components/pages/LaDegustationPage";
-import LCGlogoDektop from "assets/logos/logo-lcg-desktop.svg";
+import LogoLGCDesktop from "assets/logos/LogoLGCDesktop";
 import styled from "styled-components";
 import { Link } from "@reach/router";
 
@@ -35,11 +35,17 @@ const StyledContainer = styled.div`
 `;
 const StyledLinkContainer = styled.div`
   flex: 0 0 60px;
-  border-left: 2px solid ${({ theme }) => theme.colors.black};
+  border-left: 2px solid
+    ${({ theme, activeSection }) =>
+      activeSection === "orange"
+        ? theme.colors.black
+        : activeSection === "red" || activeSection === "green"
+        ? theme.colors.backgroundLight
+        : theme.colors.black};
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: background-color 1s;
+  transition: all 1s;
   background-color: ${({ theme, activeSection }) =>
     activeSection === "orange"
       ? theme.colors.orange
@@ -50,7 +56,6 @@ const StyledLinkContainer = styled.div`
       : activeSection === "white"
       ? theme.colors.backgroundLight
       : theme.colors.backgroundLight};
-
   a,
   button {
     font-size: 18px;
@@ -59,12 +64,20 @@ const StyledLinkContainer = styled.div`
     writing-mode: sideways-lr;
     text-orientation: upright;
     text-align: end;
+    transition: color 1s;
+    color: ${({ theme, activeSection }) =>
+      activeSection === "orange"
+        ? theme.colors.black
+        : activeSection === "red" || activeSection === "green"
+        ? theme.colors.backgroundLight
+        : theme.colors.black};
   }
   &:not(.homeNav) a {
     position: fixed;
   }
   &.homeNav {
     border: none;
+    z-index: 1;
     & > div {
       display: flex;
       flex-direction: column;
@@ -79,6 +92,17 @@ const StyledLinkContainer = styled.div`
         button {
           margin-top: 15px;
         }
+      }
+    }
+    svg {
+      path {
+        transition: fill 1s;
+        fill: ${({ theme, activeSection }) =>
+          activeSection === "orange"
+            ? theme.colors.black
+            : activeSection === "red" || activeSection === "green"
+            ? theme.colors.backgroundLight
+            : theme.colors.black};
       }
     }
   }
@@ -97,10 +121,10 @@ const PageContainer = ({
   if (page === "home") {
     return (
       <StyledContainer>
-        <StyledLinkContainer className="homeNav">
+        <StyledLinkContainer className="homeNav" activeSection={activeSection}>
           <div>
             <Link to="/">
-              <img src={LCGlogoDektop} alt="" />
+              <LogoLGCDesktop />
             </Link>
             <div>
               <button>EN</button>
