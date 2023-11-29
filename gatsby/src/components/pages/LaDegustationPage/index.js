@@ -2,10 +2,13 @@ import * as React from "react";
 import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image";
 import { styled } from "styled-components";
 import { graphql, useStaticQuery } from "gatsby";
+import { Element } from "react-scroll";
+
 import EUBioLogo from "assets/logos/EUBioLogo.svg";
 import FRBioLogo from "assets/logos/FRBioLogo.svg";
 import categoryQuoteLines from "assets/icons/categoryQuoteLines.svg";
 import winesData from "data/winesData";
+import AnchorNavBar from "./AnchorNav";
 
 const StyledContainer = styled.div`
   padding: 15px;
@@ -17,10 +20,10 @@ const StyledContainer = styled.div`
     grid-template-rows: 1fr auto;
     margin-bottom: 90px;
     @media ${({ theme }) => theme.minWidth.sm} {
-      margin-bottom: 135px;
+      margin-bottom: 110px;
     }
     @media ${({ theme }) => theme.minWidth.xl} {
-      margin-bottom: 195px;
+      margin-bottom: 180px;
     }
     .degustationHeroImage {
       aspect-ratio: 1;
@@ -272,8 +275,13 @@ const LaDegustation = ({ className }) => {
           musique.
         </p>
       </section>
+      <AnchorNavBar data={winesData} />
       {winesData.map(({ category, title, quote, color }, i) => (
-        <section key={category} className={`${category} wine-section grid`}>
+        <Element
+          name={title}
+          key={category}
+          className={`${category} wine-section grid`}
+        >
           <StyledColorSquare color={color} />
           <h2 className="sectionTitle category-title">{title}</h2>
 
@@ -326,7 +334,7 @@ const LaDegustation = ({ className }) => {
                 );
               })}
           </div>
-        </section>
+        </Element>
       ))}
     </StyledContainer>
   );
