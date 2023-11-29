@@ -128,6 +128,14 @@ const StyledContainer = styled.div`
         text-align: left;
         align-items: start;
         margin-top: 0;
+        &:hover {
+          .product-image {
+            opacity: 0;
+          }
+          .portrait-image {
+            opacity: 1;
+          }
+        }
       }
 
       .product-image,
@@ -136,6 +144,8 @@ const StyledContainer = styled.div`
         grid-column: 1 / 3;
         align-self: center;
         height: 260px;
+        opacity: 1;
+        transition: opacity 0.5s ease;
         @media ${({ theme }) => theme.minWidth.sm} {
           height: 365px;
         }
@@ -144,10 +154,7 @@ const StyledContainer = styled.div`
         }
       }
       .portrait-image {
-        display: none;
-        @media ${({ theme }) => theme.minWidth.sm} {
-          /* display: block; */
-        }
+        opacity: 0;
       }
 
       .wine-title {
@@ -163,7 +170,6 @@ const StyledContainer = styled.div`
         @media ${({ theme }) => theme.minWidth.xl} {
           font-size: 24px;
           grid-column: 1 / 2;
-          //margin-right: 30px;
         }
       }
       .bio-logos {
@@ -237,7 +243,7 @@ const LaDegustation = ({ className }) => {
             portraitImage {
               asset {
                 url
-                gatsbyImageData
+                gatsbyImageData(aspectRatio: 0.74)
               }
             }
           }
