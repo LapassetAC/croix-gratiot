@@ -28,8 +28,14 @@ const StyledContainer = styled.div`
   }
   .pageContent {
     background-color: ${({ theme }) => theme.colors.backgroundLight};
-    @media ${({ theme }) => theme.minWidth.md} {
+    @media ${({ theme }) => theme.minWidth.xl} {
       width: calc(100% - 270px);
+    }
+    &:not(.home) {
+      @media ${({ theme }) => theme.minWidth.xl} {
+        width: calc(100% - 270px);
+        padding: 0 180px 0 60px;
+      }
     }
   }
 `;
@@ -72,8 +78,12 @@ const StyledLinkContainer = styled.div`
         ? theme.colors.backgroundLight
         : theme.colors.black};
   }
-  &:not(.homeNav) a {
+  &:not(.homeNav) {
     position: fixed;
+    min-height: 100vh;
+    width: 60px;
+    top: 0;
+    padding-top: 30px;
   }
   &.homeNav {
     border: none;
@@ -133,7 +143,7 @@ const PageContainer = ({
           </div>
         </StyledLinkContainer>
         <HomePage
-          className="pageContent"
+          className="pageContent home"
           fromPageActiveSection={fromPageActiveSection}
         />
       </StyledContainer>
