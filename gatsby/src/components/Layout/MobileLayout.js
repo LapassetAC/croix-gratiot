@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import HomePage from "components/pages/HomePage";
 import NosPratiquesPage from "components/pages/NosPratiques";
-import LaDegustationPage from "components/pages/LaDegustationPage";
+import LaDegustationPage from "components/pages/LaDegustation";
 import LCGlogoMobile from "assets/logos/logo-lcg-mobile.svg";
 import styled from "styled-components";
 import { Router, Link } from "@reach/router";
