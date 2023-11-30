@@ -306,24 +306,16 @@ const NosPratiques = ({ className }) => {
           layout="fullWidth"
         />
         <h1 className="title">
-          <ul>
-            <li>Une</li>
-            <li>viticulture</li>
-            <li>biodynamique</li>
-          </ul>
+          Une <br />
+          viticulture <br />
+          biodynamique
         </h1>
         <p className="hero-text">
-          <ul>
-            <li>
-              Cette approche, basée sur de l’observation, nous rapproche encore
-              plus de nos vignes.
-            </li>
-            <li>
-              Nous nous formons chaque année et employons ses préparations dans
-              la conduite de la vigne afin d’intensifier la vie du sol, de la
-              plante et de leurs échanges.
-            </li>
-          </ul>
+          Cette approche, basée sur de l’observation, nous rapproche encore plus
+          de nos vignes. <br />
+          Nous nous formons chaque année et employons ses préparations dans la
+          conduite de la vigne afin d’intensifier la vie du sol, de la plante et
+          de leurs échanges.
         </p>
       </section>
       <section className="intro">
@@ -366,18 +358,16 @@ const NosPratiques = ({ className }) => {
           layout="fullWidth"
         />
         <p className="team-description first">
-          <ul>
-            <li>Lénaïc & Karim,</li>
-            <li>l’équipe viticole</li>
-          </ul>
+          Lénaïc & Karim,
+          <br />
+          l’équipe viticole
         </p>
       </section>
       <section className="nos-cepages">
         <h2 className="sectionTitle nos-cepages">
-          <ul>
-            <li>Nos</li>
-            <li>cépages</li>
-          </ul>
+          Nos
+          <br />
+          cépages
         </h2>
         <StaticImage
           className="cepages-image-1"
@@ -404,10 +394,8 @@ const NosPratiques = ({ className }) => {
       </section>
       <section className="la-vinification">
         <h2 className="sectionTitle la-vinification">
-          <ul>
-            <li>La</li>
-            <li>vinification</li>
-          </ul>
+          La <br />
+          vinification
         </h2>
         <StaticImage
           className="vinification-image-1"
