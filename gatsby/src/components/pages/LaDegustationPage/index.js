@@ -281,6 +281,7 @@ const LaDegustation = ({ className }) => {
           name={title}
           key={category}
           className={`${category} wine-section grid`}
+          id={category}
         >
           <StyledColorSquare color={color} />
           <h2 className="sectionTitle category-title">{title}</h2>

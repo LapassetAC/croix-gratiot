@@ -291,7 +291,7 @@ const HomePage = ({ className }) => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [pathname]);
+  }, [pathname, setActiveHomeSection]);
 
   return (
     <StyledContainer className={className}>

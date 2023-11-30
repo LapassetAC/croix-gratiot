@@ -79,8 +79,13 @@ const NosVinsSection = () => {
       ) : null}
       <ul>
         {winesData.map(({ category, title }) => (
-          <li key={category} onMouseEnter={() => setActiveCategory(category)}>
-            <Link to={"/la-degustation/#" + category}>{title}</Link>
+          <li key={category}>
+            <Link
+              onMouseEnter={() => setActiveCategory(category)}
+              to={"/la-degustation/#" + category}
+            >
+              {title}
+            </Link>
           </li>
         ))}
       </ul>
