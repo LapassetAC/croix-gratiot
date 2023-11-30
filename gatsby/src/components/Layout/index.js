@@ -2,12 +2,13 @@ import React from "react";
 import { ThemeProvider } from "styled-components";
 import theme from "styles/theme";
 import GlobalStyle from "styles/globalStyle";
+import { DataProvider } from "data/Context";
 
 const Layout = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      {children}
+      <DataProvider>{children}</DataProvider>
     </ThemeProvider>
   );
 };

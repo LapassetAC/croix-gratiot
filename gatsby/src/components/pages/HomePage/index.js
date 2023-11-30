@@ -7,7 +7,9 @@ import ArrowBtn from "components/global/ArrowBtn";
 import TestimonySlider from "./TestimonySlider";
 import NosVinsSection from "./NosVinsSection";
 import Footer from "components/global/Footer";
-import { useLocation } from "@reach/router";
+// import { useLocation } from "@reach/router";
+// import { useContext } from "react";
+// import { Context } from "data/Context";
 
 const StyledContainer = styled.main`
   .heroSection {
@@ -224,44 +226,69 @@ const StyledContainer = styled.main`
   }
 `;
 
-const HomePage = ({ className, fromPageActiveSection }) => {
-  const orangeSectionRef = useRef(null);
-  const greenSectionRef = useRef(null);
-  const redSectionRef = useRef(null);
-  const { pathname } = useLocation();
+const HomePage = ({ className }) => {
+  const orangeSectionRef = useRef();
+  const greenSectionRef = useRef();
+  const redSectionRef = useRef();
+  // const { pathname } = useLocation();
+  // const { setActiveHomeSection } = useContext(Context);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const orangeSectionTop =
-        orangeSectionRef.current.getBoundingClientRect().top;
-      const greenSectionTop =
-        greenSectionRef.current.getBoundingClientRect().top;
-      const redSectionTop = redSectionRef.current.getBoundingClientRect().top;
-      const redSectionBottom =
-        redSectionRef.current.getBoundingClientRect().bottom;
-      console.log(pathname);
-      if (pathname === "/") {
-        if (orangeSectionTop <= 0 && greenSectionTop > 0) {
-          fromPageActiveSection("orange");
-        }
-        if (greenSectionTop <= 0 && redSectionTop > 0) {
-          fromPageActiveSection("green");
-        }
-        if (redSectionTop <= 0 && redSectionBottom > 0) {
-          fromPageActiveSection("red");
-        }
-        if (orangeSectionTop > 0 || redSectionBottom < 0) {
-          fromPageActiveSection("white");
-        }
-      } else {
-        fromPageActiveSection("white");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            console.log("Section is in view!");
+          }
+        });
+      },
+      {
+        threshold: 0.5,
+      }
+    );
+    // Start observing the target section
+    if (orangeSectionRef.current) {
+      observer.observe(orangeSectionRef.current);
+    }
+    // Cleanup when the component is unmounted
+    return () => {
+      if (orangeSectionRef.current) {
+        observer.unobserve(orangeSectionRef.current);
       }
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [pathname]);
+  }, []);
+
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const orangeSectionTop =
+  //       orangeSectionRef.current.getBoundingClientRect().top;
+  //     const greenSectionTop =
+  //       greenSectionRef.current.getBoundingClientRect().top;
+  //     const redSectionTop = redSectionRef.current.getBoundingClientRect().top;
+  //     const redSectionBottom =
+  //       redSectionRef.current.getBoundingClientRect().bottom;
+  //     if (pathname === "/") {
+  //       if (orangeSectionTop < 0 && greenSectionTop > 0) {
+  //         setActiveHomeSection("orange");
+  //       }
+  //       if (greenSectionTop < 0 && redSectionTop > 0) {
+  //         setActiveHomeSection("green");
+  //       }
+  //       if (redSectionTop < 0 && redSectionBottom > 0) {
+  //         setActiveHomeSection("red");
+  //       }
+  //       if (orangeSectionTop > 0 || redSectionBottom < 0) {
+  //         setActiveHomeSection("white");
+  //       }
+  //     } else {
+  //       setActiveHomeSection("white");
+  //     }
+  //   };
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, [pathname]);
 
   return (
     <StyledContainer className={className}>

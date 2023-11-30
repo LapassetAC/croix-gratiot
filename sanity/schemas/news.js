@@ -1,13 +1,13 @@
 export default {
   name: 'news',
-  title: 'Post Instagram',
+  title: 'Posts réseaux sociaux',
   type: 'document',
   fields: [
     {
       name: 'text',
       title: 'Texte',
       type: 'text',
-      validation: (Rule) => Rule.required(),
+      validation: (Rule) => Rule.required().min(10).max(200),
     },
     {
       name: 'thumbImg',
