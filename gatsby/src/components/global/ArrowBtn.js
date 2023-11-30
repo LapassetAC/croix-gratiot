@@ -16,7 +16,7 @@ const StyledContainer = styled.button`
   }
   svg {
     margin-right: 5px;
-    fill: ${({ black }) => (black ? "#332728" : "#E9E3DA")};
+    fill: ${({ $black }) => ($black ? "#332728" : "#E9E3DA")};
   }
 `;
 
@@ -37,14 +37,14 @@ const arrow = (
 const ArrowBtn = ({ children, black, to }) => {
   if (to) {
     return (
-      <StyledContainer as={Link} to={to} black={black}>
+      <StyledContainer as={Link} to={to} $black={black}>
         {arrow}
         {children}
       </StyledContainer>
     );
   } else
     return (
-      <StyledContainer black={black}>
+      <StyledContainer $black={black}>
         {arrow}
         {children}
       </StyledContainer>

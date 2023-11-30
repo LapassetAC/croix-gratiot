@@ -8,8 +8,8 @@ import TestimonySlider from "./TestimonySlider";
 import NosVinsSection from "./NosVinsSection";
 import Footer from "components/global/Footer";
 // import { useLocation } from "@reach/router";
-// import { useContext } from "react";
-// import { Context } from "data/Context";
+import { useContext } from "react";
+import { Context } from "data/Context";
 
 const StyledContainer = styled.main`
   .heroSection {
@@ -231,32 +231,33 @@ const HomePage = ({ className }) => {
   const greenSectionRef = useRef();
   const redSectionRef = useRef();
   // const { pathname } = useLocation();
-  // const { setActiveHomeSection } = useContext(Context);
+  const { setActiveHomeSection } = useContext(Context);
 
   useEffect(() => {
+    const orangeRef = orangeSectionRef.current;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            console.log("Section is in view!");
+            setActiveHomeSection("orange");
           }
         });
       },
       {
-        threshold: 0.5,
+        // threshold: 0.5,
       }
     );
     // Start observing the target section
-    if (orangeSectionRef.current) {
-      observer.observe(orangeSectionRef.current);
+    if (orangeRef) {
+      observer.observe(orangeRef);
     }
     // Cleanup when the component is unmounted
     return () => {
-      if (orangeSectionRef.current) {
-        observer.unobserve(orangeSectionRef.current);
+      if (orangeRef) {
+        observer.unobserve(orangeRef);
       }
     };
-  }, []);
+  }, [setActiveHomeSection]);
 
   // useEffect(() => {
   //   const handleScroll = () => {
