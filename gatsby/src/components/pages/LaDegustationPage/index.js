@@ -1,7 +1,7 @@
 import * as React from "react";
 import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image";
 import { styled } from "styled-components";
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery, Link } from "gatsby";
 import EUBioLogo from "assets/logos/EUBioLogo.svg";
 import FRBioLogo from "assets/logos/FRBioLogo.svg";
 import categoryQuoteLines from "assets/icons/categoryQuoteLines.svg";
@@ -306,7 +306,7 @@ const LaDegustation = ({ className }) => {
                     wine.portraitImage.asset.gatsbyImageData
                   );
                   return (
-                    <div className="wine-card" key={i}>
+                    <Link to="#" className="wine-card" key={i}>
                       <GatsbyImage
                         className="product-image"
                         image={productImage}
@@ -326,7 +326,7 @@ const LaDegustation = ({ className }) => {
                         </div>
                       )}
                       <div className="wine-cepages">{wine.cepages}</div>
-                    </div>
+                    </Link>
                   );
                 })}
             </div>
