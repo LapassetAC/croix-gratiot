@@ -99,17 +99,6 @@ const Index = () => {
     };
   }, [isNavOpen]);
 
-  useEffect(() => {
-    const handleIsHeaderVisible = () => {
-      const currentScrollY = window.scrollY;
-      const headerHeight = 74;
-    };
-    window.addEventListener("scroll", handleIsHeaderVisible);
-    return () => {
-      window.removeEventListener("scroll", handleIsHeaderVisible);
-    };
-  }, []);
-
   return (
     <Layout>
       {isMobile ? (
