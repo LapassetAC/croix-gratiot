@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 import HomePage from "components/pages/HomePage";
 import NosPratiquesPage from "components/pages/NosPratiques";
 import LaDegustationPage from "components/pages/LaDegustation";
@@ -15,7 +15,7 @@ const StyledContainer = styled.div`
   overflow: hidden;
   width: 100vw;
   margin-top: 30px;
-  /* height: 1000px; */
+  height: ${({ $pageHeight }) => $pageHeight}px;
 `;
 
 const StyledPageContainer = styled.div`
@@ -23,9 +23,6 @@ const StyledPageContainer = styled.div`
   position: absolute;
   width: 100%;
   display: flex;
-  &:nth-child(1) {
-    position: relative;
-  }
   &:nth-child(2) {
     left: ${({ $isActive }) => ($isActive ? "60px" : "calc(100vw - 180px)")};
     z-index: 1;
@@ -133,6 +130,12 @@ const StyledLinkContainer = styled.div`
 export default function DesktopLayout() {
   const { pathname } = useLocation();
   const { activeHomeSection } = useContext(Context);
+  const [pageHeight, setPageHeight] = useState();
+
+  const homePageRef = useRef();
+  const nosPratiquesRef = useRef();
+  const laDegustationRef = useRef();
+  const nousRencontrerRef = useRef();
 
   const isNosPratiquesActive =
     pathname === "/nos-pratiques/" ||
@@ -142,9 +145,20 @@ export default function DesktopLayout() {
     pathname === "/la-degustation/" || pathname === "/nous-rencontrer/";
   const isNousRencontrerActive = pathname === "/nous-rencontrer/";
 
+  useEffect(() => {
+    pathname === "/" && setPageHeight(homePageRef.current.clientHeight);
+    pathname === "/nos-pratiques/" &&
+      setPageHeight(nosPratiquesRef.current.clientHeight);
+    pathname === "/la-degustation/" &&
+      setPageHeight(laDegustationRef.current.clientHeight);
+    pathname === "/nous-rencontrer/" &&
+      setPageHeight(nousRencontrerRef.current.clientHeight);
+  }, [pathname]);
+
   return (
-    <StyledContainer>
-      <StyledPageContainer>
+    <StyledContainer $pageHeight={pageHeight}>
+      {/* HomePage */}
+      <StyledPageContainer ref={homePageRef}>
         <StyledLinkContainer
           className="homeNav"
           $activeSection={activeHomeSection}
@@ -162,21 +176,33 @@ export default function DesktopLayout() {
         <HomePage className="pageContent home" />
       </StyledPageContainer>
 
-      <StyledPageContainer $isActive={isNosPratiquesActive}>
+      {/* Nos Pratiques */}
+      <StyledPageContainer
+        $isActive={isNosPratiquesActive}
+        ref={nosPratiquesRef}
+      >
         <StyledLinkContainer $activeSection={activeHomeSection}>
           <Link to="/nos-pratiques/">Nos Pratiques</Link>
         </StyledLinkContainer>
         <NosPratiquesPage className="pageContent" />
       </StyledPageContainer>
 
-      <StyledPageContainer $isActive={isLadegustationActive}>
+      {/* La Dégustation */}
+      <StyledPageContainer
+        $isActive={isLadegustationActive}
+        ref={laDegustationRef}
+      >
         <StyledLinkContainer $activeSection={activeHomeSection}>
           <Link to="/la-degustation/">La Dégustation</Link>
         </StyledLinkContainer>
         <LaDegustationPage className="pageContent" />
       </StyledPageContainer>
 
-      <StyledPageContainer $isActive={isNousRencontrerActive}>
+      {/* Nous rencontrer */}
+      <StyledPageContainer
+        $isActive={isNousRencontrerActive}
+        ref={nousRencontrerRef}
+      >
         <StyledLinkContainer $activeSection={activeHomeSection}>
           <Link to="/nous-rencontrer/">Nous rencontrer</Link>
         </StyledLinkContainer>
