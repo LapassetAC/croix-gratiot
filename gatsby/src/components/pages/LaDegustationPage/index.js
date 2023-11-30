@@ -51,13 +51,13 @@ const StyledContainer = styled.div`
     }
   }
   .wine-section {
-    margin-bottom: 120px;
+    padding-bottom: 120px;
     @media ${({ theme }) => theme.minWidth.sm} {
-      margin-bottom: 210px;
+      padding-bottom: 210px;
       grid-template-rows: auto 1fr;
     }
     @media ${({ theme }) => theme.minWidth.xl} {
-      margin-bottom: 240px;
+      padding-bottom: 240px;
     }
   }
   .category-title {
@@ -277,62 +277,59 @@ const LaDegustation = ({ className }) => {
       </section>
       <AnchorNavBar data={winesData} />
       {winesData.map(({ category, title, quote, color }, i) => (
-        <Element
-          name={title}
-          key={category}
-          className={`${category} wine-section grid`}
-          id={category}
-        >
-          <StyledColorSquare color={color} />
-          <h2 className="sectionTitle category-title">{title}</h2>
+        <Element name={title} key={category} id={category}>
+          <div className={`${category} wine-section grid`}>
+            <StyledColorSquare color={color} />
+            <h2 className="sectionTitle category-title">{title}</h2>
 
-          <div className="category-quote">
-            <img
-              className="top lines"
-              src={categoryQuoteLines}
-              alt="Quote lines"
-            />
-            <p>« {quote} »</p>
-            <img
-              className="bottom lines"
-              src={categoryQuoteLines}
-              alt="Quote lines"
-            />
-          </div>
-          <div className="wine-cards">
-            {wines
-              .filter((wine) => wine.category === category)
-              .map((wine, i) => {
-                const productImage = getImage(
-                  wine.productImage.asset.gatsbyImageData
-                );
-                const portraitImage = getImage(
-                  wine.portraitImage.asset.gatsbyImageData
-                );
-                return (
-                  <div className="wine-card" key={i}>
-                    <GatsbyImage
-                      className="product-image"
-                      image={productImage}
-                      alt={wine.title}
-                      objectFit="contain"
-                    />
-                    <GatsbyImage
-                      className="portrait-image"
-                      image={portraitImage}
-                      alt={wine.title}
-                    />
-                    <div className="wine-title">{wine.title}</div>
-                    {wine.certification && (
-                      <div className="bio-logos">
-                        <img src={EUBioLogo} alt="Certification Bio EU" />
-                        <img src={FRBioLogo} alt="Certification Bio FR" />
-                      </div>
-                    )}
-                    <div className="wine-cepages">{wine.cepages}</div>
-                  </div>
-                );
-              })}
+            <div className="category-quote">
+              <img
+                className="top lines"
+                src={categoryQuoteLines}
+                alt="Quote lines"
+              />
+              <p>« {quote} »</p>
+              <img
+                className="bottom lines"
+                src={categoryQuoteLines}
+                alt="Quote lines"
+              />
+            </div>
+            <div className="wine-cards">
+              {wines
+                .filter((wine) => wine.category === category)
+                .map((wine, i) => {
+                  const productImage = getImage(
+                    wine.productImage.asset.gatsbyImageData
+                  );
+                  const portraitImage = getImage(
+                    wine.portraitImage.asset.gatsbyImageData
+                  );
+                  return (
+                    <div className="wine-card" key={i}>
+                      <GatsbyImage
+                        className="product-image"
+                        image={productImage}
+                        alt={wine.title}
+                        objectFit="contain"
+                      />
+                      <GatsbyImage
+                        className="portrait-image"
+                        image={portraitImage}
+                        alt={wine.title}
+                      />
+                      <div className="wine-title">{wine.title}</div>
+                      {wine.certification && (
+                        <div className="bio-logos">
+                          <img src={EUBioLogo} alt="Certification Bio EU" />
+                          <img src={FRBioLogo} alt="Certification Bio FR" />
+                        </div>
+                      )}
+                      <div className="wine-cepages">{wine.cepages}</div>
+                    </div>
+                  );
+                })}
+            </div>
           </div>
         </Element>
       ))}
