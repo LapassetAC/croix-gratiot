@@ -1,16 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import HomePage from "components/pages/HomePage";
-// import PageContainer from "components/pages/PageContainer";
 import NosPratiquesPage from "components/pages/NosPratiques";
 import LaDegustationPage from "components/pages/LaDegustationPage";
-import LCGlogoMobile from "assets/logos/logo-lcg-mobile.svg";
 import styled from "styled-components";
-import { Router, Link, useLocation, navigate } from "@reach/router";
+import { Link, useLocation } from "@reach/router";
 import LogoLGCDesktop from "assets/logos/LogoLGCDesktop";
 import { useContext } from "react";
 import { Context } from "data/Context";
 
-const StyledContainer = styled.div``;
+const StyledContainer = styled.div`
+  margin-top: 30px;
+  position: absolute;
+  width: 100vw;
+`;
 
 const StyledPageContainer = styled.div`
   transition: left 1s;
@@ -128,6 +130,14 @@ export default function DesktopLayout() {
   const { pathname } = useLocation();
   const { activeHomeSection } = useContext(Context);
 
+  const isNosPratiquesActive =
+    pathname === "/nos-pratiques/" ||
+    pathname === "/la-degustation/" ||
+    pathname === "/nous-rencontrer/";
+  const isLadegustationActive =
+    pathname === "/la-degustation/" || pathname === "/nous-rencontrer/";
+  const isNousRencontrerActive = pathname === "/nous-rencontrer/";
+
   return (
     <StyledContainer>
       <StyledPageContainer>
@@ -148,21 +158,21 @@ export default function DesktopLayout() {
         <HomePage className="pageContent home" />
       </StyledPageContainer>
 
-      <StyledPageContainer $isActive={isActive}>
+      <StyledPageContainer $isActive={isNosPratiquesActive}>
         <StyledLinkContainer $activeSection={activeHomeSection}>
           <Link to="/nos-pratiques/">Nos Pratiques</Link>
         </StyledLinkContainer>
         <NosPratiquesPage className="pageContent" />
       </StyledPageContainer>
 
-      <StyledPageContainer $isActive={isActive}>
+      <StyledPageContainer $isActive={isLadegustationActive}>
         <StyledLinkContainer $activeSection={activeHomeSection}>
           <Link to="/la-degustation/">La Dégustation</Link>
         </StyledLinkContainer>
         <LaDegustationPage className="pageContent" />
       </StyledPageContainer>
 
-      <StyledPageContainer $isActive={isActive}>
+      <StyledPageContainer $isActive={isNousRencontrerActive}>
         <StyledLinkContainer $activeSection={activeHomeSection}>
           <Link to="/nous-rencontrer/">Nous rencontrer</Link>
         </StyledLinkContainer>
