@@ -25,7 +25,7 @@ const StyledContainer = styled.footer`
   }
   h2 {
     font-size: 16px;
-    font-family: Moderat Bold;
+    font-family: Moderat Mono Bold;
     text-transform: uppercase;
     letter-spacing: 0.8px;
     margin-bottom: 15px;
