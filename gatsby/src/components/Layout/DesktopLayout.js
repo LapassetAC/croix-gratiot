@@ -1,7 +1,8 @@
 import React from "react";
 import HomePage from "components/pages/HomePage";
 import NosPratiquesPage from "components/pages/NosPratiques";
-import LaDegustationPage from "components/pages/LaDegustationPage";
+import LaDegustationPage from "components/pages/LaDegustation";
+import NousRencontrerPage from "components/pages/NousRencontrer";
 import styled from "styled-components";
 import { Link, useLocation } from "@reach/router";
 import LogoLGCDesktop from "assets/logos/LogoLGCDesktop";
@@ -9,9 +10,12 @@ import { useContext } from "react";
 import { Context } from "data/Context";
 
 const StyledContainer = styled.div`
-  margin-top: 30px;
   position: absolute;
+  display: flex;
+  overflow: hidden;
   width: 100vw;
+  margin-top: 30px;
+  /* height: 1000px; */
 `;
 
 const StyledPageContainer = styled.div`
@@ -176,7 +180,7 @@ export default function DesktopLayout() {
         <StyledLinkContainer $activeSection={activeHomeSection}>
           <Link to="/nous-rencontrer/">Nous rencontrer</Link>
         </StyledLinkContainer>
-        <LaDegustationPage className="pageContent" />
+        <NousRencontrerPage className="pageContent" />
       </StyledPageContainer>
     </StyledContainer>
   );
