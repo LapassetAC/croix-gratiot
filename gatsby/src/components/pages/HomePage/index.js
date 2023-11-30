@@ -233,34 +233,6 @@ const HomePage = ({ className }) => {
   const { pathname } = useLocation();
   const { setActiveHomeSection } = useContext(Context);
 
-  // useEffect(() => {
-  //   const orangeRef = orangeSectionRef.current;
-  //   const greenRef = greenSectionRef.current;
-  //   const redRef = redSectionRef.current;
-
-  //   const observer = new IntersectionObserver(
-  //     (entries) => {
-  //       console.log(entries);
-  //       entries.forEach((entry) => {
-  //         if (entry.isIntersecting) {
-  //           setActiveHomeSection(entry.target.className);
-  //         }
-  //       });
-  //     },
-  //     {
-  //       // threshold: 0.5,
-  //     }
-  //   );
-  //   observer.observe(orangeRef);
-  //   observer.observe(greenRef);
-  //   observer.observe(redRef);
-  //   return () => {
-  //     observer.unobserve(orangeRef);
-  //     observer.unobserve(greenRef);
-  //     observer.unobserve(redRef);
-  //   };
-  // }, [setActiveHomeSection]);
-
   useEffect(() => {
     const handleScroll = () => {
       const orangeSectionTop =
