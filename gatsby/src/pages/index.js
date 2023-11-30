@@ -3,13 +3,13 @@ import Layout from "components/Layout";
 import HomePage from "components/pages/HomePage";
 import PageContainer from "components/pages/PageContainer";
 import NosPratiquesPage from "components/pages/NosPratiques";
-import LaDegustationPage from "components/pages/LaDegustation";
+import LaDegustationPage from "components/pages/LaDegustationPage";
 import LCGlogoMobile from "assets/logos/logo-lcg-mobile.svg";
 import styled from "styled-components";
 import { Router, Link, useLocation } from "@reach/router";
 import ToggleBtn from "components/Layout/ToggleBtn";
 
-const StyledMobileNav = styled.nav`
+const StyledMobileNav = styled.div`
   justify-content: space-between;
   align-items: center;
   header {
@@ -52,7 +52,7 @@ const StyledMobileLinksContainer = styled.section`
     font-size: 14px;
   }
 `;
-const StyledDesktopNav = styled.main`
+const StyledDesktopNav = styled.div`
   position: absolute;
   display: flex;
   overflow-x: hidden;

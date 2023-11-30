@@ -1,21 +1,16 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import HomePage from "components/pages/HomePage";
 import NosPratiquesPage from "components/pages/NosPratiques";
-import LaDegustationPage from "components/pages/LaDegustation";
-import NousRencontrerPage from "components/pages/NousRencontrer";
+import LaDegustationPage from "components/pages/LaDegustationPage";
 import LogoLGCDesktop from "assets/logos/LogoLGCDesktop";
 import styled from "styled-components";
-import { useContext } from "react";
-import { DataContext } from "DataContext";
-import { Router, Link, useLocation } from "@reach/router";
+import { Link } from "@reach/router";
 
 const StyledContainer = styled.div`
   transition: left 1s;
   position: absolute;
   width: 100%;
   display: flex;
-  height: ${({ currentPageHeight }) => currentPageHeight}px;
-  overflow: hidden;
   &:nth-child(1) {
     position: relative;
   }
@@ -133,20 +128,9 @@ const PageContainer = ({
     fromPageContainerActiveSection(section);
   };
 
-  const [pageHeight, setPageHeight] = useState(null);
-
-  const { currentPageHeight } = useContext(DataContext);
-
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    setPageHeight(currentPageHeight);
-    console.log(currentPageHeight);
-  }, [pathname]);
-
   if (page === "home") {
     return (
-      <StyledContainer currentPageHeight={pageHeight}>
+      <StyledContainer>
         <StyledLinkContainer className="homeNav" activeSection={activeSection}>
           <div>
             <Link to="/">
@@ -167,7 +151,7 @@ const PageContainer = ({
   }
   if (page === "nosPratiques") {
     return (
-      <StyledContainer isActive={isActive} currentPageHeight={pageHeight}>
+      <StyledContainer isActive={isActive}>
         <StyledLinkContainer activeSection={activeSection}>
           <Link to="/nos-pratiques/">Nos Pratiques</Link>
         </StyledLinkContainer>
@@ -177,7 +161,7 @@ const PageContainer = ({
   }
   if (page === "laDegustation") {
     return (
-      <StyledContainer isActive={isActive} currentPageHeight={pageHeight}>
+      <StyledContainer isActive={isActive}>
         <StyledLinkContainer activeSection={activeSection}>
           <Link to="/la-degustation/">La Dégustation</Link>
         </StyledLinkContainer>
@@ -187,11 +171,11 @@ const PageContainer = ({
   }
   if (page === "nousRencontrer") {
     return (
-      <StyledContainer isActive={isActive} currentPageHeight={pageHeight}>
+      <StyledContainer isActive={isActive}>
         <StyledLinkContainer activeSection={activeSection}>
           <Link to="/nous-rencontrer/">Nous rencontrer</Link>
         </StyledLinkContainer>
-        <NousRencontrerPage className="pageContent" />
+        <LaDegustationPage className="pageContent" />
       </StyledContainer>
     );
   }

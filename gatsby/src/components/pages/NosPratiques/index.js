@@ -1,9 +1,6 @@
-import React, { useEffect, useRef } from "react";
+import * as React from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import styled from "styled-components";
-import { useContext } from "react";
-import { DataContext } from "DataContext";
-import { Router, Link, useLocation } from "@reach/router";
 
 const StyledContainer = styled.div`
   padding: 0 15px;
@@ -299,17 +296,8 @@ const StyledContainer = styled.div`
 `;
 
 const NosPratiques = ({ className }) => {
-  const pageRef = useRef();
-  const { setCurrentPageHeight } = useContext(DataContext);
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    const pageHeight = pageRef.current.clientHeight;
-    pathname === "/nos-pratiques/" && setCurrentPageHeight(pageHeight);
-  }, [pathname]);
-
   return (
-    <StyledContainer className={className} ref={pageRef}>
+    <StyledContainer className={className}>
       <section className="hero-section">
         <StaticImage
           className="hero-image"
