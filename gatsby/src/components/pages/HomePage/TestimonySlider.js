@@ -66,7 +66,10 @@ const TestimonySlider = () => {
 
   return (
     <StyledContainer className="grid">
-      <button onClick={() => sliderRef.current.slickPrev()}>
+      <button
+        onClick={() => sliderRef.current.slickPrev()}
+        aria-label="Précédent"
+      >
         <Arrow />
       </button>
       <StyledSlider {...sliderSettings} ref={sliderRef}>
@@ -92,7 +95,10 @@ const TestimonySlider = () => {
           </p>
         </div>
       </StyledSlider>
-      <button onClick={() => sliderRef.current.slickNext()}>
+      <button
+        onClick={() => sliderRef.current.slickNext()}
+        aria-label="Suivant"
+      >
         <Arrow />
       </button>
     </StyledContainer>
