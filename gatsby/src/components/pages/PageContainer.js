@@ -1,7 +1,7 @@
 import React from "react";
 import HomePage from "components/pages/HomePage";
 import NosPratiquesPage from "components/pages/NosPratiques";
-import LaDegustationPage from "components/pages/LaDegustationPage";
+import LaDegustation from "components/pages/LaDegustation";
 import LogoLGCDesktop from "assets/logos/LogoLGCDesktop";
 import styled from "styled-components";
 import { Link } from "@reach/router";
@@ -160,7 +160,7 @@ const PageContainer = ({ page, isActive }) => {
         <StyledLinkContainer $activeSection={activeHomeSection}>
           <Link to="/la-degustation/">La Dégustation</Link>
         </StyledLinkContainer>
-        <LaDegustationPage className="pageContent" />
+        <LaDegustation className="pageContent" />
       </StyledContainer>
     );
   }
@@ -170,7 +170,7 @@ const PageContainer = ({ page, isActive }) => {
         <StyledLinkContainer $activeSection={activeHomeSection}>
           <Link to="/nous-rencontrer/">Nous rencontrer</Link>
         </StyledLinkContainer>
-        <LaDegustationPage className="pageContent" />
+        <LaDegustation className="pageContent" />
       </StyledContainer>
     );
   }
