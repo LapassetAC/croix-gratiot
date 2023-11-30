@@ -329,7 +329,7 @@ const NosPratiques = ({ className }) => {
       <section className="intro">
         <p className="large-text">
           Depuis nos essais sur une parcelle en 2012, c’est maintenant
-          <span class="line-break">
+          <span className="line-break">
             {" "}
             tout le vignoble que nous conduisons en biodynamie.
           </span>

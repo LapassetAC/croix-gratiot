@@ -5,6 +5,8 @@ import LaDegustationPage from "components/pages/LaDegustationPage";
 import LogoLGCDesktop from "assets/logos/LogoLGCDesktop";
 import styled from "styled-components";
 import { Link } from "@reach/router";
+import { useContext } from "react";
+import { Context } from "data/Context";
 
 const StyledContainer = styled.div`
   transition: left 1s;
@@ -15,15 +17,15 @@ const StyledContainer = styled.div`
     position: relative;
   }
   &:nth-child(2) {
-    left: ${({ isActive }) => (isActive ? "60px" : "calc(100vw - 180px)")};
+    left: ${({ $isActive }) => ($isActive ? "60px" : "calc(100vw - 180px)")};
     z-index: 1;
   }
   &:nth-child(3) {
-    left: ${({ isActive }) => (isActive ? "120px" : "calc(100vw - 120px)")};
+    left: ${({ $isActive }) => ($isActive ? "120px" : "calc(100vw - 120px)")};
     z-index: 2;
   }
   &:nth-child(4) {
-    left: ${({ isActive }) => (isActive ? "180px" : "calc(100vw - 60px)")};
+    left: ${({ $isActive }) => ($isActive ? "180px" : "calc(100vw - 60px)")};
     z-index: 3;
   }
   .pageContent {
@@ -42,24 +44,24 @@ const StyledContainer = styled.div`
 const StyledLinkContainer = styled.div`
   flex: 0 0 60px;
   border-left: 2px solid
-    ${({ theme, activeSection }) =>
-      activeSection === "orange"
+    ${({ theme, $activeSection }) =>
+      $activeSection === "orange"
         ? theme.colors.black
-        : activeSection === "red" || activeSection === "green"
+        : $activeSection === "red" || $activeSection === "green"
         ? theme.colors.backgroundLight
         : theme.colors.black};
   display: flex;
   flex-direction: column;
   align-items: center;
   transition: all 1s;
-  background-color: ${({ theme, activeSection }) =>
-    activeSection === "orange"
+  background-color: ${({ theme, $activeSection }) =>
+    $activeSection === "orange"
       ? theme.colors.orange
-      : activeSection === "green"
+      : $activeSection === "green"
       ? theme.colors.green
-      : activeSection === "red"
+      : $activeSection === "red"
       ? theme.colors.red
-      : activeSection === "white"
+      : $activeSection === "white"
       ? theme.colors.backgroundLight
       : theme.colors.backgroundLight};
   a,
@@ -71,10 +73,10 @@ const StyledLinkContainer = styled.div`
     text-orientation: upright;
     text-align: end;
     transition: color 1s;
-    color: ${({ theme, activeSection }) =>
-      activeSection === "orange"
+    color: ${({ theme, $activeSection }) =>
+      $activeSection === "orange"
         ? theme.colors.black
-        : activeSection === "red" || activeSection === "green"
+        : $activeSection === "red" || $activeSection === "green"
         ? theme.colors.backgroundLight
         : theme.colors.black};
   }
@@ -107,10 +109,10 @@ const StyledLinkContainer = styled.div`
     svg {
       path {
         transition: fill 1s;
-        fill: ${({ theme, activeSection }) =>
-          activeSection === "orange"
+        fill: ${({ theme, $activeSection }) =>
+          $activeSection === "orange"
             ? theme.colors.black
-            : activeSection === "red" || activeSection === "green"
+            : $activeSection === "red" || $activeSection === "green"
             ? theme.colors.backgroundLight
             : theme.colors.black};
       }
@@ -118,20 +120,16 @@ const StyledLinkContainer = styled.div`
   }
 `;
 
-const PageContainer = ({
-  page,
-  isActive,
-  fromPageContainerActiveSection,
-  activeSection,
-}) => {
-  const fromPageActiveSection = (section) => {
-    fromPageContainerActiveSection(section);
-  };
+const PageContainer = ({ page, isActive }) => {
+  const { activeHomeSection } = useContext(Context);
 
   if (page === "home") {
     return (
       <StyledContainer>
-        <StyledLinkContainer className="homeNav" activeSection={activeSection}>
+        <StyledLinkContainer
+          className="homeNav"
+          $activeSection={activeHomeSection}
+        >
           <div>
             <Link to="/">
               <LogoLGCDesktop />
@@ -142,17 +140,14 @@ const PageContainer = ({
             </div>
           </div>
         </StyledLinkContainer>
-        <HomePage
-          className="pageContent home"
-          fromPageActiveSection={fromPageActiveSection}
-        />
+        <HomePage className="pageContent home" />
       </StyledContainer>
     );
   }
   if (page === "nosPratiques") {
     return (
-      <StyledContainer isActive={isActive}>
-        <StyledLinkContainer activeSection={activeSection}>
+      <StyledContainer $isActive={isActive}>
+        <StyledLinkContainer $activeSection={activeHomeSection}>
           <Link to="/nos-pratiques/">Nos Pratiques</Link>
         </StyledLinkContainer>
         <NosPratiquesPage className="pageContent" />
@@ -161,8 +156,8 @@ const PageContainer = ({
   }
   if (page === "laDegustation") {
     return (
-      <StyledContainer isActive={isActive}>
-        <StyledLinkContainer activeSection={activeSection}>
+      <StyledContainer $isActive={isActive}>
+        <StyledLinkContainer $activeSection={activeHomeSection}>
           <Link to="/la-degustation/">La Dégustation</Link>
         </StyledLinkContainer>
         <LaDegustationPage className="pageContent" />
@@ -171,8 +166,8 @@ const PageContainer = ({
   }
   if (page === "nousRencontrer") {
     return (
-      <StyledContainer isActive={isActive}>
-        <StyledLinkContainer activeSection={activeSection}>
+      <StyledContainer $isActive={isActive}>
+        <StyledLinkContainer $activeSection={activeHomeSection}>
           <Link to="/nous-rencontrer/">Nous rencontrer</Link>
         </StyledLinkContainer>
         <LaDegustationPage className="pageContent" />
