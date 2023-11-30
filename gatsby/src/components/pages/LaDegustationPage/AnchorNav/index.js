@@ -30,24 +30,27 @@ const StyledNavLink = styled(Link)`
   &:nth-child(1) {
     grid-column-start: 2;
   }
-  &.active,
-  &:hover {
-    span {
-      display: inline-block;
-      position: relative;
-      &::before {
-        content: "";
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        width: calc(100% + 15px);
-        height: calc(100% + 15px);
-        border-radius: 50%;
-        border: 1px solid currentColor;
-        z-index: -1;
-      }
+  span {
+    display: inline-block;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: calc(100% + 15px);
+      height: calc(100% + 15px);
+      border-radius: 50%;
+      border: 1px solid currentColor;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
+  }
+  &:hover span::before,
+  &.active span::before {
+    opacity: 1;
   }
 `;
 
@@ -59,9 +62,9 @@ const AnchorNavBar = ({ data }) => {
           key={index}
           to={title}
           activeClass="active"
-          offset={-150}
+          offset={-200}
           smooth
-          spy
+          spy={true}
         >
           <span>{title}</span>
         </StyledNavLink>
