@@ -144,7 +144,7 @@ const Footer = () => {
           contact@croix-gratiot.com
         </a>
       </div>
-      <Link href="#" className="mentions">
+      <Link to="#" className="mentions">
         Mentions légales
       </Link>
       <p className="credits">
