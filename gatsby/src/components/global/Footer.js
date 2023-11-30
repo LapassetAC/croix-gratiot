@@ -112,7 +112,7 @@ const Footer = () => {
       <img className="LCGLogo" src={LCGLogo} alt="" />
       <div className="adresse">
         <h2>Adresse</h2>
-        <a href="">
+        <a href="https://www.google.fr/maps/dir//La+Croix+Gratiot,+Sainte+Croix,+Montagnac,+34530+Montagnac/@43.4487056,3.5270444,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x12ab86d1065040af:0xc820a3578a1dc20e!2m2!1d3.529626!2d43.448699?entry=ttu">
           La Croix Gratiot,
           <br />
           Anaïs & Yves Ricome,
@@ -125,31 +125,32 @@ const Footer = () => {
       <div className="nousSuivre">
         <h2>Nous Suivre</h2>
         <div>
-          <a href="">
-            <img src={facebookIcon} alt="" />
+          <a href="https://www.facebook.com/lacroixgratiot/">
+            <img src={facebookIcon} alt="Facebook" />
           </a>
-          <a href="">
-            <img src={instagramIcon} alt="" />
+          <a href="https://www.instagram.com/laxgratiot/?hl=fr">
+            <img src={instagramIcon} alt="Instagram" />
           </a>
         </div>
       </div>
       <div className="contact">
         <h2>Contact</h2>
-        <a href="" className="btn">
+        <a href="tel:+33467252788" className="btn">
           <Arrow />
           04 67 25 27 88
         </a>
-        <a href="" className="btn">
+        <a href="mailto:contact@croix-gratiot.com" className="btn">
           <Arrow />
           contact@croix-gratiot.com
         </a>
       </div>
-      <a href="" className="mentions">
+      <Link href="#" className="mentions">
         Mentions légales
-      </a>
+      </Link>
       <p className="credits">
-        Site réalisé par <a href="">Clément</a> et{" "}
-        <a href="">Adrien Lapasset</a>, photos par <a href="">Aurélia Blanc</a>
+        Site réalisé par <a href="https://clementlapasset.dev/">Clément</a> et{" "}
+        <a href="https://alapasset.dev/">Adrien Lapasset</a>, photos par{" "}
+        <a href="http://www.aureliablanc.com/">Aurélia Blanc</a>
       </p>
     </StyledContainer>
   );
