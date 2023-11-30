@@ -4,6 +4,7 @@ import HomePage from "components/pages/HomePage";
 import PageContainer from "components/pages/PageContainer";
 import NosPratiquesPage from "components/pages/NosPratiques";
 import LaDegustation from "components/pages/LaDegustation";
+import NousRencontrer from "components/pages/NousRencontrer";
 import LCGlogoMobile from "assets/logos/logo-lcg-mobile.svg";
 import styled from "styled-components";
 import { Router, Link, useLocation } from "@reach/router";
@@ -122,6 +123,7 @@ const Index = () => {
             <HomePage className="mobilePage" path="/" />
             <NosPratiquesPage path="/nos-pratiques/" />
             <LaDegustation path="/la-degustation/" />
+            <NousRencontrer path="/nous-rencontrer/" />
           </Router>
         </StyledMobileNav>
       ) : (

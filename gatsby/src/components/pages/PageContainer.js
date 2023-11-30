@@ -2,6 +2,7 @@ import React from "react";
 import HomePage from "components/pages/HomePage";
 import NosPratiquesPage from "components/pages/NosPratiques";
 import LaDegustation from "components/pages/LaDegustation";
+import NousRencontrer from "components/pages/NousRencontrer";
 import LogoLGCDesktop from "assets/logos/LogoLGCDesktop";
 import styled from "styled-components";
 import { Link } from "@reach/router";
@@ -170,7 +171,7 @@ const PageContainer = ({ page, isActive }) => {
         <StyledLinkContainer $activeSection={activeHomeSection}>
           <Link to="/nous-rencontrer/">Nous rencontrer</Link>
         </StyledLinkContainer>
-        <LaDegustation className="pageContent" />
+        <NousRencontrer className="pageContent" />
       </StyledContainer>
     );
   }
