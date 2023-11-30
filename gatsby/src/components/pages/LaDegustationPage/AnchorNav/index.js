@@ -24,7 +24,6 @@ const StyledNavLink = styled(Link)`
   text-transform: uppercase;
   position: relative;
   display: inline-block;
-  //text-align: center;
   @media ${(props) => props.theme.minWidth.xl} {
     font-size: 15px;
   }
@@ -49,27 +48,8 @@ const StyledNavLink = styled(Link)`
 `;
 
 const AnchorNavBar = ({ data }) => {
-  const [isScrollToAnchorNav, setIsScrollToAnchorNav] = useState(false);
-  const anchorNavRef = useRef(null);
-
-  useEffect(() => {
-    const handleIsScrollToAnchorNav = () => {
-      const anchorNavPosFromTop =
-        anchorNavRef.current.getBoundingClientRect().top;
-      anchorNavPosFromTop <= 0
-        ? setIsScrollToAnchorNav(true)
-        : setIsScrollToAnchorNav(false);
-    };
-    window.addEventListener("scroll", handleIsScrollToAnchorNav);
-    return () => {
-      window.removeEventListener("scroll", handleIsScrollToAnchorNav);
-    };
-  });
   return (
-    <StyledContainer
-      isScrollToAnchorNav={isScrollToAnchorNav}
-      ref={anchorNavRef}
-    >
+    <StyledContainer>
       {data.map(({ title }, index) => (
         <StyledNavLink
           key={index}
