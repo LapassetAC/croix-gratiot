@@ -1,6 +1,8 @@
 import * as React from "react";
 import { styled } from "styled-components";
 import { StaticImage } from "gatsby-plugin-image";
+import Arrow from "assets/icons/Arrow";
+import Footer from "components/global/Footer";
 
 const StyledContainer = styled.div`
   padding: 0 15px;
@@ -14,11 +16,18 @@ const StyledContainer = styled.div`
   .address {
     grid-column: 1 / 8;
   }
+  .contact {
+    grid-column: 1 / 8;
+    a {
+      margin-bottom: 10px;
+    }
+  }
   h2 {
     font-family: "Moderat Mono";
     font-size: 16px;
     line-height: 150%;
     text-transform: uppercase;
+    margin-bottom: 10px;
   }
 `;
 
@@ -46,7 +55,19 @@ const NousRencontrer = ({ className }) => {
             Montagnac
           </p>
         </div>
+        <div className="contact">
+          <h2>Contact</h2>
+          <a href="tel:+33467252788" className="btn">
+            <Arrow />
+            04 67 25 27 88
+          </a>
+          <a href="mailto:contact@croix-gratiot.com" className="btn">
+            <Arrow />
+            contact@croix-gratiot.com
+          </a>
+        </div>
       </section>
+      <Footer />
     </StyledContainer>
   );
 };
