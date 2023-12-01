@@ -139,10 +139,10 @@ export default function DesktopLayout() {
 
   const isNosPratiquesActive =
     pathname === "/nos-pratiques/" ||
-    pathname === "/la-degustation/" ||
+    pathname.includes("/la-degustation/") ||
     pathname === "/nous-rencontrer/";
   const isLadegustationActive =
-    pathname === "/la-degustation/" || pathname === "/nous-rencontrer/";
+    pathname.includes("/la-degustation/") || pathname === "/nous-rencontrer/";
   const isNousRencontrerActive = pathname === "/nous-rencontrer/";
 
   useEffect(() => {

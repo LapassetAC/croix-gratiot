@@ -1,14 +1,16 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image";
 import { styled } from "styled-components";
-import { graphql, useStaticQuery, Link } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 import EUBioLogo from "assets/logos/EUBioLogo.svg";
 import FRBioLogo from "assets/logos/FRBioLogo.svg";
 import categoryQuoteLines from "assets/icons/categoryQuoteLines.svg";
 import winesData from "data/winesData";
 import AnchorNavBar from "./AnchorNav";
+import FicheVin from "./FicheVin";
 import Footer from "components/global/Footer";
 import { Element } from "react-scroll";
+import { navigate, useLocation } from "@reach/router";
 
 const StyledContainer = styled.div`
   padding: 15px;
@@ -257,6 +259,26 @@ const LaDegustation = ({ className }) => {
 
   const wines = data.allSanityWine.nodes;
 
+  const [activeWine, setActiveWine] = useState("");
+
+  function handleWineClick(wine) {
+    setActiveWine(wine);
+    navigate(`/la-degustation/${wine}`);
+  }
+
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    if (
+      pathname === "/la-degustation/" ||
+      pathname === "/nos-pratiques/" ||
+      pathname === "/nous-rencontrer/" ||
+      pathname === "/"
+    ) {
+      setActiveWine(false);
+    }
+  }, [pathname]);
+
   return (
     <StyledContainer className={className}>
       <section className="hero-section grid">
@@ -305,8 +327,13 @@ const LaDegustation = ({ className }) => {
                   const portraitImage = getImage(
                     wine.portraitImage.asset.gatsbyImageData
                   );
+                  const isFicheVinActive = wine.title === activeWine;
                   return (
-                    <Link to="#" className="wine-card" key={i}>
+                    <button
+                      onClick={() => handleWineClick(wine.title)}
+                      className="wine-card"
+                      key={i}
+                    >
                       <GatsbyImage
                         className="product-image"
                         image={productImage}
@@ -326,7 +353,17 @@ const LaDegustation = ({ className }) => {
                         </div>
                       )}
                       <div className="wine-cepages">{wine.cepages}</div>
-                    </Link>
+                      {isFicheVinActive && (
+                        <FicheVin
+                          title={wine.title}
+                          productImage={productImage}
+                          category={wine.category}
+                          cepages={wine.cepages}
+                          certification={wine.certification}
+                          isActive={isFicheVinActive}
+                        />
+                      )}
+                    </button>
                   );
                 })}
             </div>
