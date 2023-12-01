@@ -28,8 +28,8 @@ const StyledContainer = styled.div`
 
 const StyledMobileLinksContainer = styled.section`
   transition: all ${(props) => props.theme.transitionTime}s;
-  visibility: ${(props) => (props.isNavOpen ? "visible" : "hidden")};
-  opacity: ${(props) => (props.isNavOpen ? "1" : "0")};
+  visibility: ${(props) => (props.$isNavOpen ? "visible" : "hidden")};
+  opacity: ${(props) => (props.$isNavOpen ? "1" : "0")};
   position: fixed;
   bottom: 0;
   top: 45px;
@@ -73,9 +73,9 @@ export default function MobileLayout() {
         <Link to="/">
           <img src={LCGlogoMobile} alt="" />
         </Link>
-        <ToggleBtn onClick={toggleNav} isNavOpen={isNavOpen} />
+        <ToggleBtn onClick={toggleNav} $isNavOpen={isNavOpen} />
       </header>
-      <StyledMobileLinksContainer isNavOpen={isNavOpen}>
+      <StyledMobileLinksContainer $isNavOpen={isNavOpen}>
         <Link to="/nos-pratiques/">Nos Pratiques</Link>
         <Link to="/la-degustation/">La Dégustation</Link>
         <Link to="/nous-rencontrer/">Nous rencontrer</Link>
