@@ -1,6 +1,8 @@
 import * as React from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import styled from "styled-components";
+import NosVinsSection from "../HomePage/NosVinsSection";
+import Footer from "components/global/Footer";
 
 const StyledContainer = styled.div`
   padding: 0 15px;
@@ -32,9 +34,6 @@ const StyledContainer = styled.div`
     @media ${({ theme }) => theme.minWidth.sm} {
       grid-template-rows: repeat(4, auto);
     }
-  }
-  .gatsby-image-wrapper {
-    grid-column: 1 / span 7;
   }
   .hero-image {
     grid-column: 1 / span 7;
@@ -124,14 +123,8 @@ const StyledContainer = styled.div`
     }
   }
 
-  .title,
-  .large-text,
-  .team-description,
-  .sectionTitle {
-    grid-column: 1 / 8;
-  }
-
   .title {
+    grid-column: 1 / 8;
     font-family: "Democratica", sans-serif;
     font-size: 45px;
     line-height: 40px;
@@ -152,12 +145,14 @@ const StyledContainer = styled.div`
   }
 
   .hero-text {
+    grid-column: 1 / 8;
     @media ${({ theme }) => theme.minWidth.sm} {
       grid-column: 4 / 8;
       align-self: end;
     }
   }
   .intro-1 {
+    grid-column: 1 / 8;
     @media ${({ theme }) => theme.minWidth.sm} {
       grid-column: 1 / 4;
       grid-row: 2;
@@ -168,6 +163,7 @@ const StyledContainer = styled.div`
     }
   }
   .intro-2 {
+    grid-column: 1 / 8;
     @media ${({ theme }) => theme.minWidth.sm} {
       grid-column: 5 / 8;
     }
@@ -176,6 +172,7 @@ const StyledContainer = styled.div`
     }
   }
   .cepages-1 {
+    grid-column: 1 / 8;
     @media ${({ theme }) => theme.minWidth.sm} {
       grid-column: 5 / 8;
       grid-row: 2;
@@ -183,12 +180,14 @@ const StyledContainer = styled.div`
     }
   }
   .cepages-2 {
+    grid-column: 1 / 8;
     @media ${({ theme }) => theme.minWidth.sm} {
       grid-column: 1 / 4;
       grid-row: 3;
     }
   }
   .vinification-1 {
+    grid-column: 1 / 8;
     @media ${({ theme }) => theme.minWidth.sm} {
       grid-column: 3 / 7;
       grid-row: 2;
@@ -198,6 +197,7 @@ const StyledContainer = styled.div`
     }
   }
   .vinification-2 {
+    grid-column: 1 / 8;
     @media ${({ theme }) => theme.minWidth.sm} {
       grid-column: 4 / 7;
       grid-row: 5 / 6;
@@ -207,7 +207,8 @@ const StyledContainer = styled.div`
       grid-column: 4 / 6;
     }
   }
-  .elevage {
+  .elevage-text {
+    grid-column: 1 / 8;
     @media ${({ theme }) => theme.minWidth.sm} {
       grid-column: 2 / 6;
       grid-row: 4 / 5;
@@ -219,6 +220,7 @@ const StyledContainer = styled.div`
   }
 
   .large-text {
+    grid-column: 1 / 8;
     font-family: "Moderat", sans-serif;
     font-size: 16px;
     line-height: 150%;
@@ -241,6 +243,7 @@ const StyledContainer = styled.div`
   }
 
   .team-description {
+    grid-column: 1 / 8;
     font-family: "Moderat Mono", sans-serif;
     font-size: 10px;
     line-height: 15px;
@@ -445,7 +448,7 @@ const NosPratiques = ({ className }) => {
           alt="ElevageImage2"
           layout="fullWidth"
         />
-        <p className="elevage">
+        <p className="elevage-text">
           Chaque année de nouveaux contenants sont achetés pour permettre une
           rotation mais aussi pour réaliser des expérimentations. Depuis 2012,
           nous réalisons des élevages en dolia de terre cuite, céramique et
@@ -453,6 +456,8 @@ const NosPratiques = ({ className }) => {
           L’élevage est un sacré terrain de jeux.
         </p>
       </section>
+      <NosVinsSection />
+      <Footer />
     </StyledContainer>
   );
 };

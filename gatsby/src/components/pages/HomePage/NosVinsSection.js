@@ -8,8 +8,14 @@ const StyledContainer = styled.section`
   text-align: center;
   h2 {
     grid-column: 1/8;
+    br {
+      display: none;
+    }
     @media ${({ theme }) => theme.minWidth.sm} {
       grid-column: 5/8;
+      br {
+        display: block;
+      }
     }
   }
   .gatsby-image-wrapper {
