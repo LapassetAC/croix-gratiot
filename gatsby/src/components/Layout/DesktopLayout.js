@@ -75,7 +75,7 @@ const StyledContainer = styled.div`
       opacity: ${({ $transitionIsActive }) => ($transitionIsActive ? 0 : 1)};
     }
     .transitionMask {
-      position: absolute;
+      position: fixed;
       background-color: ${({ theme }) => theme.colors.backgroundLight};
       height: 100vh;
       top: 0;
