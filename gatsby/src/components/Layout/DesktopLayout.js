@@ -9,9 +9,7 @@ import LogoLGCDesktop from "assets/logos/LogoLGCDesktop";
 
 const StyledContainer = styled.div`
   nav {
-    /* z-index: -1; */
     position: fixed;
-    background-color: ${({ theme }) => theme.colors.backgroundLight};
     display: grid;
     top: 0;
     bottom: 0;
@@ -23,14 +21,14 @@ const StyledContainer = styled.div`
         : $incomingPage === "/nos-pratiques/"
         ? "60px calc(100vw - 180px) 60px 60px"
         : $incomingPage === "/la-degustation/"
-        ? "incomingPage 60px calc(100vw - 180px)  60px"
+        ? "60px 60px calc(100vw - 180px)  60px"
         : $incomingPage === "/nous-rencontrer/"
         ? "60px 60px 60px calc(100vw - 180px)"
         : null};
     & > div {
       display: block;
       border-left: 2px solid;
-      padding: 30px 0 0 15px;
+      padding: 30px 0 0 17.5px;
       button {
         writing-mode: sideways-lr;
         letter-spacing: 0.9px;
@@ -40,9 +38,13 @@ const StyledContainer = styled.div`
         text-orientation: upright;
         background-color: ${({ theme }) => theme.colors.backgroundLight};
       }
+      &.homeNav {
+        padding: 30px 0 0 14px;
+      }
     }
   }
   main {
+    position: relative;
     margin: ${({ $activePage }) =>
       $activePage === "/"
         ? "0 180px 0 60px"
@@ -53,34 +55,21 @@ const StyledContainer = styled.div`
         : $activePage === "/nous-rencontrer/"
         ? "0 0 0 240px"
         : null};
-    transition: opacity 1s;
-    opacity: ${({ $isTransition }) => ($isTransition ? 0 : 1)};
+    &:not(.transitionMask) {
+      transition: opacity 1s;
+      opacity: ${({ $transitionIsActive }) => ($transitionIsActive ? 0 : 1)};
+    }
     .transitionMask {
       position: absolute;
       background-color: ${({ theme }) => theme.colors.backgroundLight};
       height: 100vh;
       top: 0;
       transition: all 1s;
-      left: ${({ $activePage, $isTransition }) =>
-        $isTransition && $activePage === "/"
-          ? "60px"
-          : $isTransition && $activePage === "/nos-pratiques/"
-          ? "120px"
-          : $isTransition && $activePage === "/la-degustation/"
-          ? "180px"
-          : $isTransition && $activePage === "/nous-rencontrer/"
-          ? "240px"
-          : "100vw"};
-      right: ${({ $activePage, $isTransition }) =>
-        $activePage === "/"
-          ? "180px"
-          : $activePage === "/nos-pratiques/"
-          ? "120px"
-          : $activePage === "/la-degustation/"
-          ? "60px"
-          : $activePage === "/nous-rencontrer/"
-          ? "0"
-          : null};
+      width: ${({ $transitionIsActive }) => ($transitionIsActive ? 100 : 0)}%;
+      right: ${({ $transitionDirection }) =>
+        $transitionDirection === "left" && 0};
+      left: ${({ $transitionDirection }) =>
+        $transitionDirection === "right" && 0};
     }
   }
 `;
@@ -90,15 +79,40 @@ export default function DesktopLayout() {
 
   const [activePage, setActivePage] = useState(pathname);
   const [incomingPage, setIncomingPage] = useState(pathname);
-  const [isTransition, setIsTransition] = useState(false);
+  const [transitionIsActive, setTransitionIsActive] = useState(false);
+  const [transitionDirection, setTransitionDirection] = useState("left");
 
   function handlePageChange(page) {
     setIncomingPage(page);
-    setIsTransition(true);
+    setTransitionIsActive(true);
+    if (pathname === "/") {
+      setTransitionDirection("left");
+    }
+    if (
+      (pathname === "/nos-pratiques/" && page === "/la-degustation/") ||
+      page === "/nous-rencontrer/"
+    ) {
+      setTransitionDirection("left");
+    }
+    if (pathname === "/nos-pratiques/" && page === "/") {
+      setTransitionDirection("right");
+    }
+    if (
+      (pathname === "/la-degustation/" && page === "/nos-pratiques/") ||
+      page === "/"
+    ) {
+      setTransitionDirection("right");
+    }
+    if (pathname === "/la-degustation/" && page === "/nous-rencontrer/") {
+      setTransitionDirection("left");
+    }
+    if (pathname === "/nous-rencontrer/") {
+      setTransitionDirection("right");
+    }
     setTimeout(() => {
       navigate(page);
       setActivePage(page);
-      setIsTransition(false);
+      setTransitionIsActive(false);
     }, 1000);
   }
 
@@ -106,10 +120,20 @@ export default function DesktopLayout() {
     <StyledContainer
       $incomingPage={incomingPage}
       $activePage={activePage}
-      $isTransition={isTransition}
+      $transitionIsActive={transitionIsActive}
+      $transitionDirection={transitionDirection}
     >
+      <main>
+        <Router>
+          <HomePage path="/" />
+          <NosPratiquesPage path="/nos-pratiques/" />
+          <LaDegustationPage path="/la-degustation/" />
+          <NousRencontrerPage path="/nous-rencontrer/" />
+        </Router>
+        <div className="transitionMask"></div>
+      </main>
       <nav>
-        <div>
+        <div className="homeNav">
           <button onClick={() => handlePageChange("/")}>
             <LogoLGCDesktop />
           </button>
@@ -130,15 +154,6 @@ export default function DesktopLayout() {
           </button>
         </div>
       </nav>
-      <main>
-        <Router>
-          <HomePage path="/" />
-          <NosPratiquesPage path="/nos-pratiques/" />
-          <LaDegustationPage path="/la-degustation/" />
-          <NousRencontrerPage path="/nous-rencontrer/" />
-        </Router>
-        <div className="transitionMask"></div>
-      </main>
     </StyledContainer>
   );
 }
