@@ -11,6 +11,8 @@ import { Context } from "data/Context";
 
 const StyledContainer = styled.div`
   nav {
+    background-color: transparent;
+    pointer-events: none;
     position: fixed;
     display: grid;
     top: 0;
@@ -37,6 +39,7 @@ const StyledContainer = styled.div`
           : theme.colors.brandBrown};
       padding: 30px 0 0 17.5px;
       button {
+        pointer-events: all;
         transition: all 0.2s;
         writing-mode: sideways-lr;
         letter-spacing: 0.9px;
