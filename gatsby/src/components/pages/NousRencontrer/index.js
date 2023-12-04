@@ -9,39 +9,31 @@ const StyledContainer = styled.div`
   .main-section {
     row-gap: 45px;
     margin-bottom: 90px;
+    @media ${({ theme }) => theme.minWidth.sm} {
+      grid-template-rows: 1fr auto auto auto auto;
+    }
+    @media ${({ theme }) => theme.minWidth.sm} {
+      row-gap: 60px;
+    }
   }
   .nousRencontrerImage {
     grid-column: 1 / 8;
     margin-bottom: -30px;
     aspect-ratio: 1;
-  }
-  .sectionTitle {
-    grid-column: 1 / 8;
-  }
-  .address {
-    grid-column: 1 / 8;
-  }
-  .contact {
-    grid-column: 1 / 8;
-    a {
-      margin-bottom: 10px;
+    @media ${({ theme }) => theme.minWidth.sm} {
+      grid-column: 1 / 4;
+      grid-row: 1 / 3;
+      margin-bottom: 0;
+      aspect-ratio: 0.68;
     }
   }
-  .route {
+  h1 {
     grid-column: 1 / 8;
-    a {
-      margin-top: 15px;
+    @media ${({ theme }) => theme.minWidth.sm} {
+      grid-column: 4 / 8;
+      grid-row: 1 / 2;
+      align-self: end;
     }
-  }
-  .visits {
-    grid-column: 1 / 8;
-    .bold {
-      font-family: "Moderat Bold";
-    }
-  }
-  .nousRencontrerBottomImage {
-    grid-column: 1 / 8;
-    margin-bottom: 90px;
   }
   h2 {
     font-family: "Moderat Mono";
@@ -49,6 +41,54 @@ const StyledContainer = styled.div`
     line-height: 150%;
     text-transform: uppercase;
     margin-bottom: 10px;
+    @media ${({ theme }) => theme.minWidth.xl} {
+      font-size: 20px;
+    }
+  }
+  .btn {
+    font-size: 12px;
+    @media ${({ theme }) => theme.minWidth.xl} {
+      font-size: 14px;
+    }
+  }
+  .address {
+    grid-column: 1 / 8;
+    @media ${({ theme }) => theme.minWidth.sm} {
+      grid-column: 4 / 6;
+      grid-row: 2 / 3;
+    }
+  }
+  .contact {
+    grid-column: 1 / 8;
+    @media ${({ theme }) => theme.minWidth.sm} {
+      grid-column: 6 / 8;
+      grid-row: 2 / 3;
+    }
+    a {
+      margin-bottom: 10px;
+    }
+  }
+  .route {
+    grid-column: 1 / 8;
+    @media ${({ theme }) => theme.minWidth.sm} {
+      grid-column: 4 / 8;
+    }
+    a {
+      margin-top: 15px;
+    }
+  }
+  .visits {
+    grid-column: 1 / 8;
+    @media ${({ theme }) => theme.minWidth.sm} {
+      grid-column: 4 / 8;
+    }
+    .bold {
+      font-family: "Moderat Bold";
+    }
+  }
+  .nousRencontrerBottomImage {
+    grid-column: 1 / 8;
+    margin-bottom: 90px;
   }
 `;
 
