@@ -11,7 +11,7 @@ import { useLocation } from "@reach/router";
 import { useContext } from "react";
 import { Context } from "data/Context";
 
-const StyledContainer = styled.main`
+const StyledContainer = styled.div`
   .heroSection {
     height: calc(100vh - 60px);
     .heroImg {

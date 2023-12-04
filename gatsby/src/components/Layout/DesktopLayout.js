@@ -117,37 +117,46 @@ import LogoLGCDesktop from "assets/logos/LogoLGCDesktop";
 // `;
 
 const StyledContainer = styled.div`
-  .pagesContainer {
-    margin: 0 60px;
+  nav {
+    position: fixed;
+    background-color: white;
+    display: grid;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    transition: all 1s;
+    grid-template-columns: ${({ $activePage }) =>
+      $activePage === "/"
+        ? "calc(100vw - 180px) 60px 60px 60px"
+        : $activePage === "/nos-pratiques/"
+        ? "60px calc(100vw - 180px) 60px 60px"
+        : $activePage === "/la-degustation/"
+        ? "60px 60px calc(100vw - 180px)  60px"
+        : $activePage === "/nous-rencontrer/"
+        ? "60px 60px 60px calc(100vw - 180px)"
+        : null};
+    a {
+      border-left: 2px solid;
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 0.9px;
+      writing-mode: sideways-lr;
+      text-orientation: upright;
+      text-align: end;
+      padding: 30px 0 0 15px;
+    }
   }
-`;
-const StyledNav = styled.div`
-  position: fixed;
-  z-index: 1;
-  background-color: white;
-  display: grid;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-  transition: all 1s;
-  grid-template-columns: ${({ $activePage }) =>
-    $activePage === "/"
-      ? "calc(100vw - 180px) 60px 60px 60px"
-      : $activePage === "/nos-pratiques/"
-      ? "60px calc(100vw - 180px) 60px 60px"
-      : $activePage === "/la-degustation/"
-      ? "60px 60px calc(100vw - 180px)  60px"
-      : $activePage === "/nous-rencontrer/"
-      ? "60px 60px 60px calc(100vw - 180px)"
-      : null};
-  a {
-    border-left: 2px solid;
-    font-size: 18px;
-    text-transform: uppercase;
-    letter-spacing: 0.9px;
-    writing-mode: sideways-lr;
-    text-orientation: upright;
-    text-align: end;
+  main {
+    margin: ${({ $activePage }) =>
+      $activePage === "/"
+        ? "0 180px 0 60px"
+        : $activePage === "/nos-pratiques/"
+        ? "0 120px 0 120px"
+        : $activePage === "/la-degustation/"
+        ? "0 60px 0 180px"
+        : $activePage === "/nous-rencontrer/"
+        ? "0 0 0 240px"
+        : null};
   }
 `;
 
@@ -161,23 +170,23 @@ export default function DesktopLayout() {
   }, [pathname]);
 
   return (
-    <StyledContainer>
-      <StyledNav $activePage={activePage}>
+    <StyledContainer $activePage={activePage}>
+      <nav>
         <Link to="/">
           <LogoLGCDesktop />
         </Link>
         <Link to="/nos-pratiques/">Nos Pratiques</Link>
         <Link to="/la-degustation/">La Dégustation</Link>
         <Link to="/nous-rencontrer/">Nous rencontrer</Link>
-      </StyledNav>
-      <div className="pagesContainer">
-        {/* <Router>
+      </nav>
+      <main>
+        <Router>
           <HomePage path="/" />
           <NosPratiquesPage path="/nos-pratiques/" />
           <LaDegustationPage path="/la-degustation/" />
           <NousRencontrerPage path="/nous-rencontrer/" />
-        </Router> */}
-      </div>
+        </Router>
+      </main>
     </StyledContainer>
 
     // <StyledContainer $pageHeight={pageHeight}>
