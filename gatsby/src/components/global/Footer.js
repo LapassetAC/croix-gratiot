@@ -29,6 +29,7 @@ const StyledContainer = styled.footer`
     text-transform: uppercase;
     letter-spacing: 0.8px;
     margin-bottom: 15px;
+    white-space: nowrap;
   }
   .adresse {
     grid-column: 1/5;
