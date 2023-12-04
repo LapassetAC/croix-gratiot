@@ -32,7 +32,7 @@ const StyledContainer = styled.div`
       display: block;
       border-left: 2px solid;
       border-color: ${({ $activeSection, theme }) =>
-        $activeSection === "red"
+        $activeSection === "red" || $activeSection === "green"
           ? theme.colors.backgroundLight
           : theme.colors.brandBrown};
       padding: 30px 0 0 17.5px;
@@ -45,7 +45,7 @@ const StyledContainer = styled.div`
         text-align: end;
         text-orientation: upright;
         color: ${({ $activeSection, theme }) =>
-          $activeSection === "red"
+          $activeSection === "red" || $activeSection === "green"
             ? theme.colors.backgroundLight
             : theme.colors.brandBrown};
       }
