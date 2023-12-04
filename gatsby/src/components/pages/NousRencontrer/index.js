@@ -20,6 +20,7 @@ const StyledContainer = styled.div`
     grid-column: 1 / 8;
     margin-bottom: -30px;
     aspect-ratio: 1;
+    max-height: calc(100vh - 30px);
     @media ${({ theme }) => theme.minWidth.sm} {
       grid-column: 1 / 4;
       grid-row: 1 / 3;
