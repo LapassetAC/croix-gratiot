@@ -6,6 +6,8 @@ import NousRencontrerPage from "components/pages/NousRencontrer";
 import styled from "styled-components";
 import { Router, Link, useLocation, navigate } from "@reach/router";
 import LogoLGCDesktop from "assets/logos/LogoLGCDesktop";
+import { useContext } from "react";
+import { Context } from "data/Context";
 
 const StyledContainer = styled.div`
   nav {
@@ -26,20 +28,30 @@ const StyledContainer = styled.div`
         ? "60px 60px 60px calc(100vw - 180px)"
         : null};
     & > div {
+      transition: all 0.4s;
       display: block;
       border-left: 2px solid;
+      border-color: ${({ $activeSection, theme }) =>
+        $activeSection === "red"
+          ? theme.colors.backgroundLight
+          : theme.colors.brandBrown};
       padding: 30px 0 0 17.5px;
       button {
+        transition: all 0.2s;
         writing-mode: sideways-lr;
         letter-spacing: 0.9px;
         text-transform: uppercase;
         font-size: 18px;
         text-align: end;
         text-orientation: upright;
-        background-color: ${({ theme }) => theme.colors.backgroundLight};
+        color: ${({ $activeSection, theme }) =>
+          $activeSection === "red"
+            ? theme.colors.backgroundLight
+            : theme.colors.brandBrown};
       }
       &.homeNav {
         padding: 30px 0 0 14px;
+        border: none;
       }
     }
   }
@@ -81,6 +93,7 @@ export default function DesktopLayout() {
   const [incomingPage, setIncomingPage] = useState(pathname);
   const [transitionIsActive, setTransitionIsActive] = useState(false);
   const [transitionDirection, setTransitionDirection] = useState("left");
+  const { activeHomeSection } = useContext(Context);
 
   function handlePageChange(page) {
     setIncomingPage(page);
@@ -122,6 +135,7 @@ export default function DesktopLayout() {
       $activePage={activePage}
       $transitionIsActive={transitionIsActive}
       $transitionDirection={transitionDirection}
+      $activeSection={activeHomeSection}
     >
       <main>
         <Router>
