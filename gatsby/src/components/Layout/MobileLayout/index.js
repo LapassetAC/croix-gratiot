@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
-import HomePage from "components/pages/HomePage";
-import NosPratiquesPage from "components/pages/NosPratiques";
-import LaDegustationPage from "components/pages/LaDegustation";
-import NousRencontrerPage from "../pages/NousRencontrer";
-import MentionsLegalesPage from "components/pages/MentionsLegales";
+// import HomePage from "components/pages/HomePage";
+// import NosPratiquesPage from "components/pages/NosPratiques";
+// import LaDegustationPage from "components/pages/LaDegustation";
+// import NousRencontrerPage from "../pages/NousRencontrer";
+// import MentionsLegalesPage from "components/pages/MentionsLegales";
 import LCGlogoMobile from "assets/logos/logo-lcg-mobile.svg";
 import styled from "styled-components";
-import { Router, Link } from "@reach/router";
-import { StaticImage } from "gatsby-plugin-image";
-import ToggleBtn from "components/Layout/ToggleBtn";
-import Footer from "components/global/Footer";
+// import { Router, Link } from "@reach/router";
+import { Link } from "gatsby";
+import ToggleBtn from "./ToggleBtn";
 
 const StyledContainer = styled.div`
   justify-content: space-between;
@@ -72,7 +71,7 @@ const StyledMobileLinksContainer = styled.section`
   }
 `;
 
-export default function MobileLayout() {
+export default function MobileLayout({ children }) {
   const [isNavOpen, setNavOpen] = useState(false);
   const toggleNav = () => {
     setNavOpen(!isNavOpen);
@@ -121,13 +120,14 @@ export default function MobileLayout() {
         />
         <Footer />
       </StyledMobileLinksContainer>
-      <Router>
+      {children}
+      {/* <Router>
         <HomePage className="mobilePage" path="/" />
         <NosPratiquesPage path="/nos-pratiques/" />
         <LaDegustationPage path="/la-degustation/" />
         <NousRencontrerPage path="/nous-rencontrer/" />
         <MentionsLegalesPage path="/mentions-legales/" />
-      </Router>
+      </Router> */}
     </StyledContainer>
   );
 }
