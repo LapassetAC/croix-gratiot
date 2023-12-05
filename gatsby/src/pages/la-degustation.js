@@ -6,8 +6,8 @@ import EUBioLogo from "assets/logos/EUBioLogo.svg";
 import FRBioLogo from "assets/logos/FRBioLogo.svg";
 import categoryQuoteLines from "assets/icons/categoryQuoteLines.svg";
 import winesData from "data/winesData";
-import AnchorNavBar from "./AnchorNav";
-import FicheVin from "./FicheVin";
+import AnchorNavBar from "components/pages/LaDegustation/AnchorNav";
+import FicheVin from "components/pages/LaDegustation/FicheVin";
 import Footer from "components/global/Footer";
 import { Element } from "react-scroll";
 import { navigate, useLocation } from "@reach/router";
@@ -284,7 +284,7 @@ const LaDegustation = ({ className }) => {
       <section className="hero-section grid">
         <StaticImage
           className="degustationHeroImage"
-          src="../../../assets/imgs/degustation/degustationHeroImage.png"
+          src="../assets/imgs/degustation/degustationHeroImage.png"
           alt="degustationHeroImage"
           layout="fullWidth"
         />
