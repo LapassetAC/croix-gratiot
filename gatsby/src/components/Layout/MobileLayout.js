@@ -71,7 +71,7 @@ export default function MobileLayout() {
   return (
     <StyledContainer>
       <header>
-        <Link to="/">
+        <Link onClick={toggleNav} to="/">
           <img src={LCGlogoMobile} alt="" />
         </Link>
         <ToggleBtn onClick={toggleNav} $isNavOpen={isNavOpen} />
