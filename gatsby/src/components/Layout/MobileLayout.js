@@ -77,9 +77,15 @@ export default function MobileLayout() {
         <ToggleBtn onClick={toggleNav} $isNavOpen={isNavOpen} />
       </header>
       <StyledMobileLinksContainer $isNavOpen={isNavOpen}>
-        <Link to="/nos-pratiques/">Nos Pratiques</Link>
-        <Link to="/la-degustation/">La Dégustation</Link>
-        <Link to="/nous-rencontrer/">Nous rencontrer</Link>
+        <Link onClick={toggleNav} to="/nos-pratiques/">
+          Nos Pratiques
+        </Link>
+        <Link onClick={toggleNav} to="/la-degustation/">
+          La Dégustation
+        </Link>
+        <Link onClick={toggleNav} to="/nous-rencontrer/">
+          Nous rencontrer
+        </Link>
         <div>
           <button>EN</button>
           <button>FR</button>
