@@ -99,7 +99,7 @@ const NousRencontrer = ({ className }) => {
       <section className="main-section grid">
         <StaticImage
           className="nousRencontrerImage"
-          src="../../../assets/imgs/nousRencontrer/nousRencontrerImage.jpg"
+          src="../assets/imgs/nousRencontrer/nousRencontrerImage.jpg"
           alt="nousRencontrerImage"
           layout="fullWidth"
         />
@@ -170,7 +170,7 @@ const NousRencontrer = ({ className }) => {
       </section>
       <StaticImage
         className="nousRencontrerBottomImage"
-        src="../../../assets/imgs/nousRencontrer/nousRencontrerBottomImage.jpg"
+        src="../assets/imgs/nousRencontrer/nousRencontrerBottomImage.jpg"
         alt="nousRencontrerBottomImage"
         layout="fullWidth"
       />

@@ -40,7 +40,6 @@ const sliderSettings = {
 
 const StyledMobile = styled(Slider)`
   grid-column: 1/8;
-  /* margin: 0 -15px; */
   @media ${({ theme }) => theme.minWidth.sm} {
     display: none;
   }
@@ -75,7 +74,6 @@ const StyledNew = styled.div`
 `;
 const StyledEvent = styled.div`
   grid-column: 1/8;
-  /* margin-bottom: 60px; */
   row-gap: 0;
   align-items: start;
   @media ${({ theme }) => theme.minWidth.sm} {
