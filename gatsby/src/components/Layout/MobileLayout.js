@@ -7,7 +7,9 @@ import MentionsLegalesPage from "components/pages/MentionsLegales";
 import LCGlogoMobile from "assets/logos/logo-lcg-mobile.svg";
 import styled from "styled-components";
 import { Router, Link } from "@reach/router";
+import { StaticImage } from "gatsby-plugin-image";
 import ToggleBtn from "components/Layout/ToggleBtn";
+import Footer from "components/global/Footer";
 
 const StyledContainer = styled.div`
   justify-content: space-between;
@@ -28,6 +30,9 @@ const StyledContainer = styled.div`
 `;
 
 const StyledMobileLinksContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
   transition: all ${(props) => props.theme.transitionTime}s;
   visibility: ${(props) => (props.$isNavOpen ? "visible" : "hidden")};
   opacity: ${(props) => (props.$isNavOpen ? "1" : "0")};
@@ -35,11 +40,15 @@ const StyledMobileLinksContainer = styled.section`
   bottom: 0;
   top: 45px;
   width: 100%;
+  max-width: 100vw;
+  max-height: 100vh;
   padding: 0 15px;
   background-color: ${({ theme }) => theme.colors.backgroundLight};
   z-index: 2;
-  a,
-  div {
+  .menuItemsWrapper {
+    flex-grow: 1;
+  }
+  .menuItem {
     padding: 15px 0;
     text-transform: uppercase;
     letter-spacing: 0.9px;
@@ -51,6 +60,15 @@ const StyledMobileLinksContainer = styled.section`
     margin-right: 15px;
     letter-spacing: 0.9px;
     font-size: 14px;
+  }
+  .navigationImage {
+    margin-bottom: 30px;
+  }
+  footer {
+    display: none;
+    @media ${({ theme }) => theme.minWidth.sm} {
+      display: grid;
+    }
   }
 `;
 
@@ -80,19 +98,28 @@ export default function MobileLayout() {
         <ToggleBtn onClick={toggleNav} $isNavOpen={isNavOpen} />
       </header>
       <StyledMobileLinksContainer $isNavOpen={isNavOpen}>
-        <Link onClick={closeNav} to="/nos-pratiques/">
-          Nos Pratiques
-        </Link>
-        <Link onClick={closeNav} to="/la-degustation/">
-          La Dégustation
-        </Link>
-        <Link onClick={closeNav} to="/nous-rencontrer/">
-          Nous rencontrer
-        </Link>
-        <div>
-          <button>EN</button>
-          <button>FR</button>
+        <div className="menuItemsWrapper">
+          <Link className="menuItem" onClick={closeNav} to="/nos-pratiques/">
+            Nos Pratiques
+          </Link>
+          <Link className="menuItem" onClick={closeNav} to="/la-degustation/">
+            La Dégustation
+          </Link>
+          <Link className="menuItem" onClick={closeNav} to="/nous-rencontrer/">
+            Nous rencontrer
+          </Link>
+          <div className="menuItem">
+            <button>EN</button>
+            <button>FR</button>
+          </div>
         </div>
+        <StaticImage
+          className="navigationImage"
+          src="../../assets/imgs/nav/navigationImage.jpg"
+          alt="navigationImage"
+          layout="fullWidth"
+        />
+        <Footer />
       </StyledMobileLinksContainer>
       <Router>
         <HomePage className="mobilePage" path="/" />
