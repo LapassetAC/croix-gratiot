@@ -59,6 +59,9 @@ export default function MobileLayout() {
   const toggleNav = () => {
     setNavOpen(!isNavOpen);
   };
+  const closeNav = () => {
+    setNavOpen(false);
+  };
 
   useEffect(() => {
     if (isNavOpen) {
@@ -71,19 +74,19 @@ export default function MobileLayout() {
   return (
     <StyledContainer>
       <header>
-        <Link onClick={toggleNav} to="/">
+        <Link onClick={closeNav} to="/">
           <img src={LCGlogoMobile} alt="" />
         </Link>
         <ToggleBtn onClick={toggleNav} $isNavOpen={isNavOpen} />
       </header>
       <StyledMobileLinksContainer $isNavOpen={isNavOpen}>
-        <Link onClick={toggleNav} to="/nos-pratiques/">
+        <Link onClick={closeNav} to="/nos-pratiques/">
           Nos Pratiques
         </Link>
-        <Link onClick={toggleNav} to="/la-degustation/">
+        <Link onClick={closeNav} to="/la-degustation/">
           La Dégustation
         </Link>
-        <Link onClick={toggleNav} to="/nous-rencontrer/">
+        <Link onClick={closeNav} to="/nous-rencontrer/">
           Nous rencontrer
         </Link>
         <div>
