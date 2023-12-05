@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from "react";
-// import HomePage from "components/pages/HomePage";
-// import NosPratiquesPage from "components/pages/NosPratiques";
-// import LaDegustationPage from "components/pages/LaDegustation";
-// import NousRencontrerPage from "../pages/NousRencontrer";
-// import MentionsLegalesPage from "components/pages/MentionsLegales";
 import LCGlogoMobile from "assets/logos/logo-lcg-mobile.svg";
 import styled from "styled-components";
-// import { Router, Link } from "@reach/router";
 import { Link } from "gatsby";
 import ToggleBtn from "./ToggleBtn";
+import Footer from "components/global/Footer";
+import { StaticImage } from "gatsby-plugin-image";
 
 const StyledContainer = styled.div`
   justify-content: space-between;
@@ -121,13 +117,6 @@ export default function MobileLayout({ children }) {
         <Footer />
       </StyledMobileLinksContainer>
       {children}
-      {/* <Router>
-        <HomePage className="mobilePage" path="/" />
-        <NosPratiquesPage path="/nos-pratiques/" />
-        <LaDegustationPage path="/la-degustation/" />
-        <NousRencontrerPage path="/nous-rencontrer/" />
-        <MentionsLegalesPage path="/mentions-legales/" />
-      </Router> */}
     </StyledContainer>
   );
 }
