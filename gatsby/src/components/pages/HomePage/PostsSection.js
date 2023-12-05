@@ -1,5 +1,4 @@
 import * as React from "react";
-import { graphql, useStaticQuery } from "gatsby";
 import styled from "styled-components";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import ArrowBtn from "components/global/ArrowBtn";
@@ -126,40 +125,7 @@ const StyledEvent = styled.div`
   }
 `;
 
-const PostsSection = () => {
-  const data = useStaticQuery(
-    graphql`
-      query {
-        allSanityNews(limit: 3) {
-          nodes {
-            text
-            newsUrl
-            thumbImg {
-              asset {
-                gatsbyImageData
-              }
-            }
-          }
-        }
-        allSanityEvents(limit: 1, sort: { date: DESC }) {
-          nodes {
-            title
-            date(formatString: "DD MMMM YYYY", locale: "fr")
-            description
-            eventUrl
-            thumbImg {
-              asset {
-                gatsbyImageData
-              }
-            }
-          }
-        }
-      }
-    `
-  );
-
-  const news = data.allSanityNews.nodes;
-  const event = data.allSanityEvents.nodes[0];
+const PostsSection = ({ news, event }) => {
   const getEventImg = getImage(event.thumbImg.asset);
 
   const newsRender = news.map(({ text, thumbImg, newsUrl }) => {
