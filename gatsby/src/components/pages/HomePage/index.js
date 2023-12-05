@@ -386,7 +386,7 @@ const HomePage = ({ className }) => {
             à travers des événements festifs et des collaborations artistiques.
           </p>
         </section>
-        <PostsSection />
+        {/* <PostsSection /> */}
       </section>
       <NosVinsSection />
       <Footer />

@@ -1,11 +1,13 @@
-import React, { useRef, useEffect, useState } from "react";
-import HomePage from "components/pages/HomePage";
-import NosPratiquesPage from "components/pages/NosPratiques";
-import LaDegustationPage from "components/pages/LaDegustation";
-import NousRencontrerPage from "components/pages/NousRencontrer";
-import MentionsLegalesPage from "components/pages/MentionsLegales";
+import React, { useState } from "react";
+// import HomePage from "components/pages/HomePage";
+// import NosPratiquesPage from "components/pages/NosPratiques";
+// import LaDegustationPage from "components/pages/LaDegustation";
+// import NousRencontrerPage from "components/pages/NousRencontrer";
+// import MentionsLegalesPage from "components/pages/MentionsLegales";
 import styled from "styled-components";
-import { Router, Link, useLocation, navigate } from "@reach/router";
+// import { Router, Link, useLocation, navigate } from "@reach/router";
+import { useLocation } from "@reach/router";
+import { navigate } from "gatsby";
 import LogoLGCDesktop from "assets/logos/LogoLGCDesktop";
 import { useContext } from "react";
 import { Context } from "data/Context";
@@ -90,14 +92,14 @@ const StyledContainer = styled.div`
   }
 `;
 
-export default function DesktopLayout() {
+export default function DesktopLayout({ children }) {
   const { pathname } = useLocation();
+  const { activeHomeSection } = useContext(Context);
 
   const [activePage, setActivePage] = useState(pathname);
   const [incomingPage, setIncomingPage] = useState(pathname);
   const [transitionIsActive, setTransitionIsActive] = useState(false);
   const [transitionDirection, setTransitionDirection] = useState("left");
-  const { activeHomeSection } = useContext(Context);
 
   function handlePageChange(page) {
     setIncomingPage(page);
@@ -142,18 +144,21 @@ export default function DesktopLayout() {
       $activeSection={activeHomeSection}
     >
       <main>
-        <Router>
-          <HomePage path="/" />
+        {children}
+        {/* <Router>
           <NosPratiquesPage path="/nos-pratiques/" />
           <LaDegustationPage path="/la-degustation/" />
           <NousRencontrerPage path="/nous-rencontrer/" />
           <MentionsLegalesPage path="/mentions-legales/" />
-        </Router>
+        </Router> */}
         <div className="transitionMask"></div>
       </main>
       <nav>
         <div className="homeNav">
-          <button onClick={() => handlePageChange("/")}>
+          <button
+            aria-label="La Croix Gratiot logo"
+            onClick={() => handlePageChange("/")}
+          >
             <LogoLGCDesktop />
           </button>
         </div>
