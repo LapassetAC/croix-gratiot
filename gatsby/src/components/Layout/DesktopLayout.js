@@ -3,6 +3,7 @@ import HomePage from "components/pages/HomePage";
 import NosPratiquesPage from "components/pages/NosPratiques";
 import LaDegustationPage from "components/pages/LaDegustation";
 import NousRencontrerPage from "components/pages/NousRencontrer";
+import MentionsLegalesPage from "components/pages/MentionsLegales";
 import styled from "styled-components";
 import { Router, Link, useLocation, navigate } from "@reach/router";
 import LogoLGCDesktop from "assets/logos/LogoLGCDesktop";
@@ -146,6 +147,7 @@ export default function DesktopLayout() {
           <NosPratiquesPage path="/nos-pratiques/" />
           <LaDegustationPage path="/la-degustation/" />
           <NousRencontrerPage path="/nous-rencontrer/" />
+          <MentionsLegalesPage path="/mentions-legales/" />
         </Router>
         <div className="transitionMask"></div>
       </main>
