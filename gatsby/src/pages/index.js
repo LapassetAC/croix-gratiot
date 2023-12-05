@@ -1,16 +1,17 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import PostsSection from "components/Pages/HomePage/PostsSection";
 import styled from "styled-components";
 import LCGlogoHero from "assets/logos/LogoLCGHero";
 import ArrowBtn from "components/global/ArrowBtn";
 import TestimonySlider from "components/Pages/HomePage/TestimonySlider";
-import NosVinsSection from "components/Pages/HomePage/NosVinsSection";
 import Footer from "components/global/Footer";
 import { useLocation } from "@reach/router";
 import { useContext } from "react";
 import { Context } from "data/Context";
 import { graphql, useStaticQuery } from "gatsby";
+import winesData from "data/winesData";
+import { Link } from "gatsby";
 
 const StyledContainer = styled.div`
   .heroSection {
@@ -227,6 +228,51 @@ const StyledContainer = styled.div`
   }
 `;
 
+const StyledNosVinsContainer = styled.section`
+  text-align: center;
+  h2 {
+    grid-column: 1/8;
+    br {
+      display: none;
+    }
+    @media ${({ theme }) => theme.minWidth.sm} {
+      grid-column: 5/8;
+      br {
+        display: block;
+      }
+    }
+  }
+  .gatsby-image-wrapper {
+    grid-column: 1/8;
+    aspect-ratio: 0.9;
+    @media ${({ theme }) => theme.minWidth.sm} {
+      grid-column: 2/5;
+      grid-row: 1/4;
+      aspect-ratio: 0.7;
+    }
+  }
+  ul {
+    grid-column: 1/8;
+    @media ${({ theme }) => theme.minWidth.sm} {
+      grid-column: 5/8;
+    }
+    li {
+      font-family: Moderat Mono Bold;
+      margin-bottom: 15px;
+      @media ${({ theme }) => theme.minWidth.sm} {
+        margin-bottom: 30px;
+      }
+    }
+  }
+  a {
+    grid-column: 1/8;
+    margin: 15px auto 0;
+    @media ${({ theme }) => theme.minWidth.sm} {
+      grid-column: 5/8;
+    }
+  }
+`;
+
 const HomePage = ({ className }) => {
   const data = useStaticQuery(
     graphql`
@@ -267,6 +313,7 @@ const HomePage = ({ className }) => {
   const redSectionRef = useRef();
   const { pathname } = useLocation();
   const { setActiveHomeSection } = useContext(Context);
+  const [activeCategory, setActiveCategory] = useState("blanc");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -423,7 +470,52 @@ const HomePage = ({ className }) => {
         </section>
         <PostsSection news={news} event={event} />
       </section>
-      <NosVinsSection />
+      <StyledNosVinsContainer className="grid">
+        <h2 className="sectionTitle">
+          Nos <br />
+          Vins
+        </h2>
+        {activeCategory === "blanc" ? (
+          <StaticImage
+            src="../assets/imgs/nosVins/blanc.jpg"
+            alt=""
+            layout="fullWidth"
+          />
+        ) : activeCategory === "rose" ? (
+          <StaticImage
+            src="../assets/imgs/nosVins/rose.jpg"
+            alt=""
+            layout="fullWidth"
+          />
+        ) : activeCategory === "rouge" ? (
+          <StaticImage
+            src="../assets/imgs/nosVins/rouge.jpg"
+            alt=""
+            layout="fullWidth"
+          />
+        ) : activeCategory === "autre" ? (
+          <StaticImage
+            src="../assets/imgs/nosVins/autre.jpg"
+            alt=""
+            layout="fullWidth"
+          />
+        ) : null}
+        <ul>
+          {winesData.map(({ category, title }) => (
+            <li key={category}>
+              <Link
+                onMouseEnter={() => setActiveCategory(category)}
+                to={"/la-degustation/#" + category}
+              >
+                {title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <Link to="/la-degustation/">
+          <ArrowBtn black>Voir tous nos vins</ArrowBtn>
+        </Link>
+      </StyledNosVinsContainer>
       <Footer />
     </StyledContainer>
   );
