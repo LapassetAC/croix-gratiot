@@ -1,6 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import Footer from "components/global/Footer";
+import { graphql } from "gatsby";
 
 const StyledContainer = styled.div`
   padding: 0 15px;
@@ -92,3 +93,17 @@ const MentionsLegales = ({ className }) => {
 };
 
 export default MentionsLegales;
+
+export const query = graphql`
+  query ($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`;

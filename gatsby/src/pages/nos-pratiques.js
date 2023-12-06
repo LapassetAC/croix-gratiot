@@ -5,6 +5,8 @@ import Footer from "components/global/Footer";
 import winesData from "data/winesData";
 import { Link } from "gatsby";
 import ArrowBtn from "components/global/ArrowBtn";
+import { Trans } from "gatsby-plugin-react-i18next";
+import { graphql } from "gatsby";
 
 const StyledNosVinsContainer = styled.section`
   text-align: center;
@@ -372,7 +374,9 @@ const NosPratiques = () => {
       </section>
       <section className="intro">
         <p className="large-text">
-          Depuis nos essais sur une parcelle en 2012, c’est maintenant
+          <Trans>
+            Depuis nos essais sur une parcelle en 2012, c’est maintenant
+          </Trans>
           <span className="line-break">
             {" "}
             tout le vignoble que nous conduisons en biodynamie.
@@ -557,3 +561,17 @@ const NosPratiques = () => {
 };
 
 export default NosPratiques;
+
+export const query = graphql`
+  query ($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`;

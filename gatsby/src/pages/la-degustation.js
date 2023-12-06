@@ -1,7 +1,7 @@
 import React from "react";
 import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image";
 import { styled } from "styled-components";
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql } from "gatsby";
 import EUBioLogo from "assets/logos/EUBioLogo.svg";
 import FRBioLogo from "assets/logos/FRBioLogo.svg";
 import categoryQuoteLines from "assets/icons/categoryQuoteLines.svg";
@@ -228,38 +228,11 @@ const StyledColorSquare = styled.div`
   }
 `;
 
-const LaDegustation = ({ className }) => {
-  const data = useStaticQuery(
-    graphql`
-      query {
-        allSanityWine {
-          nodes {
-            title
-            category
-            certification
-            cepages
-            productImage {
-              asset {
-                url
-                gatsbyImageData
-              }
-            }
-            portraitImage {
-              asset {
-                url
-                gatsbyImageData(aspectRatio: 0.74)
-              }
-            }
-          }
-        }
-      }
-    `
-  );
-
+const LaDegustation = ({ data }) => {
   const wines = data.allSanityWine.nodes;
 
   return (
-    <StyledContainer className={className}>
+    <StyledContainer>
       <section className="hero-section grid">
         <StaticImage
           className="degustationHeroImage"
@@ -354,3 +327,37 @@ const LaDegustation = ({ className }) => {
 };
 
 export default LaDegustation;
+
+export const query = graphql`
+  query ($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+    allSanityWine {
+      nodes {
+        title
+        category
+        certification
+        cepages
+        productImage {
+          asset {
+            url
+            gatsbyImageData
+          }
+        }
+        portraitImage {
+          asset {
+            url
+            gatsbyImageData(aspectRatio: 0.74)
+          }
+        }
+      }
+    }
+  }
+`;

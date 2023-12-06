@@ -2,12 +2,21 @@ import React from "react";
 import { graphql } from "gatsby";
 
 export const query = graphql`
-  query WineByTitle($title: String!) {
+  query ($title: String!, $language: String!) {
     sanityWine(title: { eq: $title }) {
       category
       cepages
       certification
       title
+    }
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
     }
   }
 `;

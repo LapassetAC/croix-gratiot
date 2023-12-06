@@ -1,16 +1,10 @@
 import React, { useState } from "react";
-// import HomePage from "components/pages/HomePage";
-// import NosPratiquesPage from "components/pages/NosPratiques";
-// import LaDegustationPage from "components/pages/LaDegustation";
-// import NousRencontrerPage from "components/pages/NousRencontrer";
-// import MentionsLegalesPage from "components/pages/MentionsLegales";
 import styled from "styled-components";
-// import { Router, Link, useLocation, navigate } from "@reach/router";
-import { useLocation } from "@reach/router";
 import { navigate } from "gatsby";
 import LogoLGCDesktop from "assets/logos/LogoLGCDesktop";
 import { useContext } from "react";
 import { Context } from "data/Context";
+import { useI18next, Link } from "gatsby-plugin-react-i18next";
 
 const StyledContainer = styled.div`
   nav {
@@ -27,37 +21,60 @@ const StyledContainer = styled.div`
         ? "calc(100vw - 180px) 60px 60px 60px"
         : $incomingPage === "/nos-pratiques/"
         ? "60px calc(100vw - 180px) 60px 60px"
-        : $incomingPage === "/la-degustation/"
+        : $incomingPage.startsWith("/la-degustation/")
         ? "60px 60px calc(100vw - 180px)  60px"
         : $incomingPage === "/nous-rencontrer/"
         ? "60px 60px 60px calc(100vw - 180px)"
         : null};
     & > div {
       transition: all 0.4s;
-      display: block;
       border-left: 2px solid;
       border-color: ${({ $activeSection, theme }) =>
         $activeSection === "red" || $activeSection === "green"
           ? theme.colors.backgroundLight
           : theme.colors.brandBrown};
       padding: 30px 0 0 17.5px;
+      a,
       button {
         pointer-events: all;
-        transition: all 0.2s;
         writing-mode: sideways-lr;
         letter-spacing: 0.9px;
         text-transform: uppercase;
         font-size: 18px;
         text-align: end;
         text-orientation: upright;
+        transition: color 0.2s;
         color: ${({ $activeSection, theme }) =>
           $activeSection === "red" || $activeSection === "green"
             ? theme.colors.backgroundLight
             : theme.colors.brandBrown};
       }
       &.homeNav {
-        padding: 30px 0 0 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: start;
+        padding: 30px 0 60px 14px;
         border: none;
+        svg {
+          transition: fill 0.2s;
+          fill: ${({ $activeSection, theme }) =>
+            $activeSection === "red" || $activeSection === "green"
+              ? theme.colors.backgroundLight
+              : theme.colors.brandBrown};
+        }
+        aside {
+          display: flex;
+          flex-direction: column;
+          a {
+            margin-top: 15px;
+            &.active {
+              text-decoration-line: underline;
+              text-decoration-thickness: 2px;
+              text-underline-offset: 4px;
+            }
+          }
+        }
       }
     }
   }
@@ -68,7 +85,7 @@ const StyledContainer = styled.div`
         ? "0 180px 0 60px"
         : $activePage === "/nos-pratiques/"
         ? "0 120px 0 120px"
-        : $activePage === "/la-degustation/"
+        : $activePage.startsWith("/la-degustation/")
         ? "0 60px 0 180px"
         : $activePage === "/nous-rencontrer/"
         ? "0 0 0 240px"
@@ -93,39 +110,39 @@ const StyledContainer = styled.div`
 `;
 
 export default function DesktopLayout({ children }) {
-  const { pathname } = useLocation();
   const { activeHomeSection } = useContext(Context);
+  const { originalPath } = useI18next();
 
-  const [activePage, setActivePage] = useState(pathname);
-  const [incomingPage, setIncomingPage] = useState(pathname);
+  const [activePage, setActivePage] = useState(originalPath);
+  const [incomingPage, setIncomingPage] = useState(originalPath);
   const [transitionIsActive, setTransitionIsActive] = useState(false);
   const [transitionDirection, setTransitionDirection] = useState("left");
 
   function handlePageChange(page) {
     setIncomingPage(page);
     setTransitionIsActive(true);
-    if (pathname === "/") {
+    if (originalPath === "/") {
       setTransitionDirection("left");
     }
     if (
-      (pathname === "/nos-pratiques/" && page === "/la-degustation/") ||
+      (originalPath === "/nos-pratiques/" && page === "/la-degustation/") ||
       page === "/nous-rencontrer/"
     ) {
       setTransitionDirection("left");
     }
-    if (pathname === "/nos-pratiques/" && page === "/") {
+    if (originalPath === "/nos-pratiques/" && page === "/") {
       setTransitionDirection("right");
     }
     if (
-      (pathname === "/la-degustation/" && page === "/nos-pratiques/") ||
+      (originalPath === "/la-degustation/" && page === "/nos-pratiques/") ||
       page === "/"
     ) {
       setTransitionDirection("right");
     }
-    if (pathname === "/la-degustation/" && page === "/nous-rencontrer/") {
+    if (originalPath === "/la-degustation/" && page === "/nous-rencontrer/") {
       setTransitionDirection("left");
     }
-    if (pathname === "/nous-rencontrer/") {
+    if (originalPath === "/nous-rencontrer/") {
       setTransitionDirection("right");
     }
     setTimeout(() => {
@@ -145,12 +162,6 @@ export default function DesktopLayout({ children }) {
     >
       <main>
         {children}
-        {/* <Router>
-          <NosPratiquesPage path="/nos-pratiques/" />
-          <LaDegustationPage path="/la-degustation/" />
-          <NousRencontrerPage path="/nous-rencontrer/" />
-          <MentionsLegalesPage path="/mentions-legales/" />
-        </Router> */}
         <div className="transitionMask"></div>
       </main>
       <nav>
@@ -161,6 +172,14 @@ export default function DesktopLayout({ children }) {
           >
             <LogoLGCDesktop />
           </button>
+          <aside>
+            <Link to={originalPath} language={"en"} activeClassName="active">
+              EN
+            </Link>
+            <Link to={originalPath} language={"fr"} activeClassName="active">
+              FR
+            </Link>
+          </aside>
         </div>
         <div>
           <button onClick={() => handlePageChange("/nos-pratiques/")}>

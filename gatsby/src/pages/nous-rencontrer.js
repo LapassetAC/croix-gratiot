@@ -3,6 +3,7 @@ import { styled } from "styled-components";
 import { StaticImage } from "gatsby-plugin-image";
 import Arrow from "assets/icons/Arrow";
 import Footer from "components/global/Footer";
+import { graphql } from "gatsby";
 
 const StyledContainer = styled.div`
   padding: 0 15px;
@@ -180,3 +181,17 @@ const NousRencontrer = ({ className }) => {
 };
 
 export default NousRencontrer;
+
+export const query = graphql`
+  query ($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`;
