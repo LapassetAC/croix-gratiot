@@ -9,7 +9,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     query {
       allSanityWine {
         nodes {
-          title
+          slug {
+            current
+          }
         }
       }
     }
@@ -27,12 +29,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   if (wines.length > 0) {
     wines.forEach((wine) => {
-      const path = `la-degustation/${wine.title}`;
+      const path = `la-degustation/${wine.slug.current}`;
       createPage({
         path,
         component: WineTemplate,
         context: {
-          title: wine.title,
+          slug: wine.slug.current,
         },
       });
     });

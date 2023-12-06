@@ -2,8 +2,8 @@ import React from "react";
 import { graphql } from "gatsby";
 
 export const query = graphql`
-  query ($title: String!, $language: String!) {
-    sanityWine(title: { eq: $title }) {
+  query ($slug: String!, $language: String!) {
+    sanityWine(slug: { current: { eq: $slug } }) {
       category
       cepages
       certification

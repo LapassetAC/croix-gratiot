@@ -14,6 +14,7 @@ const StyledContainer = styled.div`
 `;
 
 const FicheVin = ({
+  slug,
   title,
   category,
   cepages,

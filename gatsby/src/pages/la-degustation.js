@@ -281,7 +281,7 @@ const LaDegustation = ({ data }) => {
                   );
                   return (
                     <Link
-                      to={`/la-degustation/${wine.title}`}
+                      to={`/la-degustation/${wine.slug.current}`}
                       className="wine-card"
                       key={i}
                     >
@@ -342,6 +342,9 @@ export const query = graphql`
     allSanityWine {
       nodes {
         title
+        slug {
+          current
+        }
         category
         certification
         cepages
