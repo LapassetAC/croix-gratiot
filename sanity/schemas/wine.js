@@ -10,6 +10,16 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: 'slug',
+      type: 'slug',
+      title: 'URL de la page',
+      validation: (Rule) => Rule.required(),
+      options: {
+        source: 'title',
+        maxLength: 96,
+      },
+    },
+    {
       name: 'category',
       title: 'Catégorie',
       type: 'string',
