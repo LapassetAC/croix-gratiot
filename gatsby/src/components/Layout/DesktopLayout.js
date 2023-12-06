@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { navigate } from "gatsby";
 import LogoLGCDesktop from "assets/logos/LogoLGCDesktop";
 import { useContext } from "react";
 import { Context } from "data/Context";
@@ -108,8 +107,9 @@ const StyledContainer = styled.div`
 `;
 
 export default function DesktopLayout({ children }) {
-  const { activeHomeSection } = useContext(Context);
-  const { originalPath } = useI18next();
+  const { activeHomeSection, setActiveHomeSection } = useContext(Context);
+
+  const { originalPath, navigate } = useI18next();
 
   const [activePage, setActivePage] = useState(originalPath);
   const [incomingPage, setIncomingPage] = useState(originalPath);
@@ -117,6 +117,9 @@ export default function DesktopLayout({ children }) {
   const [transitionDirection, setTransitionDirection] = useState("left");
 
   function handlePageChange(page) {
+    if (activeHomeSection === "red" || activeHomeSection === "green") {
+      setActiveHomeSection("white");
+    }
     setIncomingPage(page);
     setTransitionIsActive(true);
     if (originalPath === "/") {

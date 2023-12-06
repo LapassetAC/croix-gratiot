@@ -5,13 +5,12 @@ import styled from "styled-components";
 import LCGlogoHero from "assets/logos/LogoLCGHero";
 import ArrowBtn from "components/global/ArrowBtn";
 import TestimonySlider from "components/Pages/HomePage/TestimonySlider";
-import { useLocation } from "@reach/router";
 import { useContext } from "react";
 import { Context } from "data/Context";
 import { graphql } from "gatsby";
 import winesData from "data/winesData";
 import { Link } from "gatsby";
-import { Trans } from "gatsby-plugin-react-i18next";
+import { Trans, useI18next } from "gatsby-plugin-react-i18next";
 
 const StyledContainer = styled.div`
   .heroSection {
@@ -274,13 +273,14 @@ const StyledNosVinsContainer = styled.section`
 `;
 
 const HomePage = ({ data }) => {
+  const { originalPath } = useI18next();
+
   const news = data.allSanityNews.nodes;
   const event = data.allSanityEvents.nodes[0];
 
   const orangeSectionRef = useRef();
   const greenSectionRef = useRef();
   const redSectionRef = useRef();
-  const { pathname } = useLocation();
   const { setActiveHomeSection } = useContext(Context);
   const [activeCategory, setActiveCategory] = useState("blanc");
 
@@ -293,7 +293,7 @@ const HomePage = ({ data }) => {
       const redSectionTop = redSectionRef.current.getBoundingClientRect().top;
       const redSectionBottom =
         redSectionRef.current.getBoundingClientRect().bottom;
-      if (pathname === "/") {
+      if (originalPath === "/") {
         if (orangeSectionTop < 0 && greenSectionTop > 0) {
           setActiveHomeSection("orange");
         }
@@ -313,8 +313,9 @@ const HomePage = ({ data }) => {
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      setActiveHomeSection("white");
     };
-  }, [pathname, setActiveHomeSection]);
+  }, [originalPath, setActiveHomeSection]);
 
   return (
     <StyledContainer>
