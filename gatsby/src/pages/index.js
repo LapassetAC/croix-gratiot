@@ -5,7 +5,6 @@ import styled from "styled-components";
 import LCGlogoHero from "assets/logos/LogoLCGHero";
 import ArrowBtn from "components/global/ArrowBtn";
 import TestimonySlider from "components/Pages/HomePage/TestimonySlider";
-import Footer from "components/global/Footer";
 import { useLocation } from "@reach/router";
 import { useContext } from "react";
 import { Context } from "data/Context";
@@ -60,8 +59,8 @@ const StyledContainer = styled.div`
       margin: 0 -15px 0 -15px;
       padding: 0 15px 0 15px;
       @media ${({ theme }) => theme.minWidth.sm} {
-        margin: 0 -180px 0 -60px;
-        padding: 0 180px 0 60px;
+        margin: 0 -195px 0 -60px;
+        padding: 0 195px 0 60px;
       }
     }
 
@@ -490,7 +489,6 @@ const HomePage = ({ data }) => {
           <ArrowBtn black>Voir tous nos vins</ArrowBtn>
         </Link>
       </StyledNosVinsContainer>
-      <Footer />
     </StyledContainer>
   );
 };

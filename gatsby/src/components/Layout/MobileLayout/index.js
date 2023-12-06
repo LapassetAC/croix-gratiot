@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import LCGlogoMobile from "assets/logos/logo-lcg-mobile.svg";
 import styled from "styled-components";
-import { Link } from "gatsby";
 import ToggleBtn from "./ToggleBtn";
-import Footer from "components/global/Footer";
+import Footer from "../Footer";
 import { StaticImage } from "gatsby-plugin-image";
+import { useI18next, Link } from "gatsby-plugin-react-i18next";
 
 const StyledContainer = styled.div`
   justify-content: space-between;
@@ -45,10 +45,21 @@ const StyledMobileLinksContainer = styled.section`
   }
   .menuItem {
     padding: 15px 0;
-    text-transform: uppercase;
-    letter-spacing: 0.9px;
     border-top: 1.5px solid ${({ theme }) => theme.colors.black};
-    line-height: normal;
+    letter-spacing: 0.9px;
+    text-transform: uppercase;
+
+    &.language {
+      display: flex;
+      a {
+        margin-right: 15px;
+        &.active {
+          text-decoration-line: underline;
+          text-decoration-thickness: 1.5px;
+          text-underline-offset: 3px;
+        }
+      }
+    }
   }
   button {
     text-transform: uppercase;
@@ -68,6 +79,7 @@ const StyledMobileLinksContainer = styled.section`
 `;
 
 export default function MobileLayout({ children }) {
+  const { originalPath } = useI18next();
   const [isNavOpen, setNavOpen] = useState(false);
   const toggleNav = () => {
     setNavOpen(!isNavOpen);
@@ -103,14 +115,18 @@ export default function MobileLayout({ children }) {
           <Link className="menuItem" onClick={closeNav} to="/nous-rencontrer/">
             Nous rencontrer
           </Link>
-          <div className="menuItem">
-            <button>EN</button>
-            <button>FR</button>
+          <div className="menuItem language">
+            <Link to={originalPath} language={"fr"} activeClassName="active">
+              FR
+            </Link>
+            <Link to={originalPath} language={"en"} activeClassName="active">
+              EN
+            </Link>
           </div>
         </div>
         <StaticImage
           className="navigationImage"
-          src="../../assets/imgs/nav/navigationImage.jpg"
+          src="../../../assets/imgs/nav/navigationImage.jpg"
           alt="navigationImage"
           layout="fullWidth"
         />
