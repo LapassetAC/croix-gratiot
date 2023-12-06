@@ -9,10 +9,10 @@ import Footer from "components/global/Footer";
 import { useLocation } from "@reach/router";
 import { useContext } from "react";
 import { Context } from "data/Context";
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql } from "gatsby";
 import winesData from "data/winesData";
 import { Link } from "gatsby";
-import { Trans, useTranslation } from "gatsby-plugin-react-i18next";
+import { Trans } from "gatsby-plugin-react-i18next";
 
 const StyledContainer = styled.div`
   .heroSection {
@@ -274,38 +274,7 @@ const StyledNosVinsContainer = styled.section`
   }
 `;
 
-const HomePage = ({ className }) => {
-  const data = useStaticQuery(
-    graphql`
-      query {
-        allSanityNews(limit: 3) {
-          nodes {
-            text
-            newsUrl
-            thumbImg {
-              asset {
-                gatsbyImageData
-              }
-            }
-          }
-        }
-        allSanityEvents(limit: 1, sort: { date: DESC }) {
-          nodes {
-            title
-            date(formatString: "DD MMMM YYYY", locale: "fr")
-            description
-            eventUrl
-            thumbImg {
-              asset {
-                gatsbyImageData
-              }
-            }
-          }
-        }
-      }
-    `
-  );
-
+const HomePage = ({ data }) => {
   const news = data.allSanityNews.nodes;
   const event = data.allSanityEvents.nodes[0];
 
@@ -349,7 +318,7 @@ const HomePage = ({ className }) => {
   }, [pathname, setActiveHomeSection]);
 
   return (
-    <StyledContainer className={className}>
+    <StyledContainer>
       <section className="heroSection grid">
         <StaticImage
           className="heroImg"
@@ -525,3 +494,41 @@ const HomePage = ({ className }) => {
 };
 
 export default HomePage;
+
+export const query = graphql`
+  query ($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+    allSanityNews(limit: 3) {
+      nodes {
+        text
+        newsUrl
+        thumbImg {
+          asset {
+            gatsbyImageData
+          }
+        }
+      }
+    }
+    allSanityEvents(limit: 1, sort: { date: DESC }) {
+      nodes {
+        title
+        date(formatString: "DD MMMM YYYY", locale: "fr")
+        description
+        eventUrl
+        thumbImg {
+          asset {
+            gatsbyImageData
+          }
+        }
+      }
+    }
+  }
+`;

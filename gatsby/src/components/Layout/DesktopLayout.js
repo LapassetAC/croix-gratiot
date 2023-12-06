@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { useLocation } from "@reach/router";
+// import { useLocation } from "@reach/router";
 import { navigate } from "gatsby";
 import LogoLGCDesktop from "assets/logos/LogoLGCDesktop";
 import { useContext } from "react";
@@ -22,7 +22,7 @@ const StyledContainer = styled.div`
         ? "calc(100vw - 180px) 60px 60px 60px"
         : $incomingPage === "/nos-pratiques/"
         ? "60px calc(100vw - 180px) 60px 60px"
-        : $incomingPage === "/la-degustation/"
+        : $incomingPage.startsWith("/la-degustation/")
         ? "60px 60px calc(100vw - 180px)  60px"
         : $incomingPage === "/nous-rencontrer/"
         ? "60px 60px 60px calc(100vw - 180px)"
@@ -76,7 +76,7 @@ const StyledContainer = styled.div`
         ? "0 180px 0 60px"
         : $activePage === "/nos-pratiques/"
         ? "0 120px 0 120px"
-        : $activePage === "/la-degustation/"
+        : $activePage.startsWith("/la-degustation/")
         ? "0 60px 0 180px"
         : $activePage === "/nous-rencontrer/"
         ? "0 0 0 240px"
@@ -101,41 +101,40 @@ const StyledContainer = styled.div`
 `;
 
 export default function DesktopLayout({ children }) {
-  const { pathname } = useLocation();
+  // const { pathname } = useLocation();
   const { activeHomeSection } = useContext(Context);
+  const { originalPath } = useI18next();
 
-  const [activePage, setActivePage] = useState(pathname);
-  const [incomingPage, setIncomingPage] = useState(pathname);
+  const [activePage, setActivePage] = useState(originalPath);
+  const [incomingPage, setIncomingPage] = useState(originalPath);
   const [transitionIsActive, setTransitionIsActive] = useState(false);
   const [transitionDirection, setTransitionDirection] = useState("left");
-
-  const { originalPath } = useI18next();
 
   function handlePageChange(page) {
     setIncomingPage(page);
     setTransitionIsActive(true);
-    if (pathname === "/") {
+    if (originalPath === "/") {
       setTransitionDirection("left");
     }
     if (
-      (pathname === "/nos-pratiques/" && page === "/la-degustation/") ||
+      (originalPath === "/nos-pratiques/" && page === "/la-degustation/") ||
       page === "/nous-rencontrer/"
     ) {
       setTransitionDirection("left");
     }
-    if (pathname === "/nos-pratiques/" && page === "/") {
+    if (originalPath === "/nos-pratiques/" && page === "/") {
       setTransitionDirection("right");
     }
     if (
-      (pathname === "/la-degustation/" && page === "/nos-pratiques/") ||
+      (originalPath === "/la-degustation/" && page === "/nos-pratiques/") ||
       page === "/"
     ) {
       setTransitionDirection("right");
     }
-    if (pathname === "/la-degustation/" && page === "/nous-rencontrer/") {
+    if (originalPath === "/la-degustation/" && page === "/nous-rencontrer/") {
       setTransitionDirection("left");
     }
-    if (pathname === "/nous-rencontrer/") {
+    if (originalPath === "/nous-rencontrer/") {
       setTransitionDirection("right");
     }
     setTimeout(() => {

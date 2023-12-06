@@ -5,6 +5,7 @@ import { DataProvider } from "data/Context";
 import React, { useState, useEffect } from "react";
 import MobileLayout from "components/Layout/MobileLayout";
 import DesktopLayout from "components/Layout/DesktopLayout";
+// import { graphql } from "gatsby";
 
 const Layout = ({ children }) => {
   const [isMobile, setIsMobile] = useState(null);
@@ -36,3 +37,17 @@ const Layout = ({ children }) => {
 };
 
 export default Layout;
+
+// export const query = graphql`
+//   query ($language: String!) {
+//     locales: allLocale(filter: { language: { eq: $language } }) {
+//       edges {
+//         node {
+//           ns
+//           data
+//           language
+//         }
+//       }
+//     }
+//   }
+// `;
