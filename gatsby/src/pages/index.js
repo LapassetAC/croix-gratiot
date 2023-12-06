@@ -12,6 +12,7 @@ import { Context } from "data/Context";
 import { graphql, useStaticQuery } from "gatsby";
 import winesData from "data/winesData";
 import { Link } from "gatsby";
+import { Trans } from "gatsby-plugin-react-i18next";
 
 const StyledContainer = styled.div`
   .heroSection {
@@ -357,7 +358,9 @@ const HomePage = ({ className }) => {
           layout="fullWidth"
         />
         <div className="heroContent grid">
-          <h1>Domaine</h1>
+          <h1>
+            <Trans>Domaine</Trans>
+          </h1>
           <LCGlogoHero />
           <h1>La Croix Gratiot</h1>
         </div>

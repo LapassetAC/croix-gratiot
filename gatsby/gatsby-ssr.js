@@ -1,8 +1,29 @@
-const React = require("react");
-const Layout = require("./src/components/Layout").default;
+import React from "react";
+import Layout from "./src/components/Layout";
 
-exports.wrapPageElement = ({ element, props }) => {
+export const wrapPageElement = ({ element, props }) => {
   // props provide same data to Layout as Page element will get
   // including location, data, etc - you don't need to pass it
   return <Layout {...props}>{element}</Layout>;
 };
+
+// const React = require("react");
+// const Layout = require("./src/components/Layout").default;
+
+// exports.wrapPageElement = ({ element }) => {
+//   const newElement = React.cloneElement(
+//     element, // I18nextProvider
+//     element.props,
+//     React.cloneElement(
+//       element.props.children, // I18nextContext.Provider
+//       element.props.children.props,
+//       React.createElement(
+//         Layout,
+//         undefined,
+//         element.props.children.props.children
+//       )
+//     )
+//   );
+
+//   return newElement;
+// };

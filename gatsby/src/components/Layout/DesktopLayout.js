@@ -1,16 +1,11 @@
 import React, { useState } from "react";
-// import HomePage from "components/pages/HomePage";
-// import NosPratiquesPage from "components/pages/NosPratiques";
-// import LaDegustationPage from "components/pages/LaDegustation";
-// import NousRencontrerPage from "components/pages/NousRencontrer";
-// import MentionsLegalesPage from "components/pages/MentionsLegales";
 import styled from "styled-components";
-// import { Router, Link, useLocation, navigate } from "@reach/router";
 import { useLocation } from "@reach/router";
 import { navigate } from "gatsby";
 import LogoLGCDesktop from "assets/logos/LogoLGCDesktop";
 import { useContext } from "react";
 import { Context } from "data/Context";
+import { useI18next, Link } from "gatsby-plugin-react-i18next";
 
 const StyledContainer = styled.div`
   nav {
@@ -34,7 +29,6 @@ const StyledContainer = styled.div`
         : null};
     & > div {
       transition: all 0.4s;
-      display: block;
       border-left: 2px solid;
       border-color: ${({ $activeSection, theme }) =>
         $activeSection === "red" || $activeSection === "green"
@@ -42,7 +36,6 @@ const StyledContainer = styled.div`
           : theme.colors.brandBrown};
       padding: 30px 0 0 17.5px;
       button {
-        pointer-events: all;
         transition: all 0.2s;
         writing-mode: sideways-lr;
         letter-spacing: 0.9px;
@@ -56,9 +49,24 @@ const StyledContainer = styled.div`
             : theme.colors.brandBrown};
       }
       &.homeNav {
-        padding: 30px 0 0 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: start;
+        padding: 30px 0 60px 14px;
         border: none;
+        aside {
+          display: flex;
+          flex-direction: column;
+          a {
+            margin-top: 15px;
+          }
+        }
       }
+    }
+    a,
+    button {
+      pointer-events: all;
     }
   }
   main {
@@ -100,6 +108,8 @@ export default function DesktopLayout({ children }) {
   const [incomingPage, setIncomingPage] = useState(pathname);
   const [transitionIsActive, setTransitionIsActive] = useState(false);
   const [transitionDirection, setTransitionDirection] = useState("left");
+
+  const { originalPath } = useI18next();
 
   function handlePageChange(page) {
     setIncomingPage(page);
@@ -145,12 +155,6 @@ export default function DesktopLayout({ children }) {
     >
       <main>
         {children}
-        {/* <Router>
-          <NosPratiquesPage path="/nos-pratiques/" />
-          <LaDegustationPage path="/la-degustation/" />
-          <NousRencontrerPage path="/nous-rencontrer/" />
-          <MentionsLegalesPage path="/mentions-legales/" />
-        </Router> */}
         <div className="transitionMask"></div>
       </main>
       <nav>
@@ -161,6 +165,14 @@ export default function DesktopLayout({ children }) {
           >
             <LogoLGCDesktop />
           </button>
+          <aside>
+            <Link to={originalPath} language={"en"}>
+              EN
+            </Link>
+            <Link to={originalPath} language={"fr"}>
+              FR
+            </Link>
+          </aside>
         </div>
         <div>
           <button onClick={() => handlePageChange("/nos-pratiques/")}>
