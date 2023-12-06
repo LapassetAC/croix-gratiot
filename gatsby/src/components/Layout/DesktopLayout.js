@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-// import { useLocation } from "@reach/router";
 import { navigate } from "gatsby";
 import LogoLGCDesktop from "assets/logos/LogoLGCDesktop";
 import { useContext } from "react";
@@ -101,7 +100,6 @@ const StyledContainer = styled.div`
 `;
 
 export default function DesktopLayout({ children }) {
-  // const { pathname } = useLocation();
   const { activeHomeSection } = useContext(Context);
   const { originalPath } = useI18next();
 
