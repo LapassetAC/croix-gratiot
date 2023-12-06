@@ -5,6 +5,7 @@ import LogoLGCDesktop from "assets/logos/LogoLGCDesktop";
 import { useContext } from "react";
 import { Context } from "data/Context";
 import { useI18next, Link } from "gatsby-plugin-react-i18next";
+import Footer from "./Footer";
 
 const StyledContainer = styled.div`
   nav {
@@ -79,6 +80,7 @@ const StyledContainer = styled.div`
     }
   }
   main {
+    padding: 15px 15px 0 0;
     position: relative;
     margin: ${({ $activePage }) =>
       $activePage === "/"
@@ -162,6 +164,7 @@ export default function DesktopLayout({ children }) {
     >
       <main>
         {children}
+        <Footer />
         <div className="transitionMask"></div>
       </main>
       <nav>

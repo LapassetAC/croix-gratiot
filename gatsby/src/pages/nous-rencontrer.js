@@ -2,11 +2,9 @@ import * as React from "react";
 import { styled } from "styled-components";
 import { StaticImage } from "gatsby-plugin-image";
 import Arrow from "assets/icons/Arrow";
-import Footer from "components/global/Footer";
 import { graphql } from "gatsby";
 
 const StyledContainer = styled.div`
-  padding: 0 15px;
   .main-section {
     row-gap: 45px;
     margin-bottom: 90px;
@@ -175,7 +173,6 @@ const NousRencontrer = ({ className }) => {
         alt="nousRencontrerBottomImage"
         layout="fullWidth"
       />
-      <Footer />
     </StyledContainer>
   );
 };

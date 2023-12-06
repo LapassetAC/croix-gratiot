@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import LCGlogoMobile from "assets/logos/logo-lcg-mobile.svg";
 import styled from "styled-components";
 import ToggleBtn from "./ToggleBtn";
-import Footer from "components/global/Footer";
+import Footer from "../Footer";
 import { StaticImage } from "gatsby-plugin-image";
 import { useI18next, Link } from "gatsby-plugin-react-i18next";
 

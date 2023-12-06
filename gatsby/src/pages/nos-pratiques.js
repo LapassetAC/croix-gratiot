@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import styled from "styled-components";
-import Footer from "components/global/Footer";
 import winesData from "data/winesData";
 import { Link } from "gatsby";
 import ArrowBtn from "components/global/ArrowBtn";
@@ -54,8 +53,6 @@ const StyledNosVinsContainer = styled.section`
 `;
 
 const StyledContainer = styled.div`
-  padding: 0 15px;
-
   section {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -555,7 +552,6 @@ const NosPratiques = () => {
           <ArrowBtn black>Voir tous nos vins</ArrowBtn>
         </Link>
       </StyledNosVinsContainer>
-      <Footer />
     </StyledContainer>
   );
 };

@@ -1,10 +1,9 @@
 import * as React from "react";
 import styled from "styled-components";
-import Footer from "components/global/Footer";
+// import Footer from "components/global/Footer";
 import { graphql } from "gatsby";
 
 const StyledContainer = styled.div`
-  padding: 0 15px;
   section {
     padding: 90px 0;
   }
@@ -87,7 +86,6 @@ const MentionsLegales = ({ className }) => {
           interdite.
         </p>
       </section>
-      <Footer />
     </StyledContainer>
   );
 };

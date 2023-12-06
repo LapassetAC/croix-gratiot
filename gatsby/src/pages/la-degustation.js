@@ -8,12 +8,9 @@ import categoryQuoteLines from "assets/icons/categoryQuoteLines.svg";
 import winesData from "data/winesData";
 import AnchorNavBar from "components/pages/LaDegustation/AnchorNav";
 import { Link } from "gatsby";
-import Footer from "components/global/Footer";
 import { Element } from "react-scroll";
 
 const StyledContainer = styled.div`
-  padding: 15px;
-
   .gatsby-image-wrapper {
     grid-column: 1 / span 7;
   }
@@ -321,7 +318,6 @@ const LaDegustation = ({ data }) => {
           </div>
         </Element>
       ))}
-      <Footer />
     </StyledContainer>
   );
 };
