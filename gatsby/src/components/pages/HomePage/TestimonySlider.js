@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import LePoint from "assets/logos/lePoint.svg";
 import Arrow from "assets/icons/Arrow";
+import { Trans } from "gatsby-plugin-react-i18next";
 
 const StyledContainer = styled.div`
   grid-column: 1/8;
@@ -76,8 +77,10 @@ const TestimonySlider = () => {
         <div>
           <img src={LePoint} alt="" />
           <p>
-            “La Croix Gratiot est un domaine familial qui a su tirer le meilleur
-            parti de son terroir unique.”
+            <Trans>
+              “La Croix Gratiot est un domaine familial qui a su tirer le
+              meilleur parti de son terroir unique.”
+            </Trans>
           </p>
         </div>
         <div>

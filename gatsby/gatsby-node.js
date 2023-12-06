@@ -27,8 +27,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   if (wines.length > 0) {
     wines.forEach((wine) => {
-      console.log("winte.title =>", wine.title);
-
       const path = `la-degustation/${wine.title}`;
       createPage({
         path,

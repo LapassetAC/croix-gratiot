@@ -336,9 +336,11 @@ const HomePage = ({ data }) => {
       </section>
       <div className="grid">
         <section className="largeText">
-          Entre bassin de Thau et collines de pins découvrez des vins bio issu
-          d’un travail en famille, de père en fille, dans le respect de la
-          nature.
+          <Trans>
+            Entre bassin de Thau et collines de pins découvrez des vins bio issu
+            d’un travail en famille, de père en fille, dans le respect de la
+            nature.
+          </Trans>
         </section>
       </div>
       <section className="orange" ref={orangeSectionRef}>
