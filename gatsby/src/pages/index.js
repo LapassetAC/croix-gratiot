@@ -12,7 +12,7 @@ import { Context } from "data/Context";
 import { graphql, useStaticQuery } from "gatsby";
 import winesData from "data/winesData";
 import { Link } from "gatsby";
-import { Trans } from "gatsby-plugin-react-i18next";
+import { Trans, useTranslation } from "gatsby-plugin-react-i18next";
 
 const StyledContainer = styled.div`
   .heroSection {

@@ -20,6 +20,12 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: require.resolve(`./src/components/Layout`),
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/locales`,
@@ -41,17 +47,6 @@ module.exports = {
           keySeparator: false,
           nsSeparator: false,
         },
-        // pages: [
-        //   {
-        //     matchPath: '/:lang?/blog/:uid',
-        //     getLanguageFromPath: true,
-        //     excludeLanguages: ['es']
-        //   },
-        //   {
-        //     matchPath: '/preview',
-        //     languages: ['en']
-        //   }
-        // ]
       },
     },
   ],
