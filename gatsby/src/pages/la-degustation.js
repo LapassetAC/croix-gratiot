@@ -7,7 +7,7 @@ import FRBioLogo from "assets/logos/FRBioLogo.svg";
 import categoryQuoteLines from "assets/icons/categoryQuoteLines.svg";
 import winesData from "data/winesData";
 import AnchorNavBar from "components/pages/LaDegustation/AnchorNav";
-import { Link } from "gatsby";
+import { Link } from "gatsby-plugin-react-i18next";
 import { Element } from "react-scroll";
 
 const StyledContainer = styled.div`

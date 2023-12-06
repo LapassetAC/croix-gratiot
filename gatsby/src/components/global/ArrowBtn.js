@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "gatsby";
+import { useContext } from "react";
+import { Context } from "data/Context";
 
 const StyledContainer = styled.button`
   font-family: "Moderat Mono", sans-serif;
@@ -8,6 +9,7 @@ const StyledContainer = styled.button`
   font-size: 12px;
   display: flex;
   align-items: center;
+  color: ${({ $black }) => ($black ? "#332728" : "#E9E3DA")};
   @media ${({ theme }) => theme.minWidth.sm} {
     font-size: 14px;
   }
@@ -35,20 +37,18 @@ const arrow = (
 );
 
 const ArrowBtn = ({ children, black, to }) => {
-  if (to) {
-    return (
-      <StyledContainer as={Link} to={to} $black={black}>
-        {arrow}
-        {children}
-      </StyledContainer>
-    );
-  } else
-    return (
-      <StyledContainer $black={black}>
-        {arrow}
-        {children}
-      </StyledContainer>
-    );
+  const { setPageChange } = useContext(Context);
+
+  function handlePageChange(to) {
+    setPageChange(to);
+  }
+
+  return (
+    <StyledContainer $black={black} onClick={() => handlePageChange(to)}>
+      {arrow}
+      {children}
+    </StyledContainer>
+  );
 };
 
 export default ArrowBtn;

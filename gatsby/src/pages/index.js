@@ -158,7 +158,7 @@ const StyledContainer = styled.div`
             grid-row: 3/3;
           }
         }
-        a {
+        button {
           grid-column: 2/8;
           margin-top: 30px;
           color: ${({ theme }) => theme.colors.backgroundLight};
@@ -263,7 +263,7 @@ const StyledNosVinsContainer = styled.section`
       }
     }
   }
-  a {
+  button {
     grid-column: 1/8;
     margin: 15px auto 0;
     @media ${({ theme }) => theme.minWidth.sm} {
@@ -486,9 +486,9 @@ const HomePage = ({ data }) => {
             </li>
           ))}
         </ul>
-        <Link to="/la-degustation/">
-          <ArrowBtn black>Voir tous nos vins</ArrowBtn>
-        </Link>
+        <ArrowBtn to="/la-degustation/" black>
+          Voir tous nos vins
+        </ArrowBtn>
       </StyledNosVinsContainer>
     </StyledContainer>
   );

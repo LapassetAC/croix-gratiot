@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import LogoLGCDesktop from "assets/logos/LogoLGCDesktop";
 import { useContext } from "react";
@@ -108,6 +108,7 @@ const StyledContainer = styled.div`
 
 export default function DesktopLayout({ children }) {
   const { activeHomeSection, setActiveHomeSection } = useContext(Context);
+  const { pageChange, setPageChange } = useContext(Context);
 
   const { originalPath, navigate } = useI18next();
 
@@ -115,6 +116,11 @@ export default function DesktopLayout({ children }) {
   const [incomingPage, setIncomingPage] = useState(originalPath);
   const [transitionIsActive, setTransitionIsActive] = useState(false);
   const [transitionDirection, setTransitionDirection] = useState("left");
+  const [isMounted, setIsMounted] = useState(false);
+
+  function handlePage(page) {
+    setPageChange(page);
+  }
 
   function handlePageChange(page) {
     if (activeHomeSection === "red" || activeHomeSection === "green") {
@@ -153,6 +159,14 @@ export default function DesktopLayout({ children }) {
     }, 1000);
   }
 
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    isMounted && handlePageChange(pageChange);
+  }, [pageChange]);
+
   return (
     <StyledContainer
       $incomingPage={incomingPage}
@@ -163,14 +177,14 @@ export default function DesktopLayout({ children }) {
     >
       <main>
         {children}
-        <Footer handlePageChange={handlePageChange} />
+        <Footer handlePageChange={handlePage} />
         <div className="transitionMask"></div>
       </main>
       <nav>
         <div className="homeNav">
           <button
             aria-label="La Croix Gratiot logo"
-            onClick={() => handlePageChange("/")}
+            onClick={() => handlePage("/")}
           >
             <LogoLGCDesktop />
           </button>
@@ -184,17 +198,17 @@ export default function DesktopLayout({ children }) {
           </aside>
         </div>
         <div>
-          <button onClick={() => handlePageChange("/nos-pratiques/")}>
+          <button onClick={() => handlePage("/nos-pratiques/")}>
             Nos Pratiques
           </button>
         </div>
         <div>
-          <button onClick={() => handlePageChange("/la-degustation/")}>
+          <button onClick={() => handlePage("/la-degustation/")}>
             La Dégustation
           </button>
         </div>
         <div>
-          <button onClick={() => handlePageChange("/nous-rencontrer/")}>
+          <button onClick={() => handlePage("/nous-rencontrer/")}>
             Nous rencontrer
           </button>
         </div>

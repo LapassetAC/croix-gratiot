@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import styled from "styled-components";
 import winesData from "data/winesData";
-import { Link } from "gatsby";
+import { Link } from "gatsby-plugin-react-i18next";
 import ArrowBtn from "components/global/ArrowBtn";
 import { Trans } from "gatsby-plugin-react-i18next";
 import { graphql } from "gatsby";
@@ -43,7 +43,7 @@ const StyledNosVinsContainer = styled.section`
       }
     }
   }
-  a {
+  button {
     grid-column: 1/8;
     margin: 15px auto 0;
     @media ${({ theme }) => theme.minWidth.sm} {
@@ -548,9 +548,9 @@ const NosPratiques = () => {
             </li>
           ))}
         </ul>
-        <Link to="/la-degustation/">
-          <ArrowBtn black>Voir tous nos vins</ArrowBtn>
-        </Link>
+        <ArrowBtn to="/la-degustation/" black>
+          Voir tous nos vins
+        </ArrowBtn>
       </StyledNosVinsContainer>
     </StyledContainer>
   );
