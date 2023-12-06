@@ -34,14 +34,16 @@ const StyledContainer = styled.div`
           ? theme.colors.backgroundLight
           : theme.colors.brandBrown};
       padding: 30px 0 0 17.5px;
+      a,
       button {
-        transition: all 0.2s;
+        pointer-events: all;
         writing-mode: sideways-lr;
         letter-spacing: 0.9px;
         text-transform: uppercase;
         font-size: 18px;
         text-align: end;
         text-orientation: upright;
+        transition: color 0.2s;
         color: ${({ $activeSection, theme }) =>
           $activeSection === "red" || $activeSection === "green"
             ? theme.colors.backgroundLight
@@ -54,18 +56,26 @@ const StyledContainer = styled.div`
         align-items: start;
         padding: 30px 0 60px 14px;
         border: none;
+        svg {
+          transition: fill 0.2s;
+          fill: ${({ $activeSection, theme }) =>
+            $activeSection === "red" || $activeSection === "green"
+              ? theme.colors.backgroundLight
+              : theme.colors.brandBrown};
+        }
         aside {
           display: flex;
           flex-direction: column;
           a {
             margin-top: 15px;
+            &.active {
+              text-decoration-line: underline;
+              text-decoration-thickness: 2px;
+              text-underline-offset: 4px;
+            }
           }
         }
       }
-    }
-    a,
-    button {
-      pointer-events: all;
     }
   }
   main {
@@ -163,10 +173,10 @@ export default function DesktopLayout({ children }) {
             <LogoLGCDesktop />
           </button>
           <aside>
-            <Link to={originalPath} language={"en"}>
+            <Link to={originalPath} language={"en"} activeClassName="active">
               EN
             </Link>
-            <Link to={originalPath} language={"fr"}>
+            <Link to={originalPath} language={"fr"} activeClassName="active">
               FR
             </Link>
           </aside>
