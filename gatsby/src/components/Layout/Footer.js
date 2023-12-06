@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "gatsby";
 import LCGLogo from "assets/logos/logo-lcg-footer.svg";
 import facebookIcon from "assets/icons/facebook.svg";
 import instagramIcon from "assets/icons/instagram.svg";
@@ -107,7 +106,7 @@ const StyledContainer = styled.footer`
   }
 `;
 
-const Footer = () => {
+const Footer = ({ handlePageChange }) => {
   return (
     <StyledContainer className="grid">
       <img className="LCGLogo" src={LCGLogo} alt="" />
@@ -145,9 +144,12 @@ const Footer = () => {
           contact@croix-gratiot.com
         </a>
       </div>
-      <Link to="/mentions-legales/" className="mentions">
+      <button
+        onClick={() => handlePageChange("/mentions-legales/")}
+        className="mentions"
+      >
         Mentions légales
-      </Link>
+      </button>
       <p className="credits">
         Site réalisé par <a href="https://clementlapasset.dev/">Clément</a> et{" "}
         <a href="https://alapasset.dev/">Adrien Lapasset</a>, photos par{" "}

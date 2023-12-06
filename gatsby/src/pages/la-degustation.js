@@ -301,16 +301,6 @@ const LaDegustation = ({ data }) => {
                         </div>
                       )}
                       <div className="wine-cepages">{wine.cepages}</div>
-                      {/* {isFicheVinActive && (
-                        <FicheVin
-                          title={wine.title}
-                          productImage={productImage}
-                          category={wine.category}
-                          cepages={wine.cepages}
-                          certification={wine.certification}
-                          isActive={isFicheVinActive}
-                        />
-                      )} */}
                     </Link>
                   );
                 })}

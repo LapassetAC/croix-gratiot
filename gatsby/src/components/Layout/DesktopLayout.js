@@ -18,15 +18,13 @@ const StyledContainer = styled.div`
     width: 100%;
     transition: all 1s;
     grid-template-columns: ${({ $incomingPage }) =>
-      $incomingPage === "/"
-        ? "calc(100vw - 180px) 60px 60px 60px"
-        : $incomingPage === "/nos-pratiques/"
+      $incomingPage === "/nos-pratiques/"
         ? "60px calc(100vw - 180px) 60px 60px"
         : $incomingPage.startsWith("/la-degustation/")
         ? "60px 60px calc(100vw - 180px)  60px"
         : $incomingPage === "/nous-rencontrer/"
         ? "60px 60px 60px calc(100vw - 180px)"
-        : null};
+        : "calc(100vw - 180px) 60px 60px 60px"};
     & > div {
       transition: all 0.4s;
       border-left: 2px solid;
@@ -83,15 +81,13 @@ const StyledContainer = styled.div`
     padding: 15px 15px 0 0;
     position: relative;
     margin: ${({ $activePage }) =>
-      $activePage === "/"
-        ? "0 180px 0 60px"
-        : $activePage === "/nos-pratiques/"
+      $activePage === "/nos-pratiques/"
         ? "0 120px 0 120px"
         : $activePage.startsWith("/la-degustation/")
         ? "0 60px 0 180px"
         : $activePage === "/nous-rencontrer/"
         ? "0 0 0 240px"
-        : null};
+        : "0 180px 0 60px"};
     &:not(.transitionMask) {
       transition: opacity 1s;
       opacity: ${({ $transitionIsActive }) => ($transitionIsActive ? 0 : 1)};
@@ -164,7 +160,7 @@ export default function DesktopLayout({ children }) {
     >
       <main>
         {children}
-        <Footer />
+        <Footer handlePageChange={handlePageChange} />
         <div className="transitionMask"></div>
       </main>
       <nav>
