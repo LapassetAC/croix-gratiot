@@ -14,7 +14,7 @@ export default {
       name: 'text',
       title: 'Texte',
       type: 'text',
-      validation: (Rule) => Rule.required().min(10).max(200),
+      validation: (Rule) => Rule.required().min(10).max(150),
     },
     {
       name: 'newsUrl',
