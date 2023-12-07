@@ -154,7 +154,7 @@ button {
       font-size: 16px;
       line-height: 24px;
     }
-    @media ${({ theme }) => theme.minWidth.lg} {
+    @media ${({ theme }) => theme.minWidth.xl} {
       font-size: 18px;
       line-height: 27px;
     }
