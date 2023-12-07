@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import { StaticImage } from "gatsby-plugin-image";
-import LesActualitesSection from "components/Pages/HomePage/LesActualitesSection";
+import LesActualitesSection from "components/pages/HomePage/LesActualitesSection";
 import styled from "styled-components";
 import LCGlogoHero from "assets/logos/LogoLCGHero";
 import ArrowBtn from "components/global/ArrowBtn";
-import IlsParlentDeNousSlider from "components/Pages/HomePage/IlsParlentDeNousSlider";
+import IlsParlentDeNousSlider from "components/pages/HomePage/IlsParlentDeNousSlider";
 import { useContext } from "react";
 import { Context } from "data/Context";
 import { graphql } from "gatsby";
