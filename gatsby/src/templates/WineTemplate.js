@@ -81,7 +81,9 @@ const StyledContainer = styled.div`
         text-transform: lowercase;
       }
     }
-    .description {
+    .description,
+    .vinification,
+    .degustation {
       grid-column: 1 / 8;
     }
     h2 {
@@ -91,7 +93,7 @@ const StyledContainer = styled.div`
       text-transform: uppercase;
       margin-bottom: 10px;
     }
-    video {
+    iframe {
       grid-column: 1 / 8;
       width: 100%;
       height: auto;
@@ -161,9 +163,19 @@ export default function WineTemplate({ data }) {
           <p>{description}</p>
         </div>
         {videoUrl && (
-          <video src={videoUrl} controls>
-            Votre navigateur ne permet pas de lire la vidéo
-          </video>
+          <iframe src={videoUrl} frameborder="0" allowfullscreen></iframe>
+        )}
+        {vinification && (
+          <div className="vinification">
+            <h2>Vinification</h2>
+            <p>{vinification}</p>
+          </div>
+        )}
+        {degustation && (
+          <div className="degustation">
+            <h2>Dégustation</h2>
+            <p>{degustation}</p>
+          </div>
         )}
       </section>
     </StyledContainer>
