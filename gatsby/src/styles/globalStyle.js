@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import ModeratMedium from "../assets/fonts/Moderat-Medium.woff2";
+import ModeratMediumItalic from "../assets/fonts/Moderat-Medium-Italic.woff2";
 import ModeratBold from "../assets/fonts/Moderat-Bold.woff2";
 import ModeratBoldItalic from "../assets/fonts/Moderat-Bold-Italic.woff2";
 import ModeratMonoMedium from "../assets/fonts/Moderat-Mono-Medium.woff2";
@@ -11,6 +12,10 @@ export default createGlobalStyle`
  @font-face {
     font-family: 'Moderat';
     src: url(${ModeratMedium}) format("woff2");
+  }
+ @font-face {
+    font-family: 'Moderat Italic';
+    src: url(${ModeratMediumItalic}) format("woff2");
   }
  @font-face {
     font-family: 'Moderat Bold';

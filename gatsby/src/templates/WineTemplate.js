@@ -70,7 +70,31 @@ const StyledContainer = styled.div`
   }
   .main-section {
     margin: 120px 0;
-    .intro {
+    row-gap: 60px;
+    .intro-paragraph {
+      grid-column: 1 / 8;
+      .title {
+        font-family: "Moderat Bold";
+      }
+      .adjectif {
+        font-family: "Moderat Italic";
+        text-transform: lowercase;
+      }
+    }
+    .description {
+      grid-column: 1 / 8;
+    }
+    h2 {
+      font-family: "Moderat Mono";
+      font-size: 16px;
+      line-height: 150%;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    video {
+      grid-column: 1 / 8;
+      width: 100%;
+      height: auto;
     }
   }
 `;
@@ -126,12 +150,21 @@ export default function WineTemplate({ data }) {
           />
         </div>
       </section>
-      <section className="main-section">
-        <p className="intro">
+      <section className="main-section grid">
+        <p className="intro-paragraph">
           <span className="title">{title},</span>
-          <span className="adjectif">{adjectif}</span>
-          <span className="intro"></span>
+          <span className="adjectif"> {adjectif} : </span>
+          <span className="intro">{intro}</span>
         </p>
+        <div className="description">
+          <h2>Le mot des vignerons</h2>
+          <p>{description}</p>
+        </div>
+        {videoUrl && (
+          <video src={videoUrl} controls>
+            Votre navigateur ne permet pas de lire la vidéo
+          </video>
+        )}
       </section>
     </StyledContainer>
   );
