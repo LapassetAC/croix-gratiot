@@ -62,7 +62,7 @@ const sliderSettings = {
   ],
 };
 
-const TestimonySlider = () => {
+const IlsParlentDeNousSlider = () => {
   const sliderRef = useRef();
 
   return (
@@ -108,4 +108,4 @@ const TestimonySlider = () => {
   );
 };
 
-export default TestimonySlider;
+export default IlsParlentDeNousSlider;

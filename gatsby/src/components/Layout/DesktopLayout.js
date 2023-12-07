@@ -107,8 +107,8 @@ const StyledContainer = styled.div`
 `;
 
 export default function DesktopLayout({ children }) {
-  const { activeHomeSection, setActiveHomeSection } = useContext(Context);
-  const { pageChange, setPageChange } = useContext(Context);
+  const { activeHomeSection, setActiveHomeSection, pageChange, setPageChange } =
+    useContext(Context);
 
   const { originalPath, navigate } = useI18next();
 

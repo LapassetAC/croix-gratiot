@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useContext } from "react";
 import { Context } from "data/Context";
+import { useI18next } from "gatsby-plugin-react-i18next";
 
 const StyledContainer = styled.button`
   font-family: "Moderat Mono", sans-serif;
@@ -17,7 +18,7 @@ const StyledContainer = styled.button`
     margin-right: 15px;
   }
   svg {
-    margin-right: 5px;
+    margin-right: 15px;
     fill: ${({ $black }) => ($black ? "#332728" : "#E9E3DA")};
   }
 `;
@@ -37,10 +38,11 @@ const arrow = (
 );
 
 const ArrowBtn = ({ children, black, to }) => {
-  const { setPageChange } = useContext(Context);
+  const { setPageChange, isMobile } = useContext(Context);
+  const navigate = useI18next();
 
   function handlePageChange(to) {
-    setPageChange(to);
+    isMobile ? navigate(to) : setPageChange(to);
   }
 
   return (

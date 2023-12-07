@@ -22,6 +22,9 @@ const StyledContainer = styled.div`
   .mobilePage {
     padding: 0 15px;
   }
+  main {
+    padding: 0 15px;
+  }
 `;
 
 const StyledMobileLinksContainer = styled.section`
@@ -132,7 +135,7 @@ export default function MobileLayout({ children }) {
         />
         <Footer />
       </StyledMobileLinksContainer>
-      {children}
+      <main>{children}</main>
     </StyledContainer>
   );
 }

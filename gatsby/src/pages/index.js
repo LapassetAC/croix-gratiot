@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import { StaticImage } from "gatsby-plugin-image";
-import PostsSection from "components/Pages/HomePage/PostsSection";
+import LesActualitesSection from "components/Pages/HomePage/LesActualitesSection";
 import styled from "styled-components";
 import LCGlogoHero from "assets/logos/LogoLCGHero";
 import ArrowBtn from "components/global/ArrowBtn";
-import TestimonySlider from "components/Pages/HomePage/TestimonySlider";
+import IlsParlentDeNousSlider from "components/Pages/HomePage/IlsParlentDeNousSlider";
 import { useContext } from "react";
 import { Context } from "data/Context";
 import { graphql } from "gatsby";
@@ -14,12 +14,19 @@ import { Trans, useI18next } from "gatsby-plugin-react-i18next";
 
 const StyledContainer = styled.div`
   .heroSection {
-    height: calc(100vh - 60px);
+    @media ${({ theme }) => theme.minWidth.sm} {
+      height: calc(100vh - 60px);
+    }
     .heroImg {
       grid-column: 1/8;
       grid-row: 1/1;
+      aspect-ratio: 1;
+      @media ${({ theme }) => theme.minWidth.sm} {
+        aspect-ratio: unset;
+      }
     }
     .heroContent {
+      grid-template-rows: auto 60px auto;
       align-items: center;
       grid-column: 1/8;
       grid-row: 1/1;
@@ -41,9 +48,13 @@ const StyledContainer = styled.div`
         }
       }
       svg {
+        height: 70px;
         grid-row: 2/3;
-        grid-column: 4 / 5;
-        width: 100%;
+        grid-column: 1/8;
+        margin: auto;
+        @media ${({ theme }) => theme.minWidth.sm} {
+          height: auto;
+        }
       }
     }
   }
@@ -227,51 +238,6 @@ const StyledContainer = styled.div`
   }
 `;
 
-const StyledNosVinsContainer = styled.section`
-  text-align: center;
-  h2 {
-    grid-column: 1/8;
-    br {
-      display: none;
-    }
-    @media ${({ theme }) => theme.minWidth.sm} {
-      grid-column: 5/8;
-      br {
-        display: block;
-      }
-    }
-  }
-  .gatsby-image-wrapper {
-    grid-column: 1/8;
-    aspect-ratio: 0.9;
-    @media ${({ theme }) => theme.minWidth.sm} {
-      grid-column: 2/5;
-      grid-row: 1/4;
-      aspect-ratio: 0.7;
-    }
-  }
-  ul {
-    grid-column: 1/8;
-    @media ${({ theme }) => theme.minWidth.sm} {
-      grid-column: 5/8;
-    }
-    li {
-      font-family: Moderat Mono Bold;
-      margin-bottom: 15px;
-      @media ${({ theme }) => theme.minWidth.sm} {
-        margin-bottom: 30px;
-      }
-    }
-  }
-  button {
-    grid-column: 1/8;
-    margin: 15px auto 0;
-    @media ${({ theme }) => theme.minWidth.sm} {
-      grid-column: 5/8;
-    }
-  }
-`;
-
 const HomePage = ({ data }) => {
   const { originalPath } = useI18next();
 
@@ -416,7 +382,7 @@ const HomePage = ({ data }) => {
             Ils parlent <br />
             de nous
           </h2>
-          <TestimonySlider />
+          <IlsParlentDeNousSlider />
         </section>
       </section>
       <section className="red" ref={redSectionRef}>
@@ -442,9 +408,9 @@ const HomePage = ({ data }) => {
             à travers des événements festifs et des collaborations artistiques.
           </p>
         </section>
-        <PostsSection news={news} event={event} />
+        <LesActualitesSection news={news} event={event} />
       </section>
-      <StyledNosVinsContainer className="grid">
+      <section className="grid nosVinsSection">
         <h2 className="sectionTitle">
           Nos <br />
           Vins
@@ -489,7 +455,7 @@ const HomePage = ({ data }) => {
         <ArrowBtn to="/la-degustation/" black>
           Voir tous nos vins
         </ArrowBtn>
-      </StyledNosVinsContainer>
+      </section>
     </StyledContainer>
   );
 };

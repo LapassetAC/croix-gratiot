@@ -7,51 +7,6 @@ import ArrowBtn from "components/global/ArrowBtn";
 import { Trans } from "gatsby-plugin-react-i18next";
 import { graphql } from "gatsby";
 
-const StyledNosVinsContainer = styled.section`
-  text-align: center;
-  h2 {
-    grid-column: 1/8;
-    br {
-      display: none;
-    }
-    @media ${({ theme }) => theme.minWidth.sm} {
-      grid-column: 5/8;
-      br {
-        display: block;
-      }
-    }
-  }
-  .gatsby-image-wrapper {
-    grid-column: 1/8;
-    aspect-ratio: 0.9;
-    @media ${({ theme }) => theme.minWidth.sm} {
-      grid-column: 2/5;
-      grid-row: 1/4;
-      aspect-ratio: 0.7;
-    }
-  }
-  ul {
-    grid-column: 1/8;
-    @media ${({ theme }) => theme.minWidth.sm} {
-      grid-column: 5/8;
-    }
-    li {
-      font-family: Moderat Mono Bold;
-      margin-bottom: 15px;
-      @media ${({ theme }) => theme.minWidth.sm} {
-        margin-bottom: 30px;
-      }
-    }
-  }
-  button {
-    grid-column: 1/8;
-    margin: 15px auto 0;
-    @media ${({ theme }) => theme.minWidth.sm} {
-      grid-column: 5/8;
-    }
-  }
-`;
-
 const StyledContainer = styled.div`
   section {
     display: grid;
@@ -506,7 +461,7 @@ const NosPratiques = () => {
           L’élevage est un sacré terrain de jeux.
         </p>
       </section>
-      <StyledNosVinsContainer className="grid">
+      <section className="grid nosVinsSection">
         <h2 className="sectionTitle">
           Nos <br />
           Vins
@@ -551,7 +506,7 @@ const NosPratiques = () => {
         <ArrowBtn to="/la-degustation/" black>
           Voir tous nos vins
         </ArrowBtn>
-      </StyledNosVinsContainer>
+      </section>
     </StyledContainer>
   );
 };

@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import ArrowBtn from "components/global/ArrowBtn";
+import ArrowIcon from "assets/icons/Arrow";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -40,6 +40,7 @@ const sliderSettings = {
 
 const StyledMobile = styled(Slider)`
   grid-column: 1/8;
+  margin: 75px -15px 0;
   @media ${({ theme }) => theme.minWidth.sm} {
     display: none;
   }
@@ -92,8 +93,10 @@ const StyledEvent = styled.div`
     font-size: 20px;
     text-transform: uppercase;
     line-height: 100%;
-    margin-bottom: 5px;
+    margin: 15px 0 5px;
+
     @media ${({ theme }) => theme.minWidth.sm} {
+      margin: 0 0 5px;
       grid-column: 5/8;
     }
   }
@@ -107,7 +110,7 @@ const StyledEvent = styled.div`
   }
   p {
     grid-column: 1/8;
-    margin: 15px 0;
+    margin: 15px 0 30px;
     @media ${({ theme }) => theme.minWidth.sm} {
       grid-column: 5/8;
       margin: 15px 0 60px;
@@ -123,7 +126,7 @@ const StyledEvent = styled.div`
   }
 `;
 
-const PostsSection = ({ news, event }) => {
+const LesActualitesSection = ({ news, event }) => {
   const getEventImg = getImage(event.thumbImg.asset);
 
   const newsRender = news.map(({ text, thumbImg, newsUrl }) => {
@@ -132,8 +135,13 @@ const PostsSection = ({ news, event }) => {
       <StyledNew key={text}>
         <GatsbyImage image={getGatsbyImage} alt={text} />
         <p>{text}</p>
-        <a href={newsUrl} target="_blank" rel="noreferrer" className="btn">
-          <ArrowBtn />
+        <a
+          href={newsUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="btn white"
+        >
+          <ArrowIcon />
           Voir plus
         </a>
       </StyledNew>
@@ -155,9 +163,9 @@ const PostsSection = ({ news, event }) => {
           href={event.eventUrl}
           target="_blank"
           rel="noreferrer"
-          className="btn"
+          className="btn white"
         >
-          <ArrowBtn />
+          <ArrowIcon />
           Voir plus
         </a>
       </StyledEvent>
@@ -167,4 +175,4 @@ const PostsSection = ({ news, event }) => {
   );
 };
 
-export default PostsSection;
+export default LesActualitesSection;
