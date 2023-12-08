@@ -232,8 +232,24 @@ export const query = graphql`
     allSanityWine(filter: { category: { eq: $category } }) {
       nodes {
         title
+        slug {
+          current
+        }
+        category
         certification
         cepages
+        productImage {
+          asset {
+            url
+            gatsbyImageData
+          }
+        }
+        portraitImage {
+          asset {
+            url
+            gatsbyImageData(aspectRatio: 0.74)
+          }
+        }
       }
     }
     locales: allLocale(filter: { language: { eq: $language } }) {

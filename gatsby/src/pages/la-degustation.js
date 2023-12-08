@@ -199,9 +199,9 @@ const LaDegustation = ({ data }) => {
             <div className="wineCardsContainer">
               {wines
                 .filter((wine) => wine.category === category)
-                .map((wine) => {
-                  return <WineCard wine={wine} key={wine.title} />;
-                })}
+                .map((wine) => (
+                  <WineCard wine={wine} key={wine.title} />
+                ))}
             </div>
           </div>
         </Element>
