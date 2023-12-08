@@ -203,7 +203,9 @@ export default function WineTemplate({ data }) {
     formats,
   } = data.sanityWine;
   const imageProduct = getImage(productImage.asset.gatsbyImageData);
-  const imageLandscape = getImage(landscapeImage.asset.gatsbyImageData);
+  const imageLandscape = landscapeImage
+    ? getImage(landscapeImage.asset.gatsbyImageData)
+    : null;
   return (
     <StyledContainer>
       <section className="hero-section grid">
@@ -221,25 +223,27 @@ export default function WineTemplate({ data }) {
             <img src={FRBioLogo} alt="Certification Bio FR" />
           </div>
         )}
-        <div className="quote">
-          <img
-            className="top lines"
-            src={categoryQuoteLines}
-            alt="Quote lines"
-          />
-          <p>« {quote} »</p>
-          <img
-            className="bottom lines"
-            src={categoryQuoteLines}
-            alt="Quote lines"
-          />
-        </div>
+        {quote && (
+          <div className="quote">
+            <img
+              className="top lines"
+              src={categoryQuoteLines}
+              alt="Quote lines"
+            />
+            <p>« {quote} »</p>
+            <img
+              className="bottom lines"
+              src={categoryQuoteLines}
+              alt="Quote lines"
+            />
+          </div>
+        )}
       </section>
       <section className="main-section grid">
         <p className="intro-paragraph">
           <span className="title">{title},</span>
-          <span className="adjectif"> {adjectif} : </span>
-          <span className="intro">{intro}</span>
+          {adjectif && <span className="adjectif"> {adjectif}. </span>}
+          {intro && <span className="intro">{intro}</span>}
         </p>
         <div className="description">
           <h2>Le mot des vignerons</h2>
@@ -287,22 +291,28 @@ export default function WineTemplate({ data }) {
             <h2>Cépage(s)</h2>
             <p>{cepages}</p>
           </div>
-          <div className="alcool">
-            <h2>Teneur en alcool</h2>
-            <p>{alcool}% vol.</p>
-          </div>
-          <div className="millesime">
-            <h2>Millésime</h2>
-            <p>{millesime}</p>
-          </div>
-          <div className="formats">
-            <h2>Disponible en</h2>
-            <ul>
-              {formats.map((format, i) => (
-                <li key={i}>{format}</li>
-              ))}
-            </ul>
-          </div>
+          {alcool && (
+            <div className="alcool">
+              <h2>Teneur en alcool</h2>
+              <p>{alcool}% vol.</p>
+            </div>
+          )}
+          {millesime && (
+            <div className="millesime">
+              <h2>Millésime</h2>
+              <p>{millesime}</p>
+            </div>
+          )}
+          {formats && formats.length > 0 && (
+            <div className="formats">
+              <h2>Disponible en</h2>
+              <ul>
+                {formats.map((format, i) => (
+                  <li key={i}>{format}</li>
+                ))}
+              </ul>
+            </div>
+          )}
           <div className="buttons">
             <a href="/" className="btn">
               <Arrow />
@@ -314,12 +324,14 @@ export default function WineTemplate({ data }) {
             </Link>
           </div>
         </div>
-        <GatsbyImage
-          className="landscape-image"
-          image={imageLandscape}
-          alt={title}
-          objectFit="fullWidth"
-        />
+        {imageLandscape && (
+          <GatsbyImage
+            className="landscape-image"
+            image={imageLandscape}
+            alt={title}
+            objectFit="fullWidth"
+          />
+        )}
       </section>
       <VoirAussi wines={data.allSanityWine.nodes} />
     </StyledContainer>
