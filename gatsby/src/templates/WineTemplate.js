@@ -13,13 +13,27 @@ const StyledContainer = styled.div`
   padding: 60px 15px 0;
   .hero-section {
     row-gap: 30px;
+    grid-template-rows: repeat(4, auto);
     .product-image {
       grid-column: 1 / 8;
       height: 260px;
+      @media ${({ theme }) => theme.minWidth.sm} {
+        grid-column: 2 / 3;
+        grid-row: 1 / 5;
+        height: 370px;
+      }
+      @media ${({ theme }) => theme.minWidth.lg} {
+        height: 560px;
+      }
     }
     h1 {
       grid-column: 1 / 8;
       text-align: center;
+      @media ${({ theme }) => theme.minWidth.sm} {
+        grid-column: 4 / 7;
+        grid-row: 1 / 2;
+        align-self: end;
+      }
     }
     .cepages {
       grid-column: 1 / 8;
@@ -27,6 +41,13 @@ const StyledContainer = styled.div`
       font-family: "Moderat Mono Light";
       font-size: 18px;
       line-height: 150%;
+      @media ${({ theme }) => theme.minWidth.sm} {
+        grid-column: 4 / 7;
+        grid-row: 2 / 3;
+      }
+      @media ${({ theme }) => theme.minWidth.lg} {
+        margin-top: -15px;
+      }
     }
     .bio-logos {
       grid-column: 1 / 8;
@@ -34,6 +55,10 @@ const StyledContainer = styled.div`
       justify-content: center;
       align-items: center;
       column-gap: 15px;
+      @media ${({ theme }) => theme.minWidth.sm} {
+        grid-column: 4 / 7;
+        grid-row: 3 / 4;
+      }
       & > :nth-child(1) {
         height: 29px;
         @media ${({ theme }) => theme.minWidth.sm} {
@@ -58,6 +83,10 @@ const StyledContainer = styled.div`
       text-align: center;
       font-family: "Moderat Bold Italic";
       white-space: pre-line;
+      @media ${({ theme }) => theme.minWidth.sm} {
+        grid-column: 4 / 7;
+        grid-row: 4 / 5;
+      }
       p {
       }
       .lines.top {
@@ -74,8 +103,14 @@ const StyledContainer = styled.div`
   .main-section {
     margin: 120px 0;
     row-gap: 60px;
+    @media ${({ theme }) => theme.minWidth.lg} {
+      row-gap: 90px;
+    }
     .intro-paragraph {
       grid-column: 1 / 8;
+      @media ${({ theme }) => theme.minWidth.sm} {
+        grid-column: 3 / 8;
+      }
       .title {
         font-family: "Moderat Bold";
       }
@@ -88,6 +123,9 @@ const StyledContainer = styled.div`
     .vinification,
     .degustation {
       grid-column: 1 / 8;
+      @media ${({ theme }) => theme.minWidth.sm} {
+        grid-column: 3 / 8;
+      }
     }
     h2 {
       font-family: "Moderat Mono";
@@ -97,14 +135,27 @@ const StyledContainer = styled.div`
       margin-bottom: 5px;
     }
     iframe {
-      grid-column: 1 / 8;
       width: 100%;
-      height: auto;
+      min-height: 210px;
+      grid-column: 1 / 8;
+      margin-top: -30px;
+      @media ${({ theme }) => theme.minWidth.sm} {
+        grid-column: 3 / 6;
+        min-height: 240px;
+      }
+      @media ${({ theme }) => theme.minWidth.lg} {
+        margin-top: -60px;
+        min-height: 370px;
+      }
     }
     .wine-info {
       grid-column: 1 / 8;
       display: grid;
       gap: 30px;
+      @media ${({ theme }) => theme.minWidth.sm} {
+        grid-column: 1 / 3;
+        grid-row: 1 / 4;
+      }
       .category {
         display: flex;
         align-items: center;
@@ -117,7 +168,12 @@ const StyledContainer = styled.div`
     }
   }
   .landscape-image {
-    margin-bottom: 120px;
+    grid-column: 1 / 8;
+    margin-top: 45px;
+    @media ${({ theme }) => theme.minWidth.sm} {
+      grid-column: 1 / 7;
+      margin-top: 60px;
+    }
   }
 `;
 
@@ -258,13 +314,13 @@ export default function WineTemplate({ data }) {
             </Link>
           </div>
         </div>
+        <GatsbyImage
+          className="landscape-image"
+          image={imageLandscape}
+          alt={title}
+          objectFit="fullWidth"
+        />
       </section>
-      <GatsbyImage
-        className="landscape-image"
-        image={imageLandscape}
-        alt={title}
-        objectFit="fullWidth"
-      />
       <VoirAussi wines={data.allSanityWine.nodes} />
     </StyledContainer>
   );

@@ -10,7 +10,10 @@ import { useContext } from "react";
 
 const StyledContainer = styled.section`
   grid-column: 1/8;
-  margin: 220px 0;
+  margin: 120px 0;
+  @media ${({ theme }) => theme.minWidth.sm} {
+    margin: 180px 0;
+  }
   h2 {
     grid-column: 3/8;
   }
