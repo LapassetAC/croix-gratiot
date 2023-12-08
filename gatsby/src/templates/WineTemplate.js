@@ -7,7 +7,6 @@ import FRBioLogo from "assets/logos/FRBioLogo.svg";
 import categoryQuoteLines from "assets/icons/categoryQuoteLines.svg";
 import theme from "styles/theme";
 import Arrow from "assets/icons/Arrow";
-import ArrowBtn from "components/global/ArrowBtn";
 import VoirAussi from "./VoirAussiSection";
 
 const StyledContainer = styled.div`
