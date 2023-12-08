@@ -16,6 +16,7 @@ const StyledContainer = styled.section`
   }
   h2 {
     grid-column: 3/8;
+    margin-bottom: 30px;
   }
   button {
     justify-self: start;
@@ -28,7 +29,7 @@ const StyledContainer = styled.section`
 `;
 
 const StyledSlider = styled(Slider)`
-  grid-column: 1/8;
+  grid-column: 2/7;
   margin: 0 -15px;
   @media ${({ theme }) => theme.minWidth.sm} {
     grid-column: 2/6;

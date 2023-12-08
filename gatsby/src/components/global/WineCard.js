@@ -9,7 +9,7 @@ const StyledContainer = styled(Link)`
   display: grid;
   grid-template-columns: auto 1fr;
   column-gap: 30px;
-  grid-template-rows: repeat(3, auto) 1fr;
+  /* grid-template-rows: repeat(3, auto) 1fr; */
   align-items: center;
   text-align: center;
   margin-top: 60px;
@@ -67,6 +67,7 @@ const StyledContainer = styled(Link)`
     grid-column: 1 / 3;
     margin-bottom: 10px;
     @media ${({ theme }) => theme.minWidth.lg} {
+      width: 60px;
       grid-row: 2 / 3;
       grid-column: 2 / 3;
       margin: 30px 0 10px;
