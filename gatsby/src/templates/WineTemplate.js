@@ -200,7 +200,12 @@ export default function WineTemplate({ data }) {
 }
 
 export const query = graphql`
-  query ($category: String!, $slug: String!, $language: String!) {
+  query (
+    $title: String!
+    $category: String!
+    $slug: String!
+    $language: String!
+  ) {
     sanityWine(slug: { current: { eq: $slug } }) {
       category
       cepages
@@ -229,7 +234,9 @@ export const query = graphql`
         }
       }
     }
-    allSanityWine(filter: { category: { eq: $category } }) {
+    allSanityWine(
+      filter: { category: { eq: $category }, title: { ne: $title } }
+    ) {
       nodes {
         title
         slug {

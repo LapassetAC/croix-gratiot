@@ -73,23 +73,27 @@ export default function VoirAussiSection({ wines }) {
         <br />
         aussi
       </h2>
-      <button
-        onClick={() => sliderRef.current.slickPrev()}
-        aria-label="Précédent"
-      >
-        <Arrow />
-      </button>
+      {wines.length > 2 && (
+        <button
+          onClick={() => sliderRef.current.slickPrev()}
+          aria-label="Précédent"
+        >
+          <Arrow />
+        </button>
+      )}
       <StyledSlider {...sliderSettings} ref={sliderRef}>
         {wines.map((wine) => (
           <WineCard wine={wine} key={wine.title} />
         ))}
       </StyledSlider>
-      <button
-        onClick={() => sliderRef.current.slickNext()}
-        aria-label="Suivant"
-      >
-        <Arrow />
-      </button>
+      {wines.length > 2 && (
+        <button
+          onClick={() => sliderRef.current.slickNext()}
+          aria-label="Suivant"
+        >
+          <Arrow />
+        </button>
+      )}
     </StyledContainer>
   );
 }
