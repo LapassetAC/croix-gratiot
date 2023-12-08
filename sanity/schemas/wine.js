@@ -137,9 +137,9 @@ export default {
       of: [{type: 'string'}],
       options: {
         list: [
-          {title: 'Demi (37,5cl)', value: 'demi'},
-          {title: 'Bouteille (75cl)', value: 'bouteille'},
-          {title: 'Magnum (1,5l)  ', value: 'magnum'},
+          {title: 'Demi (37,5cl)', value: 'Demi (37,5cl)'},
+          {title: 'Bouteille (75cl)', value: 'Bouteille (75cl)'},
+          {title: 'Magnum (1,5l)', value: 'Magnum (1,5l)'},
         ],
       },
     },

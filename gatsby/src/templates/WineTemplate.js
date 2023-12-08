@@ -5,6 +5,9 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import EUBioLogo from "assets/logos/EUBioLogo.svg";
 import FRBioLogo from "assets/logos/FRBioLogo.svg";
 import categoryQuoteLines from "assets/icons/categoryQuoteLines.svg";
+import theme from "styles/theme";
+import Arrow from "assets/icons/Arrow";
+import ArrowBtn from "components/global/ArrowBtn";
 
 const StyledContainer = styled.div`
   padding: 60px 15px 120px;
@@ -100,6 +103,13 @@ const StyledContainer = styled.div`
     }
     .wine-info {
       grid-column: 1 / 8;
+      display: grid;
+      gap: 30px;
+      .category {
+        display: flex;
+        align-items: center;
+        column-gap: 15px;
+      }
     }
   }
 `;
@@ -110,8 +120,13 @@ const StyledColorSquare = styled.div`
   background-color: ${(props) => props.color};
 `;
 
+const StyledArrowBtn = styled(ArrowBtn)`
+  color: ${(props) => props.theme.colors.brandBrown};
+`;
+
 export default function WineTemplate({ data }) {
   const {
+    category,
     title,
     productImage,
     cepages,
@@ -171,9 +186,7 @@ export default function WineTemplate({ data }) {
           <h2>Le mot des vignerons</h2>
           <p>{description}</p>
         </div>
-        {videoUrl && (
-          <iframe src={videoUrl} frameborder="0" allowfullscreen></iframe>
-        )}
+        {videoUrl && <iframe src={videoUrl} title="Vidéo du vin"></iframe>}
         {vinification && (
           <div className="vinification">
             <h2>Vinification</h2>
@@ -187,12 +200,67 @@ export default function WineTemplate({ data }) {
           </div>
         )}
         <div className="wine-info">
-          <h2>Catégorie</h2>
-          <div className="category">
-            <StyledColorSquare />
+          <div>
+            <h2>Catégorie</h2>
+            <div className="category">
+              <StyledColorSquare
+                color={
+                  category === "blanc"
+                    ? theme.colors.yellow
+                    : category === "rose"
+                    ? theme.colors.pink
+                    : category === "rouge"
+                    ? theme.colors.red
+                    : category === "autre"
+                    ? theme.colors.orange
+                    : null
+                }
+              />
+              <p>
+                {category === "blanc" && "Le\nParadis\nBlanc"}
+                {category === "rose" && "La Vie\nen\nRose"}
+                {category === "rouge" && "Rue\nRouge"}
+                {category === "autre" && "J'ai\nFantaisie"}
+              </p>
+            </div>
+          </div>
+          <div className="cepages">
+            <h2>Cépage(s)</h2>
+            <p>{cepages}</p>
+          </div>
+          <div className="alcool">
+            <h2>Teneur en alcool</h2>
+            <p>{alcool}% vol.</p>
+          </div>
+          <div className="millesime">
+            <h2>Millésime</h2>
+            <p>{millesime}</p>
+          </div>
+          <div className="formats">
+            <h2>Disponible en</h2>
+            <ul>
+              {formats.map((format, i) => (
+                <li key={i}>{format}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="buttons">
+            <a href="#" className="btn">
+              <Arrow />
+              Fiche technique
+            </a>
+            <StyledArrowBtn className="button" to="/nous-rencontrer/">
+              Trouver ce vin
+            </StyledArrowBtn>
           </div>
         </div>
       </section>
+      <GatsbyImage
+        className="landscape-image"
+        image={imageLandscape}
+        alt={title}
+        objectFit="fullWidth"
+      />
     </StyledContainer>
   );
 }
