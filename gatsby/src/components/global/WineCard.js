@@ -37,10 +37,11 @@ const StyledContainer = styled(Link)`
     justify-self: center;
     opacity: 1;
     transition: opacity 0.5s ease;
-    aspect-ratio: 0.8;
+    /* aspect-ratio: 0.8; */
+    height: 420px;
   }
   .product-image {
-    max-height: 420px;
+    /* max-height: 420px; */
   }
 
   .portrait-image {
