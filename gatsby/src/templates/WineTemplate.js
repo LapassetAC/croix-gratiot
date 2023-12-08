@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { Link, graphql } from "gatsby";
 import { styled } from "styled-components";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import EUBioLogo from "assets/logos/EUBioLogo.svg";
@@ -95,7 +95,7 @@ const StyledContainer = styled.div`
       font-size: 16px;
       line-height: 150%;
       text-transform: uppercase;
-      margin-bottom: 10px;
+      margin-bottom: 5px;
     }
     iframe {
       grid-column: 1 / 8;
@@ -111,7 +111,14 @@ const StyledContainer = styled.div`
         align-items: center;
         column-gap: 15px;
       }
+      .buttons {
+        display: grid;
+        gap: 15px;
+      }
     }
+  }
+  .landscape-image {
+    margin-bottom: 120px;
   }
 `;
 
@@ -119,10 +126,6 @@ const StyledColorSquare = styled.div`
   width: 15px;
   height: 15px;
   background-color: ${(props) => props.color};
-`;
-
-const StyledArrowBtn = styled(ArrowBtn)`
-  color: ${(props) => props.theme.colors.brandBrown};
 `;
 
 export default function WineTemplate({ data }) {
@@ -250,9 +253,10 @@ export default function WineTemplate({ data }) {
               <Arrow />
               Fiche technique
             </a>
-            <StyledArrowBtn className="button" to="/nous-rencontrer/">
+            <Link className="btn" to="/nous-rencontrer/">
+              <Arrow />
               Trouver ce vin
-            </StyledArrowBtn>
+            </Link>
           </div>
         </div>
       </section>
