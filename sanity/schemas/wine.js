@@ -67,7 +67,6 @@ export default {
       description:
         'Citation qui apparaît sous le titre du vin. Ex. pour le rosé : Osez Rosé, Roséphine !',
       type: 'text',
-      validation: (Rule) => Rule.required(),
     },
     {
       name: 'adjectif',
@@ -81,7 +80,6 @@ export default {
       description:
         'Description en deux phrases du vin. Ex. pour le rosé : Velouté Syrah et Grenache. Ce vin très expressif, gourmand et fruité accompagné d’une belle vivacité.',
       type: 'text',
-      validation: (Rule) => Rule.required(),
     },
     {
       name: 'description',
