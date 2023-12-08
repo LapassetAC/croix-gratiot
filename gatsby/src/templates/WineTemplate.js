@@ -194,7 +194,7 @@ export default function WineTemplate({ data }) {
           </div>
         </div>
       </section>
-      <VoirAussi wines={data.allSanityWine} />
+      <VoirAussi wines={data.allSanityWine.nodes} />
     </StyledContainer>
   );
 }
@@ -232,6 +232,8 @@ export const query = graphql`
     allSanityWine(filter: { category: { eq: $category } }) {
       nodes {
         title
+        certification
+        cepages
       }
     }
     locales: allLocale(filter: { language: { eq: $language } }) {
