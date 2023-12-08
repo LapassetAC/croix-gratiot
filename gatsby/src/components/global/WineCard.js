@@ -57,7 +57,7 @@ const StyledContainer = styled(Link)`
     @media ${({ theme }) => theme.minWidth.sm} {
       font-size: 22px;
     }
-    @media ${({ theme }) => theme.minWidth.xl} {
+    @media ${({ theme }) => theme.minWidth.lg} {
       font-size: 24px;
       grid-column: 1 / 2;
     }
@@ -66,7 +66,7 @@ const StyledContainer = styled(Link)`
     grid-row: 3 / 4;
     grid-column: 1 / 3;
     margin-bottom: 10px;
-    @media ${({ theme }) => theme.minWidth.xl} {
+    @media ${({ theme }) => theme.minWidth.lg} {
       grid-row: 2 / 3;
       grid-column: 2 / 3;
       margin: 30px 0 10px;
@@ -94,7 +94,7 @@ const StyledContainer = styled(Link)`
     @media ${({ theme }) => theme.minWidth.sm} {
       font-size: 14px;
     }
-    @media ${({ theme }) => theme.minWidth.xl} {
+    @media ${({ theme }) => theme.minWidth.lg} {
       font-size: 16px;
     }
   }

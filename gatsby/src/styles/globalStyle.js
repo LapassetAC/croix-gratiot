@@ -57,7 +57,7 @@ body {
     font-size: 16px;
     line-height: 24px;
   }
-  @media ${({ theme }) => theme.minWidth.xl} {
+  @media ${({ theme }) => theme.minWidth.lg} {
     font-size: 18px;
     line-height: 27px;
   }
@@ -110,7 +110,7 @@ button {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-gap: 15px;
-  @media ${(props) => props.theme.minWidth.xl} {
+  @media ${(props) => props.theme.minWidth.lg} {
     grid-gap: 30px;
   } 
 }
@@ -126,7 +126,7 @@ button {
       font-size: 72px;
       line-height: 58px;
     }   
-    @media ${({ theme }) => theme.minWidth.xl} {      
+    @media ${({ theme }) => theme.minWidth.lg} {      
       line-height: 70px;
       font-size: 90px;
     }
@@ -159,7 +159,7 @@ button {
       font-size: 16px;
       line-height: 24px;
     }
-    @media ${({ theme }) => theme.minWidth.xl} {
+    @media ${({ theme }) => theme.minWidth.lg} {
       font-size: 18px;
       line-height: 27px;
     }
@@ -174,7 +174,7 @@ button {
     @media ${({ theme }) => theme.minWidth.sm} {
       font-size: 20px;
     }
-    @media ${({ theme }) => theme.minWidth.xl} {
+    @media ${({ theme }) => theme.minWidth.lg} {
       grid-column: 2/7;
       font-size: 22px;
       line-height: 160%;

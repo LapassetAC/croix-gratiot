@@ -16,7 +16,7 @@ const StyledContainer = styled.div`
     @media ${({ theme }) => theme.minWidth.sm} {
       margin-bottom: 210px;
     }
-    @media ${({ theme }) => theme.minWidth.xl} {
+    @media ${({ theme }) => theme.minWidth.lg} {
       gap: 30px;
       margin-bottom: 240px;
     }
@@ -80,7 +80,7 @@ const StyledContainer = styled.div`
       grid-column: 4 / 7;
       margin-top: 0;
     }
-    @media ${({ theme }) => theme.minWidth.xl} {
+    @media ${({ theme }) => theme.minWidth.lg} {
       grid-column: 3 / 6;
     }
   }
@@ -139,7 +139,7 @@ const StyledContainer = styled.div`
       line-height: 55px;
       margin-top: 0;
     }
-    @media ${({ theme }) => theme.minWidth.xl} {
+    @media ${({ theme }) => theme.minWidth.lg} {
       font-size: 90px;
       line-height: 70px;
     }
@@ -159,7 +159,7 @@ const StyledContainer = styled.div`
       grid-row: 2;
       align-self: end;
     }
-    @media ${({ theme }) => theme.minWidth.xl} {
+    @media ${({ theme }) => theme.minWidth.lg} {
       grid-column: 2 / 4;
     }
   }
@@ -168,7 +168,7 @@ const StyledContainer = styled.div`
     @media ${({ theme }) => theme.minWidth.sm} {
       grid-column: 5 / 8;
     }
-    @media ${({ theme }) => theme.minWidth.xl} {
+    @media ${({ theme }) => theme.minWidth.lg} {
       grid-column: 5 / 7;
     }
   }
@@ -193,7 +193,7 @@ const StyledContainer = styled.div`
       grid-column: 3 / 7;
       grid-row: 2;
     }
-    @media ${({ theme }) => theme.minWidth.xl} {
+    @media ${({ theme }) => theme.minWidth.lg} {
       grid-column: 3 / 6;
     }
   }
@@ -204,7 +204,7 @@ const StyledContainer = styled.div`
       grid-row: 5 / 6;
       margin: 15px 0 0;
     }
-    @media ${({ theme }) => theme.minWidth.xl} {
+    @media ${({ theme }) => theme.minWidth.lg} {
       grid-column: 4 / 6;
     }
   }
@@ -215,7 +215,7 @@ const StyledContainer = styled.div`
       grid-row: 4 / 5;
       margin: 15px 0 0;
     }
-    @media ${({ theme }) => theme.minWidth.xl} {
+    @media ${({ theme }) => theme.minWidth.lg} {
       margin: 30px 0 0;
     }
   }
@@ -236,7 +236,7 @@ const StyledContainer = styled.div`
         display: block;
       }
     }
-    @media ${({ theme }) => theme.minWidth.xl} {
+    @media ${({ theme }) => theme.minWidth.lg} {
       font-size: 22px;
       line-height: 35px;
       margin-bottom: 240px;
@@ -273,7 +273,7 @@ const StyledContainer = styled.div`
       font-size: 65px;
       line-height: 55px;
     }
-    @media ${({ theme }) => theme.minWidth.xl} {
+    @media ${({ theme }) => theme.minWidth.lg} {
       font-size: 90px;
       line-height: 70px;
     }

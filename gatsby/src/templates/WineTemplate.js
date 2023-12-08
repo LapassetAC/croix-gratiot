@@ -39,7 +39,7 @@ const StyledContainer = styled.div`
         @media ${({ theme }) => theme.minWidth.sm} {
           height: 34px;
         }
-        @media ${({ theme }) => theme.minWidth.xl} {
+        @media ${({ theme }) => theme.minWidth.lg} {
           height: 51px;
         }
       }
@@ -48,7 +48,7 @@ const StyledContainer = styled.div`
         @media ${({ theme }) => theme.minWidth.sm} {
           height: 45px;
         }
-        @media ${({ theme }) => theme.minWidth.xl} {
+        @media ${({ theme }) => theme.minWidth.lg} {
           height: 66px;
         }
       }

@@ -15,7 +15,7 @@ const StyledContainer = styled.section`
     margin-bottom: 75px;
     background-color: ${(props) => props.theme.colors.backgroundLight};
   }
-  @media ${({ theme }) => theme.minWidth.xl} {
+  @media ${({ theme }) => theme.minWidth.lg} {
     top: 0;
     padding: 30px 0 15px;
   }
@@ -28,7 +28,7 @@ const StyledNavLink = styled(Link)`
   text-transform: uppercase;
   position: relative;
   display: inline-block;
-  @media ${(props) => props.theme.minWidth.xl} {
+  @media ${(props) => props.theme.minWidth.lg} {
     font-size: 15px;
   }
   &:nth-child(1) {

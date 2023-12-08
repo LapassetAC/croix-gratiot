@@ -12,7 +12,7 @@ const StyledContainer = styled.footer`
   @media ${({ theme }) => theme.minWidth.sm} {
     row-gap: 15px;
   }
-  @media ${({ theme }) => theme.minWidth.xl} {
+  @media ${({ theme }) => theme.minWidth.lg} {
     row-gap: 30px;
   }
   .LCGLogo {
@@ -35,7 +35,7 @@ const StyledContainer = styled.footer`
     @media ${({ theme }) => theme.minWidth.sm} {
       grid-column: 2/4;
     }
-    @media ${({ theme }) => theme.minWidth.xl} {
+    @media ${({ theme }) => theme.minWidth.lg} {
       grid-column: 3/5;
     }
   }
@@ -47,7 +47,7 @@ const StyledContainer = styled.footer`
       grid-column: 4/8;
       grid-row: 1/1;
     }
-    @media ${({ theme }) => theme.minWidth.xl} {
+    @media ${({ theme }) => theme.minWidth.lg} {
       grid-column: 5/8;
     }
     & > div {
@@ -65,7 +65,7 @@ const StyledContainer = styled.footer`
       grid-column: 4/8;
       grid-row: 1/1;
     }
-    @media ${({ theme }) => theme.minWidth.xl} {
+    @media ${({ theme }) => theme.minWidth.lg} {
       grid-column: 5/8;
     }
   }
@@ -84,7 +84,7 @@ const StyledContainer = styled.footer`
       grid-column: 2/6;
       grid-row: 2/2;
     }
-    @media ${({ theme }) => theme.minWidth.xl} {
+    @media ${({ theme }) => theme.minWidth.lg} {
       grid-column: 3/6;
     }
   }
@@ -96,7 +96,7 @@ const StyledContainer = styled.footer`
     @media ${({ theme }) => theme.minWidth.sm} {
       align-self: end;
     }
-    @media ${({ theme }) => theme.minWidth.xl} {
+    @media ${({ theme }) => theme.minWidth.lg} {
       font-size: 12px;
     }
     a {

@@ -18,7 +18,7 @@ const StyledContainer = styled.div`
     @media ${({ theme }) => theme.minWidth.sm} {
       margin-bottom: 110px;
     }
-    @media ${({ theme }) => theme.minWidth.xl} {
+    @media ${({ theme }) => theme.minWidth.lg} {
       margin-bottom: 180px;
     }
     .degustationHeroImage {
@@ -52,7 +52,7 @@ const StyledContainer = styled.div`
       padding-bottom: 210px;
       grid-template-rows: auto 1fr;
     }
-    @media ${({ theme }) => theme.minWidth.xl} {
+    @media ${({ theme }) => theme.minWidth.lg} {
       padding-bottom: 240px;
     }
   }
@@ -65,7 +65,7 @@ const StyledContainer = styled.div`
       grid-column: 2 / 4;
       grid-row: 1 / 2;
     }
-    @media ${({ theme }) => theme.minWidth.xl} {
+    @media ${({ theme }) => theme.minWidth.lg} {
       font-size: 80px;
       line-height: 55px;
     }
@@ -88,7 +88,7 @@ const StyledContainer = styled.div`
       @media ${({ theme }) => theme.minWidth.sm} {
         font-size: 14px;
       }
-      @media ${({ theme }) => theme.minWidth.xl} {
+      @media ${({ theme }) => theme.minWidth.lg} {
         font-size: 16px;
       }
     }
@@ -110,7 +110,7 @@ const StyledContainer = styled.div`
       column-gap: 15px;
       row-gap: 90px;
     }
-    @media ${({ theme }) => theme.minWidth.xl} {
+    @media ${({ theme }) => theme.minWidth.lg} {
       column-gap: 30px;
       row-gap: 120px;
     }

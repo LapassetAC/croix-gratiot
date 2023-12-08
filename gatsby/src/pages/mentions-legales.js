@@ -17,7 +17,7 @@ const StyledContainer = styled.div`
     font-size: 16px;
     line-height: 150%;
     text-transform: uppercase;
-    @media ${({ theme }) => theme.minWidth.xl} {
+    @media ${({ theme }) => theme.minWidth.lg} {
       font-size: 20px;
       margin-bottom: -15px;
     }

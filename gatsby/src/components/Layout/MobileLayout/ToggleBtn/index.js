@@ -7,7 +7,7 @@ const StyledContainer = styled.div`
   font-size: 14px;
   letter-spacing: 0.7px;
   text-transform: uppercase;
-  @media ${(props) => props.theme.minWidth.xl} {
+  @media ${(props) => props.theme.minWidth.lg} {
     display: none;
   }
   div {

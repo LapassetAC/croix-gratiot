@@ -41,13 +41,13 @@ const StyledContainer = styled.div`
     line-height: 150%;
     text-transform: uppercase;
     margin-bottom: 10px;
-    @media ${({ theme }) => theme.minWidth.xl} {
+    @media ${({ theme }) => theme.minWidth.lg} {
       font-size: 20px;
     }
   }
   .btn {
     font-size: 12px;
-    @media ${({ theme }) => theme.minWidth.xl} {
+    @media ${({ theme }) => theme.minWidth.lg} {
       font-size: 14px;
     }
   }
