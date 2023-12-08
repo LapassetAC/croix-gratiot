@@ -33,15 +33,20 @@ const StyledContainer = styled(Link)`
     grid-row: 1 / 2;
     grid-column: 1 / 3;
     align-self: center;
-    height: 260px;
     opacity: 1;
     transition: opacity 0.5s ease;
+    aspect-ratio: 0.8;
+    /* max-height: 430px; */
+    /* height: 260px;
     @media ${({ theme }) => theme.minWidth.sm} {
       height: 365px;
     }
-    @media ${({ theme }) => theme.minWidth.md} {
+    @media ${({ theme }) => theme.minWidth.lg} {
       height: 430px;
     }
+    @media ${({ theme }) => theme.minWidth.xxl} {
+      height: 550px;
+    } */
   }
   .portrait-image {
     opacity: 0;
