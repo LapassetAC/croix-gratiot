@@ -35,17 +35,32 @@ const StyledContainer = styled.div`
       a,
       button {
         pointer-events: all;
-        writing-mode: sideways-lr;
+        /* writing-mode: vertical-rl; */
+        /* text-orientation: upright; */
+        /* text-align: end; */
         letter-spacing: 0.9px;
         text-transform: uppercase;
         font-size: 18px;
-        text-align: end;
-        text-orientation: upright;
         transition: color 0.2s;
         color: ${({ $activeSection, theme }) =>
           $activeSection === "red" || $activeSection === "green"
             ? theme.colors.backgroundLight
             : theme.colors.brandBrown};
+        &:not(.homeLink) {
+          transform: rotate(-90deg);
+          white-space: nowrap;
+        }
+      }
+      button {
+        &.nosPratiques {
+          transform: rotate(-90deg) translate(-52px, -65px);
+        }
+        &.laDegustation {
+          transform: rotate(-90deg) translate(-55px, -69px);
+        }
+        &.nousRencontrer {
+          transform: rotate(-90deg) translate(-68px, -83px);
+        }
       }
       &.homeNav {
         display: flex;
@@ -183,6 +198,7 @@ export default function DesktopLayout({ children }) {
       <nav>
         <div className="homeNav">
           <button
+            className="homeLink"
             aria-label="La Croix Gratiot logo"
             onClick={() => handlePage("/")}
           >
@@ -198,17 +214,26 @@ export default function DesktopLayout({ children }) {
           </aside>
         </div>
         <div>
-          <button onClick={() => handlePage("/nos-pratiques/")}>
+          <button
+            className="nosPratiques"
+            onClick={() => handlePage("/nos-pratiques/")}
+          >
             Nos Pratiques
           </button>
         </div>
         <div>
-          <button onClick={() => handlePage("/la-degustation/")}>
+          <button
+            className="laDegustation"
+            onClick={() => handlePage("/la-degustation/")}
+          >
             La Dégustation
           </button>
         </div>
         <div>
-          <button onClick={() => handlePage("/nous-rencontrer/")}>
+          <button
+            className="nousRencontrer"
+            onClick={() => handlePage("/nous-rencontrer/")}
+          >
             Nous rencontrer
           </button>
         </div>
