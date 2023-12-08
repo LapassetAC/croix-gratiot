@@ -5,18 +5,17 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import WineCard from "components/global/WineCard";
 import Arrow from "assets/icons/Arrow";
+import { Context } from "data/Context";
+import { useContext } from "react";
 
 const StyledContainer = styled.section`
   grid-column: 1/8;
+  margin: 220px 0;
   h2 {
     grid-column: 3/8;
   }
   button {
-    display: none;
     justify-self: start;
-    @media ${({ theme }) => theme.minWidth.sm} {
-      display: block;
-    }
     &:first-of-type {
       grid-column: 1/2;
       justify-self: end;
@@ -56,15 +55,17 @@ const sliderSettings = {
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1,
-        centerMode: true,
-        centerPadding: "45px",
       },
     },
   ],
 };
 
 export default function VoirAussiSection({ wines }) {
+  const { isMobile } = useContext(Context);
   const sliderRef = useRef();
+
+  console.log(isMobile);
+  const isSliderBtn = isMobile || wines.length > 2;
 
   return (
     <StyledContainer className="grid">
@@ -73,7 +74,7 @@ export default function VoirAussiSection({ wines }) {
         <br />
         aussi
       </h2>
-      {wines.length > 2 && (
+      {isSliderBtn && (
         <button
           onClick={() => sliderRef.current.slickPrev()}
           aria-label="Précédent"
@@ -86,7 +87,7 @@ export default function VoirAussiSection({ wines }) {
           <WineCard wine={wine} key={wine.title} />
         ))}
       </StyledSlider>
-      {wines.length > 2 && (
+      {isSliderBtn && (
         <button
           onClick={() => sliderRef.current.slickNext()}
           aria-label="Suivant"

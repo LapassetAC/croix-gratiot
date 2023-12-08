@@ -11,7 +11,7 @@ import ArrowBtn from "components/global/ArrowBtn";
 import VoirAussi from "./VoirAussiSection";
 
 const StyledContainer = styled.div`
-  padding: 60px 15px 120px;
+  padding: 60px 15px 0;
   .hero-section {
     row-gap: 30px;
     .product-image {
