@@ -246,7 +246,7 @@ export default function WineTemplate({ data }) {
             </ul>
           </div>
           <div className="buttons">
-            <a href="#" className="btn">
+            <a href="/" className="btn">
               <Arrow />
               Fiche technique
             </a>
