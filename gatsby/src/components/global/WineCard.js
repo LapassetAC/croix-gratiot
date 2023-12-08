@@ -9,7 +9,6 @@ const StyledContainer = styled(Link)`
   display: grid;
   grid-template-columns: auto 1fr;
   column-gap: 30px;
-  /* grid-template-rows: repeat(3, auto) 1fr; */
   align-items: center;
   text-align: center;
   margin-top: 60px;
@@ -32,22 +31,15 @@ const StyledContainer = styled(Link)`
   .portrait-image {
     grid-row: 1 / 2;
     grid-column: 1 / 3;
-    align-self: center;
+    align-self: end;
     opacity: 1;
     transition: opacity 0.5s ease;
     aspect-ratio: 0.8;
-    /* max-height: 430px; */
-    /* height: 260px;
-    @media ${({ theme }) => theme.minWidth.sm} {
-      height: 365px;
-    }
-    @media ${({ theme }) => theme.minWidth.lg} {
-      height: 430px;
-    }
-    @media ${({ theme }) => theme.minWidth.xxl} {
-      height: 550px;
-    } */
   }
+  .product-image {
+    max-height: 480px;
+  }
+
   .portrait-image {
     opacity: 0;
   }
