@@ -8,6 +8,7 @@ import categoryQuoteLines from "assets/icons/categoryQuoteLines.svg";
 import theme from "styles/theme";
 import Arrow from "assets/icons/Arrow";
 import ArrowBtn from "components/global/ArrowBtn";
+import VoirAussi from "./VoirAussiSection";
 
 const StyledContainer = styled.div`
   padding: 60px 15px 120px;
@@ -261,12 +262,13 @@ export default function WineTemplate({ data }) {
         alt={title}
         objectFit="fullWidth"
       />
+      <VoirAussi wines={data.allSanityWine.nodes} />
     </StyledContainer>
   );
 }
 
 export const query = graphql`
-  query ($slug: String!, $language: String!) {
+  query ($category: String!, $slug: String!, $language: String!) {
     sanityWine(slug: { current: { eq: $slug } }) {
       category
       cepages
@@ -293,6 +295,13 @@ export const query = graphql`
           url
           gatsbyImageData
         }
+      }
+    }
+    allSanityWine(filter: { category: { eq: $category } }) {
+      nodes {
+        title
+        certification
+        cepages
       }
     }
     locales: allLocale(filter: { language: { eq: $language } }) {
