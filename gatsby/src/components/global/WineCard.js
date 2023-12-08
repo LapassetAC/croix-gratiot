@@ -8,6 +8,7 @@ import { Link } from "gatsby-plugin-react-i18next";
 const StyledContainer = styled(Link)`
   display: grid;
   grid-template-columns: auto 1fr;
+  grid-template-rows: repeat(3, auto) 1fr;
   column-gap: 30px;
   align-items: center;
   text-align: center;
@@ -39,7 +40,7 @@ const StyledContainer = styled(Link)`
     aspect-ratio: 0.8;
   }
   .product-image {
-    max-height: 480px;
+    max-height: 420px;
   }
 
   .portrait-image {
