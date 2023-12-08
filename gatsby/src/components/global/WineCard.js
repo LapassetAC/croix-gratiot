@@ -17,21 +17,23 @@ const StyledContainer = styled(Link)`
     text-align: left;
     align-items: start;
     margin-top: 0;
-    &:hover {
-      .product-image {
-        opacity: 0;
-      }
-      .portrait-image {
-        opacity: 1;
-      }
+  }
+  &:hover {
+    .product-image {
+      opacity: 0;
+    }
+    .portrait-image {
+      opacity: 1;
     }
   }
 
   .product-image,
   .portrait-image {
+    width: 100%;
     grid-row: 1 / 2;
     grid-column: 1 / 3;
     align-self: end;
+    justify-self: center;
     opacity: 1;
     transition: opacity 0.5s ease;
     aspect-ratio: 0.8;
@@ -60,6 +62,8 @@ const StyledContainer = styled(Link)`
     }
   }
   .bio-logos {
+    display: flex;
+    align-items: center;
     grid-row: 3 / 4;
     grid-column: 1 / 3;
     margin-bottom: 10px;
