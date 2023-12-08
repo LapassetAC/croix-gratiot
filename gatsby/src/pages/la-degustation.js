@@ -5,10 +5,10 @@ import { graphql } from "gatsby";
 import EUBioLogo from "assets/logos/EUBioLogo.svg";
 import FRBioLogo from "assets/logos/FRBioLogo.svg";
 import categoryQuoteLines from "assets/icons/categoryQuoteLines.svg";
-import winesData from "data/winesData";
 import AnchorNavBar from "components/pages/LaDegustation/AnchorNav";
 import { Link } from "gatsby-plugin-react-i18next";
 import { Element } from "react-scroll";
+import theme from "styles/theme";
 
 const StyledContainer = styled.div`
   .gatsby-image-wrapper {
@@ -227,6 +227,7 @@ const StyledColorSquare = styled.div`
 
 const LaDegustation = ({ data }) => {
   const wines = data.allSanityWine.nodes;
+  const categories = Array.from(new Set(wines.map((wine) => wine.category)));
 
   return (
     <StyledContainer>
@@ -246,20 +247,45 @@ const LaDegustation = ({ data }) => {
           musique.
         </p>
       </section>
-      <AnchorNavBar data={winesData} />
-      {winesData.map(({ category, title, quote, color }, i) => (
-        <Element name={title} key={category} id={category}>
+      <AnchorNavBar data={categories} />
+      {categories.map((category) => (
+        <Element name={category} key={category} id={category}>
           <div className={`${category} wine-section grid`}>
-            <StyledColorSquare color={color} />
-            <h2 className="sectionTitle category-title">{title}</h2>
-
+            <StyledColorSquare
+              color={
+                category === "blanc"
+                  ? theme.colors.yellow
+                  : category === "rose"
+                  ? theme.colors.pink
+                  : category === "rouge"
+                  ? theme.colors.red
+                  : category === "autre"
+                  ? theme.colors.orange
+                  : null
+              }
+            />
+            <h2 className="sectionTitle category-title">
+              {category === "blanc" && "Le\nParadis\nBlanc"}
+              {category === "rose" && "La Vie\nen\nRose"}
+              {category === "rouge" && "Rue\nRouge"}
+              {category === "autre" && "J'ai\nFantaisie"}
+            </h2>
             <div className="category-quote">
               <img
                 className="top lines"
                 src={categoryQuoteLines}
                 alt="Quote lines"
               />
-              <p>« {quote} »</p>
+              <p>
+                {category === "blanc" &&
+                  "« Je m'en irai dormir dans le paradis blanc\nOù les nuits sont si longues\nqu'on en oublie le temps\nTout seul avec le vent\nComme dans mes rêves d'enfant »"}
+                {category === "rose" &&
+                  "« Quand il me prend dans ses bras\nQu'il me parle tout bas\nJe vois la vie en rose »"}
+                {category === "rouge" &&
+                  "« L'amour est une chose étrange. Il peut vous faire faire des choses que vous n'auriez jamais cru possibles. »"}
+                {category === "autre" &&
+                  "« J'ai fantaisie de mettre dans notre vie\nUn p'tit grain de fantaisie, youpi, youpi »"}
+              </p>
               <img
                 className="bottom lines"
                 src={categoryQuoteLines}

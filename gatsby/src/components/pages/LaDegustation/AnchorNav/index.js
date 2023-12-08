@@ -61,16 +61,21 @@ const StyledNavLink = styled(Link)`
 const AnchorNavBar = ({ data }) => {
   return (
     <StyledContainer>
-      {data.map(({ title }, index) => (
+      {data.map((category, index) => (
         <StyledNavLink
           key={index}
-          to={title}
+          to={category}
           activeClass="active"
           offset={-200}
           smooth
           spy={true}
         >
-          <span>{title}</span>
+          <span>
+            {category === "blanc" && "Le\nParadis\nBlanc"}
+            {category === "rose" && "La Vie\nen\nRose"}
+            {category === "rouge" && "Rue\nRouge"}
+            {category === "autre" && "J'ai\nFantaisie"}
+          </span>
         </StyledNavLink>
       ))}
     </StyledContainer>

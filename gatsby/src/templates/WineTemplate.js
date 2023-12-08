@@ -98,7 +98,16 @@ const StyledContainer = styled.div`
       width: 100%;
       height: auto;
     }
+    .wine-info {
+      grid-column: 1 / 8;
+    }
   }
+`;
+
+const StyledColorSquare = styled.div`
+  width: 15px;
+  height: 15px;
+  background-color: ${(props) => props.color};
 `;
 
 export default function WineTemplate({ data }) {
@@ -177,6 +186,12 @@ export default function WineTemplate({ data }) {
             <p>{degustation}</p>
           </div>
         )}
+        <div className="wine-info">
+          <h2>Catégorie</h2>
+          <div className="category">
+            <StyledColorSquare />
+          </div>
+        </div>
       </section>
     </StyledContainer>
   );
