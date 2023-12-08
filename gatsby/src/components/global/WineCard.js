@@ -9,7 +9,6 @@ const StyledContainer = styled(Link)`
   display: grid;
   grid-template-columns: auto 1fr;
   column-gap: 30px;
-  /* grid-template-rows: repeat(3, auto) 1fr; */
   align-items: center;
   text-align: center;
   margin-top: 60px;
@@ -18,31 +17,31 @@ const StyledContainer = styled(Link)`
     text-align: left;
     align-items: start;
     margin-top: 0;
-    &:hover {
-      .product-image {
-        opacity: 0;
-      }
-      .portrait-image {
-        opacity: 1;
-      }
+  }
+  &:hover {
+    .product-image {
+      opacity: 0;
+    }
+    .portrait-image {
+      opacity: 1;
     }
   }
 
   .product-image,
   .portrait-image {
+    width: 100%;
     grid-row: 1 / 2;
     grid-column: 1 / 3;
-    align-self: center;
-    height: 260px;
+    align-self: end;
+    justify-self: center;
     opacity: 1;
     transition: opacity 0.5s ease;
-    @media ${({ theme }) => theme.minWidth.sm} {
-      height: 365px;
-    }
-    @media ${({ theme }) => theme.minWidth.md} {
-      height: 430px;
-    }
+    aspect-ratio: 0.8;
   }
+  .product-image {
+    max-height: 480px;
+  }
+
   .portrait-image {
     opacity: 0;
   }
@@ -63,6 +62,8 @@ const StyledContainer = styled(Link)`
     }
   }
   .bio-logos {
+    display: flex;
+    align-items: center;
     grid-row: 3 / 4;
     grid-column: 1 / 3;
     margin-bottom: 10px;
