@@ -5,6 +5,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import EUBioLogo from "assets/logos/EUBioLogo.svg";
 import FRBioLogo from "assets/logos/FRBioLogo.svg";
 import categoryQuoteLines from "assets/icons/categoryQuoteLines.svg";
+import VoirAussi from "./VoirAussiSection";
 
 const StyledContainer = styled.div`
   padding: 60px 15px 120px;
@@ -193,12 +194,13 @@ export default function WineTemplate({ data }) {
           </div>
         </div>
       </section>
+      <VoirAussi wines={data.allSanityWine} />
     </StyledContainer>
   );
 }
 
 export const query = graphql`
-  query ($slug: String!, $language: String!) {
+  query ($category: String!, $slug: String!, $language: String!) {
     sanityWine(slug: { current: { eq: $slug } }) {
       category
       cepages
@@ -225,6 +227,11 @@ export const query = graphql`
           url
           gatsbyImageData
         }
+      }
+    }
+    allSanityWine(filter: { category: { eq: $category } }) {
+      nodes {
+        title
       }
     }
     locales: allLocale(filter: { language: { eq: $language } }) {
