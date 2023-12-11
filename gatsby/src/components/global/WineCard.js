@@ -9,7 +9,6 @@ const StyledContainer = styled(Link)`
   display: grid;
   grid-template-columns: auto 1fr;
   grid-template-rows: repeat(3, auto) 1fr;
-  column-gap: 30px;
   align-items: center;
   text-align: center;
   margin-top: 60px;
@@ -37,11 +36,13 @@ const StyledContainer = styled(Link)`
     justify-self: center;
     opacity: 1;
     transition: opacity 0.5s ease;
-    /* aspect-ratio: 0.8; */
-    height: 420px;
-  }
-  .product-image {
-    /* max-height: 420px; */
+    height: 260px;
+    @media ${({ theme }) => theme.minWidth.sm} {
+      height: 365px;
+    }
+    @media ${({ theme }) => theme.minWidth.sm} {
+      height: 430px;
+    }
   }
 
   .portrait-image {
@@ -66,14 +67,18 @@ const StyledContainer = styled(Link)`
   .bio-logos {
     display: flex;
     align-items: center;
+    justify-content: center;
     grid-row: 3 / 4;
     grid-column: 1 / 3;
     margin-bottom: 10px;
+    @media ${({ theme }) => theme.minWidth.sm} {
+      justify-content: start;
+    }
     @media ${({ theme }) => theme.minWidth.lg} {
       width: 60px;
       grid-row: 2 / 3;
       grid-column: 2 / 3;
-      margin: 30px 0 10px;
+      margin: 30px 0 10px 30px;
     }
     & > :nth-child(1) {
       height: 19px;
@@ -122,6 +127,7 @@ const WineCard = ({ wine }) => {
         className="portrait-image"
         image={portraitImage}
         alt={wine.title}
+        objectFit="fullWidth"
       />
       <div className="wine-title">{wine.title}</div>
       {wine.certification && (

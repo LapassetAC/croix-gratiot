@@ -28,6 +28,7 @@ const StyledNavLink = styled(Link)`
   text-transform: uppercase;
   position: relative;
   display: inline-block;
+  white-space: nowrap;
   @media ${(props) => props.theme.minWidth.lg} {
     font-size: 15px;
   }
