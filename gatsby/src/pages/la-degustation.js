@@ -131,7 +131,11 @@ const StyledColorSquare = styled.div`
 
 const LaDegustation = ({ data }) => {
   const wines = data.allSanityWine.nodes;
+  const categoryOrder = ["blanc", "rose", "rouge", "autre"];
   const categories = Array.from(new Set(wines.map((wine) => wine.category)));
+  categories.sort(
+    (a, b) => categoryOrder.indexOf(a) - categoryOrder.indexOf(b)
+  );
 
   return (
     <StyledContainer>
@@ -223,7 +227,7 @@ export const query = graphql`
         }
       }
     }
-    allSanityWine {
+    allSanityWine(sort: { orderRank: ASC }) {
       nodes {
         title
         slug {

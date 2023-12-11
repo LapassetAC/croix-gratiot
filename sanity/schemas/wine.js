@@ -1,8 +1,12 @@
+import {orderRankField, orderRankOrdering} from '@sanity/orderable-document-list'
+
 export default {
   name: 'wine',
-  title: 'Vin',
+  title: 'Vins',
   type: 'document',
+  orderings: [orderRankOrdering],
   fields: [
+    orderRankField({type: 'wine'}),
     {
       name: 'title',
       title: 'Titre',
@@ -28,9 +32,9 @@ export default {
       validation: (Rule) => Rule.required(),
       options: {
         list: [
-          {title: 'Rouge', value: 'rouge'},
           {title: 'Blanc', value: 'blanc'},
           {title: 'Rosé', value: 'rose'},
+          {title: 'Rouge', value: 'rouge'},
           {title: 'Autre', value: 'autre'},
         ],
       },
