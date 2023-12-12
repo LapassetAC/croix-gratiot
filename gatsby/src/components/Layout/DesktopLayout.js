@@ -1,10 +1,20 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import LogoLGCDesktop from "assets/logos/LogoLGCDesktop";
 import { useContext } from "react";
 import { Context } from "data/Context";
 import { useI18next, Link } from "gatsby-plugin-react-i18next";
 import Footer from "./Footer";
+import theme from "styles/theme";
+
+const transitionMask = keyframes`
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+`;
 
 const StyledContainer = styled.div`
   nav {
@@ -15,7 +25,9 @@ const StyledContainer = styled.div`
     top: 0;
     bottom: 0;
     width: 100%;
-    transition: all 1s;
+    transition: grid-template-columns
+      ${({ theme }) =>
+        theme.pageTransitionTime + "s " + theme.cubicBezier.pageTranstion};
     grid-template-columns: ${({ $incomingPage }) =>
       $incomingPage === "/nos-pratiques/"
         ? "60px calc(100vw - 180px) 60px 60px"
@@ -100,16 +112,17 @@ const StyledContainer = styled.div`
         ? "0 0 0 240px"
         : "0 180px 0 60px"};
     &:not(.transitionMask) {
-      transition: opacity 1s;
+      transition: opacity ${({ theme }) => theme.pageAppearanceTime}s;
       opacity: ${({ $transitionIsActive }) => ($transitionIsActive ? 0 : 1)};
     }
     .transitionMask {
-      position: fixed;
+      position: absolute;
       background-color: ${({ theme }) => theme.colors.backgroundLight};
       height: 100vh;
       top: 0;
-      transition: all 1s;
-      width: ${({ $transitionIsActive }) => ($transitionIsActive ? 100 : 0)}%;
+      animation: ${transitionMask}
+        ${({ theme }) =>
+          theme.pageTransitionTime + "s " + theme.cubicBezier.pageTranstion};
       right: ${({ $transitionDirection }) =>
         $transitionDirection === "left" && 0};
       left: ${({ $transitionDirection }) =>
@@ -174,7 +187,7 @@ export default function DesktopLayout({ children }) {
       navigate(page);
       setActivePage(page);
       setTransitionIsActive(false);
-    }, 1000);
+    }, theme.pageTransitionTime * 1000);
   }
 
   useEffect(() => {
@@ -196,7 +209,7 @@ export default function DesktopLayout({ children }) {
       <main>
         {children}
         <Footer handlePageChange={handlePage} />
-        <div className="transitionMask"></div>
+        {transitionIsActive && <div className="transitionMask"></div>}
       </main>
       <nav>
         <div className="homeNav">
