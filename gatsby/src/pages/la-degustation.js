@@ -7,6 +7,7 @@ import AnchorNavBar from "components/pages/LaDegustation/AnchorNav";
 import { Element } from "react-scroll";
 import theme from "styles/theme";
 import WineCard from "components/global/WineCard";
+import { Trans } from "gatsby-plugin-react-i18next";
 
 const StyledContainer = styled.div`
   .gatsby-image-wrapper {
@@ -147,12 +148,15 @@ const LaDegustation = ({ data }) => {
           layout="fullWidth"
         />
         <h1 className="sectionTitle hero-title">
-          La
-          <br /> dégustation
+          <Trans>La</Trans>
+          <br />
+          <Trans>dégustation</Trans>
         </h1>
         <p className="hero-text">
-          Explorez notre palette de vins où chaque cuvée compose sa propre
-          musique.
+          <Trans>
+            Explorez notre palette de vins où chaque cuvée compose sa propre
+            musique.
+          </Trans>
         </p>
       </section>
       <AnchorNavBar data={categories} />

@@ -3,6 +3,7 @@ import { styled } from "styled-components";
 import { StaticImage } from "gatsby-plugin-image";
 import Arrow from "assets/icons/Arrow";
 import { graphql } from "gatsby";
+import { Trans } from "gatsby-plugin-react-i18next";
 
 const StyledContainer = styled.div`
   .main-section {
@@ -103,11 +104,14 @@ const NousRencontrer = ({ className }) => {
           layout="fullWidth"
         />
         <h1 className="sectionTitle">
-          Nous <br />
-          rencontrer
+          <Trans>Nous</Trans>
+          <br />
+          <Trans>rencontrer</Trans>
         </h1>
         <div className="address">
-          <h2>Adresse</h2>
+          <h2>
+            <Trans>Adresse</Trans>
+          </h2>
           <p>
             La Croix Gratiot, <br />
             Anaïs & Yves Ricôme <br />
@@ -120,7 +124,7 @@ const NousRencontrer = ({ className }) => {
           <h2>Contact</h2>
           <a href="tel:+33467252788" className="btn">
             <Arrow />
-            04 67 25 27 88
+            +33(0)4 67 25 27 88
           </a>
           <a href="mailto:contact@croix-gratiot.com" className="btn">
             <Arrow />
@@ -128,41 +132,62 @@ const NousRencontrer = ({ className }) => {
           </a>
         </div>
         <div className="route">
-          <h2>Venir</h2>
+          <h2>
+            <Trans>Venir</Trans>
+          </h2>
           <p>
-            À la sortie de Montagnac, prendre la direction de Mèze. À la fin de
-            la deux fois deux voies, tournez à droite. Une fois la
-            départementale quittée suivre les panneaux jusqu’au domaine.
+            <Trans>
+              À la sortie de Montagnac, prendre la direction de Mèze. À la fin
+              de la deux fois deux voies, tournez à droite. Une fois la
+              départementale quittée suivre les panneaux jusqu’au domaine.
+            </Trans>
           </p>
           <a
             href="https://www.google.fr/maps/dir//La+Croix+Gratiot,+Sainte+Croix,+Montagnac,+34530+Montagnac/@43.4487056,3.5270444,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x12ab86d1065040af:0xc820a3578a1dc20e!2m2!1d3.529626!2d43.448699?entry=ttu"
             className="btn"
           >
             <Arrow />
-            Itinéraire
+            <Trans>Itinéraire</Trans>
           </a>
         </div>
         <div className="visits">
-          <h2>Visites et dégustations</h2>
+          <h2>
+            <Trans>Visites et dégustations</Trans>
+          </h2>
           <p>
             <span className="bold">
-              Du lundi au vendredi de 10h00 à 12h30 et de 14h00 à 17h30.
+              <Trans>
+                Du lundi au vendredi de 10h00 à 12h30 et de 14h00 à 17h30.
+              </Trans>
             </span>
             <br />
-            <span className="bold">Samedi</span> : sur rendez-vous (n’hésitez
-            pas à nous appeler pour prendre rendez-vous).
+            <span className="bold">
+              <Trans>Samedi</Trans>
+            </span>
+            <Trans>
+              {" "}
+              : sur rendez-vous (n’hésitez pas à nous appeler pour prendre
+              rendez-vous).
+            </Trans>
             <br />
-            <span className="bold">Dimanche</span> : fermé.
+            <span className="bold">
+              <Trans>Dimanche</Trans>
+            </span>{" "}
+            <Trans> : fermé.</Trans>
             <br />
-            Langues parlées au caveau : français et anglais.
+            <Trans>Langues parlées au caveau : français et anglais.</Trans>
             <br />
-            Possibilité d’accueillir des groupes, sur réservation.
+            <Trans>
+              Possibilité d’accueillir des groupes, sur réservation.
+            </Trans>
             <br />
-            Visites et dégustations gratuites.
+            <Trans>Visites et dégustations gratuites.</Trans>
             <br />
-            Cartes de crédit acceptées.
+            <Trans>Cartes de crédit acceptées.</Trans>
             <br />
-            Caveau accessible pour les personnes à mobilité réduite.
+            <Trans>
+              Caveau accessible pour les personnes à mobilité réduite.
+            </Trans>
             <br />
           </p>
         </div>
