@@ -135,17 +135,19 @@ export default function DesktopLayout({ children }) {
   }
 
   function handlePageChange(page) {
-    const degustationPages = page.startsWith("/la-degustation/");
+    const toDegustationPages = page.startsWith("/la-degustation/");
+    const fromDegustationPages = originalPath.startsWith("/la-degustation/");
     if (activeHomeSection === "red" || activeHomeSection === "green") {
       setActiveHomeSection("white");
     }
     setIncomingPage(page);
     setTransitionIsActive(true);
+
     if (originalPath === "/") {
       setTransitionDirection("left");
     }
     if (
-      (originalPath === "/nos-pratiques/" && page === degustationPages) ||
+      (originalPath === "/nos-pratiques/" && toDegustationPages) ||
       page === "/nous-rencontrer/"
     ) {
       setTransitionDirection("left");
@@ -153,17 +155,17 @@ export default function DesktopLayout({ children }) {
     if (originalPath === "/nos-pratiques/" && page === "/") {
       setTransitionDirection("right");
     }
-    if (
-      (originalPath === degustationPages && page === "/nos-pratiques/") ||
-      page === "/"
-    ) {
+    if (fromDegustationPages && (page === "/nos-pratiques/" || page === "/")) {
       setTransitionDirection("right");
     }
-    if (originalPath === degustationPages && page === "/nous-rencontrer/") {
+    if (fromDegustationPages && page === "/nous-rencontrer/") {
       setTransitionDirection("left");
     }
-    if (originalPath === degustationPages && page === "/la-degustation/") {
+    if (fromDegustationPages && page === "/la-degustation/") {
       setTransitionDirection("right");
+    }
+    if (originalPath === "/la-degustation/" && toDegustationPages) {
+      setTransitionDirection("left");
     }
     if (originalPath === "/nous-rencontrer/") {
       setTransitionDirection("right");

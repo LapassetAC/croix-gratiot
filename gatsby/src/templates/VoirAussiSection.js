@@ -18,7 +18,7 @@ const StyledContainer = styled.section`
     grid-column: 3/8;
     margin-bottom: 30px;
   }
-  button {
+  .sliderBtn {
     justify-self: start;
     &:first-of-type {
       grid-column: 1/2;
@@ -80,6 +80,7 @@ export default function VoirAussiSection({ wines }) {
         <button
           onClick={() => sliderRef.current.slickPrev()}
           aria-label="Précédent"
+          className="sliderBtn"
         >
           <Arrow />
         </button>
@@ -93,6 +94,7 @@ export default function VoirAussiSection({ wines }) {
         <button
           onClick={() => sliderRef.current.slickNext()}
           aria-label="Suivant"
+          className="sliderBtn"
         >
           <Arrow />
         </button>

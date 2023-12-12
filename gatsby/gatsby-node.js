@@ -32,7 +32,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   if (wines.length > 0) {
     wines.forEach((wine) => {
       const title = wine.title;
-      const category = wine.category;
+      const voirAussiCategory =
+        wine.category === "rose" ? "rouge" : wine.category;
       const slug = wine.slug.current;
       const path = `la-degustation/${slug}`;
       createPage({
@@ -40,7 +41,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         component: WineTemplate,
         context: {
           title: title,
-          category: category,
+          voirAussiCategory: voirAussiCategory,
           slug: slug,
         },
       });

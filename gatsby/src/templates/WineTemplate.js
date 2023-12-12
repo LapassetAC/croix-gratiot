@@ -333,7 +333,9 @@ export default function WineTemplate({ data }) {
           />
         )}
       </section>
-      <VoirAussi wines={data.allSanityWine.nodes} />
+      {data.allSanityWine.nodes.length > 0 && (
+        <VoirAussi wines={data.allSanityWine.nodes} />
+      )}
     </StyledContainer>
   );
 }
@@ -341,7 +343,7 @@ export default function WineTemplate({ data }) {
 export const query = graphql`
   query (
     $title: String!
-    $category: String!
+    $voirAussiCategory: String!
     $slug: String!
     $language: String!
   ) {
@@ -374,7 +376,7 @@ export const query = graphql`
       }
     }
     allSanityWine(
-      filter: { category: { eq: $category }, title: { ne: $title } }
+      filter: { category: { eq: $voirAussiCategory }, title: { ne: $title } }
     ) {
       nodes {
         title
