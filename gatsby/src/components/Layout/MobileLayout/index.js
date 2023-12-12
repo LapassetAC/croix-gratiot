@@ -84,6 +84,7 @@ const StyledMobileLinksContainer = styled.section`
 export default function MobileLayout({ children }) {
   const { originalPath } = useI18next();
   const [isNavOpen, setNavOpen] = useState(false);
+
   const toggleNav = () => {
     setNavOpen(!isNavOpen);
   };

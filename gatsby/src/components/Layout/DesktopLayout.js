@@ -35,9 +35,6 @@ const StyledContainer = styled.div`
       a,
       button {
         pointer-events: all;
-        /* writing-mode: vertical-rl; */
-        /* text-orientation: upright; */
-        /* text-align: end; */
         letter-spacing: 0.9px;
         text-transform: uppercase;
         font-size: 18px;
@@ -138,6 +135,7 @@ export default function DesktopLayout({ children }) {
   }
 
   function handlePageChange(page) {
+    const degustationPages = page.startsWith("/la-degustation/");
     if (activeHomeSection === "red" || activeHomeSection === "green") {
       setActiveHomeSection("white");
     }
@@ -147,7 +145,7 @@ export default function DesktopLayout({ children }) {
       setTransitionDirection("left");
     }
     if (
-      (originalPath === "/nos-pratiques/" && page === "/la-degustation/") ||
+      (originalPath === "/nos-pratiques/" && page === degustationPages) ||
       page === "/nous-rencontrer/"
     ) {
       setTransitionDirection("left");
@@ -156,13 +154,16 @@ export default function DesktopLayout({ children }) {
       setTransitionDirection("right");
     }
     if (
-      (originalPath === "/la-degustation/" && page === "/nos-pratiques/") ||
+      (originalPath === degustationPages && page === "/nos-pratiques/") ||
       page === "/"
     ) {
       setTransitionDirection("right");
     }
-    if (originalPath === "/la-degustation/" && page === "/nous-rencontrer/") {
+    if (originalPath === degustationPages && page === "/nous-rencontrer/") {
       setTransitionDirection("left");
+    }
+    if (originalPath === degustationPages && page === "/la-degustation/") {
+      setTransitionDirection("right");
     }
     if (originalPath === "/nous-rencontrer/") {
       setTransitionDirection("right");
