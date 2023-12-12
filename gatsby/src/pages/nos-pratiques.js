@@ -312,26 +312,32 @@ const NosPratiques = () => {
           layout="fullWidth"
         />
         <h1 className="title">
-          Une <br />
-          viticulture <br />
-          biodynamique
+          <Trans>Une</Trans>
+          <br />
+          <Trans>viticulture</Trans>
+          <br />
+          <Trans>biodynamique</Trans>
         </h1>
         <p className="hero-text">
-          Cette approche, basée sur de l’observation, nous rapproche encore plus
-          de nos vignes. <br />
-          Nous nous formons chaque année et employons ses préparations dans la
-          conduite de la vigne afin d’intensifier la vie du sol, de la plante et
-          de leurs échanges.
+          <Trans>
+            Cette approche, basée sur de l’observation, nous rapproche encore
+            plus de nos vignes.
+          </Trans>
+          <br />
+          <Trans>
+            Nous nous formons chaque année et employons ces préparations dans la
+            conduite de la vigne afin d’intensifier la vie du sol, de la plante
+            et de leurs échanges.
+          </Trans>
         </p>
       </section>
       <section className="intro">
         <p className="large-text">
           <Trans>
             Depuis nos essais sur une parcelle en 2012, c’est maintenant
-          </Trans>
+          </Trans>{" "}
           <span className="line-break">
-            {" "}
-            tout le vignoble que nous conduisons en biodynamie.
+            <Trans>tout le vignoble que nous conduisons en biodynamie.</Trans>
           </span>
         </p>
         <StaticImage
@@ -341,11 +347,13 @@ const NosPratiques = () => {
           layout="fullWidth"
         />
         <p className="intro-1">
-          Attaché au maintien de la biodiversité, nous plantons des haies multi
-          essences en bordure de parcelles et sur les berges du ruisseau qui
-          serpente le domaine. Nous avons également fait un essai dans une
-          parcelle, tout les 8 rangs de vignes une rangée de plantes
-          aromatiques.
+          <Trans>
+            Attaché au maintien de la biodiversité, nous plantons des haies
+            multi essences en bordure de parcelles et sur les berges du ruisseau
+            qui serpente le domaine. Nous avons également fait un essai dans une
+            parcelle, tout les 8 rangs de vignes une rangée de plantes
+            aromatiques.
+          </Trans>
         </p>
         <StaticImage
           className="intro-image-2"
@@ -354,8 +362,10 @@ const NosPratiques = () => {
           layout="fullWidth"
         />
         <p className="intro-2">
-          Après les vendanges, aux premières pluies nous enherbons une partie du
-          vignoble pour maintenir l’activité dans le sol.
+          <Trans>
+            Après les vendanges, aux premières pluies nous enherbons une partie
+            du vignoble pour maintenir l’activité dans le sol.
+          </Trans>
         </p>
       </section>
       <section className="team">
@@ -368,14 +378,14 @@ const NosPratiques = () => {
         <p className="team-description first">
           Lénaïc & Karim,
           <br />
-          l’équipe viticole
+          <Trans>l’équipe viticole</Trans>
         </p>
       </section>
       <section className="nos-cepages">
         <h2 className="sectionTitle nos-cepages">
-          Nos
+          <Trans>Nos</Trans>
           <br />
-          cépages
+          <Trans>cépages</Trans>
         </h2>
         <StaticImage
           className="cepages-image-1"
@@ -384,10 +394,12 @@ const NosPratiques = () => {
           layout="fullWidth"
         />
         <p className="cepages-1">
-          Piquepoul Blanc, Roussanne, Bourboulenc, Viognier, Sauvignon et Muscat
-          petits grains composent notre encépagement blanc. Pour le rouge, nous
-          cultivons de la Syrah, du Grenache Noir, du Mourvèdre, Piquepoul Noir,
-          Niellucio et Pinot Noir.
+          <Trans>
+            Piquepoul Blanc, Roussanne, Bourboulenc, Viognier, Sauvignon et
+            Muscat petits grains composent notre encépagement blanc. Pour le
+            rouge, nous cultivons de la Syrah, du Grenache Noir, du Mourvèdre,
+            Piquepoul Noir, Niellucio et Pinot Noir.
+          </Trans>
         </p>
         <StaticImage
           className="cepages-image-2"
@@ -396,14 +408,17 @@ const NosPratiques = () => {
           layout="fullWidth"
         />
         <p className="cepages-2">
-          Depuis plusieurs années, nous surgreffons certaines parcelles avec nos
-          propres sélections de bois.
+          <Trans>
+            Depuis plusieurs années, nous surgreffons certaines parcelles avec
+            nos propres sélections de bois.
+          </Trans>
         </p>
       </section>
       <section className="la-vinification">
         <h2 className="sectionTitle la-vinification">
-          La <br />
-          vinification
+          <Trans>La</Trans>
+          <br />
+          <Trans>vinification</Trans>
         </h2>
         <StaticImage
           className="vinification-image-1"
@@ -412,11 +427,13 @@ const NosPratiques = () => {
           layout="fullWidth"
         />
         <p className="vinification-1">
-          La majorité des vendanges est mécanique de nuit, pour certaines cuvées
-          elle est manuelle. Chaque millésime est tellement différent, il faut
-          savoir observer, goûter, décider de la bonne date de récolte et se
-          faire discret pour accompagner les fermentations des raisins et
-          laisser le terroir s’exprimer.
+          <Trans>
+            La majorité des vendanges est mécanique de nuit, pour certaines
+            cuvées elle est manuelle. Chaque millésime est tellement différent,
+            il faut savoir observer, goûter, décider de la bonne date de récolte
+            et se faire discret pour accompagner les fermentations des raisins
+            et laisser le terroir s’exprimer.
+          </Trans>
         </p>
         <StaticImage
           className="vinification-image-2"
@@ -425,9 +442,12 @@ const NosPratiques = () => {
           layout="fullWidth"
         />
         <p className="vinification-2">
-          Les vendanges sont une période super excitante, une année de travail à
-          la vigne pour obtenir des raisins, qui rentrent enfin à l’abris pour
-          se transformer en vin. Les odeurs de fruits se propagent partout.
+          <Trans>
+            Les vendanges sont une période super excitante, une année de travail
+            à la vigne pour obtenir des raisins, qui rentrent enfin à l’abris
+            pour se transformer en vin. Les odeurs de fruits se propagent
+            partout.
+          </Trans>
         </p>
       </section>
       <section className="team">
@@ -440,7 +460,9 @@ const NosPratiques = () => {
         <p className="team-description second">Thomas</p>
       </section>
       <section className="elevage">
-        <h2 className="sectionTitle elevage">L'élevage</h2>
+        <h2 className="sectionTitle elevage">
+          <Trans>L'élevage</Trans>
+        </h2>
         <StaticImage
           className="elevage-image-1"
           src="../assets/imgs/pratiques/ElevageImage1.jpg"
@@ -454,17 +476,20 @@ const NosPratiques = () => {
           layout="fullWidth"
         />
         <p className="elevage-text">
-          Chaque année de nouveaux contenants sont achetés pour permettre une
-          rotation mais aussi pour réaliser des expérimentations. Depuis 2012,
-          nous réalisons des élevages en dolia de terre cuite, céramique et
-          grès. Nous nous sommes équipés de cuves béton et de demi-muids.
-          L’élevage est un sacré terrain de jeux.
+          <Trans>
+            Chaque année de nouveaux contenants sont achetés pour permettre une
+            rotation mais aussi pour réaliser des expérimentations. Depuis 2012,
+            nous réalisons des élevages en dolia de terre cuite, céramique et
+            grès. Nous nous sommes équipés de cuves béton et de demi-muids.
+            L’élevage est un sacré terrain de jeux.
+          </Trans>
         </p>
       </section>
       <section className="grid nosVinsSection">
         <h2 className="sectionTitle">
-          Nos <br />
-          Vins
+          <Trans>Nos</Trans>
+          <br />
+          <Trans>Vins</Trans>
         </h2>
         {activeCategory === "blanc" ? (
           <StaticImage
@@ -504,7 +529,7 @@ const NosPratiques = () => {
           ))}
         </ul>
         <ArrowBtn to="/la-degustation/" black>
-          Voir tous nos vins
+          <Trans>Voir tous nos vins</Trans>
         </ArrowBtn>
       </section>
     </StyledContainer>

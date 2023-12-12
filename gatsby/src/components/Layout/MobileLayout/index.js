@@ -4,7 +4,7 @@ import styled from "styled-components";
 import ToggleBtn from "./ToggleBtn";
 import Footer from "../Footer";
 import { StaticImage } from "gatsby-plugin-image";
-import { useI18next, Link } from "gatsby-plugin-react-i18next";
+import { Trans, useI18next, Link } from "gatsby-plugin-react-i18next";
 
 const StyledContainer = styled.div`
   justify-content: space-between;
@@ -111,13 +111,13 @@ export default function MobileLayout({ children }) {
       <StyledMobileLinksContainer $isNavOpen={isNavOpen}>
         <div className="menuItemsWrapper">
           <Link className="menuItem" onClick={closeNav} to="/nos-pratiques/">
-            Nos Pratiques
+            <Trans>Nos Pratiques</Trans>
           </Link>
           <Link className="menuItem" onClick={closeNav} to="/la-degustation/">
-            La Dégustation
+            <Trans>La Dégustation</Trans>
           </Link>
           <Link className="menuItem" onClick={closeNav} to="/nous-rencontrer/">
-            Nous rencontrer
+            <Trans>Nous rencontrer</Trans>
           </Link>
           <div className="menuItem language">
             <Link to={originalPath} language={"fr"} activeClassName="active">

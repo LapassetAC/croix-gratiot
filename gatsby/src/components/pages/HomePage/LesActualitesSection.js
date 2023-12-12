@@ -5,6 +5,7 @@ import ArrowIcon from "assets/icons/Arrow";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Trans } from "gatsby-plugin-react-i18next";
 
 const StyledContainer = styled.section`
   h2 {
@@ -142,7 +143,7 @@ const LesActualitesSection = ({ news, event }) => {
           className="btn white"
         >
           <ArrowIcon />
-          Voir plus
+          <Trans>Voir plus</Trans>
         </a>
       </StyledNew>
     );
@@ -151,8 +152,9 @@ const LesActualitesSection = ({ news, event }) => {
   return (
     <StyledContainer className="grid">
       <h2 className="sectionTitle">
-        Les
-        <br /> actualités
+        <Trans>Les</Trans>
+        <br />
+        <Trans>actualités</Trans>
       </h2>
       <StyledEvent className="grid">
         <GatsbyImage image={getEventImg} alt={event.title} />
@@ -166,7 +168,7 @@ const LesActualitesSection = ({ news, event }) => {
           className="btn white"
         >
           <ArrowIcon />
-          Voir plus
+          <Trans>Voir plus</Trans>
         </a>
       </StyledEvent>
       <StyledDesktop className="grid">{newsRender}</StyledDesktop>

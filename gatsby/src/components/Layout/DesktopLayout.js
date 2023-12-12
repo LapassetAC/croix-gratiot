@@ -3,7 +3,7 @@ import styled from "styled-components";
 import LogoLGCDesktop from "assets/logos/LogoLGCDesktop";
 import { useContext } from "react";
 import { Context } from "data/Context";
-import { useI18next, Link } from "gatsby-plugin-react-i18next";
+import { Trans, useI18next, Link } from "gatsby-plugin-react-i18next";
 import Footer from "./Footer";
 
 const StyledContainer = styled.div`
@@ -52,11 +52,20 @@ const StyledContainer = styled.div`
         &.nosPratiques {
           transform: rotate(-90deg) translate(-52px, -65px);
         }
+        &.nosPratiquesEn {
+          transform: rotate(-90deg) translate(-52px, -65px);
+        }
         &.laDegustation {
           transform: rotate(-90deg) translate(-55px, -69px);
         }
+        &.laDegustationEn {
+          transform: rotate(-90deg) translate(-38px, -50px);
+        }
         &.nousRencontrer {
           transform: rotate(-90deg) translate(-68px, -83px);
+        }
+        &.nousRencontrerEn {
+          transform: rotate(-90deg) translate(-18px, -30px);
         }
       }
       &.homeNav {
@@ -185,6 +194,9 @@ export default function DesktopLayout({ children }) {
     isMounted && handlePageChange(pageChange);
   }, [pageChange]);
 
+  const { language } = useI18next();
+  const isEnglish = language === "en";
+
   return (
     <StyledContainer
       $incomingPage={incomingPage}
@@ -218,26 +230,26 @@ export default function DesktopLayout({ children }) {
         </div>
         <div>
           <button
-            className="nosPratiques"
+            className={`${isEnglish ? "nosPratiquesEn" : "nosPratiques"}`}
             onClick={() => handlePage("/nos-pratiques/")}
           >
-            Nos Pratiques
+            <Trans>Nos Pratiques</Trans>
           </button>
         </div>
         <div>
           <button
-            className="laDegustation"
+            className={`${isEnglish ? "laDegustationEn" : "laDegustation"}`}
             onClick={() => handlePage("/la-degustation/")}
           >
-            La Dégustation
+            <Trans>La Dégustation</Trans>
           </button>
         </div>
         <div>
           <button
-            className="nousRencontrer"
+            className={`${isEnglish ? "nousRencontrerEn" : "nousRencontrer"}`}
             onClick={() => handlePage("/nous-rencontrer/")}
           >
-            Nous rencontrer
+            <Trans>Nous rencontrer</Trans>
           </button>
         </div>
       </nav>

@@ -78,23 +78,27 @@ const IlsParlentDeNousSlider = () => {
           <img src={LePoint} alt="" />
           <p>
             <Trans>
-              “La Croix Gratiot est un domaine familial qui a su tirer le
-              meilleur parti de son terroir unique.”
+              « La Croix Gratiot est un domaine familial qui a su tirer le
+              meilleur parti de son terroir unique. »
             </Trans>
           </p>
         </div>
         <div>
           <img src={LePoint} alt="" />
           <p>
-            “La Croix Gratiot est un domaine familial qui a su tirer le meilleur
-            parti de son terroir unique.”
+            <Trans>
+              « La Croix Gratiot est un domaine familial qui a su tirer le
+              meilleur parti de son terroir unique. »
+            </Trans>
           </p>
         </div>
         <div>
           <img src={LePoint} alt="" />
           <p>
-            “La Croix Gratiot est un domaine familial qui a su tirer le meilleur
-            parti de son terroir unique.”
+            <Trans>
+              « La Croix Gratiot est un domaine familial qui a su tirer le
+              meilleur parti de son terroir unique. »
+            </Trans>
           </p>
         </div>
       </StyledSlider>
