@@ -146,6 +146,7 @@ const LaDegustation = ({ data }) => {
           src="../assets/imgs/degustation/degustationHeroImage.png"
           alt="degustationHeroImage"
           layout="fullWidth"
+          loading="eager"
         />
         <h1 className="sectionTitle hero-title">
           <Trans>La</Trans>

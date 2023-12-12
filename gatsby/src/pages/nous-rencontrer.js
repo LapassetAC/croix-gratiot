@@ -99,6 +99,7 @@ const NousRencontrer = ({ className }) => {
           src="../assets/imgs/nousRencontrer/nousRencontrerImage.jpg"
           alt="nousRencontrerImage"
           layout="fullWidth"
+          loading="eager"
         />
         <h1 className="sectionTitle">
           <Trans>Nous</Trans>
