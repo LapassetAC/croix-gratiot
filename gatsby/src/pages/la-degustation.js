@@ -142,7 +142,7 @@ const LaDegustation = ({ data }) => {
     <StyledContainer>
       <section className="hero-section grid">
         <StaticImage
-          className="degustationHeroImage"
+          className="degustationHeroImage hero-img"
           src="../assets/imgs/degustation/degustationHeroImage.png"
           alt="degustationHeroImage"
           layout="fullWidth"

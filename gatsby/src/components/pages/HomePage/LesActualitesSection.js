@@ -6,6 +6,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Trans } from "gatsby-plugin-react-i18next";
+import { useContext } from "react";
+import { Context } from "data/Context";
 
 const StyledContainer = styled.section`
   h2 {
@@ -13,11 +15,8 @@ const StyledContainer = styled.section`
   }
 `;
 const StyledDesktop = styled.div`
-  display: none;
-  @media ${({ theme }) => theme.minWidth.sm} {
-    grid-column: 1/8;
-    display: grid;
-  }
+  grid-column: 1/8;
+  display: grid;
 `;
 
 const sliderSettings = {
@@ -42,9 +41,6 @@ const sliderSettings = {
 const StyledMobile = styled(Slider)`
   grid-column: 1/8;
   margin: 75px -15px 0;
-  @media ${({ theme }) => theme.minWidth.sm} {
-    display: none;
-  }
   .slick-slide {
     & > div {
       padding: 0 7.5px;
@@ -128,6 +124,7 @@ const StyledEvent = styled.div`
 `;
 
 const LesActualitesSection = ({ news, event }) => {
+  const { isMobile } = useContext(Context);
   const getEventImg = getImage(event.thumbImg.asset);
 
   const newsRender = news.map(({ text, thumbImg, newsUrl }) => {
@@ -171,8 +168,11 @@ const LesActualitesSection = ({ news, event }) => {
           <Trans>Voir plus</Trans>
         </a>
       </StyledEvent>
-      <StyledDesktop className="grid">{newsRender}</StyledDesktop>
-      <StyledMobile {...sliderSettings}>{newsRender}</StyledMobile>
+      {isMobile ? (
+        <StyledMobile {...sliderSettings}>{newsRender}</StyledMobile>
+      ) : (
+        <StyledDesktop className="grid">{newsRender}</StyledDesktop>
+      )}
     </StyledContainer>
   );
 };

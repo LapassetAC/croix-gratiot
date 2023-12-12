@@ -121,7 +121,7 @@ const StyledContainer = styled.div`
         ? "0 0 0 240px"
         : "0 180px 0 60px"};
     &:not(.transitionMask) {
-      transition: opacity ${({ theme }) => theme.pageAppearanceTime}s;
+      transition: opacity ${({ theme }) => theme.pageAppearanceTime / 2}s;
       opacity: ${({ $transitionIsActive }) => ($transitionIsActive ? 0 : 1)};
     }
     .transitionMask {
@@ -195,6 +195,8 @@ export default function DesktopLayout({ children }) {
     setTimeout(() => {
       navigate(page);
       setActivePage(page);
+    }, (theme.pageTransitionTime * 1000) / 2);
+    setTimeout(() => {
       setTransitionIsActive(false);
     }, theme.pageTransitionTime * 1000);
   }

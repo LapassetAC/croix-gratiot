@@ -11,8 +11,6 @@ const StyledContainer = styled.div`
     margin-bottom: 90px;
     @media ${({ theme }) => theme.minWidth.sm} {
       grid-template-rows: 1fr auto auto auto auto;
-    }
-    @media ${({ theme }) => theme.minWidth.sm} {
       row-gap: 60px;
     }
   }
@@ -20,7 +18,6 @@ const StyledContainer = styled.div`
     grid-column: 1 / 8;
     margin-bottom: -30px;
     aspect-ratio: 1;
-    max-height: calc(100vh - 30px);
     @media ${({ theme }) => theme.minWidth.sm} {
       grid-column: 1 / 4;
       grid-row: 1 / 3;
@@ -98,7 +95,7 @@ const NousRencontrer = ({ className }) => {
     <StyledContainer className={className}>
       <section className="main-section grid">
         <StaticImage
-          className="nousRencontrerImage"
+          className="nousRencontrerImage hero-img"
           src="../assets/imgs/nousRencontrer/nousRencontrerImage.jpg"
           alt="nousRencontrerImage"
           layout="fullWidth"
