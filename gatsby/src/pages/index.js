@@ -312,9 +312,9 @@ const HomePage = ({ data }) => {
       <section className="orange" ref={orangeSectionRef}>
         <section className="leDomaine grid">
           <h2 className="sectionTitle">
-            Le
+            <Trans>Le</Trans>
             <br />
-            domaine
+            <Trans>domaine</Trans>
           </h2>
           <StaticImage
             src="../assets/imgs/home/leDomaine.jpg"
@@ -322,18 +322,20 @@ const HomePage = ({ data }) => {
             layout="fullWidth"
           />
           <p>
-            Au cœur des appellations Languedoc et Picpoul de Pinet, le domaine
-            La Croix Gratiot est ancré dans un terroir riche en couleurs. Situé
-            sur les collines argilo-calcaires et bercé par les alizés marins
-            chargés des senteurs de garrigue, notre vignoble s’étend sur 35
-            hectares.
+            <Trans>
+              Au cœur des appellations Languedoc et Picpoul de Pinet, le domaine
+              La Croix Gratiot est ancré dans un terroir riche en couleurs.
+              Situé sur les collines argilo-calcaires et bercé par les alizés
+              marins chargés des senteurs de garrigue, notre vignoble s’étend
+              sur 35 hectares.
+            </Trans>
           </p>
         </section>
         <section className="anaisYves grid">
           <h2 className="sectionTitle">
             Anaïs
             <br />
-            et
+            <Trans>et</Trans>
             <br />
             Yves
           </h2>
@@ -343,19 +345,23 @@ const HomePage = ({ data }) => {
             layout="fullWidth"
           />
           <p>
-            Ici, la passion du vin se transmet de père en fille. Yves, avec son
-            frère Hugues, a cultivé les vignes sur les terres familiales avant
-            de fonder la cave en 2004. Sa fille, Anaïs, après avoir parcouru le
-            monde et enrichi son savoir-faire, est revenue aux racines
-            familiales, déterminée à perpétuer et à renouveler l'art vinicole.
+            <Trans>
+              Ici, la passion du vin se transmet de père en fille. Yves, avec
+              son frère Hugues, a cultivé les vignes sur les terres familiales
+              avant de fonder la cave en 2004. Sa fille, Anaïs, après avoir
+              parcouru le monde et enrichi son savoir-faire, est revenue aux
+              racines familiales, déterminée à perpétuer et à renouveler l'art
+              vinicole.
+            </Trans>
           </p>
         </section>
       </section>
       <section className="green" ref={greenSectionRef}>
         <section className="notrePhilo grid">
           <h2 className="sectionTitle">
-            Notre <br />
-            Philosophie
+            <Trans>Notre</Trans>
+            <br />
+            <Trans>Philosophie</Trans>
           </h2>
           <StaticImage
             src="../assets/imgs/home/notrePhilo1.jpg"
@@ -364,12 +370,17 @@ const HomePage = ({ data }) => {
             className="one"
           />
           <p>
-            Notre philosophie se fonde sur un profond respect pour la nature, le
-            terroir, et l’humain. Guidés par l’approche biodynamique, nous
-            aspirons à une viticulture qui vit en harmonie avec son écosystème,
-            valorisant la biodiversité et l'équilibre environnemental.
+            <Trans>
+              Notre philosophie se fonde sur un profond respect pour la nature,
+              le terroir, et l’humain. Guidés par l’approche biodynamique, nous
+              aspirons à une viticulture qui vit en harmonie avec son
+              écosystème, valorisant la biodiversité et l'équilibre
+              environnemental.
+            </Trans>
           </p>
-          <ArrowBtn to="/nos-pratiques/">Nos pratiques</ArrowBtn>
+          <ArrowBtn to="/nos-pratiques/">
+            <Trans>Nos pratiques</Trans>
+          </ArrowBtn>
           <StaticImage
             src="../assets/imgs/home/notrePhilo2.jpg"
             alt=""
@@ -379,8 +390,9 @@ const HomePage = ({ data }) => {
         </section>
         <section className="ilsParlent grid">
           <h2 className="sectionTitle">
-            Ils parlent <br />
-            de nous
+            <Trans>Ils parlent</Trans>
+            <br />
+            <Trans>de nous</Trans>
           </h2>
           <IlsParlentDeNousSlider />
         </section>
@@ -388,8 +400,9 @@ const HomePage = ({ data }) => {
       <section className="red" ref={redSectionRef}>
         <section className="unArt grid">
           <h2 className="sectionTitle">
-            Un art <br />
-            de vivre
+            <Trans>Un art</Trans>
+            <br />
+            <Trans>de vivre</Trans>
           </h2>
           <StaticImage
             src="../assets/imgs/home/unArtdeVivre1.jpg"
@@ -402,18 +415,22 @@ const HomePage = ({ data }) => {
             layout="fullWidth"
           />
           <p>
-            Sensible à l’art et à la musique, La Croix Gratiot prend plaisir à
-            éveiller les sens vers des émotions gustatives ou artistiques. Notre
-            domaine est un carrefour où s'assemblent convivialité et créativité
-            à travers des événements festifs et des collaborations artistiques.
+            <Trans>
+              Sensible à l’art et à la musique, La Croix Gratiot prend plaisir à
+              éveiller les sens vers des émotions gustatives ou artistiques.
+              Notre domaine est un carrefour où s'assemblent convivialité et
+              créativité à travers des événements festifs et des collaborations
+              artistiques.
+            </Trans>
           </p>
         </section>
         <LesActualitesSection news={news} event={event} />
       </section>
       <section className="grid nosVinsSection">
         <h2 className="sectionTitle">
-          Nos <br />
-          Vins
+          <Trans>Nos</Trans>
+          <br />
+          <Trans>Vins</Trans>
         </h2>
         {activeCategory === "blanc" ? (
           <StaticImage
@@ -453,7 +470,7 @@ const HomePage = ({ data }) => {
           ))}
         </ul>
         <ArrowBtn to="/la-degustation/" black>
-          Voir tous nos vins
+          <Trans>Voir tous nos vins</Trans>
         </ArrowBtn>
       </section>
     </StyledContainer>
