@@ -8,6 +8,7 @@ import categoryQuoteLines from "assets/icons/categoryQuoteLines.svg";
 import theme from "styles/theme";
 import Arrow from "assets/icons/Arrow";
 import VoirAussi from "./VoirAussiSection";
+import { Trans } from "gatsby-plugin-react-i18next";
 
 const StyledContainer = styled.div`
   padding: 60px 15px 0;
@@ -247,7 +248,9 @@ export default function WineTemplate({ data }) {
           {intro && <span className="intro">{intro}</span>}
         </p>
         <div className="description">
-          <h2>Le mot des vignerons</h2>
+          <h2>
+            <Trans>Le mot des vignerons</Trans>
+          </h2>
           <p>{description}</p>
         </div>
         {videoUrl && <iframe src={videoUrl} title="Vidéo du vin"></iframe>}
@@ -259,13 +262,17 @@ export default function WineTemplate({ data }) {
         )}
         {degustation && (
           <div className="degustation">
-            <h2>Dégustation</h2>
+            <h2>
+              <Trans>Dégustation</Trans>
+            </h2>
             <p>{degustation}</p>
           </div>
         )}
         <div className="wine-info">
           <div>
-            <h2>Catégorie</h2>
+            <h2>
+              <Trans>Catégorie</Trans>
+            </h2>
             <div className="category">
               <StyledColorSquare
                 color={
@@ -289,24 +296,32 @@ export default function WineTemplate({ data }) {
             </div>
           </div>
           <div className="cepages">
-            <h2>Cépage(s)</h2>
+            <h2>
+              <Trans>Cépage(s)</Trans>
+            </h2>
             <p>{cepages}</p>
           </div>
           {alcool && (
             <div className="alcool">
-              <h2>Teneur en alcool</h2>
+              <h2>
+                <Trans>Teneur en alcool</Trans>
+              </h2>
               <p>{alcool}% vol.</p>
             </div>
           )}
           {millesime && (
             <div className="millesime">
-              <h2>Millésime</h2>
+              <h2>
+                <Trans>Millésime</Trans>
+              </h2>
               <p>{millesime}</p>
             </div>
           )}
           {formats && formats.length > 0 && (
             <div className="formats">
-              <h2>Disponible en</h2>
+              <h2>
+                <Trans>Disponible en</Trans>
+              </h2>
               <ul>
                 {formats.map((format, i) => (
                   <li key={i}>{format}</li>
@@ -317,11 +332,11 @@ export default function WineTemplate({ data }) {
           <div className="buttons">
             <a href="/" className="btn">
               <Arrow />
-              Fiche technique
+              <Trans>Fiche technique</Trans>
             </a>
             <Link className="btn" to="/nous-rencontrer/">
               <Arrow />
-              Trouver ce vin
+              <Trans>Trouver ce vin</Trans>
             </Link>
           </div>
         </div>

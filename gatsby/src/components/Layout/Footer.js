@@ -4,6 +4,7 @@ import LCGLogo from "assets/logos/logo-lcg-footer.svg";
 import facebookIcon from "assets/icons/facebook.svg";
 import instagramIcon from "assets/icons/instagram.svg";
 import Arrow from "assets/icons/Arrow";
+import { Trans } from "gatsby-plugin-react-i18next";
 
 const StyledContainer = styled.footer`
   padding: 30px 0;
@@ -111,7 +112,9 @@ const Footer = ({ handlePageChange }) => {
     <StyledContainer className="grid">
       <img className="LCGLogo" src={LCGLogo} alt="" />
       <div className="adresse">
-        <h2>Adresse</h2>
+        <h2>
+          <Trans>Adresse</Trans>
+        </h2>
         <a href="https://www.google.fr/maps/dir//La+Croix+Gratiot,+Sainte+Croix,+Montagnac,+34530+Montagnac/@43.4487056,3.5270444,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x12ab86d1065040af:0xc820a3578a1dc20e!2m2!1d3.529626!2d43.448699?entry=ttu">
           La Croix Gratiot,
           <br />
@@ -123,7 +126,9 @@ const Footer = ({ handlePageChange }) => {
         </a>
       </div>
       <div className="nousSuivre">
-        <h2>Nous Suivre</h2>
+        <h2>
+          <Trans>Nous Suivre</Trans>
+        </h2>
         <div>
           <a href="https://www.facebook.com/lacroixgratiot/">
             <img src={facebookIcon} alt="Facebook" />
@@ -137,7 +142,7 @@ const Footer = ({ handlePageChange }) => {
         <h2>Contact</h2>
         <a href="tel:+33467252788" className="btn">
           <Arrow />
-          04 67 25 27 88
+          +33(0)4 67 25 27 88
         </a>
         <a href="mailto:contact@croix-gratiot.com" className="btn">
           <Arrow />
@@ -148,11 +153,14 @@ const Footer = ({ handlePageChange }) => {
         onClick={() => handlePageChange("/mentions-legales/")}
         className="mentions"
       >
-        Mentions légales
+        <Trans>Mentions légales</Trans>
       </button>
       <p className="credits">
-        Site réalisé par <a href="https://clementlapasset.dev/">Clément</a> et{" "}
-        <a href="https://alapasset.dev/">Adrien Lapasset</a>, photos par{" "}
+        <Trans>Site réalisé par </Trans>
+        <a href="https://clementlapasset.dev/">Clément</a>
+        <Trans> et </Trans>
+        <a href="https://alapasset.dev/">Adrien Lapasset</a>,{" "}
+        <Trans>photos par </Trans>
         <a href="http://www.aureliablanc.com/">Aurélia Blanc</a>
       </p>
     </StyledContainer>

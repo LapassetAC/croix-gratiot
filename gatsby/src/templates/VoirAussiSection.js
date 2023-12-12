@@ -7,6 +7,7 @@ import WineCard from "components/global/WineCard";
 import Arrow from "assets/icons/Arrow";
 import { Context } from "data/Context";
 import { useContext } from "react";
+import { Trans } from "gatsby-plugin-react-i18next";
 
 const StyledContainer = styled.section`
   grid-column: 1/8;
@@ -77,9 +78,9 @@ export default function VoirAussiSection({ wines }) {
   return (
     <StyledContainer className="grid">
       <h2 className="sectionTitle">
-        Voir
+        <Trans>Voir</Trans>
         <br />
-        aussi
+        <Trans>aussi</Trans>
       </h2>
       {isSliderBtn && (
         <button
