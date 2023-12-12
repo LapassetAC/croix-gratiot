@@ -180,6 +180,16 @@ button {
       line-height: 160%;
     }
   }
+
+  @keyframes nosVins{
+    from {
+      opacity: 0%;
+    }
+    to {
+      opacity: 100%;
+    } 
+  }
+
   .nosVinsSection {
   text-align: center;
   h2 {
@@ -197,6 +207,7 @@ button {
   .gatsby-image-wrapper {
     grid-column: 1/8;
     aspect-ratio: 0.9;
+    animation: nosVins 3s forwards;
     @media ${({ theme }) => theme.minWidth.sm} {
       grid-column: 2/5;
       grid-row: 1/4;

@@ -310,6 +310,7 @@ const NosPratiques = () => {
           src="../assets/imgs/pratiques/nosPratiquesHeroImage.jpg"
           alt="nosPratiquesHeroImage"
           layout="fullWidth"
+          loading="eager"
         />
         <h1 className="title">
           <Trans>Une</Trans>
@@ -496,24 +497,28 @@ const NosPratiques = () => {
             src="../assets/imgs/nosVins/blanc.jpg"
             alt=""
             layout="fullWidth"
+            loading="eager"
           />
         ) : activeCategory === "rose" ? (
           <StaticImage
             src="../assets/imgs/nosVins/rose.jpg"
             alt=""
             layout="fullWidth"
+            loading="eager"
           />
         ) : activeCategory === "rouge" ? (
           <StaticImage
             src="../assets/imgs/nosVins/rouge.jpg"
             alt=""
             layout="fullWidth"
+            loading="eager"
           />
         ) : activeCategory === "autre" ? (
           <StaticImage
             src="../assets/imgs/nosVins/autre.jpg"
             alt=""
             layout="fullWidth"
+            loading="eager"
           />
         ) : null}
         <ul>
