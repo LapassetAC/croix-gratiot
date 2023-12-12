@@ -39,7 +39,7 @@ const arrow = (
 
 const ArrowBtn = ({ children, black, to }) => {
   const { setPageChange, isMobile } = useContext(Context);
-  const navigate = useI18next();
+  const { navigate } = useI18next();
 
   function handlePageChange(to) {
     isMobile ? navigate(to) : setPageChange(to);

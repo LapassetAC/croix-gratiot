@@ -3,9 +3,11 @@ import styled from "styled-components";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import EUBioLogo from "assets/logos/EUBioLogo.svg";
 import FRBioLogo from "assets/logos/FRBioLogo.svg";
-import { Link } from "gatsby-plugin-react-i18next";
+import { useI18next } from "gatsby-plugin-react-i18next";
+import { useContext } from "react";
+import { Context } from "data/Context";
 
-const StyledContainer = styled(Link)`
+const StyledContainer = styled.button`
   display: grid;
   grid-template-columns: auto 1fr;
   grid-template-rows: repeat(3, auto) 1fr;
@@ -112,9 +114,16 @@ const StyledContainer = styled(Link)`
 const WineCard = ({ wine }) => {
   const productImage = getImage(wine.productImage.asset.gatsbyImageData);
   const portraitImage = getImage(wine.portraitImage.asset.gatsbyImageData);
+  const { isMobile, setPageChange } = useContext(Context);
+  const { navigate } = useI18next();
+
+  function handlePageChange(to) {
+    isMobile ? navigate(to) : setPageChange(to);
+  }
+
   return (
     <StyledContainer
-      to={`/la-degustation/${wine.slug.current}`}
+      onClick={() => handlePageChange(`/la-degustation/${wine.slug.current}`)}
       className="wine-card"
     >
       <GatsbyImage

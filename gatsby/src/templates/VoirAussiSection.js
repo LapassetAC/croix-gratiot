@@ -67,8 +67,6 @@ const sliderSettings = {
 export default function VoirAussiSection({ wines }) {
   const { isMobile } = useContext(Context);
   const sliderRef = useRef();
-
-  console.log(isMobile);
   const isSliderBtn = isMobile || wines.length > 2;
 
   return (
