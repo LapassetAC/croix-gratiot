@@ -26,10 +26,12 @@ const theme = {
     xxl: `(min-width: 1728px)`,
   },
   cubicBezier: {
+    pageTranstion: "cubic-bezier(.65,.05,.36,1)",
     base: "cubic-bezier(.25, .8, .25, 1)",
     bounce: "cubic-bezier(0.68, -0.6, 0.32, 1.6)",
   },
-  transitionTime: 0.3,
+  pageTransitionTime: 1,
+  pageAppearanceTime: 1,
   columnGap: "15px",
   border: "1px solid #332728",
   aspectRatio: {
