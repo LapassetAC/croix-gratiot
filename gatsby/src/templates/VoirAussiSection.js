@@ -26,6 +26,12 @@ const StyledContainer = styled.section`
       transform: rotate(180deg);
     }
   }
+  .soloWine {
+    grid-column: 2/7;
+    @media ${({ theme }) => theme.minWidth.sm} {
+      grid-column: 3/5;
+    }
+  }
 `;
 
 const StyledSlider = styled(Slider)`
@@ -67,8 +73,7 @@ const sliderSettings = {
 export default function VoirAussiSection({ wines }) {
   const { isMobile } = useContext(Context);
   const sliderRef = useRef();
-  const isSliderBtn = isMobile || wines.length > 2;
-
+  const isSliderBtn = (isMobile && wines.length > 1) || wines.length > 2;
   return (
     <StyledContainer className="grid">
       <h2 className="sectionTitle">
@@ -85,11 +90,17 @@ export default function VoirAussiSection({ wines }) {
           <Arrow />
         </button>
       )}
-      <StyledSlider {...sliderSettings} ref={sliderRef}>
-        {wines.map((wine) => (
-          <WineCard wine={wine} key={wine.title} />
-        ))}
-      </StyledSlider>
+      {wines.length > 1 ? (
+        <StyledSlider {...sliderSettings} ref={sliderRef}>
+          {wines.map((wine) => (
+            <WineCard wine={wine} key={wine.title} />
+          ))}
+        </StyledSlider>
+      ) : (
+        <div className="soloWine">
+          <WineCard wine={wines[0]} />
+        </div>
+      )}
       {isSliderBtn && (
         <button
           onClick={() => sliderRef.current.slickNext()}

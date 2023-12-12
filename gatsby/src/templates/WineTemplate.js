@@ -184,6 +184,7 @@ const StyledColorSquare = styled.div`
 `;
 
 export default function WineTemplate({ data }) {
+  const voirAussiWines = data.allSanityWine.nodes;
   const {
     category,
     title,
@@ -333,9 +334,7 @@ export default function WineTemplate({ data }) {
           />
         )}
       </section>
-      {data.allSanityWine.nodes.length > 0 && (
-        <VoirAussi wines={data.allSanityWine.nodes} />
-      )}
+      {voirAussiWines.length > 0 && <VoirAussi wines={voirAussiWines} />}
     </StyledContainer>
   );
 }
