@@ -226,4 +226,7 @@ button {
     }
   }
 }
+.hero-img {
+  max-height: calc(100vh - 30px);
+}
 `;

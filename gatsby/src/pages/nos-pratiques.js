@@ -306,7 +306,7 @@ const NosPratiques = () => {
     <StyledContainer>
       <section className="hero-section">
         <StaticImage
-          className="hero-image"
+          className="hero-image hero-img"
           src="../assets/imgs/pratiques/nosPratiquesHeroImage.jpg"
           alt="nosPratiquesHeroImage"
           layout="fullWidth"
