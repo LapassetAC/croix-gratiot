@@ -4,6 +4,7 @@ import LesActualitesSection from "components/pages/HomePage/LesActualitesSection
 import styled from "styled-components";
 import LCGlogoHero from "assets/logos/LogoLCGHero";
 import ArrowBtn from "components/global/ArrowBtn";
+import { Seo } from "components/global/Seo";
 import IlsParlentDeNousSlider from "components/pages/HomePage/IlsParlentDeNousSlider";
 import { useContext } from "react";
 import { Context } from "data/Context";
@@ -521,3 +522,5 @@ export const query = graphql`
     }
   }
 `;
+
+export const Head = () => <Seo />;

@@ -4,6 +4,7 @@ import { StaticImage } from "gatsby-plugin-image";
 import Arrow from "assets/icons/Arrow";
 import { graphql } from "gatsby";
 import { Trans } from "gatsby-plugin-react-i18next";
+import { Seo } from "components/global/Seo";
 
 const StyledContainer = styled.div`
   .main-section {
@@ -215,3 +216,5 @@ export const query = graphql`
     }
   }
 `;
+
+export const Head = () => <Seo pageTitle="Nous Rencontrer" />;

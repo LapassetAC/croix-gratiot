@@ -8,6 +8,7 @@ import { Element } from "react-scroll";
 import theme from "styles/theme";
 import WineCard from "components/global/WineCard";
 import { Trans } from "gatsby-plugin-react-i18next";
+import { Seo } from "components/global/Seo";
 
 const StyledContainer = styled.div`
   .gatsby-image-wrapper {
@@ -257,3 +258,5 @@ export const query = graphql`
     }
   }
 `;
+
+export const Head = () => <Seo pageTitle="La dégustation" />;
