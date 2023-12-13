@@ -1,6 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import { graphql } from "gatsby";
+import { Seo } from "components/global/Seo";
 
 const StyledContainer = styled.div`
   section {
@@ -104,3 +105,5 @@ export const query = graphql`
     }
   }
 `;
+
+export const Head = () => <Seo pageTitle="Mentions Légales" />;

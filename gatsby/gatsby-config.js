@@ -3,8 +3,14 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `croix-gratiot`,
-    siteUrl: `https://www.yourdomain.tld`,
+    siteTitle: "La Croix Gratiot",
+    // siteUrl: "https://www.croix-gratiot.com",
+    siteUrl: "https://croix-gratiot-staging.netlify.app",
+    siteDescription:
+      "Entre bassin de Thau et collines de pins découvrez des vins bio issu d’un travail en famille, de père en fille, dans le respect de la nature.",
+    author: "Adrien and Clément Lapasset",
+    lang: "fr",
+    siteImage: "/siteImage.jpg",
   },
   plugins: [
     "gatsby-plugin-image",
