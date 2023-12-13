@@ -8,7 +8,7 @@ import categoryQuoteLines from "assets/icons/categoryQuoteLines.svg";
 import theme from "styles/theme";
 import Arrow from "assets/icons/Arrow";
 import VoirAussi from "./VoirAussiSection";
-import { Trans } from "gatsby-plugin-react-i18next";
+import { Trans, useI18next } from "gatsby-plugin-react-i18next";
 
 const StyledContainer = styled.div`
   padding: 60px 15px 0;
@@ -192,13 +192,7 @@ export default function WineTemplate({ data }) {
     productImage,
     cepages,
     certification,
-    quote,
-    adjectif,
-    intro,
-    description,
     videoUrl,
-    vinification,
-    degustation,
     landscapeImage,
     alcool,
     millesime,
@@ -208,6 +202,16 @@ export default function WineTemplate({ data }) {
   const imageLandscape = landscapeImage
     ? getImage(landscapeImage.asset.gatsbyImageData)
     : null;
+
+  const { language } = useI18next();
+  const fallbackLanguage = "fr";
+  const getValueForLanguage = (fieldArray, language) => {
+    const fieldItem =
+      fieldArray.find((item) => item._key === language) ||
+      fieldArray.find((item) => item._key === fallbackLanguage);
+    return fieldItem ? fieldItem.value : "";
+  };
+
   return (
     <StyledContainer>
       <section className="hero-section grid">
@@ -225,14 +229,20 @@ export default function WineTemplate({ data }) {
             <img src={FRBioLogo} alt="Certification Bio FR" />
           </div>
         )}
-        {quote && (
+        {data.sanityWine.quote && (
           <div className="quote">
             <img
               className="top lines"
               src={categoryQuoteLines}
               alt="Quote lines"
             />
-            <p>« {quote} »</p>
+            <p>
+              {getValueForLanguage(
+                data.sanityWine.quote,
+                language,
+                fallbackLanguage
+              )}
+            </p>
             <img
               className="bottom lines"
               src={categoryQuoteLines}
@@ -243,29 +253,65 @@ export default function WineTemplate({ data }) {
       </section>
       <section className="main-section grid">
         <p className="intro-paragraph">
-          <span className="title">{title},</span>
-          {adjectif && <span className="adjectif"> {adjectif}. </span>}
-          {intro && <span className="intro">{intro}</span>}
+          <span className="title">{title}</span>
+          {data.sanityWine.adjectif && (
+            <span className="adjectif">
+              ,{" "}
+              {getValueForLanguage(
+                data.sanityWine.adjectif,
+                language,
+                fallbackLanguage
+              )}
+              .{" "}
+            </span>
+          )}
+          {data.sanityWine.intro && (
+            <span className="intro">
+              {getValueForLanguage(
+                data.sanityWine.intro,
+                language,
+                fallbackLanguage
+              )}
+            </span>
+          )}
         </p>
         <div className="description">
           <h2>
             <Trans>Le mot des vignerons</Trans>
           </h2>
-          <p>{description}</p>
+          <p>
+            {getValueForLanguage(
+              data.sanityWine.description,
+              language,
+              fallbackLanguage
+            )}
+          </p>
         </div>
         {videoUrl && <iframe src={videoUrl} title="Vidéo du vin"></iframe>}
-        {vinification && (
+        {data.sanityWine.vinification && (
           <div className="vinification">
             <h2>Vinification</h2>
-            <p>{vinification}</p>
+            <p>
+              {getValueForLanguage(
+                data.sanityWine.vinification,
+                language,
+                fallbackLanguage
+              )}
+            </p>
           </div>
         )}
-        {degustation && (
+        {data.sanityWine.degustation && (
           <div className="degustation">
             <h2>
               <Trans>Dégustation</Trans>
             </h2>
-            <p>{degustation}</p>
+            <p>
+              {getValueForLanguage(
+                data.sanityWine.degustation,
+                language,
+                fallbackLanguage
+              )}
+            </p>
           </div>
         )}
         <div className="wine-info">
@@ -366,13 +412,31 @@ export const query = graphql`
       cepages
       certification
       title
-      quote
-      adjectif
-      intro
-      description
+      quote {
+        value
+        _key
+      }
+      adjectif {
+        value
+        _key
+      }
+      intro {
+        value
+        _key
+      }
+      description {
+        value
+        _key
+      }
       videoUrl
-      vinification
-      degustation
+      vinification {
+        value
+        _key
+      }
+      degustation {
+        value
+        _key
+      }
       alcool
       millesime
       formats
