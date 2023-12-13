@@ -73,6 +73,7 @@ const StyledContainer = styled.footer`
   .mentions {
     grid-column: 1/8;
     text-decoration: underline;
+    text-align: left;
     @media ${({ theme }) => theme.minWidth.sm} {
       grid-column: 6/8;
       grid-row: 2/2;

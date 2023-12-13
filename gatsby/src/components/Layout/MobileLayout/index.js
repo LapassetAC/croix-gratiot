@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import LCGlogoMobile from "assets/logos/logo-lcg-mobile.svg";
+import LogoLCGMobile from "assets/logos/LogoLCGMobile";
 import styled from "styled-components";
 import ToggleBtn from "./ToggleBtn";
 import Footer from "../Footer";
@@ -104,7 +104,7 @@ export default function MobileLayout({ children }) {
     <StyledContainer>
       <header>
         <Link onClick={closeNav} to="/">
-          <img src={LCGlogoMobile} alt="" />
+          <LogoLCGMobile />
         </Link>
         <ToggleBtn onClick={toggleNav} $isNavOpen={isNavOpen} />
       </header>
@@ -134,9 +134,11 @@ export default function MobileLayout({ children }) {
           alt="navigationImage"
           layout="fullWidth"
         />
-        <Footer />
       </StyledMobileLinksContainer>
-      <main>{children}</main>
+      <main>
+        {children}
+        <Footer />
+      </main>
     </StyledContainer>
   );
 }
