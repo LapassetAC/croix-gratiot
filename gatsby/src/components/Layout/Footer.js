@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import LCGLogo from "assets/logos/logo-lcg-footer.svg";
+import LogoLCGFooter from "assets/logos/LogoLCGFooter";
 import facebookIcon from "assets/icons/facebook.svg";
 import instagramIcon from "assets/icons/instagram.svg";
 import Arrow from "assets/icons/Arrow";
@@ -110,7 +110,7 @@ const StyledContainer = styled.footer`
 const Footer = ({ handlePageChange }) => {
   return (
     <StyledContainer className="grid">
-      <img className="LCGLogo" src={LCGLogo} alt="" />
+      <LogoLCGFooter className="LCGLogo" />
       <div className="adresse">
         <h2>
           <Trans>Adresse</Trans>
