@@ -14,6 +14,29 @@ import { Link } from "gatsby";
 import { Trans, useI18next } from "gatsby-plugin-react-i18next";
 
 const StyledContainer = styled.div`
+  transition: background-color 0.4s, color 0.4s;
+  background-color: ${({ theme, $activeHomeSection }) =>
+    $activeHomeSection === "orange"
+      ? theme.colors.orange
+      : $activeHomeSection === "green"
+      ? theme.colors.green
+      : $activeHomeSection === "red"
+      ? theme.colors.red
+      : theme.colors.backgroundLight};
+  color: ${({ theme, $activeHomeSection }) =>
+    $activeHomeSection === "orange"
+      ? theme.colors.black
+      : $activeHomeSection === "green"
+      ? theme.colors.backgroundLight
+      : $activeHomeSection === "red"
+      ? theme.colors.backgroundLight
+      : theme.colors.black};
+  margin: 0 -15px 0 -15px;
+  padding: 0 15px 0 15px;
+  @media ${({ theme }) => theme.minWidth.sm} {
+    margin: 0 -195px 0 -60px;
+    padding: 0 195px 0 60px;
+  }
   .heroSection {
     @media ${({ theme }) => theme.minWidth.sm} {
       height: calc(100vh - 60px);
@@ -64,19 +87,8 @@ const StyledContainer = styled.div`
     @media ${({ theme }) => theme.minWidth.sm} {
       padding: 135px 0;
     }
-    &.orange,
-    &.green,
-    &.red {
-      margin: 0 -15px 0 -15px;
-      padding: 0 15px 0 15px;
-      @media ${({ theme }) => theme.minWidth.sm} {
-        margin: 0 -195px 0 -60px;
-        padding: 0 195px 0 60px;
-      }
-    }
 
     &.orange {
-      background-color: ${({ theme }) => theme.colors.orange};
       .leDomaine {
         h2 {
           z-index: 1;
@@ -132,8 +144,6 @@ const StyledContainer = styled.div`
     }
 
     &.green {
-      background-color: ${({ theme }) => theme.colors.green};
-      color: ${({ theme }) => theme.colors.backgroundLight};
       .notrePhilo {
         h2 {
           grid-column: 1/8;
@@ -193,7 +203,6 @@ const StyledContainer = styled.div`
       }
     }
     &.red {
-      background-color: ${({ theme }) => theme.colors.red};
       color: ${({ theme }) => theme.colors.backgroundLight};
       .unArt {
         @media ${({ theme }) => theme.minWidth.sm} {
@@ -237,6 +246,22 @@ const StyledContainer = styled.div`
       }
     }
   }
+  .nosVinsSection {
+    transition: fill 0.4s, color 0.4s;
+    a,
+    button {
+      color: ${({ theme, $activeHomeSection }) =>
+        $activeHomeSection === "red"
+          ? theme.colors.backgroundLight
+          : theme.colors.black};
+    }
+    svg {
+      fill: ${({ theme, $activeHomeSection }) =>
+        $activeHomeSection === "red"
+          ? theme.colors.backgroundLight
+          : theme.colors.black};
+    }
+  }
 `;
 
 const HomePage = ({ data }) => {
@@ -248,7 +273,7 @@ const HomePage = ({ data }) => {
   const orangeSectionRef = useRef();
   const greenSectionRef = useRef();
   const redSectionRef = useRef();
-  const { setActiveHomeSection } = useContext(Context);
+  const { setActiveHomeSection, activeHomeSection } = useContext(Context);
   const [activeCategory, setActiveCategory] = useState("blanc");
 
   useEffect(() => {
@@ -281,7 +306,7 @@ const HomePage = ({ data }) => {
   }, [originalPath, setActiveHomeSection]);
 
   return (
-    <StyledContainer>
+    <StyledContainer $activeHomeSection={activeHomeSection}>
       <section className="heroSection grid">
         <StaticImage
           className="heroImg"
