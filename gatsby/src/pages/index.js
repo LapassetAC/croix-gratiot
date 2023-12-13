@@ -260,20 +260,16 @@ const HomePage = ({ data }) => {
       const redSectionTop = redSectionRef.current.getBoundingClientRect().top;
       const redSectionBottom =
         redSectionRef.current.getBoundingClientRect().bottom;
-      if (originalPath === "/") {
-        if (orangeSectionTop < 0 && greenSectionTop > 0) {
-          setActiveHomeSection("orange");
-        }
-        if (greenSectionTop < 0 && redSectionTop > 0) {
-          setActiveHomeSection("green");
-        }
-        if (redSectionTop < 0 && redSectionBottom > 0) {
-          setActiveHomeSection("red");
-        }
-        if (orangeSectionTop > 0 || redSectionBottom < 0) {
-          setActiveHomeSection("white");
-        }
-      } else {
+      if (orangeSectionTop < 0 && greenSectionTop > 0) {
+        setActiveHomeSection("orange");
+      }
+      if (greenSectionTop < 0 && redSectionTop > 0) {
+        setActiveHomeSection("green");
+      }
+      if (redSectionTop < 0 && redSectionBottom > 0) {
+        setActiveHomeSection("red");
+      }
+      if (orangeSectionTop > 0 || redSectionBottom < 0) {
         setActiveHomeSection("white");
       }
     };

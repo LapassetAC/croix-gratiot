@@ -141,8 +141,7 @@ const StyledContainer = styled.div`
 `;
 
 export default function DesktopLayout({ children }) {
-  const { activeHomeSection, setActiveHomeSection, pageChange, setPageChange } =
-    useContext(Context);
+  const { activeHomeSection, pageChange, setPageChange } = useContext(Context);
 
   const { originalPath, navigate } = useI18next();
 
@@ -159,9 +158,7 @@ export default function DesktopLayout({ children }) {
   function handlePageChange(page) {
     const toDegustationPages = page.startsWith("/la-degustation/");
     const fromDegustationPages = originalPath.startsWith("/la-degustation/");
-    if (activeHomeSection === "red" || activeHomeSection === "green") {
-      setActiveHomeSection("white");
-    }
+
     setIncomingPage(page);
     setTransitionIsActive(true);
 
