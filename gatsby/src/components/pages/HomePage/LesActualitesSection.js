@@ -140,7 +140,7 @@ const LesActualitesSection = ({ news, event }) => {
           className="btn white"
         >
           <ArrowIcon />
-          <Trans>Voir plus</Trans>
+          <Trans>Voir le post</Trans>
         </a>
       </StyledNew>
     );
@@ -165,7 +165,7 @@ const LesActualitesSection = ({ news, event }) => {
           className="btn white"
         >
           <ArrowIcon />
-          <Trans>Voir plus</Trans>
+          <Trans>Voir l'évènement</Trans>
         </a>
       </StyledEvent>
       {isMobile ? (
