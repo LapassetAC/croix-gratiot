@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from "gatsby";
 // import { useI18next } from "gatsby-plugin-react-i18next";
 import { useLocation } from "@reach/router";
 
-export const Seo = ({ pageTitle, pageDescription, children, pageImage }) => {
+export const Seo = ({ pageTitle, pageDescription, children }) => {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -29,7 +29,7 @@ export const Seo = ({ pageTitle, pageDescription, children, pageImage }) => {
     title: pageTitle ? siteTitle + " - " + pageTitle : siteTitle,
     description: siteDescription || pageDescription,
     url: `${siteUrl}${pathname || ``}`,
-    image: pageImage ? `${siteUrl}${pageImage}` : `${siteUrl}${siteImage}`,
+    image: `${siteUrl}${siteImage}`,
   };
 
   return (

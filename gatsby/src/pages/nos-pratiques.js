@@ -558,6 +558,4 @@ export const query = graphql`
   }
 `;
 
-export const Head = () => (
-  <Seo pageTitle="Nos Pratiques" pageImage="/nosPratiquesImage.jpg" />
-);
+export const Head = () => <Seo pageTitle="Nos Pratiques" />;
