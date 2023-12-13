@@ -23,7 +23,7 @@ const StyledContainer = styled.div`
       grid-column: 1 / 4;
       grid-row: 1 / 3;
       margin-bottom: 0;
-      aspect-ratio: 0.68;
+      aspect-ratio: auto;
     }
   }
   h1 {

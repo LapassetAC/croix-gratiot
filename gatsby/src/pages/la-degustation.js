@@ -26,9 +26,9 @@ const StyledContainer = styled.div`
     .degustationHeroImage {
       aspect-ratio: 1;
       @media ${({ theme }) => theme.minWidth.sm} {
-        aspect-ratio: 0.68;
         grid-column: 1 / 4;
         grid-row: 1 / 3;
+        aspect-ratio: auto;
       }
     }
     .hero-title {

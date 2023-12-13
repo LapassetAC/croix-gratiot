@@ -37,7 +37,7 @@ const StyledContainer = styled.div`
         ? "60px 60px 60px calc(100vw - 180px)"
         : "calc(100vw - 180px) 60px 60px 60px"};
     & > div {
-      transition: all 0.4s;
+      transition: border-color 0.4s;
       border-left: 2px solid;
       border-color: ${({ $activeSection, theme }) =>
         $activeSection === "red" || $activeSection === "green"

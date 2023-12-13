@@ -238,6 +238,9 @@ button {
   }
 }
 .hero-img {
-  max-height: calc(100vh - 30px);
+  @media ${({ theme }) => theme.minWidth.sm} {
+
+  height: calc(100vh - 30px);
+  }
 }
 `;
