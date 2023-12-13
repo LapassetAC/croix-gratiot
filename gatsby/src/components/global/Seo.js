@@ -34,6 +34,7 @@ export const Seo = ({ pageTitle, pageDescription, children }) => {
 
   return (
     <>
+      <html lang="fr" />
       <title>{seo.title}</title>
       {/* Base */}
       <meta name="description" content={seo.description} />
