@@ -3,6 +3,7 @@ import {deskTool} from 'sanity/desk'
 import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemas'
 import {orderableDocumentListDeskItem} from '@sanity/orderable-document-list'
+import {internationalizedArray} from 'sanity-plugin-internationalized-array'
 
 export default defineConfig({
   name: 'default',
@@ -24,6 +25,15 @@ export default defineConfig({
       },
     }),
     visionTool(),
+    internationalizedArray({
+      languages: [
+        {id: 'fr', title: 'Français'},
+        {id: 'en', title: 'Anglais'},
+      ],
+      defaultLanguages: ['fr'],
+      fieldTypes: ['string', 'text'],
+      buttonAddAll: false,
+    }),
   ],
 
   schema: {

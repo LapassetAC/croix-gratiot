@@ -70,26 +70,26 @@ export default {
       title: 'Citation',
       description:
         'Citation qui apparaît sous le titre du vin. Ex. pour le rosé : Osez Rosé, Roséphine !',
-      type: 'text',
+      type: 'internationalizedArrayText',
     },
     {
       name: 'adjectif',
       title: 'Le vin en un mot',
       description: 'Description en un adjectif du vin. Ex. pour le rosé : Le Velouté',
-      type: 'string',
+      type: 'internationalizedArrayString',
     },
     {
       name: 'intro',
       title: 'Le vin en une ou deux phrases',
       description:
         'Description en deux phrases du vin. Ex. pour le rosé : Velouté Syrah et Grenache. Ce vin très expressif, gourmand et fruité accompagné d’une belle vivacité.',
-      type: 'text',
+      type: 'internationalizedArrayText',
     },
     {
       name: 'description',
       title: 'Le mot des vignerons',
       description: 'Description du vin, de son origine, son histoire, etc.',
-      type: 'text',
+      type: 'internationalizedArrayText',
       validation: (Rule) => Rule.required(),
     },
     {
@@ -107,13 +107,13 @@ export default {
       name: 'vinification',
       title: 'Vinification (optionnel)',
       description: 'Description de la vinification',
-      type: 'text',
+      type: 'internationalizedArrayText',
     },
     {
       name: 'degustation',
       title: 'Dégustation (optionnel)',
       description: 'Description de la dégustation du vin, ses associations, etc.',
-      type: 'text',
+      type: 'internationalizedArrayText',
     },
     {
       name: 'landscapeImage',
