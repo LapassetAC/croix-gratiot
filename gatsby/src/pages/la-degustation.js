@@ -251,7 +251,7 @@ export const query = graphql`
         portraitImage {
           asset {
             url
-            gatsbyImageData
+            gatsbyImageData(aspectRatio: 0.75)
           }
         }
       }

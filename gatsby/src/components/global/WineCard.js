@@ -136,7 +136,7 @@ const WineCard = ({ wine }) => {
         className="portrait-image"
         image={portraitImage}
         alt={wine.title}
-        objectFit="fullWidth"
+        objectFit="contain"
       />
       <div className="wine-title">{wine.title}</div>
       {wine.certification && (
