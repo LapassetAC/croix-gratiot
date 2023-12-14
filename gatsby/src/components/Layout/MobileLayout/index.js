@@ -11,7 +11,7 @@ const StyledContainer = styled.div`
   align-items: center;
   header {
     background-color: ${({ theme }) => theme.colors.backgroundLight};
-    z-index: 2;
+    z-index: 3;
     position: sticky;
     top: 0;
     display: flex;

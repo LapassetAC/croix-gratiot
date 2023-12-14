@@ -278,6 +278,7 @@ const HomePage = ({ data }) => {
 
   useEffect(() => {
     const handleScroll = () => {
+      const treshold = 200;
       const orangeSectionTop =
         orangeSectionRef.current.getBoundingClientRect().top;
       const greenSectionTop =
@@ -285,16 +286,16 @@ const HomePage = ({ data }) => {
       const redSectionTop = redSectionRef.current.getBoundingClientRect().top;
       const redSectionBottom =
         redSectionRef.current.getBoundingClientRect().bottom;
-      if (orangeSectionTop < 0 && greenSectionTop > 0) {
+      if (orangeSectionTop < treshold && greenSectionTop > treshold) {
         setActiveHomeSection("orange");
       }
-      if (greenSectionTop < 0 && redSectionTop > 0) {
+      if (greenSectionTop < treshold && redSectionTop > treshold) {
         setActiveHomeSection("green");
       }
-      if (redSectionTop < 0 && redSectionBottom > 0) {
+      if (redSectionTop < treshold && redSectionBottom > treshold) {
         setActiveHomeSection("red");
       }
-      if (orangeSectionTop > 0 || redSectionBottom < 0) {
+      if (orangeSectionTop > treshold || redSectionBottom < treshold) {
         setActiveHomeSection("white");
       }
     };

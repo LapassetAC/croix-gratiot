@@ -17,7 +17,10 @@ const StyledContainer = styled.section`
   }
   h2 {
     grid-column: 3/8;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
+    @media ${({ theme }) => theme.minWidth.sm} {
+      margin-bottom: 45px;
+    }
   }
   .sliderBtn {
     justify-self: start;
@@ -32,6 +35,9 @@ const StyledContainer = styled.section`
     @media ${({ theme }) => theme.minWidth.sm} {
       grid-column: 3/5;
     }
+  }
+  .wine-card {
+    margin-top: 0;
   }
 `;
 
