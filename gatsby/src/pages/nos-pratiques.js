@@ -221,16 +221,9 @@ const StyledContainer = styled.div`
     }
   }
 
-  .large-text {
-    grid-column: 1 / 8;
-    font-family: "Moderat", sans-serif;
-    font-size: 16px;
-    line-height: 150%;
-    text-align: center;
+  .largeText {
     margin-bottom: 120px;
     @media ${({ theme }) => theme.minWidth.sm} {
-      font-size: 20px;
-      line-height: 30px;
       margin-bottom: 210px;
       .line-break::before {
         content: " ";
@@ -334,7 +327,7 @@ const NosPratiques = () => {
         </p>
       </section>
       <section className="intro">
-        <p className="large-text">
+        <p className="largeText">
           <Trans>
             Depuis nos essais sur une parcelle en 2012, c’est maintenant
           </Trans>{" "}
