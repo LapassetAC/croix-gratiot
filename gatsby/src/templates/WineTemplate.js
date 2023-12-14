@@ -212,6 +212,8 @@ export default function WineTemplate({ data }) {
     return fieldItem ? fieldItem.value : "";
   };
 
+  console.log(data.sanityWine.adjectif.length);
+
   return (
     <StyledContainer>
       <section className="hero-section grid">
@@ -252,9 +254,9 @@ export default function WineTemplate({ data }) {
         )}
       </section>
       <section className="main-section grid">
-        <p className="intro-paragraph">
-          <span className="title">{title}</span>
-          {data.sanityWine.adjectif && (
+        {data.sanityWine.adjectif.length > 0 && (
+          <p className="intro-paragraph">
+            <span className="title">{title}</span>
             <span className="adjectif">
               ,{" "}
               {getValueForLanguage(
@@ -264,17 +266,17 @@ export default function WineTemplate({ data }) {
               )}
               .{" "}
             </span>
-          )}
-          {data.sanityWine.intro && (
-            <span className="intro">
-              {getValueForLanguage(
-                data.sanityWine.intro,
-                language,
-                fallbackLanguage
-              )}
-            </span>
-          )}
-        </p>
+            {data.sanityWine.intro && (
+              <span className="intro">
+                {getValueForLanguage(
+                  data.sanityWine.intro,
+                  language,
+                  fallbackLanguage
+                )}
+              </span>
+            )}
+          </p>
+        )}
         <div className="description">
           <h2>
             <Trans>Le mot des vignerons</Trans>
