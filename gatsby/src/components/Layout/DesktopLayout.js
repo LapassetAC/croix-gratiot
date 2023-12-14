@@ -151,9 +151,9 @@ export default function DesktopLayout({ children }) {
   const [transitionDirection, setTransitionDirection] = useState("left");
   const [isMounted, setIsMounted] = useState(false);
 
-  function handlePage(page) {
-    setPageChange(page);
-  }
+  // function handlePage(page) {
+  //   setPageChange(page);
+  // }
 
   function handlePageChange(page) {
     const toDegustationPages = page.startsWith("/la-degustation/");
@@ -198,12 +198,13 @@ export default function DesktopLayout({ children }) {
     }, theme.pageTransitionTime * 1000);
   }
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+  // useEffect(() => {
+  //   setIsMounted(true);
+  // }, []);
 
   useEffect(() => {
-    isMounted && handlePageChange(pageChange);
+    // isMounted && handlePageChange(pageChange);
+    handlePageChange(pageChange);
   }, [pageChange]);
 
   const { language } = useI18next();
@@ -219,7 +220,7 @@ export default function DesktopLayout({ children }) {
     >
       <main>
         {children}
-        <Footer handlePageChange={handlePage} />
+        <Footer handlePageChange={handlePageChange} />
         {transitionIsActive && <div className="transitionMask"></div>}
       </main>
       <nav>
@@ -227,7 +228,7 @@ export default function DesktopLayout({ children }) {
           <button
             className="homeLink"
             aria-label="La Croix Gratiot logo"
-            onClick={() => handlePage("/")}
+            onClick={() => handlePageChange("/")}
           >
             <LogoLGCDesktop />
           </button>
@@ -243,7 +244,7 @@ export default function DesktopLayout({ children }) {
         <div>
           <button
             className={`${isEnglish ? "nosPratiquesEn" : "nosPratiques"}`}
-            onClick={() => handlePage("/nos-pratiques/")}
+            onClick={() => handlePageChange("/nos-pratiques/")}
           >
             <Trans>Nos Pratiques</Trans>
           </button>
@@ -251,7 +252,7 @@ export default function DesktopLayout({ children }) {
         <div>
           <button
             className={`${isEnglish ? "laDegustationEn" : "laDegustation"}`}
-            onClick={() => handlePage("/la-degustation/")}
+            onClick={() => handlePageChange("/la-degustation/")}
           >
             <Trans>La Dégustation</Trans>
           </button>
@@ -259,7 +260,7 @@ export default function DesktopLayout({ children }) {
         <div>
           <button
             className={`${isEnglish ? "nousRencontrerEn" : "nousRencontrer"}`}
-            onClick={() => handlePage("/nous-rencontrer/")}
+            onClick={() => handlePageChange("/nous-rencontrer/")}
           >
             <Trans>Nous rencontrer</Trans>
           </button>

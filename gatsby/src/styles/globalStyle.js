@@ -239,7 +239,6 @@ button {
 }
 .hero-img {
   @media ${({ theme }) => theme.minWidth.sm} {
-
   height: calc(100vh - 30px);
   }
 }
