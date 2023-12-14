@@ -48,9 +48,6 @@ const StyledSlider = styled(Slider)`
         padding: 0 15px;
       }
     }
-    img {
-      margin-bottom: 30px;
-    }
   }
 `;
 
