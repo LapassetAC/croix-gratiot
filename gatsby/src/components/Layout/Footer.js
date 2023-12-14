@@ -116,7 +116,11 @@ const Footer = ({ handlePageChange }) => {
         <h2>
           <Trans>Adresse</Trans>
         </h2>
-        <a href="https://www.google.fr/maps/dir//La+Croix+Gratiot,+Sainte+Croix,+Montagnac,+34530+Montagnac/@43.4487056,3.5270444,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x12ab86d1065040af:0xc820a3578a1dc20e!2m2!1d3.529626!2d43.448699?entry=ttu">
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://www.google.fr/maps/dir//La+Croix+Gratiot,+Sainte+Croix,+Montagnac,+34530+Montagnac/@43.4487056,3.5270444,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x12ab86d1065040af:0xc820a3578a1dc20e!2m2!1d3.529626!2d43.448699?entry=ttu"
+        >
           La Croix Gratiot,
           <br />
           Anaïs & Yves Ricome,
@@ -131,21 +135,39 @@ const Footer = ({ handlePageChange }) => {
           <Trans>Nous Suivre</Trans>
         </h2>
         <div>
-          <a href="https://www.facebook.com/lacroixgratiot/">
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://www.facebook.com/lacroixgratiot/"
+          >
             <img src={facebookIcon} alt="Facebook" />
           </a>
-          <a href="https://www.instagram.com/laxgratiot/?hl=fr">
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://www.instagram.com/laxgratiot/?hl=fr"
+          >
             <img src={instagramIcon} alt="Instagram" />
           </a>
         </div>
       </div>
       <div className="contact">
         <h2>Contact</h2>
-        <a href="tel:+33467252788" className="btn">
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="tel:+33467252788"
+          className="btn"
+        >
           <Arrow />
           +33(0)4 67 25 27 88
         </a>
-        <a href="mailto:contact@croix-gratiot.com" className="btn">
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="mailto:contact@croix-gratiot.com"
+          className="btn"
+        >
           <Arrow />
           contact@croix-gratiot.com
         </a>
@@ -158,11 +180,17 @@ const Footer = ({ handlePageChange }) => {
       </button>
       <p className="credits">
         <Trans>Site réalisé par </Trans>
-        <a href="https://clementlapasset.dev/">Clément</a>
+        <a target="_blank" rel="noreferrer" href="https://clementlapasset.dev/">
+          Clément
+        </a>
         <Trans> et </Trans>
-        <a href="https://alapasset.dev/">Adrien Lapasset</a>,{" "}
-        <Trans>photos par </Trans>
-        <a href="http://www.aureliablanc.com/">Aurélia Blanc</a>
+        <a target="_blank" rel="noreferrer" href="https://alapasset.dev/">
+          Adrien Lapasset
+        </a>
+        , <Trans>photos par </Trans>
+        <a target="_blank" rel="noreferrer" href="http://www.aureliablanc.com/">
+          Aurélia Blanc
+        </a>
       </p>
     </StyledContainer>
   );

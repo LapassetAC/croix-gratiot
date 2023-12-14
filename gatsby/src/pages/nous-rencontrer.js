@@ -121,11 +121,21 @@ const NousRencontrer = ({ className }) => {
         </div>
         <div className="contact">
           <h2>Contact</h2>
-          <a href="tel:+33467252788" className="btn">
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="tel:+33467252788"
+            className="btn"
+          >
             <Arrow />
             +33(0)4 67 25 27 88
           </a>
-          <a href="mailto:contact@croix-gratiot.com" className="btn">
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="mailto:contact@croix-gratiot.com"
+            className="btn"
+          >
             <Arrow />
             contact@croix-gratiot.com
           </a>
