@@ -129,7 +129,8 @@ export default {
     },
     {
       name: 'millesime',
-      title: 'Millésime',
+      title: 'Appellation et millésime',
+      descritpion: 'Par exemple : AOP Languedoc Blanc 2020',
       type: 'string',
     },
     {
