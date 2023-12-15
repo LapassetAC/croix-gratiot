@@ -327,9 +327,9 @@ const HomePage = ({ data }) => {
       <div className="grid">
         <section className="largeText">
           <Trans>
-            Entre bassin de Thau et collines de pins découvrez des vins bio issu
-            d’un travail en famille, de père en fille, dans le respect de la
-            nature.
+            Entre le bassin de Thau et les collines de pins, découvrez des vins
+            bio issus d’un travail en famille, de père en fille, dans le respect
+            de la nature.
           </Trans>
         </section>
       </div>
@@ -350,8 +350,8 @@ const HomePage = ({ data }) => {
               Au cœur des appellations Languedoc et Picpoul de Pinet, le domaine
               La Croix Gratiot est ancré dans un terroir riche en couleurs.
               Situé sur les collines argilo-calcaires et bercé par les alizés
-              marins chargés des senteurs de garrigue, notre vignoble s’étend
-              sur 35 hectares.
+              marins chargés de senteurs de garrigue, notre vignoble s’étend sur
+              35 hectares.
             </Trans>
           </p>
         </section>
@@ -396,7 +396,7 @@ const HomePage = ({ data }) => {
           <p>
             <Trans>
               Notre philosophie se fonde sur un profond respect pour la nature,
-              le terroir, et l’humain. Guidés par l’approche biodynamique, nous
+              le terroir et l’humain. Guidés par l’approche biodynamique, nous
               aspirons à une viticulture qui vit en harmonie avec son
               écosystème, valorisant la biodiversité et l'équilibre
               environnemental.

@@ -315,8 +315,8 @@ const NosPratiques = () => {
         </h1>
         <p className="hero-text">
           <Trans>
-            Cette approche, basée sur de l’observation, nous rapproche encore
-            plus de nos vignes.
+            Cette approche, basée sur l’observation, nous rapproche encore plus
+            de nos vignes.
           </Trans>
           <br />
           <Trans>
@@ -343,8 +343,8 @@ const NosPratiques = () => {
         />
         <p className="intro-1">
           <Trans>
-            Attaché au maintien de la biodiversité, nous plantons des haies
-            multi essences en bordure de parcelles et sur les berges du ruisseau
+            Attachés au maintien de la biodiversité, nous plantons des haies
+            multi-essences en bordure de parcelles et sur les berges du ruisseau
             qui serpente le domaine. Nous avons également fait un essai dans une
             parcelle, tout les 8 rangs de vignes une rangée de plantes
             aromatiques.
@@ -424,10 +424,10 @@ const NosPratiques = () => {
         <p className="vinification-1">
           <Trans>
             La majorité des vendanges est mécanique de nuit, pour certaines
-            cuvées elle est manuelle. Chaque millésime est tellement différent,
-            il faut savoir observer, goûter, décider de la bonne date de récolte
-            et se faire discret pour accompagner les fermentations des raisins
-            et laisser le terroir s’exprimer.
+            cuvées elle sont manuelles. Chaque millésime est tellement
+            différent, il faut savoir observer, goûter, décider de la bonne date
+            de récolte et se faire discret pour accompagner les fermentations
+            des raisins et laisser le terroir s’exprimer.
           </Trans>
         </p>
         <StaticImage
@@ -439,7 +439,7 @@ const NosPratiques = () => {
         <p className="vinification-2">
           <Trans>
             Les vendanges sont une période super excitante, une année de travail
-            à la vigne pour obtenir des raisins, qui rentrent enfin à l’abris
+            à la vigne pour obtenir des raisins, qui rentrent enfin à l'abri
             pour se transformer en vin. Les odeurs de fruits se propagent
             partout.
           </Trans>
@@ -472,7 +472,7 @@ const NosPratiques = () => {
         />
         <p className="elevage-text">
           <Trans>
-            Chaque année de nouveaux contenants sont achetés pour permettre une
+            Chaque année, de nouveaux contenants sont achetés pour permettre une
             rotation mais aussi pour réaliser des expérimentations. Depuis 2012,
             nous réalisons des élevages en dolia de terre cuite, céramique et
             grès. Nous nous sommes équipés de cuves béton et de demi-muids.

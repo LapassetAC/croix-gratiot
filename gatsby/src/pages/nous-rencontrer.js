@@ -166,7 +166,7 @@ const NousRencontrer = ({ className }) => {
           <p>
             <span className="bold">
               <Trans>
-                Du lundi au vendredi de 10h00 à 12h30 et de 14h00 à 17h30.
+                Du lundi au vendredi, de 10h00 à 12h30 et de 14h00 à 17h30.
               </Trans>
             </span>
             <br />
@@ -186,9 +186,7 @@ const NousRencontrer = ({ className }) => {
             <br />
             <Trans>Langues parlées au caveau : français et anglais.</Trans>
             <br />
-            <Trans>
-              Possibilité d’accueillir des groupes, sur réservation.
-            </Trans>
+            <Trans>Possibilité d’accueillir des groupes sur réservation.</Trans>
             <br />
             <Trans>Visites et dégustations gratuites.</Trans>
             <br />
