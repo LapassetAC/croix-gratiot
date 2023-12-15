@@ -137,6 +137,7 @@ const WineCard = ({ wine }) => {
         image={portraitImage}
         alt={wine.title}
         objectFit="contain"
+        objectPosition="bottom"
       />
       <div className="wine-title">{wine.title}</div>
       {wine.certification && (
