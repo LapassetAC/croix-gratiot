@@ -98,7 +98,7 @@ const StyledContainer = styled.div`
             z-index: 1;
           }
         }
-        .gatsby-image-wrapper {
+        .leDomaineImg {
           grid-column: 1/8;
           margin-top: -30px;
           @media ${({ theme }) => theme.minWidth.sm} {
@@ -106,10 +106,16 @@ const StyledContainer = styled.div`
             margin-top: -60px;
           }
         }
+        .leCaveauImg {
+          grid-column: 1/4;
+          @media ${({ theme }) => theme.minWidth.sm} {
+            grid-column: 1/3;
+          }
+        }
         p {
           grid-column: 1/8;
           @media ${({ theme }) => theme.minWidth.sm} {
-            grid-column: 4/8;
+            grid-column: 3/7;
           }
         }
       }
@@ -341,7 +347,14 @@ const HomePage = ({ data }) => {
             <Trans>domaine</Trans>
           </h2>
           <StaticImage
+            className="leDomaineImg"
             src="../assets/imgs/home/leDomaine.jpg"
+            alt=""
+            layout="fullWidth"
+          />
+          <StaticImage
+            className="leCaveauImg"
+            src="../assets/imgs/home/leCaveauImg.jpg"
             alt=""
             layout="fullWidth"
           />
