@@ -371,9 +371,11 @@ const NosPratiques = () => {
           layout="fullWidth"
         />
         <p className="team-description first">
-          Lénaïc & Karim,
-          <br />
-          <Trans>l’équipe viticole</Trans>
+          <Trans>
+            À la vigne, à la cave ou à la livraison, Lenaïc associe polyvalence
+            et bonne humeur ! Karim aime le travail bien fait, toujours souriant
+            !
+          </Trans>
         </p>
       </section>
       <section className="nos-cepages">
@@ -452,7 +454,9 @@ const NosPratiques = () => {
           alt="TeamImage2"
           layout="fullWidth"
         />
-        <p className="team-description second">Thomas</p>
+        <p className="team-description second">
+          Thomas, la vigne n'a pas de secret pour lui.
+        </p>
       </section>
       <section className="elevage">
         <h2 className="sectionTitle elevage">

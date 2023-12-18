@@ -26,6 +26,19 @@ const StyledContainer = styled.div`
       aspect-ratio: auto;
     }
   }
+  .team-description {
+    grid-column: 1 / 8;
+    font-family: "Moderat Mono", sans-serif;
+    font-size: 10px;
+    line-height: 15px;
+    @media ${({ theme }) => theme.minWidth.sm} {
+      grid-column: 1 / 4;
+      grid-row: 3 / 4;
+      font-size: 14px;
+      line-height: 21px;
+      margin-top: -45px;
+    }
+  }
   h1 {
     grid-column: 1 / 8;
     @media ${({ theme }) => theme.minWidth.sm} {
@@ -102,6 +115,12 @@ const NousRencontrer = ({ className }) => {
           layout="fullWidth"
           loading="eager"
         />
+        <p className="team-description">
+          <Trans>
+            Aude, assistante de choc ! Elle vous reçoit au caveau, au téléphone,
+            gère la logistique... elle est partout !
+          </Trans>
+        </p>
         <h1 className="sectionTitle">
           <Trans>Nous</Trans>
           <br />
