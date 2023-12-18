@@ -455,7 +455,7 @@ const NosPratiques = () => {
           layout="fullWidth"
         />
         <p className="team-description second">
-          Thomas, la vigne n'a pas de secret pour lui.
+          <Trans>Thomas, la vigne n'a pas de secret pour lui.</Trans>
         </p>
       </section>
       <section className="elevage">
