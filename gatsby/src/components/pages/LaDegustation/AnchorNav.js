@@ -12,7 +12,6 @@ const StyledContainer = styled.section`
     gap: 15px;
     top: 45px;
     padding: 15px 0;
-    margin-bottom: 75px;
     background-color: ${(props) => props.theme.colors.backgroundLight};
   }
   @media ${({ theme }) => theme.minWidth.md} {

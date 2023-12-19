@@ -49,13 +49,8 @@ const StyledContainer = styled.div`
     }
   }
   .wine-section {
-    padding-bottom: 120px;
     @media ${({ theme }) => theme.minWidth.sm} {
-      padding-bottom: 210px;
       grid-template-rows: auto 1fr;
-    }
-    @media ${({ theme }) => theme.minWidth.lg} {
-      padding-bottom: 240px;
     }
   }
   .category-title {
@@ -131,6 +126,16 @@ const StyledColorSquare = styled.div`
   }
 `;
 
+const StyledElement = styled(Element)`
+  padding: 60px 0;
+  @media ${({ theme }) => theme.minWidth.sm} {
+    padding: 100px 0;
+  }
+  @media ${({ theme }) => theme.minWidth.lg} {
+    padding: 120px;
+  }
+`;
+
 const LaDegustation = ({ data }) => {
   const wines = data.allSanityWine.nodes;
   const categoryOrder = ["blanc", "rose", "rouge", "autre"];
@@ -163,7 +168,7 @@ const LaDegustation = ({ data }) => {
       </section>
       <AnchorNavBar data={categories} />
       {categories.map((category) => (
-        <Element name={category} key={category} id={category}>
+        <StyledElement name={category} key={category} id={category}>
           <div className={`${category} wine-section grid`}>
             <StyledColorSquare
               color={
@@ -214,7 +219,7 @@ const LaDegustation = ({ data }) => {
                 ))}
             </div>
           </div>
-        </Element>
+        </StyledElement>
       ))}
     </StyledContainer>
   );
