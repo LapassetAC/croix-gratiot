@@ -99,8 +99,11 @@ const StyledContainer = styled.div`
     }
   }
   .nousRencontrerBottomImage {
-    grid-column: 1 / 8;
-    margin-bottom: 90px;
+    grid-column: 2 / 8;
+    margin-top: 30px;
+    @media ${({ theme }) => theme.minWidth.sm} {
+      margin-top: 120px;
+    }
   }
 `;
 
@@ -217,13 +220,13 @@ const NousRencontrer = ({ className }) => {
             <br />
           </p>
         </div>
+        <StaticImage
+          className="nousRencontrerBottomImage"
+          src="../assets/imgs/nousRencontrer/nousRencontrerBottomImage.jpg"
+          alt="nousRencontrerBottomImage"
+          layout="fullWidth"
+        />
       </section>
-      <StaticImage
-        className="nousRencontrerBottomImage"
-        src="../assets/imgs/nousRencontrer/nousRencontrerBottomImage.jpg"
-        alt="nousRencontrerBottomImage"
-        layout="fullWidth"
-      />
     </StyledContainer>
   );
 };
