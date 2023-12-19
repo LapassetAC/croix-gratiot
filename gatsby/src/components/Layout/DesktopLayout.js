@@ -151,10 +151,6 @@ export default function DesktopLayout({ children }) {
   const [transitionDirection, setTransitionDirection] = useState("left");
   const [isMounted, setIsMounted] = useState(false);
 
-  // function handlePage(page) {
-  //   setPageChange(page);
-  // }
-
   function handlePageChange(page) {
     const toDegustationPages = page.startsWith("/la-degustation/");
     const fromDegustationPages = originalPath.startsWith("/la-degustation/");
@@ -198,13 +194,12 @@ export default function DesktopLayout({ children }) {
     }, theme.pageTransitionTime * 1000);
   }
 
-  // useEffect(() => {
-  //   setIsMounted(true);
-  // }, []);
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   useEffect(() => {
-    // isMounted && handlePageChange(pageChange);
-    handlePageChange(pageChange);
+    isMounted && handlePageChange(pageChange);
   }, [pageChange]);
 
   const { language } = useI18next();
