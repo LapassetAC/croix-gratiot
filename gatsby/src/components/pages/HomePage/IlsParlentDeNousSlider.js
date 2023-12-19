@@ -33,6 +33,12 @@ const StyledSlider = styled(Slider)`
   @media ${({ theme }) => theme.minWidth.sm} {
     grid-column: 3/7;
   }
+  .slick-list {
+    padding: 0 7.5px;
+    @media ${({ theme }) => theme.minWidth.sm} {
+      padding: 0;
+    }
+  }
   .slick-track {
     display: flex;
     align-items: baseline;
@@ -70,12 +76,11 @@ const sliderSettings = {
   arrows: false,
   responsive: [
     {
-      breakpoint: 1024,
+      breakpoint: 768,
       settings: {
-        slidesToShow: 1,
+        slidesToShow: 1.2,
         slidesToScroll: 1,
-        centerMode: true,
-        centerPadding: "45px",
+        infinite: false,
       },
     },
   ],
