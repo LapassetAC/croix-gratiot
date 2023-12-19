@@ -99,11 +99,16 @@ const IlsParlentDeNousSlider = () => {
             <p>
               <Trans>
                 « Anaïs Ricôme, l'iconoclaste de Picpoul de Pinet. »
-                <br />« Elle fait ses classes en Nouvelle-Zélande et ne cesse
+              </Trans>
+              <br />
+              <Trans>
+                « Elle fait ses classes en Nouvelle-Zélande et ne cesse
                 d'expérimenter à la vigne comme à la cave. »
               </Trans>
               <span className="source">
-                Trois figures inspirantes au salon Millésime Bio, janvier 2023
+                <Trans>
+                  Trois figures inspirantes au salon Millésime Bio, janvier 2023
+                </Trans>
               </span>
             </p>
           </div>
@@ -115,10 +120,14 @@ const IlsParlentDeNousSlider = () => {
               <Trans>
                 « Neuf jeunes femmes qui dirigent avec brio, innovent et font
                 bouger les lignes. »
-                <br />« L'élevage en jarre tend et allonge les vins, c'est
-                magique ! »
               </Trans>
-              <span className="source">La vigne au féminin, novembre 2023</span>
+              <br />
+              <Trans>
+                « L'élevage en jarre tend et allonge les vins, c'est magique ! »
+              </Trans>
+              <span className="source">
+                La vigne au féminin, <Trans>novembre</Trans> 2023
+              </span>
             </p>
           </div>
         </div>
@@ -136,7 +145,7 @@ const IlsParlentDeNousSlider = () => {
                 ce prix-là il faut remplir son coffre ! »
               </Trans>
               <span className="source">
-                Languedoc : le temps des grands vins, avril 2023
+                Languedoc : le temps des grands vins, <Trans>avril</Trans> 2023
               </span>
             </p>
           </div>
@@ -150,7 +159,7 @@ const IlsParlentDeNousSlider = () => {
                 meilleur parti de son terroir unique. »
               </Trans>
               <span className="source">
-                La revanche des vins blancs, mars 2023
+                La revanche des vins blancs, <Trans>mars</Trans> 2023
               </span>
             </p>
           </div>
