@@ -371,11 +371,7 @@ const NosPratiques = () => {
           layout="fullWidth"
         />
         <p className="team-description first">
-          <Trans>
-            À la vigne, à la cave ou à la livraison, Lenaïc associe polyvalence
-            et bonne humeur ! Karim aime le travail bien fait, toujours souriant
-            !
-          </Trans>
+          <Trans>Thomas, la vigne n'a pas de secret pour lui.</Trans>
         </p>
       </section>
       <section className="nos-cepages">
@@ -455,7 +451,11 @@ const NosPratiques = () => {
           layout="fullWidth"
         />
         <p className="team-description second">
-          <Trans>Thomas, la vigne n'a pas de secret pour lui.</Trans>
+          <Trans>
+            À la vigne, à la cave ou à la livraison, Lenaïc associe polyvalence
+            et bonne humeur ! Karim aime le travail bien fait, toujours souriant
+            !
+          </Trans>
         </p>
       </section>
       <section className="elevage">

@@ -4,6 +4,9 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import LePoint from "assets/logos/lePoint.svg";
+import lExpress from "assets/logos/lExpress.svg";
+import revueVinFrance from "assets/logos/revueVinFrance.svg";
+import lesEchos from "assets/logos/lesEchos.svg";
 import Arrow from "assets/icons/Arrow";
 import { Trans } from "gatsby-plugin-react-i18next";
 
@@ -40,6 +43,13 @@ const StyledSlider = styled(Slider)`
     img {
       margin-bottom: 30px;
     }
+    p {
+      font-family: "Moderat Italic";
+    }
+    .source {
+      font-family: "Moderat";
+      display: block;
+    }
   }
 `;
 
@@ -75,30 +85,52 @@ const IlsParlentDeNousSlider = () => {
       </button>
       <StyledSlider {...sliderSettings} ref={sliderRef}>
         <div>
-          <img src={LePoint} alt="" />
+          <img src={lesEchos} alt="Logo Les Echos" />
           <p>
             <Trans>
-              « La Croix Gratiot est un domaine familial qui a su tirer le
-              meilleur parti de son terroir unique. »
+              « Anaïs Ricôme, l'iconoclaste de Picpoul de Pinet. »
+              <br />« Elle fait ses classes en Nouvelle-Zélande et ne cesse
+              d'expérimenter à la vigne comme à la cave. »
             </Trans>
+            <span className="source">
+              Trois figures inspirantes au salon Millésime Bio, janvier 2023
+            </span>
           </p>
         </div>
         <div>
-          <img src={LePoint} alt="" />
+          <img src={lExpress} alt="Logo L'Express" />
           <p>
             <Trans>
-              « La Croix Gratiot est un domaine familial qui a su tirer le
-              meilleur parti de son terroir unique. »
+              « Neuf jeunes femmes qui dirigent avec brio, innovent et font
+              bouger les lignes. L'élevage en jarre tend et allonge les vins,
+              c'est magique ! »
             </Trans>
+            <span className="source">La vigne au féminin, novembre 2023</span>
           </p>
         </div>
         <div>
-          <img src={LePoint} alt="" />
+          <img src={revueVinFrance} alt="Logo Revue du Vin de France" />
+          <p>
+            <Trans>
+              « La Croix Gratiot est un domaine emblématique de l'AOP Picpoul de
+              Pinet, sa plus belle expression est la cuvée Bréchallune, à ce
+              prix-là il faut remplir son coffre ! »
+            </Trans>
+            <span className="source">
+              Languedoc : le temps des grands vins, avril 2023
+            </span>
+          </p>
+        </div>
+        <div>
+          <img src={LePoint} alt="Logo Le Point" />
           <p>
             <Trans>
               « La Croix Gratiot est un domaine familial qui a su tirer le
               meilleur parti de son terroir unique. »
             </Trans>
+            <span className="source">
+              La revanche des vins blancs, mars 2023
+            </span>
           </p>
         </div>
       </StyledSlider>
