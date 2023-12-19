@@ -242,4 +242,16 @@ button {
   height: calc(100vh - 30px);
   }
 }
+@media print {
+  body {
+    visibility: hidden;
+  }
+  #no-print {
+    visibility: hidden; 
+  }
+  #print {
+    visibility: visible;
+  }
+}
+
 `;
