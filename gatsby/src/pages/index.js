@@ -112,16 +112,10 @@ const StyledContainer = styled.div`
             margin-top: -60px;
           }
         }
-        .leCaveauImg {
-          grid-column: 1/4;
-          @media ${({ theme }) => theme.minWidth.sm} {
-            grid-column: 1/3;
-          }
-        }
         p {
           grid-column: 1/8;
           @media ${({ theme }) => theme.minWidth.sm} {
-            grid-column: 3/7;
+            grid-column: 4/8;
           }
         }
       }
@@ -356,12 +350,6 @@ const HomePage = ({ data }) => {
           <StaticImage
             className="leDomaineImg"
             src="../assets/imgs/home/leDomaine.jpg"
-            alt=""
-            layout="fullWidth"
-          />
-          <StaticImage
-            className="leCaveauImg"
-            src="../assets/imgs/home/leCaveauImg.jpg"
             alt=""
             layout="fullWidth"
           />
