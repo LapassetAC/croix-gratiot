@@ -99,9 +99,10 @@ const StyledContainer = styled.div`
     }
   }
   .nousRencontrerBottomImage {
-    grid-column: 2 / 8;
+    grid-column: 1 / 8;
     margin-top: 30px;
     @media ${({ theme }) => theme.minWidth.sm} {
+      grid-column: 2 / 8;
       margin-top: 120px;
     }
   }
