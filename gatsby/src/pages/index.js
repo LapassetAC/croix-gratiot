@@ -88,6 +88,12 @@ const StyledContainer = styled.div`
       padding: 135px 0;
     }
 
+    &.orange,
+    &.green,
+    &.red {
+      padding: 0;
+    }
+
     &.orange {
       .leDomaine {
         h2 {
