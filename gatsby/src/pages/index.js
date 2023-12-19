@@ -321,6 +321,7 @@ const HomePage = ({ data }) => {
           alt=""
           layout="fullWidth"
           loading="eager"
+          quality={90}
         />
         <div className="heroContent grid">
           <h1>
