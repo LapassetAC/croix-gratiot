@@ -212,7 +212,9 @@ export default function WineTemplate({ data }) {
     return fieldItem ? fieldItem.value : "";
   };
 
-  console.log(data.sanityWine.adjectif.length);
+  const handlePrint = () => {
+    window.print();
+  };
 
   return (
     <StyledContainer>
@@ -378,9 +380,9 @@ export default function WineTemplate({ data }) {
             </div>
           )}
           <div className="buttons">
-            <a href="/" className="btn">
+            <a href="#" className="btn" onClick={handlePrint}>
               <Arrow />
-              <Trans>Fiche technique</Trans>
+              <Trans>Imprimer la page</Trans>
             </a>
             <Link className="btn" to="/nous-rencontrer/">
               <Arrow />
