@@ -99,6 +99,8 @@ const StyledContainer = styled.div`
   }
   .wineCardsContainer {
     grid-column: 2 / 7;
+    display: flex;
+    flex-direction: column;
     @media ${({ theme }) => theme.minWidth.sm} {
       grid-column: 4 / 8;
       grid-row: 1 / 3;
