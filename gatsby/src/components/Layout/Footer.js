@@ -4,7 +4,7 @@ import LogoLCGFooter from "assets/logos/LogoLCGFooter";
 import facebookIcon from "assets/icons/facebook.svg";
 import instagramIcon from "assets/icons/instagram.svg";
 import Arrow from "assets/icons/Arrow";
-import { Trans } from "gatsby-plugin-react-i18next";
+import { Trans, Link } from "gatsby-plugin-react-i18next";
 
 const StyledContainer = styled.footer`
   padding: 30px 0;
@@ -74,11 +74,17 @@ const StyledContainer = styled.footer`
     grid-column: 1/8;
     text-decoration: underline;
     text-align: left;
+    display: none;
     @media ${({ theme }) => theme.minWidth.sm} {
       grid-column: 6/8;
       grid-row: 2/2;
       justify-self: end;
     }
+  }
+  .mentions-mobile {
+    grid-column: 1/8;
+    text-decoration: underline;
+    text-align: left;
   }
   .credits {
     grid-column: 1/8;
@@ -91,6 +97,7 @@ const StyledContainer = styled.footer`
     }
   }
   .mentions,
+  .mentions-mobile,
   .credits {
     font-family: Moderat Mono;
     font-size: 10px;
@@ -178,6 +185,9 @@ const Footer = ({ handlePageChange }) => {
       >
         <Trans>Mentions légales</Trans>
       </button>
+      <Link className="mentions-mobile" to="/mentions-legales/">
+        <Trans>Mentions légales</Trans>
+      </Link>
       <p className="credits">
         <Trans>Site réalisé par </Trans>
         <a target="_blank" rel="noreferrer" href="https://clementlapasset.dev/">
