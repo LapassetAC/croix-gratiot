@@ -85,7 +85,7 @@ const StyledContainer = styled.div`
         flex-direction: column;
         justify-content: space-between;
         align-items: start;
-        padding: 15px 0 45px 14px;
+        padding: 15px 0 15px 14px;
         border: none;
         svg {
           transition: fill 0.2s;

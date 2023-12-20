@@ -38,7 +38,7 @@ const StyledContainer = styled.div`
   }
   .heroSection {
     @media ${({ theme }) => theme.minWidth.sm} {
-      height: calc(100vh - 60px);
+      height: calc(100vh - 30px);
     }
     .heroImg {
       grid-column: 1/8;
