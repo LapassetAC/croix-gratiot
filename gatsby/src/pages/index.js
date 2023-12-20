@@ -87,7 +87,10 @@ const StyledContainer = styled.div`
       padding: 150px 0;
     }
     &.largeText {
-      padding: 180px 0 60px;
+      padding: 60px 0;
+      @media ${({ theme }) => theme.minWidth.sm} {
+        padding: 180px 0 60px;
+      }
     }
     &.orange,
     &.green,
