@@ -1,10 +1,12 @@
 import winesData from "data/winesData";
-import { Link } from "gatsby";
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Trans } from "gatsby-plugin-react-i18next";
 import { StaticImage } from "gatsby-plugin-image";
 import ArrowBtn from "components/global/ArrowBtn";
+import { useContext } from "react";
+import { Context } from "data/Context";
+import { useI18next } from "gatsby-plugin-react-i18next";
 
 const StyledContainer = styled.section`
   text-align: center;
@@ -38,15 +40,16 @@ const StyledContainer = styled.section`
       margin-top: 0;
       grid-column: 5/8;
     }
-    li {
+    li button {
       font-family: Moderat Mono Bold;
       margin-bottom: 15px;
       @media ${({ theme }) => theme.minWidth.sm} {
-        margin-bottom: 30px;
+        margin-bottom: 45px;
+        font-size: 18px;
       }
     }
   }
-  button {
+  .voirTousBtn {
     grid-column: 1/8;
     margin: 15px auto 0;
     @media ${({ theme }) => theme.minWidth.sm} {
@@ -58,6 +61,8 @@ const StyledContainer = styled.section`
 export default function NosVinsSection() {
   const [activeCategory, setActiveCategory] = useState("blanc");
   const [isTransition, setIsTransition] = useState(false);
+  const { setPageChange, isMobile } = useContext(Context);
+  const { navigate } = useI18next();
 
   function handleActiveCategory(category) {
     setIsTransition(true);
@@ -65,6 +70,10 @@ export default function NosVinsSection() {
       setActiveCategory(category);
       setIsTransition(false);
     }, 200);
+  }
+
+  function handlePageChange(to) {
+    isMobile ? navigate(to) : setPageChange(to);
   }
 
   return (
@@ -109,16 +118,16 @@ export default function NosVinsSection() {
       <ul>
         {winesData.map(({ category, title }) => (
           <li key={category}>
-            <Link
+            <button
               onMouseEnter={() => handleActiveCategory(category)}
-              to={"/la-degustation/#" + category}
+              onClick={() => handlePageChange("/la-degustation/#" + category)}
             >
               {title}
-            </Link>
+            </button>
           </li>
         ))}
       </ul>
-      <ArrowBtn to="/la-degustation/" black>
+      <ArrowBtn to="/la-degustation/" black className="voirTousBtn">
         <Trans>Voir tous nos vins</Trans>
       </ArrowBtn>
     </StyledContainer>

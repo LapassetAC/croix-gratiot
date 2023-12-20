@@ -37,7 +37,7 @@ const arrow = (
   </svg>
 );
 
-const ArrowBtn = ({ children, black, to }) => {
+const ArrowBtn = ({ children, black, to, className }) => {
   const { setPageChange, isMobile } = useContext(Context);
   const { navigate } = useI18next();
 
@@ -46,7 +46,11 @@ const ArrowBtn = ({ children, black, to }) => {
   }
 
   return (
-    <StyledContainer $black={black} onClick={() => handlePageChange(to)}>
+    <StyledContainer
+      className={className}
+      $black={black}
+      onClick={() => handlePageChange(to)}
+    >
       {arrow}
       {children}
     </StyledContainer>

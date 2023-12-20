@@ -141,7 +141,7 @@ const StyledContainer = styled.div`
 `;
 
 export default function DesktopLayout({ children }) {
-  const { activeHomeSection, pageChange, setPageChange } = useContext(Context);
+  const { activeHomeSection, pageChange } = useContext(Context);
 
   const { originalPath, navigate } = useI18next();
 
@@ -199,8 +199,16 @@ export default function DesktopLayout({ children }) {
   }, []);
 
   useEffect(() => {
-    isMounted && handlePageChange(pageChange);
+    if (isMounted) {
+      handlePageChange(pageChange);
+    }
   }, [pageChange]);
+
+  useEffect(() => {
+    if (isMounted && !transitionIsActive) {
+      handlePageChange(originalPath);
+    }
+  }, [originalPath]);
 
   const { language } = useI18next();
   const isEnglish = language === "en";
