@@ -120,15 +120,10 @@ const WineCard = ({ wine }) => {
   function handlePageChange(to) {
     isMobile ? navigate(to) : setPageChange(to);
   }
-  const handleTouchEnd = (e) => {
-    e.preventDefault();
-    handlePageChange(`/la-degustation/${wine.slug.current}`);
-  };
 
   return (
     <StyledContainer
       onClick={() => handlePageChange(`/la-degustation/${wine.slug.current}`)}
-      onTouchEnd={handleTouchEnd}
       className="wine-card"
     >
       <GatsbyImage
