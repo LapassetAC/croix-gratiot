@@ -83,8 +83,7 @@ export default function NosVinsSection() {
     >
       <h2 className="sectionTitle">
         <Trans>Nos</Trans>
-        <br />
-        <Trans>Vins</Trans>
+        <br /> <Trans>Vins</Trans>
       </h2>
       {activeCategory === "blanc" ? (
         <StaticImage
