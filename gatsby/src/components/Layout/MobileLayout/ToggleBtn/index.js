@@ -15,8 +15,7 @@ const StyledContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    transition: all ${(props) => props.theme.transitionTime}s
-      ${(props) => props.theme.cubicBezier.base};
+    transition: all 0.4s ${(props) => props.theme.cubicBezier.base};
     transform: translateY(${({ $isNavOpen }) => $isNavOpen && -2}px);
     ${(props) =>
       props.$isNavOpen ? "width: 20px; height: 20px;" : "width: 20px;"};
@@ -24,7 +23,7 @@ const StyledContainer = styled.div`
     span {
       background: ${(props) => props.theme.colors.black};
       height: 1.5px;
-      transition: ${(props) => props.theme.transitionTime}s;
+      transition: 0.4s;
       width: 100%;
       ${(props) => props.theme.cubicBezier.base};
       &:nth-of-type(1) {

@@ -31,7 +31,7 @@ const StyledMobileLinksContainer = styled.section`
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  transition: all ${(props) => props.theme.transitionTime}s;
+  transition: all 0.4s;
   visibility: ${(props) => (props.$isNavOpen ? "visible" : "hidden")};
   opacity: ${(props) => (props.$isNavOpen ? "1" : "0")};
   position: fixed;
