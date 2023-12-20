@@ -85,9 +85,11 @@ const StyledContainer = styled.div`
   section:not(.heroSection) {
     padding: 60px 0;
     @media ${({ theme }) => theme.minWidth.sm} {
-      padding: 135px 0;
+      padding: 150px 0;
     }
-
+    &.largeText {
+      padding: 180px 0 60px;
+    }
     &.orange,
     &.green,
     &.red {
@@ -202,7 +204,7 @@ const StyledContainer = styled.div`
           grid-column: 1/8;
           @media ${({ theme }) => theme.minWidth.sm} {
             grid-column: 3/8;
-            margin-bottom: 90px;
+            margin-bottom: 60px;
           }
         }
       }
