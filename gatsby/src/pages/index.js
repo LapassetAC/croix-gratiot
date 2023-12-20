@@ -62,12 +62,19 @@ const StyledContainer = styled.div`
           font-size: 4vw;
         }
         &:first-child {
-          grid-row: 0 / 3;
-          grid-column: 2 / 8;
+          grid-row: 0/3;
+          grid-column: 2/8;
         }
         &:last-child {
-          grid-column: 5 / 8;
           grid-row: 3/3;
+          grid-column: 3/8;
+          text-align: right;
+          margin-right: 15px;
+          @media ${({ theme }) => theme.minWidth.sm} {
+            grid-column: 5/8;
+            text-align: left;
+            margin-right: 0;
+          }
         }
       }
       svg {
