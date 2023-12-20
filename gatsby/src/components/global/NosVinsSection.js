@@ -1,8 +1,8 @@
 import winesData from "data/winesData";
 import { Link } from "gatsby";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { Trans, useI18next } from "gatsby-plugin-react-i18next";
+import { Trans } from "gatsby-plugin-react-i18next";
 import { StaticImage } from "gatsby-plugin-image";
 import ArrowBtn from "components/global/ArrowBtn";
 
@@ -54,7 +54,7 @@ const StyledContainer = styled.section`
   }
 `;
 
-export default function NosVinsSection({}) {
+export default function NosVinsSection() {
   const [activeCategory, setActiveCategory] = useState("blanc");
 
   return (

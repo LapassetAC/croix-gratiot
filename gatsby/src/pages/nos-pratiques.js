@@ -1,9 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import styled from "styled-components";
-import winesData from "data/winesData";
-import { Link } from "gatsby-plugin-react-i18next";
-import ArrowBtn from "components/global/ArrowBtn";
 import { Trans } from "gatsby-plugin-react-i18next";
 import { graphql } from "gatsby";
 import { Seo } from "components/global/Seo";
@@ -295,8 +292,6 @@ const StyledContainer = styled.div`
 `;
 
 const NosPratiques = () => {
-  const [activeCategory, setActiveCategory] = useState("blanc");
-
   return (
     <StyledContainer>
       <section className="hero-section">
