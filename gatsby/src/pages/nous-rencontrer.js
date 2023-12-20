@@ -175,6 +175,8 @@ const NousRencontrer = ({ className }) => {
             </Trans>
           </p>
           <a
+            target="_blank"
+            rel="noreferrer"
             href="https://www.google.fr/maps/dir//La+Croix+Gratiot,+Sainte+Croix,+Montagnac,+34530+Montagnac/@43.4487056,3.5270444,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x12ab86d1065040af:0xc820a3578a1dc20e!2m2!1d3.529626!2d43.448699?entry=ttu"
             className="btn"
           >
