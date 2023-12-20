@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import styled from "styled-components";
-import winesData from "data/winesData";
-import { Link } from "gatsby-plugin-react-i18next";
-import ArrowBtn from "components/global/ArrowBtn";
 import { Trans } from "gatsby-plugin-react-i18next";
 import { graphql } from "gatsby";
 import { Seo } from "components/global/Seo";
+import NosVinsSection from "components/global/NosVinsSection";
 
 const StyledContainer = styled.div`
   section {
@@ -294,8 +292,6 @@ const StyledContainer = styled.div`
 `;
 
 const NosPratiques = () => {
-  const [activeCategory, setActiveCategory] = useState("blanc");
-
   return (
     <StyledContainer>
       <section className="hero-section">
@@ -484,57 +480,7 @@ const NosPratiques = () => {
           </Trans>
         </p>
       </section>
-      <section className="grid nosVinsSection">
-        <h2 className="sectionTitle">
-          <Trans>Nos</Trans>
-          <br />
-          <Trans>Vins</Trans>
-        </h2>
-        {activeCategory === "blanc" ? (
-          <StaticImage
-            src="../assets/imgs/nosVins/blanc.jpg"
-            alt=""
-            layout="fullWidth"
-            loading="eager"
-          />
-        ) : activeCategory === "rose" ? (
-          <StaticImage
-            src="../assets/imgs/nosVins/rose.jpg"
-            alt=""
-            layout="fullWidth"
-            loading="eager"
-          />
-        ) : activeCategory === "rouge" ? (
-          <StaticImage
-            src="../assets/imgs/nosVins/rouge.jpg"
-            alt=""
-            layout="fullWidth"
-            loading="eager"
-          />
-        ) : activeCategory === "autre" ? (
-          <StaticImage
-            src="../assets/imgs/nosVins/autre.jpg"
-            alt=""
-            layout="fullWidth"
-            loading="eager"
-          />
-        ) : null}
-        <ul>
-          {winesData.map(({ category, title }) => (
-            <li key={category}>
-              <Link
-                onMouseEnter={() => setActiveCategory(category)}
-                to={"/la-degustation/#" + category}
-              >
-                {title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <ArrowBtn to="/la-degustation/" black>
-          <Trans>Voir tous nos vins</Trans>
-        </ArrowBtn>
-      </section>
+      <NosVinsSection />
     </StyledContainer>
   );
 };

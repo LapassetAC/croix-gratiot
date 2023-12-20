@@ -189,54 +189,6 @@ button {
       opacity: 100%;
     } 
   }
-
-  .nosVinsSection {
-  text-align: center;
-  h2 {
-    grid-column: 1/8;
-    br {
-      display: none;
-    }
-    @media ${({ theme }) => theme.minWidth.sm} {
-      grid-column: 5/8;
-      br {
-        display: block;
-      }
-    }
-  }
-  .gatsby-image-wrapper {
-    grid-column: 1/8;
-    aspect-ratio: 0.9;
-    animation: nosVins 3s forwards;
-    @media ${({ theme }) => theme.minWidth.sm} {
-      grid-column: 2/5;
-      grid-row: 1/4;
-      aspect-ratio: 0.7;
-    }
-  }
-  ul {
-    margin-top: 15px;
-    grid-column: 1/8;
-    @media ${({ theme }) => theme.minWidth.sm} {
-      margin-top: 0;
-      grid-column: 5/8;
-    }
-    li {
-      font-family: Moderat Mono Bold;
-      margin-bottom: 15px;
-      @media ${({ theme }) => theme.minWidth.sm} {
-        margin-bottom: 30px;
-      }
-    }
-  }
-  button {
-    grid-column: 1/8;
-    margin: 15px auto 0;
-    @media ${({ theme }) => theme.minWidth.sm} {
-      grid-column: 5/8;
-    }
-  }
-}
 .hero-img {
   @media ${({ theme }) => theme.minWidth.sm} {
   height: calc(100vh - 30px);
