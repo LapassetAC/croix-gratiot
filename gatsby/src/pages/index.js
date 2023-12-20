@@ -1,16 +1,15 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import LesActualitesSection from "components/pages/HomePage/LesActualitesSection";
 import styled from "styled-components";
 import LCGlogoHero from "assets/logos/LogoLCGHero";
 import ArrowBtn from "components/global/ArrowBtn";
 import { Seo } from "components/global/Seo";
+import NosVinsSection from "components/global/NosVinsSection";
 import IlsParlentDeNousSlider from "components/pages/HomePage/IlsParlentDeNousSlider";
 import { useContext } from "react";
 import { Context } from "data/Context";
 import { graphql } from "gatsby";
-import winesData from "data/winesData";
-import { Link } from "gatsby";
 import { Trans, useI18next } from "gatsby-plugin-react-i18next";
 
 const StyledContainer = styled.div`
@@ -281,7 +280,6 @@ const HomePage = ({ data }) => {
   const greenSectionRef = useRef();
   const redSectionRef = useRef();
   const { setActiveHomeSection, activeHomeSection } = useContext(Context);
-  const [activeCategory, setActiveCategory] = useState("blanc");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -459,57 +457,7 @@ const HomePage = ({ data }) => {
         </section>
         <LesActualitesSection news={news} event={event} />
       </section>
-      <section className="grid nosVinsSection">
-        <h2 className="sectionTitle">
-          <Trans>Nos</Trans>
-          <br />
-          <Trans>Vins</Trans>
-        </h2>
-        {activeCategory === "blanc" ? (
-          <StaticImage
-            src="../assets/imgs/nosVins/blanc.jpg"
-            alt=""
-            layout="fullWidth"
-            loading="eager"
-          />
-        ) : activeCategory === "rose" ? (
-          <StaticImage
-            src="../assets/imgs/nosVins/rose.jpg"
-            alt=""
-            layout="fullWidth"
-            loading="eager"
-          />
-        ) : activeCategory === "rouge" ? (
-          <StaticImage
-            src="../assets/imgs/nosVins/rouge.jpg"
-            alt=""
-            layout="fullWidth"
-            loading="eager"
-          />
-        ) : activeCategory === "autre" ? (
-          <StaticImage
-            src="../assets/imgs/nosVins/autre.jpg"
-            alt=""
-            layout="fullWidth"
-            loading="eager"
-          />
-        ) : null}
-        <ul>
-          {winesData.map(({ category, title }) => (
-            <li key={category}>
-              <Link
-                onMouseEnter={() => setActiveCategory(category)}
-                to={"/la-degustation/#" + category}
-              >
-                {title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <ArrowBtn to="/la-degustation/" black>
-          <Trans>Voir tous nos vins</Trans>
-        </ArrowBtn>
-      </section>
+      <NosVinsSection />
     </StyledContainer>
   );
 };
