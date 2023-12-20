@@ -87,7 +87,7 @@ const StyledContainer = styled.footer`
       grid-row: 2/2;
     }
     @media ${({ theme }) => theme.minWidth.lg} {
-      grid-column: 3/6;
+      grid-column: 3/7;
     }
   }
   .mentions,
