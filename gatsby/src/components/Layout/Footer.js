@@ -63,11 +63,11 @@ const StyledContainer = styled.footer`
   .contact {
     grid-column: 1/8;
     @media ${({ theme }) => theme.minWidth.sm} {
-      grid-column: 4/8;
+      grid-column: 4/7;
       grid-row: 1/1;
     }
     @media ${({ theme }) => theme.minWidth.lg} {
-      grid-column: 5/8;
+      grid-column: 5/7;
     }
   }
   .mentions {
