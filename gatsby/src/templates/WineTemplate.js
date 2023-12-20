@@ -212,13 +212,9 @@ export default function WineTemplate({ data }) {
     return fieldItem ? fieldItem.value : "";
   };
 
-  const handlePrint = () => {
-    window.print();
-  };
-
   return (
     <StyledContainer>
-      <section className="hero-section grid">
+      <section id="print" className="hero-section grid">
         <GatsbyImage
           className="product-image"
           image={imageProduct}
@@ -255,7 +251,7 @@ export default function WineTemplate({ data }) {
           </div>
         )}
       </section>
-      <section className="main-section grid">
+      <section id="print" className="main-section grid">
         {data.sanityWine.adjectif.length > 0 && (
           <p className="intro-paragraph">
             <span className="title">{title}</span>
@@ -379,11 +375,11 @@ export default function WineTemplate({ data }) {
               </ul>
             </div>
           )}
-          <div className="buttons">
-            <a href="#" className="btn" onClick={handlePrint}>
+          <div className="buttons" id="no-print">
+            <button className="btn" onClick={() => window.print()}>
               <Arrow />
               <Trans>Imprimer la page</Trans>
-            </a>
+            </button>
             <Link className="btn" to="/nous-rencontrer/">
               <Arrow />
               <Trans>Trouver ce vin</Trans>
