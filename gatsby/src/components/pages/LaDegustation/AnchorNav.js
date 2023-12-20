@@ -66,7 +66,7 @@ const AnchorNavBar = ({ data }) => {
           key={index}
           to={category}
           activeClass="active"
-          offset={-200}
+          offset={-150}
           smooth
           spy={true}
         >
