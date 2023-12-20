@@ -80,7 +80,7 @@ const MentionsLegales = ({ className }) => {
           <br />
           Email : team@netlify.com
           <br />
-          <Trans>Téléphone</Trans>: (415) 691-1573
+          <Trans>Téléphone</Trans> : (415) 691-1573
           <br />
         </p>
         <h2>
