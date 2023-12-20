@@ -181,14 +181,6 @@ button {
     }
   }
 
-  @keyframes nosVins{
-    from {
-      opacity: 0%;
-    }
-    to {
-      opacity: 100%;
-    } 
-  }
 .hero-img {
   @media ${({ theme }) => theme.minWidth.sm} {
   height: calc(100vh - 30px);
