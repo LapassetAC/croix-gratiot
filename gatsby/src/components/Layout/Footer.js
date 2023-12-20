@@ -76,6 +76,7 @@ const StyledContainer = styled.footer`
     text-align: left;
     display: none;
     @media ${({ theme }) => theme.minWidth.sm} {
+      display: block;
       grid-column: 6/8;
       grid-row: 2/2;
       justify-self: end;
@@ -85,6 +86,9 @@ const StyledContainer = styled.footer`
     grid-column: 1/8;
     text-decoration: underline;
     text-align: left;
+    @media ${({ theme }) => theme.minWidth.sm} {
+      display: none;
+    }
   }
   .credits {
     grid-column: 1/8;

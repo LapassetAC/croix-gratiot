@@ -2,6 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 import { graphql } from "gatsby";
 import { Seo } from "components/global/Seo";
+import { Trans } from "gatsby-plugin-react-i18next";
 
 const StyledContainer = styled.div`
   section {
@@ -41,29 +42,37 @@ const MentionsLegales = ({ className }) => {
     <StyledContainer className={className}>
       <section className="grid">
         <h1 className="sectionTitle">
-          Mentions <br />
-          légales
+          <Trans>Mentions</Trans> <br />
+          <Trans>légales</Trans>
         </h1>
-        <h2>Éditeur du site</h2>
+        <h2>
+          <Trans>Éditeur du site</Trans>
+        </h2>
         <p>
-          Croix Gratiot, exploitation agricole à responsabilité limitée
+          <Trans>
+            Croix Gratiot, exploitation agricole à responsabilité limitée
+          </Trans>
           <br />
-          Capital social : 563 310,00 €<br />
-          Siège social : Domaine de Sainte Croix, 34530 Montagnac
+          <Trans>Capital social</Trans> : 563 310,00 €<br />
+          <Trans>Siège social</Trans> : Domaine de Sainte Croix, 34530 Montagnac
           <br />
           RCS Béziers : 440 264 158
           <br />
-          Représentant légal : Mme Anaïs Ricôme, Gérante
+          <Trans>Représentant légal</Trans>: Mme Anaïs Ricôme, Gérante
           <br />
         </p>
-        <h2>Contact</h2>
+        <h2>
+          <Trans>Contact</Trans>
+        </h2>
         <p>
-          Téléphone : 04 67 25 27 88
+          <Trans>Téléphone</Trans> : 04 67 25 27 88
           <br />
           Email : contact@croix-gratiot.com
           <br />
         </p>
-        <h2>Hébergement</h2>
+        <h2>
+          <Trans>Hébergement</Trans>
+        </h2>
         <p>
           Netlify, Inc.
           <br />
@@ -71,19 +80,27 @@ const MentionsLegales = ({ className }) => {
           <br />
           Email : team@netlify.com
           <br />
-          Téléphone : (415) 691-1573
+          <Trans>Téléphone</Trans>: (415) 691-1573
           <br />
         </p>
-        <h2>Propriété intellectuelle</h2>
+        <h2>
+          <Trans>Propriété intellectuelle</Trans>
+        </h2>
         <p>
-          Tous les contenus présents sur ce site, y compris les images, sont la
-          propriété de Croix Gratiot et sont protégés par les lois sur la
-          propriété intellectuelle.
+          <Trans>
+            Tous les contenus présents sur ce site, y compris les images, sont
+            la propriété de Croix Gratiot et sont protégés par les lois sur la
+            propriété intellectuelle.
+          </Trans>
         </p>
-        <h2>Conditions d'utilisation</h2>
+        <h2>
+          <Trans>Conditions d'utilisation</Trans>
+        </h2>
         <p>
-          Toute utilisation du site à des fins illégales ou non autorisées est
-          interdite.
+          <Trans>
+            Toute utilisation du site à des fins illégales ou non autorisées est
+            interdite.
+          </Trans>
         </p>
       </section>
     </StyledContainer>
