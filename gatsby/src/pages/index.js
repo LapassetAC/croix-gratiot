@@ -89,7 +89,7 @@ const StyledContainer = styled.div`
     }
   }
   section:not(.heroSection) {
-    padding: 60px 0;
+    padding: 75px 0;
     @media ${({ theme }) => theme.minWidth.sm} {
       padding: 150px 0;
     }

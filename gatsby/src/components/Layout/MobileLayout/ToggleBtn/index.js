@@ -21,7 +21,11 @@ const StyledContainer = styled.div`
       props.$isNavOpen ? "width: 20px; height: 20px;" : "width: 20px;"};
     cursor: pointer;
     span {
-      background: ${(props) => props.theme.colors.black};
+      background: ${({ $activeHomeSection, theme, $isNavOpen }) =>
+        !$isNavOpen &&
+        ($activeHomeSection === "red" || $activeHomeSection === "green")
+          ? theme.colors.backgroundLight
+          : theme.colors.brandBrown};
       height: 1.5px;
       transition: 0.4s;
       width: 100%;
@@ -40,9 +44,13 @@ const StyledContainer = styled.div`
   }
 `;
 
-const ToggleBtn = ({ onClick, $isNavOpen }) => {
+const ToggleBtn = ({ onClick, $isNavOpen, activeHomeSection }) => {
   return (
-    <StyledContainer onClick={() => onClick()} $isNavOpen={$isNavOpen}>
+    <StyledContainer
+      $activeHomeSection={activeHomeSection}
+      onClick={() => onClick()}
+      $isNavOpen={$isNavOpen}
+    >
       <div>
         <span></span>
         <span></span>
