@@ -21,7 +21,7 @@ const StyledContainer = styled.section`
 `;
 
 const StyledNavLink = styled(Link)`
-  font-family: "Moderat Mono Light";
+  font-family: "Moderat Mono";
   font-size: 10px;
   line-height: 150%;
   text-transform: uppercase;
@@ -66,7 +66,6 @@ const AnchorNavBar = ({ data }) => {
           key={index}
           to={category}
           activeClass="active"
-          offset={-150}
           smooth
           spy={true}
         >

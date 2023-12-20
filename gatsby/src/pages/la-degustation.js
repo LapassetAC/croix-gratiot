@@ -21,7 +21,7 @@ const StyledContainer = styled.div`
       margin-bottom: 110px;
     }
     @media ${({ theme }) => theme.minWidth.lg} {
-      margin-bottom: 180px;
+      margin-bottom: 150px;
     }
     .degustationHeroImage {
       aspect-ratio: 1;
@@ -131,10 +131,10 @@ const StyledColorSquare = styled.div`
 const StyledElement = styled(Element)`
   padding: 60px 0;
   @media ${({ theme }) => theme.minWidth.sm} {
-    padding: 100px 0;
+    padding: 120px 0;
   }
   @media ${({ theme }) => theme.minWidth.lg} {
-    padding: 120px;
+    padding: 150px 0;
   }
 `;
 
