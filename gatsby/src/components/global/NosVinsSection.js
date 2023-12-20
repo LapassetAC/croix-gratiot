@@ -23,7 +23,8 @@ const StyledContainer = styled.section`
   .gatsby-image-wrapper {
     grid-column: 1/8;
     aspect-ratio: 0.9;
-    animation: nosVins 3s forwards;
+    transition: opacity 0.2s;
+    opacity: ${({ $isTransition }) => ($isTransition ? 0 : 1)};
     @media ${({ theme }) => theme.minWidth.sm} {
       grid-column: 2/5;
       grid-row: 1/4;
@@ -56,9 +57,21 @@ const StyledContainer = styled.section`
 
 export default function NosVinsSection() {
   const [activeCategory, setActiveCategory] = useState("blanc");
+  const [isTransition, setIsTransition] = useState(false);
+
+  function handleActiveCategory(category) {
+    setIsTransition(true);
+    setTimeout(() => {
+      setActiveCategory(category);
+      setIsTransition(false);
+    }, 200);
+  }
 
   return (
-    <StyledContainer className="nosVinsSection grid">
+    <StyledContainer
+      className="nosVinsSection grid"
+      $isTransition={isTransition}
+    >
       <h2 className="sectionTitle">
         <Trans>Nos</Trans>
         <br />
@@ -97,7 +110,7 @@ export default function NosVinsSection() {
         {winesData.map(({ category, title }) => (
           <li key={category}>
             <Link
-              onMouseEnter={() => setActiveCategory(category)}
+              onMouseEnter={() => handleActiveCategory(category)}
               to={"/la-degustation/#" + category}
             >
               {title}
