@@ -46,6 +46,7 @@ const StyledContainer = styled.div`
       padding: 30px 0 0 17.5px;
       a,
       button {
+        font-family: "Moderat Mono";
         pointer-events: all;
         letter-spacing: 0.9px;
         text-transform: uppercase;
