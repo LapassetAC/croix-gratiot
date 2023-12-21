@@ -284,7 +284,6 @@ const HomePage = ({ data }) => {
   const { originalPath } = useI18next();
 
   const news = data.allSanityNews.nodes;
-  console.log(news);
   const event = data.allSanityEvents.nodes[0];
 
   const orangeSectionRef = useRef();

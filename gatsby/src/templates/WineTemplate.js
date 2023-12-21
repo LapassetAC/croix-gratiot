@@ -212,8 +212,6 @@ export default function WineTemplate({ data }) {
     return fieldItem ? fieldItem.value : "";
   };
 
-  console.log(data.sanityWine.adjectif, data.sanityWine.intro);
-
   return (
     <StyledContainer>
       <section id="print" className="hero-section grid">
@@ -231,7 +229,7 @@ export default function WineTemplate({ data }) {
             <img src={FRBioLogo} alt="Certification Bio FR" />
           </div>
         )}
-        {data.sanityWine.quote && data.sanityWine.quote[0] && (
+        {data.sanityWine.quote[0].value !== null && (
           <div className="quote">
             <img
               className="top lines"
@@ -254,7 +252,7 @@ export default function WineTemplate({ data }) {
         )}
       </section>
       <section id="print" className="main-section grid">
-        {data.sanityWine.adjectif && data.sanityWine.adjectif[0] && (
+        {data.sanityWine.adjectif[0].value !== null && (
           <p className="intro-paragraph">
             <span className="title">{title}</span>
             <span className="adjectif">
@@ -266,7 +264,7 @@ export default function WineTemplate({ data }) {
               )}
               .{" "}
             </span>
-            {data.sanityWine.intro && data.sanityWine.intro[0] && (
+            {data.sanityWine.intro[0].value !== null && (
               <span className="intro">
                 {getValueForLanguage(
                   data.sanityWine.intro,
@@ -290,7 +288,7 @@ export default function WineTemplate({ data }) {
           </p>
         </div>
         {videoUrl && <iframe src={videoUrl} title="Vidéo du vin"></iframe>}
-        {data.sanityWine.vinification && data.sanityWine.vinification[0] && (
+        {data.sanityWine.vinification[0].value !== null && (
           <div className="vinification">
             <h2>Vinification</h2>
             <p>
@@ -302,7 +300,7 @@ export default function WineTemplate({ data }) {
             </p>
           </div>
         )}
-        {data.sanityWine.degustation && data.sanityWine.degustation[0] && (
+        {data.sanityWine.degustation[0].value !== null && (
           <div className="degustation">
             <h2>
               <Trans>Dégustation</Trans>
