@@ -284,6 +284,7 @@ const HomePage = ({ data }) => {
   const { originalPath } = useI18next();
 
   const news = data.allSanityNews.nodes;
+  console.log(news);
   const event = data.allSanityEvents.nodes[0];
 
   const orangeSectionRef = useRef();
@@ -485,7 +486,7 @@ export const query = graphql`
         }
       }
     }
-    allSanityNews(limit: 3, sort: { date: DESC }) {
+    allSanityNews(limit: 3) {
       nodes {
         text
         newsUrl
