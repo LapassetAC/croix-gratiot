@@ -21,6 +21,7 @@ export default {
       title: 'Lien',
       description: '',
       type: 'url',
+      validation: (Rule) => Rule.required(),
     },
   ],
   preview: {
