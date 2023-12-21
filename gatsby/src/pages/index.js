@@ -485,7 +485,7 @@ export const query = graphql`
         }
       }
     }
-    allSanityNews(limit: 3) {
+    allSanityNews(limit: 3, sort: { date: DESC }) {
       nodes {
         text
         newsUrl
