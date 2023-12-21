@@ -5,6 +5,8 @@ import ToggleBtn from "./ToggleBtn";
 import Footer from "../Footer";
 import { StaticImage } from "gatsby-plugin-image";
 import { Trans, useI18next, Link } from "gatsby-plugin-react-i18next";
+import { useContext } from "react";
+import { Context } from "data/Context";
 
 const StyledContainer = styled.div`
   justify-content: space-between;
@@ -18,6 +20,29 @@ const StyledContainer = styled.div`
     align-items: center;
     height: 45px;
     padding: 0 15px;
+    transition: all 0.2s;
+    background-color: ${({ theme, $activeHomeSection, $isNavOpen }) =>
+      $isNavOpen
+        ? theme.colors.backgroundLight
+        : $activeHomeSection === "orange"
+        ? theme.colors.orange
+        : $activeHomeSection === "green"
+        ? theme.colors.green
+        : $activeHomeSection === "red"
+        ? theme.colors.red
+        : theme.colors.backgroundLight};
+    color: ${({ $activeHomeSection, theme, $isNavOpen }) =>
+      !$isNavOpen &&
+      ($activeHomeSection === "red" || $activeHomeSection === "green")
+        ? theme.colors.backgroundLight
+        : theme.colors.brandBrown};
+    svg {
+      fill: ${({ $activeHomeSection, theme, $isNavOpen }) =>
+        !$isNavOpen &&
+        ($activeHomeSection === "red" || $activeHomeSection === "green")
+          ? theme.colors.backgroundLight
+          : theme.colors.brandBrown};
+    }
   }
   .mobilePage {
     padding: 0 15px;
@@ -31,7 +56,7 @@ const StyledMobileLinksContainer = styled.section`
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  transition: all ${(props) => props.theme.transitionTime}s;
+  transition: all 0.4s;
   visibility: ${(props) => (props.$isNavOpen ? "visible" : "hidden")};
   opacity: ${(props) => (props.$isNavOpen ? "1" : "0")};
   position: fixed;
@@ -82,6 +107,7 @@ const StyledMobileLinksContainer = styled.section`
 `;
 
 export default function MobileLayout({ children }) {
+  const { activeHomeSection } = useContext(Context);
   const { originalPath } = useI18next();
   const [isNavOpen, setNavOpen] = useState(false);
 
@@ -101,12 +127,19 @@ export default function MobileLayout({ children }) {
   }, [isNavOpen]);
 
   return (
-    <StyledContainer>
+    <StyledContainer
+      $activeHomeSection={activeHomeSection}
+      $isNavOpen={isNavOpen}
+    >
       <header>
         <Link onClick={closeNav} to="/">
           <LogoLCGMobile />
         </Link>
-        <ToggleBtn onClick={toggleNav} $isNavOpen={isNavOpen} />
+        <ToggleBtn
+          activeHomeSection={activeHomeSection}
+          onClick={toggleNav}
+          $isNavOpen={isNavOpen}
+        />
       </header>
       <StyledMobileLinksContainer $isNavOpen={isNavOpen}>
         <div className="menuItemsWrapper">

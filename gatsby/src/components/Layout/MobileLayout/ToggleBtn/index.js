@@ -15,16 +15,19 @@ const StyledContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    transition: all ${(props) => props.theme.transitionTime}s
-      ${(props) => props.theme.cubicBezier.base};
+    transition: all 0.4s ${(props) => props.theme.cubicBezier.base};
     transform: translateY(${({ $isNavOpen }) => $isNavOpen && -2}px);
     ${(props) =>
       props.$isNavOpen ? "width: 20px; height: 20px;" : "width: 20px;"};
     cursor: pointer;
     span {
-      background: ${(props) => props.theme.colors.black};
+      background: ${({ $activeHomeSection, theme, $isNavOpen }) =>
+        !$isNavOpen &&
+        ($activeHomeSection === "red" || $activeHomeSection === "green")
+          ? theme.colors.backgroundLight
+          : theme.colors.brandBrown};
       height: 1.5px;
-      transition: ${(props) => props.theme.transitionTime}s;
+      transition: 0.4s;
       width: 100%;
       ${(props) => props.theme.cubicBezier.base};
       &:nth-of-type(1) {
@@ -41,9 +44,13 @@ const StyledContainer = styled.div`
   }
 `;
 
-const ToggleBtn = ({ onClick, $isNavOpen }) => {
+const ToggleBtn = ({ onClick, $isNavOpen, activeHomeSection }) => {
   return (
-    <StyledContainer onClick={() => onClick()} $isNavOpen={$isNavOpen}>
+    <StyledContainer
+      $activeHomeSection={activeHomeSection}
+      onClick={() => onClick()}
+      $isNavOpen={$isNavOpen}
+    >
       <div>
         <span></span>
         <span></span>
