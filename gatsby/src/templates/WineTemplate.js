@@ -197,7 +197,13 @@ export default function WineTemplate({ data }) {
     alcool,
     millesime,
     formats,
+    quote,
+    adjectif,
+    intro,
+    degustation,
+    vinification,
   } = data.sanityWine;
+
   const imageProduct = getImage(productImage.asset.gatsbyImageData);
   const imageLandscape = landscapeImage
     ? getImage(landscapeImage.asset.gatsbyImageData)
@@ -229,7 +235,7 @@ export default function WineTemplate({ data }) {
             <img src={FRBioLogo} alt="Certification Bio FR" />
           </div>
         )}
-        {data.sanityWine.quote[0].value !== null && (
+        {quote.length > 0 && (
           <div className="quote">
             <img
               className="top lines"
@@ -252,7 +258,7 @@ export default function WineTemplate({ data }) {
         )}
       </section>
       <section id="print" className="main-section grid">
-        {data.sanityWine.adjectif[0].value !== null && (
+        {adjectif.length > 0 && (
           <p className="intro-paragraph">
             <span className="title">{title}</span>
             <span className="adjectif">
@@ -264,7 +270,7 @@ export default function WineTemplate({ data }) {
               )}
               .{" "}
             </span>
-            {data.sanityWine.intro[0].value !== null && (
+            {intro.length > 0 && (
               <span className="intro">
                 {getValueForLanguage(
                   data.sanityWine.intro,
@@ -288,7 +294,7 @@ export default function WineTemplate({ data }) {
           </p>
         </div>
         {videoUrl && <iframe src={videoUrl} title="Vidéo du vin"></iframe>}
-        {data.sanityWine.vinification[0].value !== null && (
+        {vinification.length > 0 && (
           <div className="vinification">
             <h2>Vinification</h2>
             <p>
@@ -300,7 +306,7 @@ export default function WineTemplate({ data }) {
             </p>
           </div>
         )}
-        {data.sanityWine.degustation[0].value !== null && (
+        {degustation.length > 0 && (
           <div className="degustation">
             <h2>
               <Trans>Dégustation</Trans>
