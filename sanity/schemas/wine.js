@@ -42,7 +42,7 @@ export default {
     {
       name: 'productImage',
       title: 'Image produit',
-      description: 'Image de la bouteille sur fond transparent (format portrait)',
+      description: 'Image de la bouteille au format portrait sur fond transparent, sans bordures',
       type: 'image',
       validation: (Rule) => Rule.required(),
     },
