@@ -1,4 +1,5 @@
 const path = require("path");
+const { addNbspBeforeExclamation } = require("./src/utils/textTransformations");
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
@@ -31,7 +32,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   if (wines.length > 0) {
     wines.forEach((wine) => {
-      const title = wine.title;
+      const title = addNbspBeforeExclamation(wine.title);
       const voirAussiCategory =
         wine.category === "rose" ? "rouge" : wine.category;
       const slug = wine.slug.current;
