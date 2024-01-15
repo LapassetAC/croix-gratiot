@@ -268,9 +268,9 @@ export default function WineTemplate({ data }) {
                 language,
                 fallbackLanguage
               )}
-              .{" "}
             </span>
           )}
+          .{" "}
           {intro.length > 0 && (
             <span className="intro">
               {getValueForLanguage(
