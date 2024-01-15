@@ -63,22 +63,22 @@ const StyledContainer = styled.div`
       }
       button {
         &.nosPratiques {
-          transform: rotate(-90deg) translate(-52px, -65px);
+          transform: rotate(-90deg) translate(-48px, -65px);
         }
         &.nosPratiquesEn {
-          transform: rotate(-90deg) translate(-52px, -65px);
+          transform: rotate(-90deg) translate(-48px, -65px);
         }
         &.laDegustation {
-          transform: rotate(-90deg) translate(-55px, -69px);
+          transform: rotate(-90deg) translate(-53px, -69px);
         }
         &.laDegustationEn {
-          transform: rotate(-90deg) translate(-38px, -50px);
+          transform: rotate(-90deg) translate(-36px, -50px);
         }
         &.nousRencontrer {
-          transform: rotate(-90deg) translate(-68px, -83px);
+          transform: rotate(-90deg) translate(-59px, -78px);
         }
         &.nousRencontrerEn {
-          transform: rotate(-90deg) translate(-18px, -30px);
+          transform: rotate(-90deg) translate(-12px, -30px);
         }
       }
       &.homeNav {
