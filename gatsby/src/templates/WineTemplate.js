@@ -258,9 +258,9 @@ export default function WineTemplate({ data }) {
         )}
       </section>
       <section id="print" className="main-section grid">
-        {adjectif.length > 0 && (
-          <p className="intro-paragraph">
-            <span className="title">{title}</span>
+        <p className="intro-paragraph">
+          <span className="title">{title}</span>
+          {adjectif.length > 0 && (
             <span className="adjectif">
               ,{" "}
               {getValueForLanguage(
@@ -270,17 +270,17 @@ export default function WineTemplate({ data }) {
               )}
               .{" "}
             </span>
-            {intro.length > 0 && (
-              <span className="intro">
-                {getValueForLanguage(
-                  data.sanityWine.intro,
-                  language,
-                  fallbackLanguage
-                )}
-              </span>
-            )}
-          </p>
-        )}
+          )}
+          {intro.length > 0 && (
+            <span className="intro">
+              {getValueForLanguage(
+                data.sanityWine.intro,
+                language,
+                fallbackLanguage
+              )}
+            </span>
+          )}
+        </p>
         <div className="description">
           <h2>
             <Trans>Le mot des vignerons</Trans>
