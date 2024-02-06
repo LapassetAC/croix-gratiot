@@ -307,7 +307,7 @@ const NosPratiques = () => {
           <br />
           <Trans>viticulture</Trans>
           <br />
-          <Trans>biodynamique</Trans>
+          <Trans>biologique</Trans>
         </h1>
         <p className="hero-text">
           <Trans>
