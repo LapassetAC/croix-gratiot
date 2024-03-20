@@ -96,7 +96,8 @@ export default {
       name: 'videoUrl',
       title: 'URL vidéo (optionnel)',
       type: 'url',
-      description: 'URL complet de la vidéo',
+      description:
+        "Pour avoir la vidéo directement intégrée sur la page, utiliser Daylimotion avec un URL de type : https://www.dailymotion.com/embed/video/x3tknf où la dernière partie après video/ est l'identifiant de la vidéo accessible dans son URL ou via le bouton 'Partager'",
       validation: (Rule) =>
         Rule.uri({
           allowRelative: false,
