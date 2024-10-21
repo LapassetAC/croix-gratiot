@@ -218,6 +218,8 @@ export default function WineTemplate({ data }) {
     return fieldItem ? fieldItem.value : "";
   };
 
+  console.log(intro);
+
   return (
     <StyledContainer>
       <section id="print" className="hero-section grid">
@@ -258,29 +260,32 @@ export default function WineTemplate({ data }) {
         )}
       </section>
       <section id="print" className="main-section grid">
-        <p className="intro-paragraph">
-          <span className="title">{title}</span>
-          {adjectif.length > 0 && (
-            <span className="adjectif">
-              ,{" "}
-              {getValueForLanguage(
-                data.sanityWine.adjectif,
-                language,
-                fallbackLanguage
+        {/* {adjectif.length > 0 ||
+          (intro.length > 0 && (
+            <p className="intro-paragraph">
+              <span className="title">{title}</span>
+              {adjectif.length > 0 && (
+                <span className="adjectif">
+                  ,{" "}
+                  {getValueForLanguage(
+                    data.sanityWine.adjectif,
+                    language,
+                    fallbackLanguage
+                  )}
+                </span>
               )}
-            </span>
-          )}
-          .{" "}
-          {intro.length > 0 && (
-            <span className="intro">
-              {getValueForLanguage(
-                data.sanityWine.intro,
-                language,
-                fallbackLanguage
+              .{" "}
+              {intro.length > 0 && (
+                <span className="intro">
+                  {getValueForLanguage(
+                    data.sanityWine.intro,
+                    language,
+                    fallbackLanguage
+                  )}
+                </span>
               )}
-            </span>
-          )}
-        </p>
+            </p>
+          ))} */}
         <div className="description">
           <h2>
             <Trans>Le mot des vignerons</Trans>
