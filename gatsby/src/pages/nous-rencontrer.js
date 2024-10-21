@@ -207,11 +207,7 @@ const NousRencontrer = ({ className }) => {
             <span className="bold">
               <Trans>Samedi</Trans>
             </span>
-            <Trans>
-              {" "}
-              : sur rendez-vous (n’hésitez pas à nous appeler pour prendre
-              rendez-vous).
-            </Trans>
+            <Trans> : ouvert l'été, fermé le reste de l'année.</Trans>
             <br />
             <span className="bold">
               <Trans>Dimanche</Trans>
