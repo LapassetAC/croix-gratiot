@@ -203,12 +203,12 @@ const Footer = ({ handlePageChange }) => {
       </Link>
       <p className="credits">
         <Trans>Site réalisé par </Trans>
-        <a target="_blank" rel="noreferrer" href="https://clementlapasset.dev/">
-          Clément
-        </a>
-        <Trans> et </Trans>
-        <a target="_blank" rel="noreferrer" href="https://alapasset.dev/">
-          Adrien Lapasset
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://www.cascadestudio.fr/"
+        >
+          Studio Cascade
         </a>
         , <Trans>photos par </Trans>
         <a target="_blank" rel="noreferrer" href="http://www.aureliablanc.com/">
