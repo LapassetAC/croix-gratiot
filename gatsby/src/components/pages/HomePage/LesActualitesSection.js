@@ -6,7 +6,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Trans } from "gatsby-plugin-react-i18next";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Context } from "data/Context";
 
 const StyledContainer = styled.section`
@@ -126,25 +126,80 @@ const StyledEvent = styled.div`
 const LesActualitesSection = ({ news, event }) => {
   const { isMobile } = useContext(Context);
   const getEventImg = getImage(event.thumbImg.asset);
+  const [instagramPosts, setInstagramPosts] = useState([]);
 
-  const newsRender = news.map(({ text, thumbImg, newsUrl }) => {
-    const getGatsbyImage = getImage(thumbImg.asset);
-    return (
-      <StyledNew key={text}>
-        <GatsbyImage image={getGatsbyImage} alt={text} />
-        <p>{text}</p>
-        <a
-          href={newsUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="btn white"
-        >
-          <ArrowIcon />
-          <Trans>Voir le post</Trans>
-        </a>
-      </StyledNew>
-    );
-  });
+  useEffect(() => {
+    const fetchFacebookMedia = async () => {
+      try {
+        const baseUrl = "https://graph.facebook.com/v22.0";
+        const instagramAccountId = "17841403141990885";
+        const fields = "caption,media_url,permalink";
+        const limit = 3;
+        const accessToken = process.env.GATSBY_FACEBOOK_ACCESS_TOKEN;
+
+        const url = new URL(`${baseUrl}/${instagramAccountId}/media`);
+        url.searchParams.append("fields", fields);
+        url.searchParams.append("limit", limit);
+        url.searchParams.append("access_token", accessToken);
+
+        const response = await fetch(url.toString());
+        const data = await response.json();
+        console.log("Facebook Media Data:", data);
+        setInstagramPosts(data.data || []);
+      } catch (error) {
+        console.error("Error fetching Facebook media:", error);
+      }
+    };
+
+    fetchFacebookMedia();
+  }, []);
+
+  const newsRender =
+    instagramPosts.length > 0
+      ? instagramPosts.map(({ caption, media_url, permalink, id }) => {
+          return (
+            <StyledNew key={id}>
+              <img
+                src={media_url}
+                alt={caption}
+                style={{
+                  aspectRatio: 1,
+                  width: "100%",
+                  height: "auto",
+                  objectFit: "cover",
+                }}
+              />
+              <p>{caption}</p>
+              <a
+                href={permalink}
+                target="_blank"
+                rel="noreferrer"
+                className="btn white"
+              >
+                <ArrowIcon />
+                <Trans>Voir le post</Trans>
+              </a>
+            </StyledNew>
+          );
+        })
+      : news.map(({ text, thumbImg, newsUrl }) => {
+          const getGatsbyImage = getImage(thumbImg.asset);
+          return (
+            <StyledNew key={text}>
+              <GatsbyImage image={getGatsbyImage} alt={text} />
+              <p>{text}</p>
+              <a
+                href={newsUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="btn white"
+              >
+                <ArrowIcon />
+                <Trans>Voir le post</Trans>
+              </a>
+            </StyledNew>
+          );
+        });
 
   return (
     <StyledContainer className="grid">

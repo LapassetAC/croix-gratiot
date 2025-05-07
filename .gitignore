@@ -20,3 +20,4 @@ public
 *.pem
 *.tsbuildinfo
 *.local
+gatsby/.env.development
