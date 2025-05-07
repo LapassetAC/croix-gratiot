@@ -137,6 +137,11 @@ const LesActualitesSection = ({ news, event }) => {
         const limit = 3;
         const accessToken = process.env.GATSBY_FACEBOOK_ACCESS_TOKEN;
 
+        if (!accessToken) {
+          console.error("Facebook access token is not configured");
+          return;
+        }
+
         const url = new URL(`${baseUrl}/${instagramAccountId}/media`);
         url.searchParams.append("fields", fields);
         url.searchParams.append("limit", limit);
