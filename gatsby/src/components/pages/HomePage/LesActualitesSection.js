@@ -6,7 +6,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Trans } from "gatsby-plugin-react-i18next";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Context } from "data/Context";
 
 const StyledContainer = styled.section`
@@ -126,6 +126,22 @@ const StyledEvent = styled.div`
 const LesActualitesSection = ({ news, event }) => {
   const { isMobile } = useContext(Context);
   const getEventImg = getImage(event.thumbImg.asset);
+
+  useEffect(() => {
+    const fetchFacebookMedia = async () => {
+      try {
+        const response = await fetch(
+          `https://graph.facebook.com/v22.0/17841403141990885/media?fields=caption&access_token=${process.env.GATSBY_FACEBOOK_ACCESS_TOKEN}`
+        );
+        const data = await response.json();
+        console.log("Facebook Media Data:", data);
+      } catch (error) {
+        console.error("Error fetching Facebook media:", error);
+      }
+    };
+
+    fetchFacebookMedia();
+  }, []);
 
   const newsRender = news.map(({ text, thumbImg, newsUrl }) => {
     const getGatsbyImage = getImage(thumbImg.asset);
