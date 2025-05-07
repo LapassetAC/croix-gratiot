@@ -162,7 +162,12 @@ const LesActualitesSection = ({ news, event }) => {
               <img
                 src={media_url}
                 alt={caption}
-                style={{ width: "100%", height: "auto" }}
+                style={{
+                  aspectRatio: 1,
+                  width: "100%",
+                  height: "auto",
+                  objectFit: "cover",
+                }}
               />
               <p>{caption}</p>
               <a
