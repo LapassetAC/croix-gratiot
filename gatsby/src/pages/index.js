@@ -88,6 +88,19 @@ const StyledContainer = styled.div`
       }
     }
   }
+  .closureNotice {
+    padding: 20px 0 0;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    font-style: italic;
+    grid-column: 1/8;
+    @media ${({ theme }) => theme.minWidth.sm} {
+      font-size: 16px;
+      padding: 30px 0 0;
+      grid-column: 1/8;
+    }
+  }
   section:not(.heroSection) {
     padding: 75px 0;
     @media ${({ theme }) => theme.minWidth.sm} {
@@ -341,6 +354,9 @@ const HomePage = ({ data }) => {
         </div>
       </section>
       <div className="grid">
+      <div className="closureNotice">
+        <Trans>Fermeture exceptionnelle pour travaux, du lundi 13 octobre 2025 au vendredi 17 octobre 2025 inclus.</Trans>
+      </div>
         <section className="largeText">
           <Trans>
             Entre le bassin de Thau et les collines de pins, découvrez des vins
