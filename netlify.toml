@@ -1,4 +1,5 @@
 [build]
+  base = "."
   command = "cd gatsby && npm run build"
   publish = "gatsby/public"
 
