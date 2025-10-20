@@ -40,6 +40,17 @@ jobs:
           NETLIFY_ACCESS_TOKEN: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
           NEW_TOKEN: ${{ steps.refresh-token.outputs.new_token }}
         run: |
+          echo "Updating Netlify environment variable..."
+          echo "Site ID: $NETLIFY_SITE_ID"
+          echo "Token length: ${#NEW_TOKEN}"
+
+          # First, get current environment variables to verify access
+          curl -X GET \
+            "https://api.netlify.com/api/v1/sites/$NETLIFY_SITE_ID/env" \
+            -H "Authorization: Bearer $NETLIFY_ACCESS_TOKEN" \
+            -v
+
+          # Then update the variable
           curl -X PUT \
             "https://api.netlify.com/api/v1/sites/$NETLIFY_SITE_ID/env" \
             -H "Authorization: Bearer $NETLIFY_ACCESS_TOKEN" \
@@ -47,4 +58,5 @@ jobs:
             -d '{
               "key": "FACEBOOK_ACCESS_TOKEN",
               "value": "'"$NEW_TOKEN"'"
-            }'
+            }' \
+            -v
