@@ -81,18 +81,70 @@ exports.handler = async (event, context) => {
 
     const response = await axios.get(`${baseUrl}/${instagramAccountId}/media`, {
       params: {
-        fields: "caption,media_url,permalink",
-        limit: 3,
+        fields:
+          "id,caption,media_type,media_url,permalink,thumbnail_url,timestamp",
+        limit: 6,
         access_token: accessToken,
       },
     });
+
+    // Process posts to handle different media types
+    const posts = response.data.data || [];
+    const processedPosts = [];
+
+    for (const post of posts) {
+      let processedPost = {
+        id: post.id,
+        caption: post.caption || "",
+        media_type: post.media_type,
+        permalink: post.permalink,
+        timestamp: post.timestamp,
+        media_url: post.media_url,
+        thumbnail_url: post.thumbnail_url,
+      };
+
+      // For carousel posts (multiple images), get all images
+      if (post.media_type === "CAROUSEL_ALBUM") {
+        try {
+          const childrenResponse = await axios.get(
+            `${baseUrl}/${post.id}/children`,
+            {
+              params: {
+                fields: "id,media_type,media_url,thumbnail_url",
+                access_token: accessToken,
+              },
+            }
+          );
+
+          processedPost.children = childrenResponse.data.data || [];
+          // Use the first image as the main image for display
+          if (processedPost.children.length > 0) {
+            processedPost.media_url =
+              processedPost.children[0].media_url ||
+              processedPost.children[0].thumbnail_url;
+          }
+        } catch (childrenError) {
+          console.error(
+            "Error fetching carousel children:",
+            childrenError.response?.data
+          );
+          // Fallback to original media_url
+        }
+      }
+      // For videos, use thumbnail_url if available
+      else if (post.media_type === "VIDEO") {
+        processedPost.media_url = post.thumbnail_url || post.media_url;
+      }
+
+      processedPosts.push(processedPost);
+    }
 
     return {
       statusCode: 200,
       headers,
       body: JSON.stringify({
         success: true,
-        posts: response.data.data || [],
+        posts: processedPosts,
       }),
     };
   } catch (error) {

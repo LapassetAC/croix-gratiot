@@ -152,7 +152,9 @@ const LesActualitesSection = ({ news, event }) => {
 
   const newsRender =
     instagramPosts.length > 0
-      ? instagramPosts.map(({ caption, media_url, permalink, id }) => {
+      ? instagramPosts.slice(0, 3).map((post) => {
+          const { caption, media_url, permalink, id } = post;
+
           return (
             <StyledNew key={id}>
               <img
