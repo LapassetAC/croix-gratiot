@@ -1,7 +1,10 @@
 [build]
   base = "."
-  command = "cd gatsby && npm run build"
+  command = "cd gatsby && npm install && npm run build"
   publish = "gatsby/public"
+
+[build.environment]
+  NODE_VERSION = "18"
 
 [functions]
   directory = "netlify/functions"
