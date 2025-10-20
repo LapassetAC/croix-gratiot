@@ -354,9 +354,9 @@ const HomePage = ({ data }) => {
         </div>
       </section>
       <div className="grid">
-      <div className="closureNotice">
+        {/* <div className="closureNotice">
         <Trans>Fermeture exceptionnelle pour travaux, du lundi 13 octobre 2025 au vendredi 17 octobre 2025 inclus.</Trans>
-      </div>
+      </div> */}
         <section className="largeText">
           <Trans>
             Entre le bassin de Thau et les collines de pins, découvrez des vins
