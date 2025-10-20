@@ -24,6 +24,7 @@ jobs:
           npm install axios
 
       - name: Refresh Instagram Token
+        id: refresh-token
         env:
           FACEBOOK_APP_ID: ${{ secrets.FACEBOOK_APP_ID }}
           FACEBOOK_APP_SECRET: ${{ secrets.FACEBOOK_APP_SECRET }}
@@ -31,7 +32,9 @@ jobs:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_ACCESS_TOKEN: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
         run: |
-          node scripts/refresh-token.js
+          NEW_TOKEN=$(node scripts/refresh-token.js)
+          echo "new_token=$NEW_TOKEN" >> $GITHUB_OUTPUT
+          echo "Generated new token with length: ${#NEW_TOKEN}"
 
       - name: Update Netlify Environment Variable
         if: success()

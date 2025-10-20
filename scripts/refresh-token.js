@@ -33,8 +33,8 @@ async function refreshInstagramToken() {
       `📅 New token expires in: ${Math.floor(expiresIn / 86400)} days`
     );
 
-    // Set GitHub Actions output
-    console.log(`::set-output name=new_token::${newToken}`);
+    // Return the token for GitHub Actions
+    console.log(newToken);
 
     return newToken;
   } catch (error) {
@@ -59,8 +59,8 @@ async function refreshInstagramToken() {
       );
 
       const appToken = appTokenResponse.data.access_token;
-      console.log("✅ Got new app token");
-      console.log(`::set-output name=new_token::${appToken}`);
+      console.log("✅ Got new app token key");
+      console.log(appToken);
 
       return appToken;
     } catch (appTokenError) {
