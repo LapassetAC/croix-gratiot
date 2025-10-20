@@ -19,7 +19,7 @@ exports.handler = async (event, context) => {
 
   try {
     const baseUrl = "https://graph.facebook.com/v22.0";
-    const instagramAccountId = "17841403141990885";
+    const facebookPageId = "312087035581581";
     const accessToken = process.env.FACEBOOK_ACCESS_TOKEN;
 
     if (!accessToken) {
@@ -30,6 +30,51 @@ exports.handler = async (event, context) => {
         body: JSON.stringify({
           success: false,
           error: "Facebook access token not configured",
+        }),
+      };
+    }
+
+    // Get Instagram account ID from Facebook page
+    let instagramAccountId;
+    try {
+      const instagramResponse = await axios.get(
+        `${baseUrl}/${facebookPageId}`,
+        {
+          params: {
+            fields: "instagram_business_account",
+            access_token: accessToken,
+          },
+        }
+      );
+
+      if (instagramResponse.data.instagram_business_account) {
+        instagramAccountId =
+          instagramResponse.data.instagram_business_account.id;
+        console.log("Found Instagram account ID:", instagramAccountId);
+      } else {
+        console.error(
+          "No Instagram business account linked to this Facebook page"
+        );
+        return {
+          statusCode: 500,
+          headers,
+          body: JSON.stringify({
+            success: false,
+            error: "No Instagram business account linked to this Facebook page",
+          }),
+        };
+      }
+    } catch (instagramError) {
+      console.error(
+        "Error getting Instagram account:",
+        instagramError.response?.data
+      );
+      return {
+        statusCode: 500,
+        headers,
+        body: JSON.stringify({
+          success: false,
+          error: "Could not retrieve Instagram account from Facebook page",
         }),
       };
     }
