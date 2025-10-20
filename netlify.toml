@@ -1,0 +1,11 @@
+[build]
+  command = "cd gatsby && npm run build"
+  publish = "gatsby/public"
+
+[functions]
+  directory = "netlify/functions"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200

@@ -1,0 +1,50 @@
+name: Refresh Instagram Token
+
+on:
+  schedule:
+    # Run every 50 days at midnight UTC
+    - cron: "0 0 1,15 */2 *"
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  refresh-token:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+
+      - name: Install dependencies
+        run: |
+          npm install axios
+
+      - name: Refresh Instagram Token
+        env:
+          FACEBOOK_APP_ID: ${{ secrets.FACEBOOK_APP_ID }}
+          FACEBOOK_APP_SECRET: ${{ secrets.FACEBOOK_APP_SECRET }}
+          CURRENT_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_ACCESS_TOKEN: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
+        run: |
+          node scripts/refresh-token.js
+
+      - name: Update Netlify Environment Variable
+        if: success()
+        env:
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_ACCESS_TOKEN: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
+          NEW_TOKEN: ${{ steps.refresh-token.outputs.new_token }}
+        run: |
+          curl -X PUT \
+            "https://api.netlify.com/api/v1/sites/$NETLIFY_SITE_ID/env" \
+            -H "Authorization: Bearer $NETLIFY_ACCESS_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "key": "FACEBOOK_ACCESS_TOKEN",
+              "value": "'"$NEW_TOKEN"'"
+            }'

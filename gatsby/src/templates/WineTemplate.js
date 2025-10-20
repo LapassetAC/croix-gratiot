@@ -198,7 +198,7 @@ export default function WineTemplate({ data }) {
     millesime,
     formats,
     quote,
-    adjectif,
+    // adjectif,
     intro,
     degustation,
     vinification,

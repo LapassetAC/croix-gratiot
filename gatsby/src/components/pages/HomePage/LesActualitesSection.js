@@ -129,34 +129,25 @@ const LesActualitesSection = ({ news, event }) => {
   const [instagramPosts, setInstagramPosts] = useState([]);
 
   useEffect(() => {
-    const fetchFacebookMedia = async () => {
+    const fetchInstagramPosts = async () => {
       try {
-        const baseUrl = "https://graph.facebook.com/v22.0";
-        const instagramAccountId = "17841403141990885";
-        const fields = "caption,media_url,permalink";
-        const limit = 3;
-        const accessToken = process.env.GATSBY_FACEBOOK_ACCESS_TOKEN;
-
-        if (!accessToken) {
-          console.error("Facebook access token is not configured");
-          return;
-        }
-
-        const url = new URL(`${baseUrl}/${instagramAccountId}/media`);
-        url.searchParams.append("fields", fields);
-        url.searchParams.append("limit", limit);
-        url.searchParams.append("access_token", accessToken);
-
-        const response = await fetch(url.toString());
+        // Call your Netlify function instead of Facebook directly
+        const response = await fetch("/.netlify/functions/instagram-posts");
         const data = await response.json();
-        console.log("Facebook Media Data:", data);
-        setInstagramPosts(data.data || []);
+
+        if (data.success) {
+          setInstagramPosts(data.posts);
+        } else {
+          console.error("Failed to fetch Instagram posts:", data.error);
+          setInstagramPosts([]);
+        }
       } catch (error) {
-        console.error("Error fetching Facebook media:", error);
+        console.error("Error fetching Instagram posts:", error);
+        setInstagramPosts([]);
       }
     };
 
-    fetchFacebookMedia();
+    fetchInstagramPosts();
   }, []);
 
   const newsRender =
