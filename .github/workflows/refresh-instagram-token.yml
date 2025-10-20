@@ -53,9 +53,9 @@ jobs:
             -H "Authorization: Bearer $NETLIFY_ACCESS_TOKEN" \
             -v
 
-          # Then update the variable
+          # Then update the variable using the correct API endpoint
           curl -X PUT \
-            "https://api.netlify.com/api/v1/sites/$NETLIFY_SITE_ID/env" \
+            "https://api.netlify.com/api/v1/sites/$NETLIFY_SITE_ID/env/FACEBOOK_ACCESS_TOKEN" \
             -H "Authorization: Bearer $NETLIFY_ACCESS_TOKEN" \
             -H "Content-Type: application/json" \
             -d '{
