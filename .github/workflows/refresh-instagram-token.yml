@@ -32,7 +32,7 @@ jobs:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_ACCESS_TOKEN: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
         run: |
-          NEW_TOKEN=$(node scripts/refresh-token.js)
+          NEW_TOKEN=$(node scripts/refresh-token.js 2>/dev/null | tail -n 1)
           echo "new_token=$NEW_TOKEN" >> $GITHUB_OUTPUT
           echo "Generated new token with length: ${#NEW_TOKEN}"
 
