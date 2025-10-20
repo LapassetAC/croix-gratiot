@@ -53,9 +53,17 @@ jobs:
             -H "Authorization: Bearer $NETLIFY_ACCESS_TOKEN" \
             -v
 
-          # Update the variable using the variable ID from the existing variable
-          curl -X PUT \
+          # Delete existing variable first
+          echo "Deleting existing FACEBOOK_ACCESS_TOKEN..."
+          curl -X DELETE \
             "https://api.netlify.com/api/v1/sites/$NETLIFY_SITE_ID/env/f2e8ea3f-e942-401c-b952-2b12cf6fc83c" \
+            -H "Authorization: Bearer $NETLIFY_ACCESS_TOKEN" \
+            -v
+
+          # Create new variable
+          echo "Creating new FACEBOOK_ACCESS_TOKEN..."
+          curl -X POST \
+            "https://api.netlify.com/api/v1/sites/$NETLIFY_SITE_ID/env" \
             -H "Authorization: Bearer $NETLIFY_ACCESS_TOKEN" \
             -H "Content-Type: application/json" \
             -d '{
