@@ -120,10 +120,7 @@ const NousRencontrer = ({ className }) => {
           loading="eager"
         />
         <p className="team-description">
-          <Trans>
-            Aude, assistante de choc ! Elle vous reçoit au caveau, au téléphone,
-            gère la logistique... elle est partout !
-          </Trans>
+          <Trans>Venez découvrir notre philosophie vinique !</Trans>
         </p>
         <h1 className="sectionTitle">
           <Trans>Nous</Trans>
