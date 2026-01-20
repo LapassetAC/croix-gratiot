@@ -61,8 +61,9 @@ const StyledContainer = styled.div`
   }
   .team-image-1 {
     grid-column: 1 / 8;
+    max-height: 85vh;
     @media ${({ theme }) => theme.minWidth.sm} {
-      grid-column: 2 / 8;
+      grid-column: 2 / 6;
     }
   }
   .cepages-image-1 {
@@ -307,7 +308,7 @@ const NosPratiques = () => {
           <br />
           <Trans>viticulture</Trans>
           <br />
-          <Trans>biologique</Trans>
+          <Trans>biodynamique</Trans>
         </h1>
         <p className="hero-text">
           <Trans>
@@ -329,6 +330,11 @@ const NosPratiques = () => {
           </Trans>{" "}
           <span className="line-break">
             <Trans>tout le vignoble que nous conduisons en biodynamie.</Trans>
+          </span>
+          <span className="line-break">
+            <Trans>
+              2025 est notre première année de certification officielle Demeter.
+            </Trans>
           </span>
         </p>
         <StaticImage

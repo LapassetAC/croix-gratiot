@@ -156,11 +156,11 @@ const NousRencontrer = ({ className }) => {
           <a
             target="_blank"
             rel="noreferrer"
-            href="mailto:aude@croix-gratiot.com"
+            href="mailto:contact@croix-gratiot.com"
             className="btn"
           >
             <Arrow />
-            aude@croix-gratiot.com
+            contact@croix-gratiot.com
           </a>
           <a
             target="_blank"
